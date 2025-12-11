@@ -19,19 +19,31 @@ interface TimeMachineProps {
 }
 
 export function TimeMachine({ posts }: TimeMachineProps) {
-  const [scrollPosition, setScrollPosition] = useState(Math.min(4, Math.floor(posts.length / 3)));
+  const [activeIndex, setActiveIndex] = useState(Math.min(4, Math.floor(posts.length / 3)));
+  const [dragProgress, setDragProgress] = useState(0); // -1 to 1, tension before snap
   const containerRef = useRef<HTMLDivElement>(null);
   const scrollAccumulator = useRef(0);
+  const snapThreshold = 0.4; // Must scroll 40% to snap to next card
+
+  // Snap logic - if past threshold, go to next/prev card
+  const handleRelease = () => {
+    if (Math.abs(dragProgress) > snapThreshold) {
+      const direction = dragProgress > 0 ? 1 : -1;
+      const newIndex = Math.max(0, Math.min(posts.length - 1, activeIndex + direction));
+      setActiveIndex(newIndex);
+    }
+    setDragProgress(0);
+  };
 
   // Keyboard navigation
   useEffect(() => {
     const handleKeyDown = (e: KeyboardEvent) => {
       if (e.key === 'ArrowUp' || e.key === 'ArrowLeft') {
         e.preventDefault();
-        setScrollPosition((current) => Math.max(0, current - 0.5));
+        setActiveIndex((current) => Math.max(0, current - 1));
       } else if (e.key === 'ArrowDown' || e.key === 'ArrowRight') {
         e.preventDefault();
-        setScrollPosition((current) => Math.min(posts.length - 1, current + 0.5));
+        setActiveIndex((current) => Math.min(posts.length - 1, current + 1));
       }
     };
 
@@ -39,7 +51,7 @@ export function TimeMachine({ posts }: TimeMachineProps) {
     return () => window.removeEventListener('keydown', handleKeyDown);
   }, [posts.length]);
 
-  // Smooth scroll with mouse wheel
+  // Scroll with tension/snap
   useEffect(() => {
     const container = containerRef.current;
     if (!container) return;
@@ -47,21 +59,47 @@ export function TimeMachine({ posts }: TimeMachineProps) {
     const handleWheel = (e: WheelEvent) => {
       e.preventDefault();
       
-      // Accumulate scroll for smoother feel
-      scrollAccumulator.current += e.deltaY * 0.003;
+      scrollAccumulator.current += e.deltaY * 0.008;
       
-      setScrollPosition((current) => {
-        const newPos = current + scrollAccumulator.current;
+      setDragProgress((current) => {
+        const newProgress = current + scrollAccumulator.current;
         scrollAccumulator.current = 0;
-        return Math.max(0, Math.min(posts.length - 1, newPos));
+        
+        // If we've crossed threshold, snap immediately
+        if (Math.abs(newProgress) > 1) {
+          const direction = newProgress > 0 ? 1 : -1;
+          const newIndex = Math.max(0, Math.min(posts.length - 1, activeIndex + direction));
+          setTimeout(() => {
+            setActiveIndex(newIndex);
+            setDragProgress(0);
+          }, 0);
+          return 0;
+        }
+        
+        return Math.max(-1, Math.min(1, newProgress));
       });
     };
 
-    container.addEventListener('wheel', handleWheel, { passive: false });
-    return () => container.removeEventListener('wheel', handleWheel);
-  }, [posts.length]);
+    const handleWheelEnd = () => {
+      handleRelease();
+    };
 
-  const activeIndex = Math.round(scrollPosition);
+    let wheelTimeout: NodeJS.Timeout;
+    const handleWheelWithDebounce = (e: WheelEvent) => {
+      handleWheel(e);
+      clearTimeout(wheelTimeout);
+      wheelTimeout = setTimeout(handleWheelEnd, 150);
+    };
+
+    container.addEventListener('wheel', handleWheelWithDebounce, { passive: false });
+    return () => {
+      container.removeEventListener('wheel', handleWheelWithDebounce);
+      clearTimeout(wheelTimeout);
+    };
+  }, [posts.length, activeIndex]);
+
+  // For timeline calculations
+  const scrollPosition = activeIndex;
 
   if (posts.length === 0) {
     return (
@@ -84,30 +122,47 @@ export function TimeMachine({ posts }: TimeMachineProps) {
         {/* Cards stack */}
         <div className="relative w-full max-w-3xl h-[500px]" style={{ transformStyle: 'preserve-3d' }}>
           {posts.map((post, index) => {
-            const offset = index - scrollPosition;
+            const baseOffset = index - activeIndex;
+            // Add drag progress to create tension feel
+            const offset = baseOffset - dragProgress;
             const absOffset = Math.abs(offset);
-            const isActive = absOffset < 0.4;
-            // Show all posts, no limit
-
-            // Time Machine style - cards recede into the distance
-            const translateZ = -absOffset * 60;
-            const translateY = offset * 45;
-            const scale = Math.max(0.7, 1 - absOffset * 0.035);
-            const opacity = Math.max(0.4, 1 - absOffset * 0.08);
+            const isActive = index === activeIndex;
+            
+            // Card lifting animation - active card lifts up when dragging
+            const isLifting = isActive && Math.abs(dragProgress) > 0.1;
+            const liftAmount = isLifting ? Math.abs(dragProgress) * 30 : 0;
+            const liftRotate = isLifting ? dragProgress * -5 : 0;
+            
+            // Stack effect - cards recede and fan out
+            const translateZ = -absOffset * 50;
+            const translateY = offset * 40 - liftAmount;
+            const rotateX = liftRotate;
+            const scale = Math.max(0.7, 1 - absOffset * 0.03);
+            const opacity = Math.max(0.4, 1 - absOffset * 0.06);
 
             return (
-              <Link
+              <motion.div
                 key={post.slug}
-                href={`/blog/${post.slug}`}
                 className="absolute inset-0 block"
                 style={{
-                  transform: `translateZ(${translateZ}px) translateY(${translateY}px) scale(${scale})`,
-                  opacity,
-                  zIndex: 100 - Math.round(absOffset * 10),
-                  transition: 'transform 0.15s ease-out, opacity 0.15s ease-out',
+                  zIndex: isActive ? 100 : 50 - Math.round(absOffset * 5),
                   pointerEvents: isActive ? 'auto' : 'none',
                 }}
+                animate={{
+                  translateZ,
+                  translateY,
+                  rotateX,
+                  scale,
+                  opacity,
+                }}
+                transition={{ 
+                  type: 'spring', 
+                  stiffness: 400, 
+                  damping: 30,
+                  mass: 0.8 
+                }}
               >
+                <Link href={`/blog/${post.slug}`} className="block h-full">
                 <article 
                   className={`
                     h-full overflow-hidden
@@ -154,7 +209,8 @@ export function TimeMachine({ posts }: TimeMachineProps) {
                     )}
                   </div>
                 </article>
-              </Link>
+                </Link>
+              </motion.div>
             );
           })}
         </div>
