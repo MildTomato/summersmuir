@@ -1,0 +1,16 @@
+---
+alwaysApply: true
+---
+
+# PR Title Convention
+
+**IMPORTANT:** All PR titles MUST follow conventional commit format because we use squash and merge. The PR title becomes the commit message.
+
+PR titles must start with a type prefix: `feat:`, `fix:`, `perf:`, `refactor:`, `docs:`, `style:`, `chore:`, `ci:`, `build:`, or `test:` followed by a colon and space.
+
+Examples:
+- `feat: add blog search functionality`
+- `fix: resolve MDX rendering issue`
+- `docs: update README with setup instructions`
+
+
