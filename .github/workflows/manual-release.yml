@@ -46,4 +46,3 @@ jobs:
           git push --follow-tags origin main
           # release.yml workflow will create GitHub Release when tag is pushed
 
-

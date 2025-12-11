@@ -1,15 +1,5 @@
 import type { MDXComponents } from 'mdx/types';
-import { CodeBlock } from '@/app/components/code-block';
-import { ImageCarousel } from '@/app/components/image-carousel';
-import { HeadingLink } from '@/app/components/heading-link';
-import {
-  Table,
-  TableHeader,
-  TableBody,
-  TableHead,
-  TableRow,
-  TableCell,
-} from '@/components/ui/table';
+import Image, { ImageProps } from 'next/image';
 
 // This file allows you to provide custom React components
 // to be used in MDX files. You can import and use any
@@ -19,110 +9,43 @@ import {
 // This file is required to use MDX in `app` directory.
 export function useMDXComponents(components: MDXComponents): MDXComponents {
   return {
-    // Let prose handle most styling - only override where needed
-    h1: ({ children, ...props }) => (
-      <HeadingLink 
-        as="h1" 
-        className="text-2xl font-medium tracking-tight text-heading mt-10 mb-4" 
-        {...props}
-      >
-        {children}
-      </HeadingLink>
-    ),
-    h2: ({ children, ...props }) => (
-      <HeadingLink 
-        as="h2" 
-        className="text-xl font-medium tracking-tight text-heading mt-8 mb-3" 
-        {...props}
-      >
-        {children}
-      </HeadingLink>
-    ),
-    h3: ({ children, ...props }) => (
-      <HeadingLink 
-        as="h3" 
-        className="text-lg font-medium text-heading mt-6 mb-2" 
-        {...props}
-      >
-        {children}
-      </HeadingLink>
-    ),
+    // Allows customizing built-in components, e.g. to add styling.
+    h1: ({ children }) => <h1 className="text-4xl font-bold mt-8 mb-4">{children}</h1>,
+    h2: ({ children }) => <h2 className="text-3xl font-bold mt-6 mb-3">{children}</h2>,
+    h3: ({ children }) => <h3 className="text-2xl font-semibold mt-4 mb-2">{children}</h3>,
+    p: ({ children }) => <p className="mb-4 leading-7">{children}</p>,
     a: ({ children, href }) => (
-      <a 
-        href={href} 
-        className="text-heading underline underline-offset-2 decoration-muted hover:decoration-subtitle transition-colors"
-      >
+      <a href={href} className="text-blue-600 hover:text-blue-800 underline">
         {children}
       </a>
     ),
+    ul: ({ children }) => <ul className="list-disc list-inside mb-4 space-y-2">{children}</ul>,
+    ol: ({ children }) => <ol className="list-decimal list-inside mb-4 space-y-2">{children}</ol>,
+    li: ({ children }) => <li className="ml-4">{children}</li>,
+    code: ({ children }) => (
+      <code className="bg-gray-100 px-1.5 py-0.5 rounded text-sm font-mono">
+        {children}
+      </code>
+    ),
+    pre: ({ children }) => (
+      <pre className="bg-gray-900 text-gray-100 p-4 rounded-lg overflow-x-auto mb-4">
+        {children}
+      </pre>
+    ),
     blockquote: ({ children }) => (
-      <blockquote className="border-l-2 border-border-color pl-4 text-subtitle my-6">
+      <blockquote className="border-l-4 border-gray-300 pl-4 italic my-4">
         {children}
       </blockquote>
     ),
-    pre: ({ children, ...props }) => {
-      const title = (props as { 'data-title'?: string })['data-title'];
-      return (
-        <CodeBlock title={title}>
-          <pre {...props}>{children}</pre>
-        </CodeBlock>
-      );
-    },
-    img: (props) => {
-      const alt = props.alt || '';
-      const isWide = alt.includes('|wide');
-      const cleanAlt = alt.replace('|wide', '').trim();
-      const caption = props.title;
-      
-      // If there's a caption, use figure/figcaption
-      if (caption) {
-        return (
-          <figure className={`my-8 ${isWide ? 'wide-image' : ''}`}>
-            {/* eslint-disable-next-line @next/next/no-img-element */}
-            <img
-              className="rounded-lg w-full"
-              {...props}
-              alt={cleanAlt}
-              title={undefined}
-            />
-            <figcaption className="mt-3 flex items-start gap-2 text-sm text-muted-foreground">
-              <span className="mt-1 text-[10px]">▶</span>
-              <span>{caption}</span>
-            </figcaption>
-          </figure>
-        );
-      }
-      
-      // No caption - just return the img
-      // eslint-disable-next-line @next/next/no-img-element
-      return (
-        <img
-          className={`rounded-lg my-8 ${isWide ? 'wide-image' : 'w-full'}`}
-          {...props}
-          alt={cleanAlt}
-        />
-      );
-    },
-    // Table components
-    table: ({ children }) => (
-      <div className="my-6 rounded-lg border border-border-color overflow-hidden">
-        <Table>{children}</Table>
-      </div>
+    img: (props) => (
+      <Image
+        sizes="100vw"
+        style={{ width: '100%', height: 'auto' }}
+        {...(props as ImageProps)}
+      />
     ),
-    thead: ({ children }) => <TableHeader>{children}</TableHeader>,
-    tbody: ({ children }) => <TableBody>{children}</TableBody>,
-    tr: ({ children }) => <TableRow>{children}</TableRow>,
-    th: ({ children }) => (
-      <TableHead className="bg-hover-bg text-heading">
-        {children}
-      </TableHead>
-    ),
-    td: ({ children }) => <TableCell>{children}</TableCell>,
-    // Custom components
-    ImageCarousel,
     ...components,
   };
 }
-
 
 

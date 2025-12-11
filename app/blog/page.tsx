@@ -1,45 +1,40 @@
 import Link from 'next/link';
 import { getBlogPosts } from '@/lib/blog';
-import { formatDate } from '@/lib/format';
-import { PageLayout } from '@/app/components/page-layout';
 
 export default function BlogPage() {
   const posts = getBlogPosts();
 
   return (
-    <PageLayout>
-      <h1 className="text-4xl font-bold tracking-tight text-heading">
-        Blog
-      </h1>
-      <p className="mt-4 text-lg text-subtitle">
-        Thoughts on web development, technology, and more.
-      </p>
-      <div className="mt-12 space-y-8">
-        {posts.length === 0 ? (
-          <p className="text-subtitle">No posts yet.</p>
-        ) : (
-          posts.map((post) => (
-            <article key={post.slug} className="group">
-              <Link href={`/blog/${post.slug}`} className="block">
-                <h2 className="text-xl font-semibold text-heading group-hover:text-subtitle transition-colors">
-                  {post.title}
-                </h2>
-                {post.date && (
-                  <time className="mt-1 block text-sm text-faded">
-                    {formatDate(post.date)}
-                  </time>
-                )}
-                {post.description && (
-                  <p className="mt-2 text-subtitle">
-                    {post.description}
-                  </p>
-                )}
-              </Link>
-            </article>
-          ))
-        )}
+    <div className="min-h-screen bg-zinc-50 dark:bg-black py-16 px-8">
+      <div className="max-w-4xl mx-auto">
+        <h1 className="text-4xl font-bold mb-8 text-black dark:text-zinc-50">Blog</h1>
+        <div className="space-y-6">
+          {posts.map((post) => (
+            <Link
+              key={post.slug}
+              href={`/blog/${post.slug}`}
+              className="block p-6 bg-white dark:bg-zinc-900 rounded-lg shadow-sm hover:shadow-md transition-shadow"
+            >
+              <h2 className="text-2xl font-semibold mb-2 text-black dark:text-zinc-50">
+                {post.title}
+              </h2>
+              {post.date && (
+                <p className="text-sm text-zinc-600 dark:text-zinc-400 mb-2">
+                  {new Date(post.date).toLocaleDateString('en-US', {
+                    year: 'numeric',
+                    month: 'long',
+                    day: 'numeric',
+                  })}
+                </p>
+              )}
+              {post.description && (
+                <p className="text-zinc-600 dark:text-zinc-400">{post.description}</p>
+              )}
+            </Link>
+          ))}
+        </div>
       </div>
-    </PageLayout>
+    </div>
   );
 }
 

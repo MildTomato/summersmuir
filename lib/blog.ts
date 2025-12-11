@@ -7,10 +7,8 @@ const postsDirectory = path.join(process.cwd(), 'content/blog');
 export interface BlogPost {
   slug: string;
   title: string;
-  subtitle?: string;
   date?: string;
   description?: string;
-  image?: string;
   content: string;
 }
 
@@ -32,10 +30,8 @@ export function getBlogPosts(): Omit<BlogPost, 'content'>[] {
       return {
         slug,
         title: data.title || slug,
-        subtitle: data.subtitle,
         date: data.date,
         description: data.description,
-        image: data.image,
       };
     })
     .sort((a, b) => {
@@ -59,13 +55,10 @@ export function getBlogPost(slug: string): BlogPost | null {
   return {
     slug,
     title: data.title || slug,
-    subtitle: data.subtitle,
     date: data.date,
     description: data.description,
-    image: data.image,
     content,
   };
 }
-
 
 

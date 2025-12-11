@@ -1,92 +1,25 @@
 ---
 title: Welcome to My Blog
-subtitle: Getting started with MDX, syntax highlighting, and more
 date: 2024-01-15
 description: This is my first blog post using MDX!
 ---
 
-This is an example blog post written in **MDX**. You can write your blog posts using Markdown syntax, and even include React components! This post will walk you through all the features available in this blog setup.
+# Welcome to My Blog
 
-![Coastal mountains landscape|wide](/coastal-mountains.png)
+This is an example blog post written in **MDX**. You can write your blog posts using Markdown syntax, and even include React components!
 
-## Why MDX?
+## Features
 
-MDX combines the simplicity of Markdown with the power of React components. If you've ever found yourself wishing you could drop a React component into a blog post, or wanted to create interactive documentation, MDX is the answer.
+- Write in Markdown
+- Use React components
+- Easy to maintain
+- Fast and optimized
 
-The beauty of MDX lies in its flexibility. You write content in familiar Markdown syntax — headings, paragraphs, lists, code blocks — but at any point, you can seamlessly integrate React components. Need a live code playground? Drop it in. Want an interactive chart? No problem. Building a design system documentation site? MDX makes it trivial to show your components alongside their documentation.
+## Code Example
 
-Here's what makes MDX special:
+Here's a code example:
 
-- **Familiar syntax** — If you know Markdown, you already know 90% of MDX
-- **Component embedding** — Use any React component directly in your content
-- **JavaScript expressions** — Interpolate values and run logic inline
-- **Full npm ecosystem** — Import and use any package you need
-- **Type safety** — Full TypeScript support for your components
-
-It's the best of both worlds for technical writing, and once you try it, you won't want to go back to plain Markdown.
-
-## Typography
-
-Good typography is essential for readability, and it's something I've spent considerable time refining. The goal is to create a reading experience that feels effortless — where the design disappears and the content takes center stage.
-
-This blog uses ABC Oracle, a contemporary sans-serif typeface with excellent legibility at both small and large sizes. The typographic scale has been carefully calibrated with proper line heights (around 1.75 for body text), generous paragraph spacing, and a comfortable measure (line length) that prevents eye fatigue during long reading sessions.
-
-Typography isn't just about choosing a nice font. It's about the relationship between all the elements on the page: the contrast between headings and body text, the rhythm of the spacing, the way code blocks sit alongside prose. Every detail matters.
-
-![Scottish Highlands landscape painting](/scottish-highlands.png)
-
-Here's a blockquote for emphasis:
-
-> The best way to predict the future is to invent it.
-> — Alan Kay
-
-You can also use **bold text** for emphasis, *italic text* for subtle emphasis, and `inline code` for technical terms like `useState` or `async/await`. The inline code styling is subtle but distinct — a slightly different background with a delicate border helps it stand out without being jarring.
-
-### Lists
-
-Lists are a fundamental part of technical writing. They break up dense paragraphs, make information scannable, and help readers quickly find what they're looking for. I've styled both ordered and unordered lists to have comfortable spacing between items, making them easy to read even when they contain multiple lines of text.
-
-Ordered lists work great for step-by-step instructions:
-
-1. Clone the repository
-2. Install dependencies with `npm install`
-3. Start the dev server with `npm run dev`
-4. Open your browser to `http://localhost:3000`
-
-Unordered lists are perfect for feature lists:
-
-- Fast page loads with Next.js
-- Beautiful syntax highlighting with Shiki
-- Dark mode support out of the box
-- Responsive design for all devices
-
-## Tables
-
-Tables are indispensable for displaying structured data, comparisons, and specifications. I've styled them with clean borders, alternating row highlights on hover, and proper padding that gives the content room to breathe. The first and last columns have extra padding to create visual balance.
-
-Here's an overview of the features available in this blog setup:
-
-| Feature | Description | Status |
-| --- | --- | --- |
-| Syntax Highlighting | Shiki-powered code blocks | ✅ Available |
-| Dark Mode | Automatic theme switching | ✅ Available |
-| Table of Contents | Auto-generated from headings | ✅ Available |
-| Line Numbers | Optional line numbering | ✅ Available |
-| Diff Support | Show code changes | ✅ Available |
-
-## Code Examples
-
-One of the most important features for a technical blog is great code presentation. Code is where the rubber meets the road in programming tutorials and technical documentation, so it needs to be clear, readable, and beautiful.
-
-This blog uses Shiki for syntax highlighting — the same engine that powers VS Code. This means you get accurate, language-aware highlighting that looks great in both light and dark modes. I've chosen warm, easy-on-the-eyes themes: Rose Pine Dawn for light mode and Vesper for dark mode.
-
-Let's explore the different code block features available.
-
-### Basic Code Block
-
-Every code block can have an optional file title that appears in a header bar above the code. This is incredibly useful when showing examples from specific files, or when you want to give context about what the code represents:
-
-```javascript title="greet.js"
+```javascript
 function greet(name) {
   return `Hello, ${name}!`;
 }
@@ -94,208 +27,7 @@ function greet(name) {
 console.log(greet('World'));
 ```
 
-### With Line Numbers
+## What's Next?
 
-For longer code snippets, line numbers become essential. They make it easy to reference specific lines in discussions, reviews, or tutorials. Just add `showLineNumbers` to your code fence, and each line gets numbered automatically:
-
-```typescript title="api.ts" showLineNumbers
-import { NextResponse } from 'next/server';
-
-interface User {
-  id: string;
-  name: string;
-  email: string;
-}
-
-export async function fetchUser(id: string): Promise<User> {
-  const response = await fetch(`/api/users/${id}`);
-  
-  if (!response.ok) {
-    throw new Error('Failed to fetch user');
-  }
-  
-  const data = await response.json();
-  return data;
-}
-
-export async function updateUser(id: string, updates: Partial<User>) {
-  const response = await fetch(`/api/users/${id}`, {
-    method: 'PATCH',
-    headers: { 'Content-Type': 'application/json' },
-    body: JSON.stringify(updates),
-  });
-  
-  return response.json();
-}
-```
-
-### Line Highlighting
-
-Draw attention to specific lines with highlighting:
-
-```javascript title="config.js"
-const config = {
-  apiUrl: 'https://api.example.com',
-  timeout: 5000,
-  retries: 3,
-  debug: process.env.NODE_ENV === 'development', // [!code highlight]
-};
-
-export default config;
-```
-
-### Diff Support
-
-One of my favorite features is diff highlighting. When you're explaining how to refactor code, fix a bug, or migrate from one approach to another, showing the before and after in context is incredibly powerful. Add `// [!code --]` to mark removed lines and `// [!code ++]` to mark added lines:
-
-```typescript title="auth.ts"
-async function authenticate(credentials) {
-  const { username, password } = credentials;
-  
-  // Old implementation
-  const user = await db.users.findOne({ username }); // [!code --]
-  const isValid = user && user.password === password; // [!code --]
-  
-  // New implementation with proper hashing
-  const user = await db.users.findOne({ username }); // [!code ++]
-  const isValid = user && await bcrypt.compare(password, user.hash); // [!code ++]
-  
-  if (!isValid) {
-    throw new AuthError('Invalid credentials');
-  }
-  
-  return createSession(user);
-}
-```
-
-### React Component Example
-
-The syntax highlighting really shines with more complex code. Here's a full React component with TypeScript, showing how the highlighting handles JSX, generics, and object literals. Notice how the different syntactic elements are clearly distinguished:
-
-```tsx title="components/Button.tsx" showLineNumbers
-import { forwardRef } from 'react';
-import { cn } from '@/lib/utils';
-
-interface ButtonProps extends React.ButtonHTMLAttributes<HTMLButtonElement> {
-  variant?: 'primary' | 'secondary' | 'ghost';
-  size?: 'sm' | 'md' | 'lg';
-}
-
-export const Button = forwardRef<HTMLButtonElement, ButtonProps>(
-  ({ className, variant = 'primary', size = 'md', ...props }, ref) => {
-    return (
-      <button
-        ref={ref}
-        className={cn(
-          'inline-flex items-center justify-center rounded-md font-medium',
-          'transition-colors focus-visible:outline-none focus-visible:ring-2',
-          {
-            'bg-zinc-900 text-white hover:bg-zinc-800': variant === 'primary',
-            'bg-zinc-100 text-zinc-900 hover:bg-zinc-200': variant === 'secondary',
-            'hover:bg-zinc-100': variant === 'ghost',
-          },
-          {
-            'h-8 px-3 text-sm': size === 'sm',
-            'h-10 px-4': size === 'md',
-            'h-12 px-6 text-lg': size === 'lg',
-          },
-          className
-        )}
-        {...props}
-      />
-    );
-  }
-);
-
-Button.displayName = 'Button';
-```
-
-## Working with Data
-
-Shiki supports syntax highlighting for a vast array of languages — not just JavaScript and TypeScript. Whether you're writing about database queries, configuration files, or shell scripts, you'll get proper highlighting. Here are a few examples.
-
-### JSON Configuration
-
-JSON is everywhere in modern development — package.json, tsconfig.json, API responses. Proper highlighting makes the structure immediately clear:
-
-```json title="package.json"
-{
-  "name": "my-blog",
-  "version": "1.0.0",
-  "scripts": {
-    "dev": "next dev",
-    "build": "next build",
-    "start": "next start"
-  },
-  "dependencies": {
-    "next": "^14.0.0",
-    "react": "^18.2.0",
-    "react-dom": "^18.2.0"
-  }
-}
-```
-
-### SQL Queries
-
-SQL gets full keyword highlighting, making queries much easier to parse visually. The combination of line numbers and syntax highlighting turns even complex queries into something readable:
-
-```sql title="queries.sql" showLineNumbers
--- Get all published posts with author info
-SELECT 
-  posts.id,
-  posts.title,
-  posts.published_at,
-  users.name AS author_name,
-  users.avatar_url
-FROM posts
-JOIN users ON posts.author_id = users.id
-WHERE posts.status = 'published'
-ORDER BY posts.published_at DESC
-LIMIT 10;
-```
-
-### Shell Commands
-
-For tutorials and documentation, you'll often need to show terminal commands. The bash highlighting distinguishes comments, commands, and flags clearly:
-
-```bash title="terminal"
-# Install dependencies
-npm install
-
-# Run development server
-npm run dev
-
-# Build for production
-npm run build && npm start
-```
-
-## Gallery
-
-And of course, MDX makes it easy to embed interactive components like this image carousel:
-
-<ImageCarousel images={[
-  { src: "/coastal-mountains.png", alt: "Coastal mountains landscape" },
-  { src: "/misty-highlands.png", alt: "Misty highlands with lone explorer" },
-  { src: "/valley-explorer.png", alt: "Valley explorer with dramatic clouds" },
-]} />
-
-## Conclusion
-
-Building a great technical blog is about sweating the details. It's the subtle border on inline code, the smooth scroll when clicking a table of contents link, the way code blocks gracefully handle long lines. These small touches add up to create an experience that respects both the content and the reader.
-
-This blog setup provides everything you need for serious technical writing:
-
-- **MDX** for mixing Markdown and React, giving you the flexibility to create truly interactive content
-- **Shiki** for beautiful, accurate syntax highlighting that works across dozens of languages
-- **Line numbers and highlighting** for drawing attention to specific parts of your code
-- **Diff support** for showing changes and evolution in code over time
-- **Dark mode** that's not an afterthought, but a first-class citizen with its own carefully chosen color palette
-- **Responsive tables** that display data clearly on any screen size
-- **Auto-generated table of contents** that updates as you scroll, helping readers navigate long posts
-
-The best part? All of this is built on modern web technologies — Next.js, React, Tailwind CSS — which means it's fast, accessible, and easy to customize. The entire site is statically generated at build time, so pages load instantly.
-
-Start writing your own blog posts by creating new `.mdx` files in the `content/blog` directory. Each file should have frontmatter with at least a `title` and `date`. The rest is up to your imagination.
-
-Happy writing!
+Start writing your own blog posts by creating new `.mdx` files in the `content/blog` directory!
 

@@ -1,26 +1,58 @@
-import Link from 'next/link';
-import { PageLayout } from '@/app/components/page-layout';
+import Image from "next/image";
 
 export default function Home() {
   return (
-    <PageLayout>
-      <h1 className="max-w-[500px] text-4xl font-bold tracking-tight text-heading sm:text-5xl">
-        Hey, I'm Jonathan
-      </h1>
-      <p className="mt-6 text-lg leading-8 text-subtitle">
-        Welcome to my personal website. I write about web development, 
-        technology, and other things I find interesting.
-      </p>
-      <p className="mt-4 text-lg leading-8 text-subtitle">
-        Check out my{" "}
-        <Link
-          href="/blog"
-          className="font-medium text-heading underline underline-offset-4 hover:text-subtitle"
-        >
-          blog
-        </Link>{" "}
-        to read my latest posts.
-      </p>
-    </PageLayout>
+    <div className="flex min-h-screen items-center justify-center bg-zinc-50 font-sans dark:bg-black">
+      <main className="flex min-h-screen w-full max-w-3xl flex-col items-center justify-between py-32 px-16 bg-white dark:bg-black sm:items-start">
+        <Image
+          className="dark:invert"
+          src="/next.svg"
+          alt="Next.js logo"
+          width={100}
+          height={20}
+          priority
+        />
+        <div className="flex flex-col items-center gap-6 text-center sm:items-start sm:text-left">
+          <h1 className="max-w-xs text-3xl font-semibold leading-10 tracking-tight text-black dark:text-zinc-50">
+            Welcome to My Personal Website
+          </h1>
+          <p className="max-w-md text-lg leading-8 text-zinc-600 dark:text-zinc-400">
+            This is my personal website built with Next.js and MDX. Check out my{" "}
+            <a
+              href="/blog"
+              className="font-medium text-zinc-950 dark:text-zinc-50 underline"
+            >
+              blog
+            </a>{" "}
+            to see posts written in MDX!
+          </p>
+        </div>
+        <div className="flex flex-col gap-4 text-base font-medium sm:flex-row">
+          <a
+            className="flex h-12 w-full items-center justify-center gap-2 rounded-full bg-foreground px-5 text-background transition-colors hover:bg-[#383838] dark:hover:bg-[#ccc] md:w-[158px]"
+            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            <Image
+              className="dark:invert"
+              src="/vercel.svg"
+              alt="Vercel logomark"
+              width={16}
+              height={16}
+            />
+            Deploy Now
+          </a>
+          <a
+            className="flex h-12 w-full items-center justify-center rounded-full border border-solid border-black/[.08] px-5 transition-colors hover:border-transparent hover:bg-black/[.04] dark:border-white/[.145] dark:hover:bg-[#1a1a1a] md:w-[158px]"
+            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            Documentation
+          </a>
+        </div>
+      </main>
+    </div>
   );
 }
