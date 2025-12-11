@@ -59,7 +59,7 @@ export function TimeMachine({ posts }: TimeMachineProps) {
     const handleWheel = (e: WheelEvent) => {
       e.preventDefault();
       
-      scrollAccumulator.current += e.deltaY * 0.008;
+      scrollAccumulator.current += e.deltaY * 0.012;
       
       setDragProgress((current) => {
         const newProgress = current + scrollAccumulator.current;
@@ -88,7 +88,7 @@ export function TimeMachine({ posts }: TimeMachineProps) {
     const handleWheelWithDebounce = (e: WheelEvent) => {
       handleWheel(e);
       clearTimeout(wheelTimeout);
-      wheelTimeout = setTimeout(handleWheelEnd, 80);
+      wheelTimeout = setTimeout(handleWheelEnd, 40);
     };
 
     container.addEventListener('wheel', handleWheelWithDebounce, { passive: false });
@@ -158,9 +158,8 @@ export function TimeMachine({ posts }: TimeMachineProps) {
                 }}
                 transition={{ 
                   type: 'spring', 
-                  stiffness: 500, 
-                  damping: 35,
-                  mass: 0.5 
+                  stiffness: 350, 
+                  damping: 30,
                 }}
               >
                 <Link href={`/blog/${post.slug}`} className="block h-full">
@@ -218,6 +217,13 @@ export function TimeMachine({ posts }: TimeMachineProps) {
       </div>
 
       {/* Timeline scrubber on right */}
+      <motion.div
+        initial={{ opacity: 0, x: 50 }}
+        animate={{ opacity: 1, x: 0 }}
+        exit={{ opacity: 0, x: 50 }}
+        transition={{ type: 'spring', stiffness: 400, damping: 30 }}
+        className="contents"
+      >
       {(() => {
         // Generate timeline with weeks between oldest and newest post
         const sortedByDate = [...posts].filter(p => p.date).sort((a, b) => 
@@ -350,6 +356,7 @@ export function TimeMachine({ posts }: TimeMachineProps) {
           </div>
         );
       })()}
+      </motion.div>
 
       {/* Keyboard hint */}
       <div className="absolute bottom-8 left-8 text-xs text-faded hidden md:block">
