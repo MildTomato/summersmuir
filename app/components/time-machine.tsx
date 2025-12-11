@@ -19,7 +19,7 @@ interface TimeMachineProps {
 }
 
 export function TimeMachine({ posts }: TimeMachineProps) {
-  const [scrollPosition, setScrollPosition] = useState(posts.length > 1 ? 1 : 0);
+  const [scrollPosition, setScrollPosition] = useState(Math.min(4, Math.floor(posts.length / 3)));
   const containerRef = useRef<HTMLDivElement>(null);
   const scrollAccumulator = useRef(0);
 
