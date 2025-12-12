@@ -1,0 +1,256 @@
+---
+title: Supabase Vercel Integration
+subtitle: Seamless database provisioning for Vercel deployments
+date: 2023-07-18
+description: Building the Vercel integration for automatic database provisioning.
+image: /misty-highlands.png
+prImages:
+  - /pr-images/supabase-vercel-integration-pr15915-3.png
+  - /pr-images/supabase-vercel-integration-pr15915-4.png
+  - /pr-images/supabase-vercel-integration-pr15915-5.png
+  - /pr-images/supabase-vercel-integration-pr16398-1.png
+  - /pr-images/supabase-vercel-integration-pr16398-2.png
+prs:
+  - number: 28958
+    repo: "supabase/supabase"
+    title: "Vercel marketplace docs"
+    url: "https://github.com/supabase/supabase/pull/28958"
+    date: "2024-08-28"
+  - number: 19528
+    repo: "supabase/platform"
+    title: "HOTFIX: Update Vercel Marketplace secret key names"
+    url: "https://github.com/supabase/platform/pull/19528"
+    date: "2024-08-28"
+  - number: 19500
+    repo: "supabase/platform"
+    title: "Chore: Vercel Marketplace | More secrets"
+    url: "https://github.com/supabase/platform/pull/19500"
+    date: "2024-08-26"
+  - number: 28786
+    repo: "supabase/supabase"
+    title: "Vercel marketplace"
+    url: "https://github.com/supabase/supabase/pull/28786"
+    date: "2024-08-23"
+  - number: 19430
+    repo: "supabase/platform"
+    title: "chore: maybe fix vercel integration"
+    url: "https://github.com/supabase/platform/pull/19430"
+    date: "2024-08-22"
+  - number: 16617
+    repo: "supabase/platform"
+    title: "Remove 'preview' and 'development' targets for Vercel integration"
+    url: "https://github.com/supabase/platform/pull/16617"
+    date: "2024-01-09"
+  - number: 17697
+    repo: "supabase/supabase"
+    title: "fix: vercel deploy button layouts"
+    url: "https://github.com/supabase/supabase/pull/17697"
+    date: "2023-10-02"
+  - number: 15521
+    repo: "supabase/supabase"
+    title: "little fixes for vercel integration"
+    url: "https://github.com/supabase/supabase/pull/15521"
+    date: "2023-09-18"
+  - number: 16398
+    repo: "supabase/supabase"
+    title: "chore: fix empty states for Vercel Integration"
+    url: "https://github.com/supabase/supabase/pull/16398"
+    date: "2023-08-10"
+  - number: 15915
+    repo: "supabase/supabase"
+    title: "Fix/Chore [vercel integration] improved form validation, combobox component upgrade, loading states added"
+    url: "https://github.com/supabase/supabase/pull/15915"
+    date: "2023-07-27"
+  - number: 15619
+    repo: "supabase/supabase"
+    title: "Hotfix/vercel integration migrations url undefined branch"
+    url: "https://github.com/supabase/supabase/pull/15619"
+    date: "2023-07-07"
+  - number: 13453
+    repo: "supabase/platform"
+    title: "wrong ID for vercel integration local"
+    url: "https://github.com/supabase/platform/pull/13453"
+    date: "2023-07-03"
+  - number: 2490
+    repo: "supabase/platform"
+    title: "send cookies to vercel/token"
+    url: "https://github.com/supabase/platform/pull/2490"
+    date: "2021-11-24"
+  - number: 16179
+    repo: "supabase/supabase"
+    title: "Feat/branch management 2  with project settings"
+    url: "https://github.com/supabase/supabase/pull/16179"
+    date: "2023-08-10"
+  - number: 13548
+    repo: "supabase/platform"
+    title: " VERCEL_INTEGRATION_CLIENT_ID - Update fly.prod.toml"
+    url: "https://github.com/supabase/platform/pull/13548"
+    date: "2023-07-04"
+---
+
+
+
+## Related Pull Requests
+
+<PRTable slug="supabase-vercel-integration" />
+The Vercel integration allows developers to provision Supabase databases directly from Vercel, with automatic environment variable syncing. I worked on both the integration UI and backend controllers.
+
+## The Integration Flow
+
+When a user adds Supabase to their Vercel project:
+
+1. **Authorization**: OAuth flow to connect accounts
+2. **Project Selection**: Choose or create a Supabase project
+3. **Environment Sync**: Automatic variable configuration
+4. **Branch Mapping**: Connect Git branches to database branches
+
+## Integration UI
+
+The integration includes several views:
+
+### Project Connection Form
+
+```tsx title="Connection form with validation"
+function ConnectionForm({ vercelProject, supabaseProjects }) {
+  const form = useForm({
+    resolver: zodResolver(connectionSchema),
+    defaultValues: {
+      supabaseProjectId: '',
+      targetEnvironments: ['production', 'preview'],
+    },
+  })
+  
+  return (
+    <Form {...form}>
+      <FormField
+        name="supabaseProjectId"
+        render={({ field }) => (
+          <FormItem>
+            <FormLabel>Supabase Project</FormLabel>
+            <Combobox
+              options={supabaseProjects.map(p => ({
+                value: p.id,
+                label: p.name,
+              }))}
+              {...field}
+            />
+            <FormMessage />
+          </FormItem>
+        )}
+      />
+      
+      <FormField
+        name="targetEnvironments"
+        render={({ field }) => (
+          <FormItem>
+            <FormLabel>Sync to Environments</FormLabel>
+            <CheckboxGroup
+              options={[
+                { value: 'production', label: 'Production' },
+                { value: 'preview', label: 'Preview' },
+                { value: 'development', label: 'Development' },
+              ]}
+              {...field}
+            />
+          </FormItem>
+        )}
+      />
+      
+      <Button type="submit">Connect Project</Button>
+    </Form>
+  )
+}
+```
+
+### Environment Variable Management
+
+The integration syncs these variables automatically:
+
+```typescript title="Synced environment variables"
+const envVars = [
+  { key: 'NEXT_PUBLIC_SUPABASE_URL', value: project.api_url },
+  { key: 'NEXT_PUBLIC_SUPABASE_ANON_KEY', value: project.anon_key },
+  { key: 'SUPABASE_SERVICE_ROLE_KEY', value: project.service_role_key },
+  { key: 'DATABASE_URL', value: project.connection_string },
+]
+```
+
+## Backend Controller
+
+The integration requires API endpoints for Vercel to call:
+
+```typescript title="Vercel webhook controller"
+@Controller('vercel-connections')
+export class VercelConnectionsController {
+  @Post()
+  async createConnection(@Body() dto: CreateConnectionDto) {
+    // Validate the integration_id is present
+    if (!dto.integration_id) {
+      throw new BadRequestException('integration_id is required')
+    }
+    
+    // Create the connection
+    const connection = await this.service.create(dto)
+    
+    // Sync environment variables
+    await this.syncEnvVars(connection)
+    
+    return { id: connection.id, status: 'connected' }
+  }
+  
+  @Patch(':id')
+  async updateConnection(@Param('id') id: string, @Body() dto: UpdateConnectionDto) {
+    // Update connection settings
+    return this.service.update(id, dto)
+  }
+}
+```
+
+## Preview Deployment Handling
+
+For preview deployments, the integration needed special handling:
+
+```typescript title="Preview environment configuration"
+// Different config for preview vs production
+if (target === 'preview') {
+  // Use branching if enabled
+  if (project.branching_enabled) {
+    envVars.push({
+      key: 'DATABASE_URL',
+      value: branch.connection_string,
+      gitBranch: branchName,
+    })
+  }
+}
+```
+
+## Hotfixes and Edge Cases
+
+Several fixes were needed post-launch:
+
+- Handling undefined `migrations_url` for certain branches
+- Proper redirect URL construction
+- Configuration ID return for proper linking
+
+## Result
+
+The Vercel integration has become one of the most popular ways to get started with Supabase. The seamless provisioning removes friction and gets developers building faster.
+
+## Screenshots
+
+Visual documentation from the pull requests:
+
+### Fix/Chore [vercel integration] improved form validation, combobox component upgrade, loading states added
+
+![Screenshot](/pr-images/supabase-vercel-integration-pr15915-3.png)
+
+![Screenshot](/pr-images/supabase-vercel-integration-pr15915-4.png)
+
+![Screenshot](/pr-images/supabase-vercel-integration-pr15915-5.png)
+
+### chore: fix empty states for Vercel Integration
+
+![Screenshot](/pr-images/supabase-vercel-integration-pr16398-1.png)
+
+![Screenshot](/pr-images/supabase-vercel-integration-pr16398-2.png)
+

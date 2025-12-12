@@ -1,0 +1,127 @@
+---
+title: Adopting Shadcn UI at Supabase
+subtitle: Modernizing our component architecture
+date: 2023-07-18
+description: How we integrated Shadcn UI patterns into Supabase's design system.
+image: /valley-explorer.png
+prImages:
+  - /pr-images/supabase-shadcn-migration-pr20865-4.png
+  - /pr-images/supabase-shadcn-migration-pr20865-5.png
+  - /pr-images/supabase-shadcn-migration-pr20865-6.png
+  - /pr-images/supabase-shadcn-migration-pr20865-7.png
+  - /pr-images/supabase-shadcn-migration-pr21459-3.png
+  - /pr-images/supabase-shadcn-migration-pr33612-2.png
+  - /pr-images/supabase-shadcn-migration-pr35272-1.png
+prs:
+  - number: 14528
+    repo: "supabase/supabase"
+    title: "Feat/UI components uishadcn"
+    url: "https://github.com/supabase/supabase/pull/14528"
+    date: "2023-07-18"
+  - number: 14999
+    repo: "supabase/supabase"
+    title: "Feat/button shadcn, fix double tabbing in menu nav items"
+    url: "https://github.com/supabase/supabase/pull/14999"
+    date: "2023-06-19"
+  - number: 35272
+    repo: "supabase/supabase"
+    title: "align alert dialog to design syste,"
+    url: "https://github.com/supabase/supabase/pull/35272"
+    date: "2025-04-28"
+  - number: 33612
+    repo: "supabase/supabase"
+    title: "Feat/sidebar studio"
+    url: "https://github.com/supabase/supabase/pull/33612"
+    date: "2025-02-25"
+  - number: 27058
+    repo: "supabase/supabase"
+    title: "[Design System] fix: `<Sheet />` z-index value"
+    url: "https://github.com/supabase/supabase/pull/27058"
+    date: "2024-06-06"
+  - number: 21835
+    repo: "supabase/supabase"
+    title: "Feat/form item layout"
+    url: "https://github.com/supabase/supabase/pull/21835"
+    date: "2024-03-08"
+  - number: 21459
+    repo: "supabase/supabase"
+    title: "Chore/rls assistant iteration templates styling"
+    url: "https://github.com/supabase/supabase/pull/21459"
+    date: "2024-02-26"
+  - number: 20865
+    repo: "supabase/supabase"
+    title: "chore: update themes and add dark-new theme set"
+    url: "https://github.com/supabase/supabase/pull/20865"
+    date: "2024-02-15"
+---
+
+
+
+## Related Pull Requests
+
+<PRTable slug="supabase-shadcn-migration" />
+When Shadcn UI emerged as a new approach to component libraries—components you own rather than install—it aligned perfectly with our design system philosophy. I led the integration effort that touched 127 files across the codebase.
+
+## Why Shadcn?
+
+Traditional component libraries give you a black box. You install a package, use their components, and hope their styling choices align with your brand. When they don't, you're fighting against the library.
+
+Shadcn flipped this model. Instead of installing components, you copy them into your codebase. You own the code. You can modify anything.
+
+For Supabase, this meant:
+
+- **Full control** over component styling and behavior
+- **No version conflicts** with peer dependencies
+- **Better TypeScript support** since we control the types
+- **Easier customization** for our specific needs
+
+## The Integration
+
+The migration wasn't a simple find-and-replace. We had to:
+
+1. Audit existing components for parity with Shadcn equivalents
+2. Migrate styling from our custom approach to the Shadcn pattern
+3. Update all consumers across Studio and other applications
+4. Ensure our theming system worked with the new components
+
+```tsx title="Button migration example"
+// Before: Custom implementation
+<Button type="primary" size="medium">Click me</Button>
+
+// After: Shadcn-based with our customizations  
+<Button variant="default" size="md">Click me</Button>
+```
+
+## Key Components Migrated
+
+- Button (with all variants and sizes)
+- Dialog and AlertDialog
+- DropdownMenu and ContextMenu
+- Select and Combobox
+- Input, Textarea, and form controls
+- Tabs and navigation components
+
+## Result
+
+The Shadcn integration modernized our component architecture while maintaining full compatibility with our existing theming system. New components are now faster to build because we have a consistent, well-documented pattern to follow.
+
+## Screenshots
+
+Visual documentation from the pull requests:
+
+### chore: update themes and add dark-new theme set
+
+![Screenshot](/pr-images/supabase-shadcn-migration-pr20865-4.png)
+
+![Screenshot](/pr-images/supabase-shadcn-migration-pr20865-5.png)
+
+![Screenshot](/pr-images/supabase-shadcn-migration-pr20865-6.png)
+
+![Screenshot](/pr-images/supabase-shadcn-migration-pr20865-7.png)
+
+![Chore/rls assistant iteration templates styling](/pr-images/supabase-shadcn-migration-pr21459-3.png)
+
+![Feat/sidebar studio](/pr-images/supabase-shadcn-migration-pr33612-2.png)
+
+![align alert dialog to design syste,](/pr-images/supabase-shadcn-migration-pr35272-1.png)
+

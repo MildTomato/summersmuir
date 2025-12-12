@@ -1,0 +1,214 @@
+---
+title: Form Components & Validation
+subtitle: React Hook Form, FormItemLayout, and form patterns
+date: 2024-03-08
+description: Building form components and patterns for consistent data entry across the dashboard.
+image: /misty-moorland.png
+prImages:
+  - /pr-images/supabase-form-components-pr15915-5.png
+  - /pr-images/supabase-form-components-pr15915-6.png
+  - /pr-images/supabase-form-components-pr15915-7.png
+  - /pr-images/supabase-form-components-pr26712-3.png
+  - /pr-images/supabase-form-components-pr26712-4.png
+  - /pr-images/supabase-form-components-pr26808-1.png
+  - /pr-images/supabase-form-components-pr26808-2.png
+  - /pr-images/supabase-form-components-pr26997-8.png
+  - /pr-images/supabase-form-components-pr26997-9.png
+prs:
+  - number: 28333
+    repo: "supabase/supabase"
+    title: "chore: Update TicketForm.tsx to remove filter"
+    url: "https://github.com/supabase/supabase/pull/28333"
+    date: "2024-08-02"
+  - number: 26808
+    repo: "supabase/supabase"
+    title: "[Dashboard] New project form now using react-hook-form"
+    url: "https://github.com/supabase/supabase/pull/26808"
+    date: "2024-06-04"
+  - number: 26793
+    repo: "supabase/supabase"
+    title: "[Dashboard] Postgrest API settings renamed to \"Data API\" settings. now using react-hook-form"
+    url: "https://github.com/supabase/supabase/pull/26793"
+    date: "2024-05-29"
+  - number: 26712
+    repo: "supabase/supabase"
+    title: "[Design System] Feat: `BeforeLabel` / `AfterLabel` props for <FormItemLayout/> and <InfoTooltip/> documented"
+    url: "https://github.com/supabase/supabase/pull/26712"
+    date: "2024-05-24"
+  - number: 21989
+    repo: "supabase/supabase"
+    title: "fix: FormItemLayout width fix, `<Sheet/>` renamed with prop name reverted, started new form story"
+    url: "https://github.com/supabase/supabase/pull/21989"
+    date: "2024-03-13"
+  - number: 15915
+    repo: "supabase/supabase"
+    title: "Fix/Chore [vercel integration] improved form validation, combobox component upgrade, loading states added"
+    url: "https://github.com/supabase/supabase/pull/15915"
+    date: "2023-07-27"
+  - number: 26997
+    repo: "supabase/supabase"
+    title: "[Dashboard] Chore/refactor new project form"
+    url: "https://github.com/supabase/supabase/pull/26997"
+    date: "2024-06-06"
+  - number: 21835
+    repo: "supabase/supabase"
+    title: "Feat/form item layout"
+    url: "https://github.com/supabase/supabase/pull/21835"
+    date: "2024-03-08"
+  - number: 21741
+    repo: "supabase/supabase"
+    title: "Chore/add first pattern docs"
+    url: "https://github.com/supabase/supabase/pull/21741"
+    date: "2024-03-05"
+  - number: 14528
+    repo: "supabase/supabase"
+    title: "Feat/UI components uishadcn"
+    url: "https://github.com/supabase/supabase/pull/14528"
+    date: "2023-07-18"
+---
+
+
+
+## Related Pull Requests
+
+<PRTable slug="supabase-form-components" />
+Forms are everywhere in the dashboard. I built form components and patterns for consistent, validated data entry.
+
+## FormItemLayout
+
+A layout component for form fields:
+
+```tsx title="FormItemLayout usage"
+<FormItemLayout
+  label="Database Name"
+  description="Choose a name for your database"
+  error={errors.name?.message}
+>
+  <Input {...register('name')} />
+</FormItemLayout>
+```
+
+### Features
+
+- Consistent label placement
+- Description text
+- Error message display
+- Optional indicators
+- Before/after labels
+
+## React Hook Form Integration
+
+Migrated forms to react-hook-form:
+
+### New Project Form
+
+```tsx title="New project form"
+const { register, handleSubmit, formState } = useForm<ProjectForm>()
+
+return (
+  <form onSubmit={handleSubmit(onSubmit)}>
+    <FormField
+      label="Project Name"
+      {...register('name', { required: true })}
+      error={formState.errors.name}
+    />
+  </form>
+)
+```
+
+### Data API Settings
+
+PostgREST settings using react-hook-form:
+
+- Schema selection
+- Max rows configuration
+- Additional options
+- Validation feedback
+
+## Sheet Component
+
+Form panels using Sheet:
+
+```tsx title="Sheet for forms"
+<Sheet>
+  <SheetTrigger>Edit</SheetTrigger>
+  <SheetContent>
+    <SheetHeader>Edit Settings</SheetHeader>
+    <form>...</form>
+  </SheetContent>
+</Sheet>
+```
+
+## Form Stories
+
+Started form stories in Storybook:
+
+- Common patterns documented
+- Interactive examples
+- Accessibility testing
+- Visual regression
+
+## Validation Patterns
+
+Consistent validation:
+
+```typescript title="Validation schema"
+const schema = z.object({
+  name: z.string().min(3).max(50),
+  email: z.string().email(),
+  region: z.enum(['us-east', 'eu-west']),
+})
+```
+
+## Info Tooltips
+
+Tooltips for form help:
+
+```tsx title="Info tooltip"
+<FormItemLayout
+  label="API Key"
+  afterLabel={<InfoTooltip>Your API key is used for...</InfoTooltip>}
+>
+```
+
+## Impact
+
+Form components:
+
+1. Ensure consistent UX
+2. Reduce validation bugs
+3. Improve accessibility
+4. Speed development
+
+Good forms respect user time.
+
+## Screenshots
+
+Visual documentation from the pull requests:
+
+### Fix/Chore [vercel integration] improved form validation, combobox component upgrade, loading states added
+
+![Screenshot](/pr-images/supabase-form-components-pr15915-5.png)
+
+![Screenshot](/pr-images/supabase-form-components-pr15915-6.png)
+
+![Screenshot](/pr-images/supabase-form-components-pr15915-7.png)
+
+### [Design System] Feat: `BeforeLabel` / `AfterLabel` props for <FormItemLayout/> and <InfoTooltip/> documented
+
+![Screenshot](/pr-images/supabase-form-components-pr26712-3.png)
+
+![Screenshot](/pr-images/supabase-form-components-pr26712-4.png)
+
+### [Dashboard] New project form now using react-hook-form
+
+![Screenshot](/pr-images/supabase-form-components-pr26808-1.png)
+
+![Screenshot](/pr-images/supabase-form-components-pr26808-2.png)
+
+### [Dashboard] Chore/refactor new project form
+
+![Screenshot](/pr-images/supabase-form-components-pr26997-8.png)
+
+![Screenshot](/pr-images/supabase-form-components-pr26997-9.png)
+

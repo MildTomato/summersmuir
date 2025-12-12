@@ -1,0 +1,465 @@
+---
+title: Building @supabase/ui from Scratch
+subtitle: The original Supabase component library
+date: 2021-01-12
+description: How I built the foundational UI component library that powered Supabase's dashboard and auth components.
+image: /misty-moorland.png
+prImages:
+  - /pr-images/supabase-ui-library-pr100-7.png
+  - /pr-images/supabase-ui-library-pr100-8.png
+  - /pr-images/supabase-ui-library-pr100-9.png
+  - /pr-images/supabase-ui-library-pr1055-40.png
+  - /pr-images/supabase-ui-library-pr1055-41.png
+  - /pr-images/supabase-ui-library-pr1055-42.png
+  - /pr-images/supabase-ui-library-pr1055-43.png
+  - /pr-images/supabase-ui-library-pr107-6.png
+  - /pr-images/supabase-ui-library-pr1292-5.png
+  - /pr-images/supabase-ui-library-pr19296-1.png
+  - /pr-images/supabase-ui-library-pr21546-31.png
+  - /pr-images/supabase-ui-library-pr21546-32.png
+  - /pr-images/supabase-ui-library-pr21546-33.png
+  - /pr-images/supabase-ui-library-pr21546-34.png
+  - /pr-images/supabase-ui-library-pr21546-35.png
+  - /pr-images/supabase-ui-library-pr21546-36.png
+  - /pr-images/supabase-ui-library-pr243-3.png
+  - /pr-images/supabase-ui-library-pr243-4.png
+  - /pr-images/supabase-ui-library-pr271-2.png
+  - /pr-images/supabase-ui-library-pr5788-38.png
+  - /pr-images/supabase-ui-library-pr5788-39.png
+  - /pr-images/supabase-ui-library-pr63-27.png
+  - /pr-images/supabase-ui-library-pr63-28.png
+  - /pr-images/supabase-ui-library-pr63-29.png
+  - /pr-images/supabase-ui-library-pr63-30.png
+  - /pr-images/supabase-ui-library-pr6766-37.png
+  - /pr-images/supabase-ui-library-pr69-19.png
+  - /pr-images/supabase-ui-library-pr69-20.png
+  - /pr-images/supabase-ui-library-pr69-21.png
+  - /pr-images/supabase-ui-library-pr69-22.png
+  - /pr-images/supabase-ui-library-pr69-23.png
+  - /pr-images/supabase-ui-library-pr69-24.png
+  - /pr-images/supabase-ui-library-pr69-25.png
+  - /pr-images/supabase-ui-library-pr69-26.png
+  - /pr-images/supabase-ui-library-pr70-18.png
+  - /pr-images/supabase-ui-library-pr74-44.png
+  - /pr-images/supabase-ui-library-pr74-45.png
+  - /pr-images/supabase-ui-library-pr84-14.png
+  - /pr-images/supabase-ui-library-pr84-15.png
+  - /pr-images/supabase-ui-library-pr84-16.png
+  - /pr-images/supabase-ui-library-pr84-17.png
+  - /pr-images/supabase-ui-library-pr85-10.png
+  - /pr-images/supabase-ui-library-pr85-11.png
+  - /pr-images/supabase-ui-library-pr85-12.png
+  - /pr-images/supabase-ui-library-pr85-13.png
+prs:
+  - number: 19296
+    repo: "supabase/supabase"
+    title: "feat: AssistantChatForm ui-pattern and AssistantCommandsPopover ui-pattern"
+    url: "https://github.com/supabase/supabase/pull/19296"
+    date: "2024-03-29"
+  - number: 271
+    repo: "supabase/ui"
+    title: "Feat/popover"
+    url: "https://github.com/supabase/ui/pull/271"
+    date: "2021-08-26"
+  - number: 1628
+    repo: "supabase/platform"
+    title: "chore: update @supabase/ui to 0.32.2"
+    url: "https://github.com/supabase/platform/pull/1628"
+    date: "2021-08-17"
+  - number: 251
+    repo: "supabase/ui"
+    title: "feat: nested dropdowns"
+    url: "https://github.com/supabase/ui/pull/251"
+    date: "2021-07-29"
+  - number: 249
+    repo: "supabase/ui"
+    title: "Feat/new providers"
+    url: "https://github.com/supabase/ui/pull/249"
+    date: "2021-07-26"
+  - number: 243
+    repo: "supabase/ui"
+    title: "Feat/select styled"
+    url: "https://github.com/supabase/ui/pull/243"
+    date: "2021-07-12"
+  - number: 209
+    repo: "supabase/ui"
+    title: "Feat: Context Menu"
+    url: "https://github.com/supabase/ui/pull/209"
+    date: "2021-05-31"
+  - number: 187
+    repo: "supabase/ui"
+    title: "feat: added radix dropdown."
+    url: "https://github.com/supabase/ui/pull/187"
+    date: "2021-05-10"
+  - number: 1292
+    repo: "supabase/supabase"
+    title: "Example/next js auth example without @supabase/ui auth component "
+    url: "https://github.com/supabase/supabase/pull/1292"
+    date: "2021-05-02"
+  - number: 139
+    repo: "supabase/ui"
+    title: "Feature/input sizes"
+    url: "https://github.com/supabase/ui/pull/139"
+    date: "2021-03-02"
+  - number: 130
+    repo: "supabase/ui"
+    title: "fix: modal now supports `style` and `className` props for the main mo…"
+    url: "https://github.com/supabase/ui/pull/130"
+    date: "2021-02-17"
+  - number: 120
+    repo: "supabase/ui"
+    title: "Feature/typings"
+    url: "https://github.com/supabase/ui/pull/120"
+    date: "2021-02-07"
+  - number: 112
+    repo: "supabase/ui"
+    title: "Feature/treeshaking"
+    url: "https://github.com/supabase/ui/pull/112"
+    date: "2021-02-05"
+  - number: 107
+    repo: "supabase/ui"
+    title: "feat: add `active` prop to `<Menu.Item>`"
+    url: "https://github.com/supabase/ui/pull/107"
+    date: "2021-01-29"
+  - number: 100
+    repo: "supabase/ui"
+    title: "Feature/reveal and copy in inputs"
+    url: "https://github.com/supabase/ui/pull/100"
+    date: "2021-01-25"
+  - number: 85
+    repo: "supabase/ui"
+    title: "feature/Tabs"
+    url: "https://github.com/supabase/ui/pull/85"
+    date: "2021-01-18"
+  - number: 84
+    repo: "supabase/ui"
+    title: "Feat/divider update"
+    url: "https://github.com/supabase/ui/pull/84"
+    date: "2021-01-18"
+  - number: 70
+    repo: "supabase/ui"
+    title: "feat: <Loading> component added"
+    url: "https://github.com/supabase/ui/pull/70"
+    date: "2021-01-14"
+  - number: 69
+    repo: "supabase/ui"
+    title: "Feature/modal layouts"
+    url: "https://github.com/supabase/ui/pull/69"
+    date: "2021-01-14"
+  - number: 63
+    repo: "supabase/ui"
+    title: "fix: modal icon was in wrong position."
+    url: "https://github.com/supabase/ui/pull/63"
+    date: "2021-01-13"
+  - number: 62
+    repo: "supabase/ui"
+    title: "fix: Modal css styling fixed. also adjusted colors slightly and layout."
+    url: "https://github.com/supabase/ui/pull/62"
+    date: "2021-01-13"
+  - number: 44
+    repo: "supabase/ui"
+    title: "chore: migrate components from JS to TS"
+    url: "https://github.com/supabase/ui/pull/44"
+    date: "2021-01-13"
+  - number: 53
+    repo: "supabase/ui"
+    title: "fix: checkbox selectors updated"
+    url: "https://github.com/supabase/ui/pull/53"
+    date: "2021-01-12"
+  - number: 33
+    repo: "supabase/ui"
+    title: "fix: Checkbox fixes"
+    url: "https://github.com/supabase/ui/pull/33"
+    date: "2021-01-07"
+  - number: 434
+    repo: "supabase/supabase"
+    title: "chore: remove UI library. UI library moved to @supabase/ui"
+    url: "https://github.com/supabase/supabase/pull/434"
+    date: "2020-12-23"
+  - number: 23210
+    repo: "supabase/supabase"
+    title: "move to shared types"
+    url: "https://github.com/supabase/supabase/pull/23210"
+    date: "2024-04-24"
+  - number: 21936
+    repo: "supabase/supabase"
+    title: "Chore/move cmdk"
+    url: "https://github.com/supabase/supabase/pull/21936"
+    date: "2024-03-11"
+  - number: 21741
+    repo: "supabase/supabase"
+    title: "Chore/add first pattern docs"
+    url: "https://github.com/supabase/supabase/pull/21741"
+    date: "2024-03-05"
+  - number: 21546
+    repo: "supabase/supabase"
+    title: "Chore/improve search input sql editor"
+    url: "https://github.com/supabase/supabase/pull/21546"
+    date: "2024-03-05"
+  - number: 9039
+    repo: "supabase/supabase"
+    title: "Feat - migrate supabase UI. Move studio to turborepo"
+    url: "https://github.com/supabase/supabase/pull/9039"
+    date: "2022-10-06"
+  - number: 6766
+    repo: "supabase/supabase"
+    title: "Fix/date input move submit"
+    url: "https://github.com/supabase/supabase/pull/6766"
+    date: "2022-05-12"
+  - number: 5788
+    repo: "supabase/supabase"
+    title: "Fix/reports dropdown"
+    url: "https://github.com/supabase/supabase/pull/5788"
+    date: "2022-03-05"
+  - number: 308
+    repo: "supabase/ui"
+    title: "Feature/theming"
+    url: "https://github.com/supabase/ui/pull/308"
+    date: "2022-01-22"
+  - number: 1055
+    repo: "supabase/platform"
+    title: "chore: add password strength bar"
+    url: "https://github.com/supabase/platform/pull/1055"
+    date: "2021-05-17"
+  - number: 174
+    repo: "supabase/ui"
+    title: "Feat/transition update"
+    url: "https://github.com/supabase/ui/pull/174"
+    date: "2021-04-19"
+  - number: 981
+    repo: "supabase/supabase"
+    title: "fix: typography color"
+    url: "https://github.com/supabase/supabase/pull/981"
+    date: "2021-03-30"
+  - number: 74
+    repo: "supabase/ui"
+    title: "Feature/dropdown"
+    url: "https://github.com/supabase/ui/pull/74"
+    date: "2021-01-18"
+---
+
+
+
+## Related Pull Requests
+
+<PRTable slug="supabase-ui-library" />
+In early 2021, Supabase needed a cohesive design system. I built `@supabase/ui` from the ground up—a React component library that would power both the dashboard and the public-facing auth components.
+
+## 85 PRs, One Library
+
+Over the course of two years, I contributed 85 PRs to the `supabase/ui` repository, building out:
+
+- **Form components**: Input, Select, Textarea, Checkbox, Radio, Toggle
+- **Layout components**: Modal, Dropdown, Tabs, Menu, Divider
+- **Feedback components**: Loading, Badge, Typography
+- **Navigation**: Context Menu, Popover, Nested Dropdowns
+- **Auth component**: The drop-in authentication UI
+
+## Core Components
+
+### The Auth Component
+
+The flagship feature was `<Auth />`, a drop-in component for authentication:
+
+```tsx title="Auth component usage"
+import { Auth } from '@supabase/ui'
+
+function LoginPage() {
+  return (
+    <Auth
+      supabaseClient={supabase}
+      providers={['google', 'github']}
+      redirectTo="/dashboard"
+    />
+  )
+}
+```
+
+This handled email/password, magic links, OAuth providers, and phone auth—all in one component.
+
+### Form Components with Polish
+
+Every form component supported:
+
+- **Dark mode** out of the box
+- **Reveal and copy** for password inputs
+- **Autofocus** prop for better UX
+- **Error states** with accessible messaging
+- **Size variants** (small, medium, large)
+
+```tsx title="Input with copy functionality"
+<Input
+  copy
+  reveal
+  type="password"
+  value={apiKey}
+/>
+```
+
+### Radix Integration
+
+I integrated Radix primitives early, starting with dropdowns:
+
+```tsx title="Nested dropdown support"
+<Dropdown>
+  <Dropdown.Item>Edit</Dropdown.Item>
+  <Dropdown.Item>
+    <Dropdown.Nested label="Move to">
+      <Dropdown.Item>Folder A</Dropdown.Item>
+      <Dropdown.Item>Folder B</Dropdown.Item>
+    </Dropdown.Nested>
+  </Dropdown.Item>
+</Dropdown>
+```
+
+This gave us accessible, keyboard-navigable components with proper focus management.
+
+## TypeScript Migration
+
+The library started in JavaScript. I led the migration to TypeScript:
+
+- Converted all components from JS to TS
+- Added proper typing for all props
+- Enabled tree-shaking for smaller bundle sizes
+- Exported type definitions for consumers
+
+## Theming System
+
+I built the theming system that allowed customization:
+
+```tsx title="Theme customization"
+<ThemeProvider theme={{
+  colors: {
+    brand: '#3ECF8E',
+    brandAccent: '#2B9E6A',
+  }
+}}>
+  <App />
+</ThemeProvider>
+```
+
+## The Foundation
+
+This library served as the foundation for:
+
+- The Supabase Dashboard
+- The Auth UI widget
+- Documentation examples
+- Community projects
+
+When we later migrated to Shadcn/Radix, much of the component API design carried over. The patterns established here—copy buttons, reveal toggles, proper dark mode—became standard across all Supabase products.
+
+## Screenshots
+
+Visual documentation from the pull requests:
+
+### fix: modal icon was in wrong position.
+
+![Screenshot](/pr-images/supabase-ui-library-pr63-27.png)
+
+![Screenshot](/pr-images/supabase-ui-library-pr63-28.png)
+
+![Screenshot](/pr-images/supabase-ui-library-pr63-29.png)
+
+![Screenshot](/pr-images/supabase-ui-library-pr63-30.png)
+
+### Feature/modal layouts
+
+![Screenshot](/pr-images/supabase-ui-library-pr69-19.png)
+
+![Screenshot](/pr-images/supabase-ui-library-pr69-20.png)
+
+![Screenshot](/pr-images/supabase-ui-library-pr69-21.png)
+
+![Screenshot](/pr-images/supabase-ui-library-pr69-22.png)
+
+![Screenshot](/pr-images/supabase-ui-library-pr69-23.png)
+
+![Screenshot](/pr-images/supabase-ui-library-pr69-24.png)
+
+![Screenshot](/pr-images/supabase-ui-library-pr69-25.png)
+
+![Screenshot](/pr-images/supabase-ui-library-pr69-26.png)
+
+![feat: <Loading> component added](/pr-images/supabase-ui-library-pr70-18.png)
+
+### Feature/dropdown
+
+![Screenshot](/pr-images/supabase-ui-library-pr74-44.png)
+
+![Screenshot](/pr-images/supabase-ui-library-pr74-45.png)
+
+### Feat/divider update
+
+![Screenshot](/pr-images/supabase-ui-library-pr84-14.png)
+
+![Screenshot](/pr-images/supabase-ui-library-pr84-15.png)
+
+![Screenshot](/pr-images/supabase-ui-library-pr84-16.png)
+
+![Screenshot](/pr-images/supabase-ui-library-pr84-17.png)
+
+### feature/Tabs
+
+![Screenshot](/pr-images/supabase-ui-library-pr85-10.png)
+
+![Screenshot](/pr-images/supabase-ui-library-pr85-11.png)
+
+![Screenshot](/pr-images/supabase-ui-library-pr85-12.png)
+
+![Screenshot](/pr-images/supabase-ui-library-pr85-13.png)
+
+### Feature/reveal and copy in inputs
+
+![Screenshot](/pr-images/supabase-ui-library-pr100-7.png)
+
+![Screenshot](/pr-images/supabase-ui-library-pr100-8.png)
+
+![Screenshot](/pr-images/supabase-ui-library-pr100-9.png)
+
+![feat: add `active` prop to `<Menu.Item>`](/pr-images/supabase-ui-library-pr107-6.png)
+
+### Feat/select styled
+
+![Screenshot](/pr-images/supabase-ui-library-pr243-3.png)
+
+![Screenshot](/pr-images/supabase-ui-library-pr243-4.png)
+
+![Feat/popover](/pr-images/supabase-ui-library-pr271-2.png)
+
+### chore: add password strength bar
+
+![Screenshot](/pr-images/supabase-ui-library-pr1055-40.png)
+
+![Screenshot](/pr-images/supabase-ui-library-pr1055-41.png)
+
+![Screenshot](/pr-images/supabase-ui-library-pr1055-42.png)
+
+![Screenshot](/pr-images/supabase-ui-library-pr1055-43.png)
+
+![Example/next js auth example without @supabase/ui auth component ](/pr-images/supabase-ui-library-pr1292-5.png)
+
+### Fix/reports dropdown
+
+![Screenshot](/pr-images/supabase-ui-library-pr5788-38.png)
+
+![Screenshot](/pr-images/supabase-ui-library-pr5788-39.png)
+
+![Fix/date input move submit](/pr-images/supabase-ui-library-pr6766-37.png)
+
+![feat: AssistantChatForm ui-pattern and AssistantCommandsPopover ui-pattern](/pr-images/supabase-ui-library-pr19296-1.png)
+
+### Chore/improve search input sql editor
+
+![Screenshot](/pr-images/supabase-ui-library-pr21546-31.png)
+
+![Screenshot](/pr-images/supabase-ui-library-pr21546-32.png)
+
+![Screenshot](/pr-images/supabase-ui-library-pr21546-33.png)
+
+![Screenshot](/pr-images/supabase-ui-library-pr21546-34.png)
+
+![Screenshot](/pr-images/supabase-ui-library-pr21546-35.png)
+
+![Screenshot](/pr-images/supabase-ui-library-pr21546-36.png)
+

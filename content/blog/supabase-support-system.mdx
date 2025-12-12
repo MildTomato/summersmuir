@@ -1,0 +1,239 @@
+---
+title: Building Supabase's Support System
+subtitle: Support forms, feedback widgets, and ticket management
+date: 2021-09-22
+description: How I built the support infrastructure connecting users to the team.
+image: /misty-moorland.png
+prImages:
+  - /pr-images/supabase-support-system-pr1631-12.png
+  - /pr-images/supabase-support-system-pr1631-13.png
+  - /pr-images/supabase-support-system-pr1834-6.png
+  - /pr-images/supabase-support-system-pr1834-7.png
+  - /pr-images/supabase-support-system-pr1834-8.png
+  - /pr-images/supabase-support-system-pr2211-11.png
+  - /pr-images/supabase-support-system-pr2467-10.png
+  - /pr-images/supabase-support-system-pr2467-9.png
+  - /pr-images/supabase-support-system-pr35066-4.png
+  - /pr-images/supabase-support-system-pr35066-5.png
+  - /pr-images/supabase-support-system-pr35070-1.png
+  - /pr-images/supabase-support-system-pr35070-2.png
+  - /pr-images/supabase-support-system-pr35106-3.png
+prs:
+  - number: 35070
+    repo: "supabase/supabase"
+    title: "Chore/related items support form"
+    url: "https://github.com/supabase/supabase/pull/35070"
+    date: "2025-05-05"
+  - number: 35106
+    repo: "supabase/supabase"
+    title: "feat: add AI assistant callout on support form"
+    url: "https://github.com/supabase/supabase/pull/35106"
+    date: "2025-04-22"
+  - number: 35066
+    repo: "supabase/supabase"
+    title: "Chore: Support form | support access true as default "
+    url: "https://github.com/supabase/supabase/pull/35066"
+    date: "2025-04-16"
+  - number: 28333
+    repo: "supabase/supabase"
+    title: "chore: Update TicketForm.tsx to remove filter"
+    url: "https://github.com/supabase/supabase/pull/28333"
+    date: "2024-08-02"
+  - number: 6217
+    repo: "supabase/platform"
+    title: "feat: feedback now sent to airtable"
+    url: "https://github.com/supabase/platform/pull/6217"
+    date: "2022-04-21"
+  - number: 6189
+    repo: "supabase/platform"
+    title: "HOTFIX: support form errors with 'no-project' and project tier checks"
+    url: "https://github.com/supabase/platform/pull/6189"
+    date: "2022-04-18"
+  - number: 2197
+    repo: "supabase/platform"
+    title: "chore: add priority to support form (#2163)"
+    url: "https://github.com/supabase/platform/pull/2197"
+    date: "2021-10-22"
+  - number: 2163
+    repo: "supabase/platform"
+    title: "chore: add priority to support form"
+    url: "https://github.com/supabase/platform/pull/2163"
+    date: "2021-10-22"
+  - number: 2125
+    repo: "supabase/platform"
+    title: "fix: spelling in support form"
+    url: "https://github.com/supabase/platform/pull/2125"
+    date: "2021-10-12"
+  - number: 1834
+    repo: "supabase/platform"
+    title: "Feat/support form"
+    url: "https://github.com/supabase/platform/pull/1834"
+    date: "2021-09-22"
+  - number: 1711
+    repo: "supabase/platform"
+    title: "chore: update feedback form to send Questions and Problem tickets to Freshdesk"
+    url: "https://github.com/supabase/platform/pull/1711"
+    date: "2021-08-24"
+  - number: 5996
+    repo: "supabase/platform"
+    title: "fix: don't check projects if 'no-project' is in ref"
+    url: "https://github.com/supabase/platform/pull/5996"
+    date: "2022-04-19"
+  - number: 5229
+    repo: "supabase/platform"
+    title: "fix: verify the membership of project ref properly"
+    url: "https://github.com/supabase/platform/pull/5229"
+    date: "2022-03-16"
+  - number: 2467
+    repo: "supabase/platform"
+    title: "Chore/update feedback widget"
+    url: "https://github.com/supabase/platform/pull/2467"
+    date: "2021-11-25"
+  - number: 2436
+    repo: "supabase/platform"
+    title: "fix: stripe ids are present in STRIPE_PRODUCT_IDS constant"
+    url: "https://github.com/supabase/platform/pull/2436"
+    date: "2021-11-22"
+  - number: 2211
+    repo: "supabase/platform"
+    title: "Feat/exit survey"
+    url: "https://github.com/supabase/platform/pull/2211"
+    date: "2021-10-27"
+  - number: 1631
+    repo: "supabase/platform"
+    title: "Chore/scroll bar light mode"
+    url: "https://github.com/supabase/platform/pull/1631"
+    date: "2021-08-18"
+---
+
+
+
+## Related Pull Requests
+
+<PRTable slug="supabase-support-system" />
+Good support starts with good tooling. I built the support and feedback systems that connect Supabase users to the team.
+
+## The Support Form
+
+The main support form needed to be both comprehensive and not overwhelming:
+
+- **Category selection**: Questions, Problems, Feature Requests
+- **Project selection**: Associate tickets with specific projects
+- **Priority levels**: For paid tier users
+- **File attachments**: Screenshots and logs
+- **Severity indication**: Business impact assessment
+
+## AI Assistant Integration
+
+In 2025, I added an AI assistant callout to the support form:
+
+Before submitting a ticket, users are prompted to try the AI assistant for immediate help with common questions. This:
+
+- Reduces ticket volume for simple issues
+- Provides instant answers
+- Reserves human support for complex problems
+
+## Feedback Widget
+
+Beyond formal support, users need a quick way to share feedback:
+
+```typescript title="Feedback categories"
+const categories = [
+  'Question',
+  'Problem',
+  'Feedback',
+  'Feature Request',
+  'Documentation',
+]
+```
+
+The feedback widget appears throughout the dashboard, making it easy to report issues in context.
+
+## Freshdesk Integration
+
+Tickets route to Freshdesk for the support team:
+
+- Questions and Problems → Support queue
+- Feature Requests → Product backlog
+- Documentation issues → Docs team
+
+## Airtable for Structured Feedback
+
+Product feedback goes to Airtable for analysis:
+
+- Categorized by feature area
+- Tagged with user tier
+- Tracked over time for patterns
+- Used for prioritization decisions
+
+## Related Items
+
+I added "Related Items" to the support form, automatically linking:
+
+- Relevant documentation
+- Status page incidents
+- Known issues
+- Community discussions
+
+This helps users self-serve when possible.
+
+## Evolution
+
+The support system evolved with the product:
+
+1. **Early**: Simple form to email
+2. **Growth**: Freshdesk integration with routing
+3. **Scale**: AI assistant + related items
+4. **Mature**: Full ticket management with SLAs
+
+## Impact
+
+The support infrastructure handles thousands of tickets monthly while:
+
+- Directing users to self-service options first
+- Routing issues to the right teams
+- Providing context for faster resolution
+- Capturing feedback for product improvement
+
+Good support tooling makes the team more effective and users happier.
+
+## Screenshots
+
+Visual documentation from the pull requests:
+
+### Chore/scroll bar light mode
+
+![Screenshot](/pr-images/supabase-support-system-pr1631-12.png)
+
+![Screenshot](/pr-images/supabase-support-system-pr1631-13.png)
+
+### Feat/support form
+
+![Screenshot](/pr-images/supabase-support-system-pr1834-6.png)
+
+![Screenshot](/pr-images/supabase-support-system-pr1834-7.png)
+
+![Screenshot](/pr-images/supabase-support-system-pr1834-8.png)
+
+![Feat/exit survey](/pr-images/supabase-support-system-pr2211-11.png)
+
+### Chore/update feedback widget
+
+![Screenshot](/pr-images/supabase-support-system-pr2467-10.png)
+
+![Screenshot](/pr-images/supabase-support-system-pr2467-9.png)
+
+### Chore: Support form | support access true as default 
+
+![Screenshot](/pr-images/supabase-support-system-pr35066-4.png)
+
+![Screenshot](/pr-images/supabase-support-system-pr35066-5.png)
+
+### Chore/related items support form
+
+![Screenshot](/pr-images/supabase-support-system-pr35070-1.png)
+
+![Screenshot](/pr-images/supabase-support-system-pr35070-2.png)
+
+![feat: add AI assistant callout on support form](/pr-images/supabase-support-system-pr35106-3.png)
+

@@ -1,0 +1,106 @@
+---
+title: Deep Dark Theme for Supabase
+subtitle: An even darker option for night owls
+date: 2024-07-30
+description: Creating a deeper, higher-contrast dark theme for developers who prefer true blacks.
+image: /fjord-twilight.png
+prImages:
+  - /pr-images/supabase-deep-dark-theme-pr20865-1.png
+  - /pr-images/supabase-deep-dark-theme-pr20865-2.png
+  - /pr-images/supabase-deep-dark-theme-pr20865-3.png
+  - /pr-images/supabase-deep-dark-theme-pr20865-4.png
+prs:
+  - number: 28282
+    repo: "supabase/supabase"
+    title: "fix/ deep-dark theme name issue "
+    url: "https://github.com/supabase/supabase/pull/28282"
+    date: "2024-07-30"
+  - number: 27026
+    repo: "supabase/supabase"
+    title: "Feat/deep dark"
+    url: "https://github.com/supabase/supabase/pull/27026"
+    date: "2024-07-30"
+  - number: 21682
+    repo: "supabase/supabase"
+    title: "Feat/add storybook app"
+    url: "https://github.com/supabase/supabase/pull/21682"
+    date: "2024-03-01"
+  - number: 20865
+    repo: "supabase/supabase"
+    title: "chore: update themes and add dark-new theme set"
+    url: "https://github.com/supabase/supabase/pull/20865"
+    date: "2024-02-15"
+---
+
+
+
+## Related Pull Requests
+
+<PRTable slug="supabase-deep-dark-theme" />
+Dark mode is table stakes for developer tools. But not all dark modes are created equal. Some developers prefer a softer dark (grays instead of blacks), while others want true black backgrounds for OLED displays and maximum contrast.
+
+I built "Deep Dark" as an additional theme option for Supabase Studio.
+
+## Why Deep Dark?
+
+Standard dark themes typically use dark grays (`#1a1a1a`, `#2d2d2d`) for backgrounds. This is easier on the eyes for extended use and provides more room for elevation through subtle lightening.
+
+But some users specifically requested:
+
+- **True black backgrounds** for OLED power savings
+- **Higher contrast** for better readability
+- **Reduced visual noise** with fewer gray variations
+
+## The Implementation
+
+Deep Dark required careful consideration of our token system. We couldn't just make everything darker—we needed to maintain:
+
+- Sufficient contrast ratios for accessibility
+- Visual hierarchy through elevation
+- Clear distinction between interactive elements
+
+```css title="Deep dark tokens"
+[data-theme="deep-dark"] {
+  --background-default: 0 0% 0%;
+  --background-surface: 0 0% 4%;
+  --background-overlay: 0 0% 8%;
+  --foreground-default: 0 0% 100%;
+  --border-default: 0 0% 15%;
+}
+```
+
+The key insight was using pure black (`#000`) for the base background, then using subtle, desaturated grays for surface elevation. Borders become more important in this scheme since shadow-based elevation doesn't work as well on true black.
+
+## Technical Details
+
+The implementation touched 71 files across the codebase:
+
+- Added new token definitions for deep-dark
+- Updated the theme provider to support the third theme
+- Added UI for theme selection (light, dark, deep-dark, system)
+- Fixed components that assumed only two themes existed
+
+## Result
+
+Deep Dark is now available as a theme option in Supabase Studio. It's particularly popular with developers who:
+
+- Use OLED monitors
+- Work in very dark environments
+- Simply prefer maximum contrast
+
+The theming system's architecture made adding this third theme relatively straightforward—a testament to building flexible foundations.
+
+## Screenshots
+
+Visual documentation from the pull requests:
+
+### chore: update themes and add dark-new theme set
+
+![Screenshot](/pr-images/supabase-deep-dark-theme-pr20865-1.png)
+
+![Screenshot](/pr-images/supabase-deep-dark-theme-pr20865-2.png)
+
+![Screenshot](/pr-images/supabase-deep-dark-theme-pr20865-3.png)
+
+![Screenshot](/pr-images/supabase-deep-dark-theme-pr20865-4.png)
+

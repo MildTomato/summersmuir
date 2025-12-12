@@ -1,0 +1,200 @@
+---
+title: Table Editor Forms & Panels
+subtitle: Column creation, row editing, and side panels
+date: 2021-06-07
+description: Building the forms and panels for table editing in the Supabase dashboard.
+image: /misty-moorland.png
+prImages:
+  - /pr-images/supabase-table-forms-pr1026-3.png
+  - /pr-images/supabase-table-forms-pr1026-4.png
+  - /pr-images/supabase-table-forms-pr1341-12.png
+  - /pr-images/supabase-table-forms-pr21112-2.png
+  - /pr-images/supabase-table-forms-pr21546-10.png
+  - /pr-images/supabase-table-forms-pr21546-5.png
+  - /pr-images/supabase-table-forms-pr21546-6.png
+  - /pr-images/supabase-table-forms-pr21546-7.png
+  - /pr-images/supabase-table-forms-pr21546-8.png
+  - /pr-images/supabase-table-forms-pr21546-9.png
+  - /pr-images/supabase-table-forms-pr30050-1.png
+  - /pr-images/supabase-table-forms-pr6766-11.png
+prs:
+  - number: 30050
+    repo: "supabase/supabase"
+    title: "Chore/update sql side panel"
+    url: "https://github.com/supabase/supabase/pull/30050"
+    date: "2024-11-13"
+  - number: 21112
+    repo: "supabase/supabase"
+    title: "chore: update styling, a11y and markup for table editor side panel"
+    url: "https://github.com/supabase/supabase/pull/21112"
+    date: "2024-02-08"
+  - number: 1149
+    repo: "supabase/platform"
+    title: "Refactor table forms | Now using Supabase UI"
+    url: "https://github.com/supabase/platform/pull/1149"
+    date: "2021-06-07"
+  - number: 203
+    repo: "supabase/ui"
+    title: "Fix/accessible side panel"
+    url: "https://github.com/supabase/ui/pull/203"
+    date: "2021-05-28"
+  - number: 1026
+    repo: "supabase/platform"
+    title: "fix/table forms"
+    url: "https://github.com/supabase/platform/pull/1026"
+    date: "2021-05-07"
+  - number: 21546
+    repo: "supabase/supabase"
+    title: "Chore/improve search input sql editor"
+    url: "https://github.com/supabase/supabase/pull/21546"
+    date: "2024-03-05"
+  - number: 6766
+    repo: "supabase/supabase"
+    title: "Fix/date input move submit"
+    url: "https://github.com/supabase/supabase/pull/6766"
+    date: "2022-05-12"
+  - number: 308
+    repo: "supabase/ui"
+    title: "Feature/theming"
+    url: "https://github.com/supabase/ui/pull/308"
+    date: "2022-01-22"
+  - number: 1341
+    repo: "supabase/platform"
+    title: "Fix/date and time fields broken"
+    url: "https://github.com/supabase/platform/pull/1341"
+    date: "2021-07-12"
+---
+
+
+
+## Related Pull Requests
+
+<PRTable slug="supabase-table-forms" />
+The Table Editor is where developers interact with their data. I built and refined the forms and side panels that make this possible.
+
+## Refactoring to Supabase UI
+
+I refactored the table forms to use `@supabase/ui` components:
+
+- Consistent styling with the rest of the dashboard
+- Proper dark mode support
+- Accessibility improvements
+- Form validation integration
+
+## Column Creation
+
+Creating columns requires capturing:
+
+- Column name
+- Data type
+- Default value
+- Constraints (nullable, unique, primary key)
+- Foreign key relationships
+
+```tsx title="Column form"
+<SidePanel title="Add Column">
+  <FormField name="name" label="Column Name" />
+  <FormField name="type" label="Data Type" component={TypeSelector} />
+  <FormField name="defaultValue" label="Default Value" />
+  <FormField name="isNullable" label="Allow Null" component={Toggle} />
+</SidePanel>
+```
+
+## Row Editing
+
+The row editor side panel shows:
+
+- All columns in editable format
+- JSON editor for complex fields
+- Foreign key lookups
+- Validation errors
+
+## Side Panel Patterns
+
+I established patterns for side panels:
+
+### Accessible Panels
+
+```tsx title="Focus management"
+<SidePanel
+  onOpen={() => firstInputRef.current?.focus()}
+  onClose={() => triggerRef.current?.focus()}
+>
+```
+
+### Confirmation Modals
+
+Cancel buttons needed to work properly—I fixed a bug where the cancel button wasn't closing modals.
+
+## Foreign Key Indicators
+
+Visual indication of foreign key relationships:
+
+- Active state for columns with foreign keys
+- Click to view related table
+- Create FK from column context menu
+
+## Empty States
+
+Table and column editors need empty states:
+
+```tsx title="Empty state component"
+<EmptyState
+  title="No columns yet"
+  description="Add your first column to start storing data"
+  action={<Button onClick={openAddColumn}>Add Column</Button>}
+/>
+```
+
+## Styling Updates
+
+I updated styling across table editor forms:
+
+- Input styling consistency
+- Schema selector improvements
+- Better spacing and hierarchy
+- Responsive panel widths
+
+## Impact
+
+The table editor forms enable:
+
+1. Non-technical users to modify schemas
+2. Quick data entry without SQL
+3. Visual foreign key management
+4. Accessible data manipulation
+
+Good forms make databases approachable.
+
+## Screenshots
+
+Visual documentation from the pull requests:
+
+### fix/table forms
+
+![Screenshot](/pr-images/supabase-table-forms-pr1026-3.png)
+
+![Screenshot](/pr-images/supabase-table-forms-pr1026-4.png)
+
+![Fix/date and time fields broken](/pr-images/supabase-table-forms-pr1341-12.png)
+
+![Fix/date input move submit](/pr-images/supabase-table-forms-pr6766-11.png)
+
+![chore: update styling, a11y and markup for table editor side panel](/pr-images/supabase-table-forms-pr21112-2.png)
+
+### Chore/improve search input sql editor
+
+![Screenshot](/pr-images/supabase-table-forms-pr21546-10.png)
+
+![Screenshot](/pr-images/supabase-table-forms-pr21546-5.png)
+
+![Screenshot](/pr-images/supabase-table-forms-pr21546-6.png)
+
+![Screenshot](/pr-images/supabase-table-forms-pr21546-7.png)
+
+![Screenshot](/pr-images/supabase-table-forms-pr21546-8.png)
+
+![Screenshot](/pr-images/supabase-table-forms-pr21546-9.png)
+
+![Chore/update sql side panel](/pr-images/supabase-table-forms-pr30050-1.png)
+

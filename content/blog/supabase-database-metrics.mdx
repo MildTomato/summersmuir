@@ -1,0 +1,137 @@
+---
+title: Database Metrics & Usage Reporting
+subtitle: Real-time database insights and usage tracking
+date: 2021-07-29
+description: Building database metrics, usage dashboards, and infrastructure monitoring.
+image: /misty-moorland.png
+prImages:
+  - /pr-images/supabase-database-metrics-pr2118-1.png
+  - /pr-images/supabase-database-metrics-pr2118-2.png
+prs:
+  - number: 1597
+    repo: "supabase/platform"
+    title: "fix: support for day step intervals for infra-monitoring"
+    url: "https://github.com/supabase/platform/pull/1597"
+    date: "2021-08-13"
+  - number: 1541
+    repo: "supabase/platform"
+    title: "Feature/db metrics and usage"
+    url: "https://github.com/supabase/platform/pull/1541"
+    date: "2021-07-29"
+  - number: 1270
+    repo: "supabase/platform"
+    title: "fix: sparkbar for db was being multiplied wrong"
+    url: "https://github.com/supabase/platform/pull/1270"
+    date: "2021-07-05"
+  - number: 2118
+    repo: "supabase/platform"
+    title: "Feat/ billing page now shows usage based on actual billing cycle"
+    url: "https://github.com/supabase/platform/pull/2118"
+    date: "2021-10-19"
+---
+
+
+
+## Related Pull Requests
+
+<PRTable slug="supabase-database-metrics" />
+Understanding database health is critical. I built the metrics and usage reporting systems that give Supabase users visibility into their database performance.
+
+## Database Metrics Dashboard
+
+The project homepage shows key metrics:
+
+- **Database size**: Current storage usage
+- **Connection count**: Active connections
+- **Bandwidth**: Data transfer in/out
+- **CPU usage**: Compute utilization
+- **Memory usage**: RAM utilization
+- **Disk I/O**: Read/write operations
+
+## Real-Time Sparklines
+
+Each metric includes a sparkline showing recent trends:
+
+```typescript title="Sparkline component"
+<Sparkbar
+  value={currentValue}
+  max={maxValue}
+  data={historicalData}
+  className="h-8 w-24"
+/>
+```
+
+This gives immediate visual feedback on database health.
+
+## Usage Reporting
+
+Usage tracking for billing and monitoring:
+
+- **Actual billing cycle alignment**: Usage shown for current billing period
+- **Projected usage**: End-of-period estimates
+- **Historical trends**: Month-over-month comparison
+- **Breakdown by service**: Database, Auth, Storage, etc.
+
+## Infrastructure Monitoring
+
+I built support for day-step intervals in infra monitoring:
+
+```typescript title="Time interval support"
+const intervals = ['hour', 'day', 'week', 'month']
+
+function getMetrics(interval: string) {
+  return fetch(`/api/metrics?interval=${interval}`)
+}
+```
+
+This allows users to view metrics at different granularities.
+
+## Reports & Analytics
+
+The reports page provides deeper analysis:
+
+- Query performance statistics
+- Connection patterns
+- Error rates over time
+- Resource utilization trends
+
+### Unlocking Reports
+
+Reports were initially locked for development:
+
+```typescript title="Feature flag"
+const REPORTS_ENABLED = process.env.ENABLE_REPORTS === 'true'
+```
+
+I helped unlock reports and the project homepage for all users.
+
+## Chart Improvements
+
+Visual improvements to charts:
+
+- **Tooltip backgrounds fixed**: Proper contrast in dark mode
+- **CSS variables for theming**: Consistent colors
+- **Responsive sizing**: Works on all screen sizes
+- **Accessible colors**: Distinguishable for colorblind users
+
+## Impact
+
+Database metrics help users:
+
+1. **Monitor health** proactively
+2. **Plan capacity** based on trends
+3. **Debug issues** with historical data
+4. **Optimize costs** by understanding usage
+
+Visibility into your database is the first step to reliability.
+
+## Screenshots
+
+Visual documentation from the pull requests:
+
+### Feat/ billing page now shows usage based on actual billing cycle
+
+![Screenshot](/pr-images/supabase-database-metrics-pr2118-1.png)
+
+![Screenshot](/pr-images/supabase-database-metrics-pr2118-2.png)
+

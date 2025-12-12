@@ -1,0 +1,179 @@
+---
+title: Organization & Team Management
+subtitle: Multi-org support, member management, and permissions
+date: 2021-10-12
+description: Building organization management features for team collaboration.
+image: /misty-moorland.png
+prImages:
+  - /pr-images/supabase-org-management-pr16398-3.png
+  - /pr-images/supabase-org-management-pr16398-4.png
+  - /pr-images/supabase-org-management-pr2124-1.png
+  - /pr-images/supabase-org-management-pr2124-2.png
+  - /pr-images/supabase-org-management-pr2246-5.png
+prs:
+  - number: 2124
+    repo: "supabase/platform"
+    title: "feat: org selection now available when creating project"
+    url: "https://github.com/supabase/platform/pull/2124"
+    date: "2021-10-12"
+  - number: 16398
+    repo: "supabase/supabase"
+    title: "chore: fix empty states for Vercel Integration"
+    url: "https://github.com/supabase/supabase/pull/16398"
+    date: "2023-08-10"
+  - number: 11033
+    repo: "supabase/supabase"
+    title: "Fix/members owner leave team action"
+    url: "https://github.com/supabase/supabase/pull/11033"
+    date: "2022-12-19"
+  - number: 7553
+    repo: "supabase/platform"
+    title: "chore: added a verification endpoint for email invite"
+    url: "https://github.com/supabase/platform/pull/7553"
+    date: "2022-06-28"
+  - number: 6909
+    repo: "supabase/platform"
+    title: "hotfix: members/add and members/remove no longer using org id in body"
+    url: "https://github.com/supabase/platform/pull/6909"
+    date: "2022-05-23"
+  - number: 2301
+    repo: "supabase/platform"
+    title: "Fix/vercel severless functions"
+    url: "https://github.com/supabase/platform/pull/2301"
+    date: "2021-11-09"
+  - number: 2246
+    repo: "supabase/platform"
+    title: "chore: unlimited paid projects"
+    url: "https://github.com/supabase/platform/pull/2246"
+    date: "2021-11-01"
+  - number: 1768
+    repo: "supabase/platform"
+    title: "[Dash] [SQL] Feat - persist sql queries"
+    url: "https://github.com/supabase/platform/pull/1768"
+    date: "2021-09-07"
+  - number: 1297
+    repo: "supabase/platform"
+    title: "Fix/missing org in create subscription"
+    url: "https://github.com/supabase/platform/pull/1297"
+    date: "2021-06-29"
+---
+
+
+
+## Related Pull Requests
+
+<PRTable slug="supabase-org-management" />
+Supabase is a team tool. I built key parts of the organization and team management system.
+
+## Organization Selection
+
+When creating a project, users can select which organization owns it:
+
+```tsx title="Org selector on project creation"
+<Select
+  value={selectedOrg}
+  onChange={setSelectedOrg}
+  options={userOrganizations}
+  label="Organization"
+/>
+```
+
+This was a highly requested feature for users managing multiple organizations.
+
+## Organization Layout
+
+In 2025, I built the new organization layout:
+
+- Unified navigation for org-level settings
+- Project listing within organizations
+- Member management
+- Billing and subscription controls
+
+## Member Management
+
+### Adding Members
+
+Invite flow with email validation:
+
+```typescript title="Email validation"
+const validateEmail = (email: string) => {
+  return Yup.string().email().isValidSync(email)
+}
+```
+
+### Removing Members
+
+I fixed the owner leave team action and added proper confirmation modals:
+
+- Prevent accidental removals
+- Transfer ownership requirements
+- Clear messaging about consequences
+
+### Member Transfers
+
+When transferring projects between organizations:
+
+- Stripe subscription updates
+- Member permission resets
+- Proper validation
+
+## Organization Limits
+
+API enforcement of organization limits:
+
+```typescript title="Org limit check"
+if (userOrgs.length >= orgLimit) {
+  throw new Error('Organization limit reached')
+}
+```
+
+## Settings Navigation
+
+I added proper navigation with tabs:
+
+```tsx title="Settings navigation"
+<Tabs>
+  <Tab id="general">General</Tab>
+  <Tab id="members">Members</Tab>
+  <Tab id="billing">Billing</Tab>
+  <Tab id="integrations">Integrations</Tab>
+</Tabs>
+```
+
+## Integrations
+
+Organization-level integrations:
+
+- GitHub connection
+- Vercel integration
+- Third-party OAuth apps
+
+## Impact
+
+Organization management enables:
+
+1. Team collaboration on projects
+2. Clear permission boundaries
+3. Consolidated billing
+4. Enterprise workflows
+
+Teams need structure to work effectively.
+
+## Screenshots
+
+Visual documentation from the pull requests:
+
+### feat: org selection now available when creating project
+
+![Screenshot](/pr-images/supabase-org-management-pr2124-1.png)
+
+![Screenshot](/pr-images/supabase-org-management-pr2124-2.png)
+
+![chore: unlimited paid projects](/pr-images/supabase-org-management-pr2246-5.png)
+
+### chore: fix empty states for Vercel Integration
+
+![Screenshot](/pr-images/supabase-org-management-pr16398-3.png)
+
+![Screenshot](/pr-images/supabase-org-management-pr16398-4.png)
+

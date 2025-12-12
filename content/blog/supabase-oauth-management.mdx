@@ -1,0 +1,157 @@
+---
+title: OAuth Client Management for Supabase
+subtitle: Self-serve OAuth application registration
+date: 2025-04-07
+description: Building the OAuth client management interface for Supabase Auth.
+image: /misty-moorland.png
+prImages:
+  - /pr-images/supabase-oauth-management-pr34591-1.png
+  - /pr-images/supabase-oauth-management-pr34591-2.png
+prs:
+  - number: 34591
+    repo: "supabase/supabase"
+    title: "Feat: Adds Oauth client management"
+    url: "https://github.com/supabase/supabase/pull/34591"
+    date: "2025-04-07"
+---
+
+
+
+## Related Pull Requests
+
+<PRTable slug="supabase-oauth-management" />
+OAuth client management allows Supabase users to create OAuth applications—enabling third-party apps to authenticate against their Supabase projects. I built the interface for managing these OAuth clients.
+
+## The Feature
+
+OAuth client management includes:
+
+- **Client registration** with name, redirect URIs, and scopes
+- **Client credentials** display with copy functionality
+- **Client editing** and deletion
+- **Active sessions** view per client
+
+## Creating OAuth Clients
+
+The creation flow uses a multi-step form:
+
+```tsx title="OAuth client creation"
+<Dialog>
+  <DialogContent>
+    <DialogHeader>
+      <DialogTitle>Create OAuth Application</DialogTitle>
+    </DialogHeader>
+    
+    <Form onSubmit={handleSubmit}>
+      <FormField name="name" label="Application Name">
+        <Input placeholder="My Application" />
+      </FormField>
+      
+      <FormField 
+        name="redirect_uris" 
+        label="Redirect URIs"
+        description="One per line"
+      >
+        <Textarea placeholder="https://myapp.com/callback" />
+      </FormField>
+      
+      <FormField name="scopes" label="Scopes">
+        <MultiSelect 
+          options={availableScopes}
+          placeholder="Select scopes"
+        />
+      </FormField>
+      
+      <DialogFooter>
+        <Button type="submit">Create Application</Button>
+      </DialogFooter>
+    </Form>
+  </DialogContent>
+</Dialog>
+```
+
+## Displaying Credentials
+
+After creation, credentials are shown once:
+
+```tsx title="Credentials display"
+<Alert variant="warning">
+  <AlertTitle>Save your credentials</AlertTitle>
+  <AlertDescription>
+    The client secret will only be shown once. Make sure to copy it now.
+  </AlertDescription>
+</Alert>
+
+<div className="space-y-4">
+  <FormField label="Client ID" readOnly>
+    <InputWithCopy value={clientId} />
+  </FormField>
+  
+  <FormField label="Client Secret" readOnly>
+    <InputWithCopy value={clientSecret} masked />
+  </FormField>
+</div>
+```
+
+## Client List
+
+Existing clients are displayed in a table:
+
+```tsx title="OAuth clients list"
+<Table>
+  <TableHeader>
+    <TableRow>
+      <TableHead>Name</TableHead>
+      <TableHead>Client ID</TableHead>
+      <TableHead>Created</TableHead>
+      <TableHead>Actions</TableHead>
+    </TableRow>
+  </TableHeader>
+  <TableBody>
+    {clients.map((client) => (
+      <TableRow key={client.id}>
+        <TableCell>{client.name}</TableCell>
+        <TableCell>
+          <code className="text-sm">{client.client_id}</code>
+        </TableCell>
+        <TableCell>{formatDate(client.created_at)}</TableCell>
+        <TableCell>
+          <DropdownMenu>
+            <DropdownMenuTrigger asChild>
+              <Button variant="ghost" size="sm">
+                <MoreHorizontalIcon />
+              </Button>
+            </DropdownMenuTrigger>
+            <DropdownMenuContent>
+              <DropdownMenuItem onClick={() => editClient(client)}>
+                Edit
+              </DropdownMenuItem>
+              <DropdownMenuItem 
+                onClick={() => deleteClient(client)}
+                className="text-destructive"
+              >
+                Delete
+              </DropdownMenuItem>
+            </DropdownMenuContent>
+          </DropdownMenu>
+        </TableCell>
+      </TableRow>
+    ))}
+  </TableBody>
+</Table>
+```
+
+## Result
+
+OAuth client management gives Supabase users self-serve control over third-party integrations, enabling more complex authentication flows without contacting support.
+
+## Screenshots
+
+Visual documentation from the pull requests:
+
+### Feat: Adds Oauth client management
+
+![Screenshot](/pr-images/supabase-oauth-management-pr34591-1.png)
+
+![Screenshot](/pr-images/supabase-oauth-management-pr34591-2.png)
+

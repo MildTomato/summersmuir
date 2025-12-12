@@ -1,0 +1,77 @@
+---
+title: Column Header Sorting
+subtitle: Click-to-sort in the Table Editor
+date: 2025-05-05
+description: Adding intuitive column sorting to the Table Editor grid with sort indicators and menu integration.
+image: /misty-moorland.png
+prImages:
+  - /pr-images/supabase-column-sorting-pr35139-1.png
+prs:
+  - number: 35139
+    repo: "supabase/supabase"
+    title: "Feat/sort via column header"
+    url: "https://github.com/supabase/supabase/pull/35139"
+    date: "2025-05-05"
+---
+
+
+
+## Related Pull Requests
+
+<PRTable slug="supabase-column-sorting" />
+Users expected to click column headers to sort their data. I added this intuitive interaction to the Table Editor.
+
+## The Feature
+
+Click any column header to sort:
+- First click: Sort ascending
+- Second click: Sort descending  
+- Third click: Remove sort
+
+Visual indicators show current sort state with directional arrows.
+
+## Column Menu Integration
+
+The column context menu now includes sort options:
+
+```tsx title="ColumnMenu.tsx"
+<DropdownMenu>
+  <DropdownMenuItem onClick={() => handleSort('asc')}>
+    <ArrowUp className="w-4 h-4 mr-2" />
+    Sort Ascending
+  </DropdownMenuItem>
+  <DropdownMenuItem onClick={() => handleSort('desc')}>
+    <ArrowDown className="w-4 h-4 mr-2" />
+    Sort Descending
+  </DropdownMenuItem>
+</DropdownMenu>
+```
+
+### Dynamic Options
+
+Sort options adapt to column type and current state:
+- Shows current sort direction
+- Option to clear existing sort
+- Disabled for unsortable columns
+
+## Multi-Column Sort
+
+Future enhancement: Hold Shift and click multiple columns to sort by multiple criteria.
+
+## Performance
+
+Sorting happens server-side via PostgreSQL:
+- No client-side sorting of large datasets
+- Proper indexing for fast sorts
+- Pagination maintained
+
+## Result
+
+A small but impactful UX improvement that makes the Table Editor feel more like a spreadsheet application.
+
+## Screenshots
+
+Visual documentation from the pull requests:
+
+![Feat/sort via column header](/pr-images/supabase-column-sorting-pr35139-1.png)
+

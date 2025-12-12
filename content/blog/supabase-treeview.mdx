@@ -1,0 +1,162 @@
+---
+title: Building a TreeView Component
+subtitle: A flexible, accessible tree component for Supabase
+date: 2024-04-26
+description: Creating a TreeView primitive for file browsers and nested data.
+image: /misty-highlands.png
+prImages:
+  - /pr-images/supabase-treeview-pr21960-4.png
+  - /pr-images/supabase-treeview-pr26821-2.png
+  - /pr-images/supabase-treeview-pr26821-3.png
+  - /pr-images/supabase-treeview-pr33357-10.png
+  - /pr-images/supabase-treeview-pr33357-5.png
+  - /pr-images/supabase-treeview-pr33357-6.png
+  - /pr-images/supabase-treeview-pr33357-7.png
+  - /pr-images/supabase-treeview-pr33357-8.png
+  - /pr-images/supabase-treeview-pr33357-9.png
+  - /pr-images/supabase-treeview-pr34561-1.png
+prs:
+  - number: 34561
+    repo: "supabase/supabase"
+    title: "update treeview spacing"
+    url: "https://github.com/supabase/supabase/pull/34561"
+    date: "2025-03-31"
+  - number: 26821
+    repo: "supabase/supabase"
+    title: "[Design System] Chore: add tree-view documentation"
+    url: "https://github.com/supabase/supabase/pull/26821"
+    date: "2024-05-28"
+  - number: 21960
+    repo: "supabase/supabase"
+    title: "feat: TreeView primitive"
+    url: "https://github.com/supabase/supabase/pull/21960"
+    date: "2024-04-26"
+---
+
+
+
+## Related Pull Requests
+
+<PRTable slug="supabase-treeview" />
+Tree views are surprisingly complex. They need to handle keyboard navigation, accessibility, nested selection, and various visual states—all while remaining performant with large datasets.
+
+I built a TreeView primitive for Supabase that's now used in the storage file browser, schema explorer, and other places that display hierarchical data.
+
+## Requirements
+
+The TreeView needed to support:
+
+- **Nested items** with arbitrary depth
+- **Keyboard navigation** (arrow keys, Enter, Space)
+- **Accessibility** (ARIA tree roles, screen reader support)
+- **Selection modes** (single, multiple, checkbox)
+- **Expand/collapse** with animation
+- **Icons** that change based on state
+
+## The API
+
+I designed the API to be composable and flexible:
+
+```tsx title="TreeView usage"
+<TreeView>
+  <TreeViewItem value="src" label="src">
+    <TreeViewItem value="components" label="components">
+      <TreeViewItem value="Button.tsx" label="Button.tsx" />
+      <TreeViewItem value="Input.tsx" label="Input.tsx" />
+    </TreeViewItem>
+    <TreeViewItem value="lib" label="lib">
+      <TreeViewItem value="utils.ts" label="utils.ts" />
+    </TreeViewItem>
+  </TreeViewItem>
+  <TreeViewItem value="package.json" label="package.json" />
+</TreeView>
+```
+
+## Accessibility
+
+Proper tree accessibility requires specific ARIA roles:
+
+```tsx title="ARIA implementation"
+<div role="tree" aria-label={label}>
+  <div 
+    role="treeitem"
+    aria-expanded={isExpanded}
+    aria-selected={isSelected}
+    tabIndex={isFocused ? 0 : -1}
+  >
+    {children}
+  </div>
+</div>
+```
+
+Keyboard handling follows WAI-ARIA tree patterns:
+
+- **Arrow Up/Down**: Move focus between visible items
+- **Arrow Right**: Expand collapsed item or move to first child
+- **Arrow Left**: Collapse expanded item or move to parent
+- **Enter/Space**: Select the focused item
+- **Home/End**: Move to first/last item
+
+## Virtualization Ready
+
+For large trees (like file systems with thousands of files), the component is designed to work with virtualization:
+
+```tsx title="Virtualized tree"
+<TreeView>
+  <VirtualList
+    items={flattenedVisibleItems}
+    renderItem={(item) => (
+      <TreeViewItem {...item} />
+    )}
+  />
+</TreeView>
+```
+
+## State Management
+
+The TreeView manages:
+
+- **Expanded state**: Which nodes are open
+- **Selected state**: Which nodes are selected
+- **Focus state**: Which node has keyboard focus
+
+```typescript title="TreeView state"
+interface TreeViewState {
+  expandedIds: Set<string>
+  selectedIds: Set<string>
+  focusedId: string | null
+}
+```
+
+## Result
+
+The TreeView component is now used throughout Supabase Studio for displaying hierarchical data. It's fully accessible, keyboard navigable, and performant even with large datasets.
+
+## Screenshots
+
+Visual documentation from the pull requests:
+
+![feat: TreeView primitive](/pr-images/supabase-treeview-pr21960-4.png)
+
+### [Design System] Chore: add tree-view documentation
+
+![Screenshot](/pr-images/supabase-treeview-pr26821-2.png)
+
+![Screenshot](/pr-images/supabase-treeview-pr26821-3.png)
+
+### feat: new item style for table editor and empty states for both editors
+
+![Screenshot](/pr-images/supabase-treeview-pr33357-10.png)
+
+![Screenshot](/pr-images/supabase-treeview-pr33357-5.png)
+
+![Screenshot](/pr-images/supabase-treeview-pr33357-6.png)
+
+![Screenshot](/pr-images/supabase-treeview-pr33357-7.png)
+
+![Screenshot](/pr-images/supabase-treeview-pr33357-8.png)
+
+![Screenshot](/pr-images/supabase-treeview-pr33357-9.png)
+
+![update treeview spacing](/pr-images/supabase-treeview-pr34561-1.png)
+

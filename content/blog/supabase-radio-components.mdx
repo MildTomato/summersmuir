@@ -1,0 +1,119 @@
+---
+title: Radio Group Components
+subtitle: Stacked and card-style radio groups
+date: 2024-05-23
+description: Building RadioGroupStacked and RadioGroupCard atom components for better form selection UX.
+image: /misty-moorland.png
+prImages:
+  - /pr-images/supabase-radio-components-pr26612-4.png
+  - /pr-images/supabase-radio-components-pr26612-5.png
+  - /pr-images/supabase-radio-components-pr26612-6.png
+  - /pr-images/supabase-radio-components-pr26809-1.png
+  - /pr-images/supabase-radio-components-pr26809-2.png
+  - /pr-images/supabase-radio-components-pr26809-3.png
+prs:
+  - number: 26809
+    repo: "supabase/supabase"
+    title: "[Dashboard] add data api option to new project form"
+    url: "https://github.com/supabase/supabase/pull/26809"
+    date: "2024-06-25"
+  - number: 26612
+    repo: "supabase/supabase"
+    title: "Feat [atom component] stacked radio group / card radio group "
+    url: "https://github.com/supabase/supabase/pull/26612"
+    date: "2024-05-23"
+---
+
+
+
+## Related Pull Requests
+
+<PRTable slug="supabase-radio-components" />
+Radio buttons are common in forms, but the standard HTML radio doesn't cut it for modern UIs. I built two new radio group components for the Supabase design system.
+
+## RadioGroupStacked
+
+A vertical stack of radio options with better styling:
+
+```tsx title="RadioGroupStacked usage"
+<RadioGroupStacked value={selected} onValueChange={setSelected}>
+  <RadioGroupStackedItem value="free" label="Free Tier" description="Perfect for hobby projects" />
+  <RadioGroupStackedItem value="pro" label="Pro" description="For production applications" />
+  <RadioGroupStackedItem value="team" label="Team" description="For growing teams" />
+</RadioGroupStacked>
+```
+
+### Features
+
+- Clear visual hierarchy
+- Description text support
+- Disabled states
+- Keyboard navigation
+- Focus indicators
+
+## RadioGroupCard
+
+Card-style radio selection for more visual choices:
+
+```tsx title="RadioGroupCard usage"
+<RadioGroupCard value={region} onValueChange={setRegion}>
+  <RadioGroupCardItem value="us-east" icon={<FlagUS />} label="US East" />
+  <RadioGroupCardItem value="eu-west" icon={<FlagEU />} label="EU West" />
+  <RadioGroupCardItem value="ap-south" icon={<FlagIN />} label="AP South" />
+</RadioGroupCard>
+```
+
+### Use Cases
+
+- Region selection
+- Plan selection
+- Instance size selection
+- Any choice with visual representation
+
+## FormItem Integration
+
+Both components integrate with the form system:
+
+```tsx title="Form integration"
+<FormItem>
+  <FormLabel>Select Plan</FormLabel>
+  <RadioGroupStacked {...field}>
+    {plans.map(plan => (
+      <RadioGroupStackedItem key={plan.id} {...plan} />
+    ))}
+  </RadioGroupStacked>
+  <FormMessage />
+</FormItem>
+```
+
+## Styling Improvements
+
+Along with the new components:
+- Fixed lint warnings across the codebase
+- Improved focus/highlight states
+- Better contrast ratios
+
+## Result
+
+These components are now used throughout the dashboard for plan selection, region picking, and other multi-choice scenarios.
+
+## Screenshots
+
+Visual documentation from the pull requests:
+
+### Feat [atom component] stacked radio group / card radio group 
+
+![Screenshot](/pr-images/supabase-radio-components-pr26612-4.png)
+
+![Screenshot](/pr-images/supabase-radio-components-pr26612-5.png)
+
+![Screenshot](/pr-images/supabase-radio-components-pr26612-6.png)
+
+### [Dashboard] add data api option to new project form
+
+![Screenshot](/pr-images/supabase-radio-components-pr26809-1.png)
+
+![Screenshot](/pr-images/supabase-radio-components-pr26809-2.png)
+
+![Screenshot](/pr-images/supabase-radio-components-pr26809-3.png)
+

@@ -1,0 +1,325 @@
+---
+title: Redesigning the Supabase Studio Sidebar
+subtitle: Navigation architecture for a complex dashboard
+date: 2025-02-10
+description: Building a new sidebar navigation system for Supabase Studio.
+image: /highland-hikers.png
+prImages:
+  - /pr-images/supabase-sidebar-redesign-pr13310-31.png
+  - /pr-images/supabase-sidebar-redesign-pr16343-5.png
+  - /pr-images/supabase-sidebar-redesign-pr21112-30.png
+  - /pr-images/supabase-sidebar-redesign-pr21546-24.png
+  - /pr-images/supabase-sidebar-redesign-pr21546-25.png
+  - /pr-images/supabase-sidebar-redesign-pr21546-26.png
+  - /pr-images/supabase-sidebar-redesign-pr21546-27.png
+  - /pr-images/supabase-sidebar-redesign-pr21546-28.png
+  - /pr-images/supabase-sidebar-redesign-pr21546-29.png
+  - /pr-images/supabase-sidebar-redesign-pr21548-4.png
+  - /pr-images/supabase-sidebar-redesign-pr21550-3.png
+  - /pr-images/supabase-sidebar-redesign-pr26974-2.png
+  - /pr-images/supabase-sidebar-redesign-pr30048-19.png
+  - /pr-images/supabase-sidebar-redesign-pr30048-20.png
+  - /pr-images/supabase-sidebar-redesign-pr30048-21.png
+  - /pr-images/supabase-sidebar-redesign-pr30048-22.png
+  - /pr-images/supabase-sidebar-redesign-pr30048-23.png
+  - /pr-images/supabase-sidebar-redesign-pr33612-1.png
+  - /pr-images/supabase-sidebar-redesign-pr35559-13.png
+  - /pr-images/supabase-sidebar-redesign-pr35559-14.png
+  - /pr-images/supabase-sidebar-redesign-pr35559-15.png
+  - /pr-images/supabase-sidebar-redesign-pr35559-16.png
+  - /pr-images/supabase-sidebar-redesign-pr35559-17.png
+  - /pr-images/supabase-sidebar-redesign-pr35559-18.png
+  - /pr-images/supabase-sidebar-redesign-pr4055-32.png
+  - /pr-images/supabase-sidebar-redesign-pr74-33.png
+  - /pr-images/supabase-sidebar-redesign-pr74-34.png
+  - /pr-images/supabase-sidebar-redesign-pr829-10.png
+  - /pr-images/supabase-sidebar-redesign-pr829-11.png
+  - /pr-images/supabase-sidebar-redesign-pr829-12.png
+  - /pr-images/supabase-sidebar-redesign-pr831-6.png
+  - /pr-images/supabase-sidebar-redesign-pr831-7.png
+  - /pr-images/supabase-sidebar-redesign-pr831-8.png
+  - /pr-images/supabase-sidebar-redesign-pr831-9.png
+prs:
+  - number: 34544
+    repo: "supabase/supabase"
+    title: "chore: ui lib / new sidebar mobile hook, and props update, more SSR "
+    url: "https://github.com/supabase/supabase/pull/34544"
+    date: "2025-03-31"
+  - number: 33887
+    repo: "supabase/supabase"
+    title: "Fix: sidebar flex shrink issue FE-1435"
+    url: "https://github.com/supabase/supabase/pull/33887"
+    date: "2025-02-27"
+  - number: 33872
+    repo: "supabase/supabase"
+    title: "fix sidebar states"
+    url: "https://github.com/supabase/supabase/pull/33872"
+    date: "2025-02-26"
+  - number: 33612
+    repo: "supabase/supabase"
+    title: "Feat/sidebar studio"
+    url: "https://github.com/supabase/supabase/pull/33612"
+    date: "2025-02-25"
+  - number: 33474
+    repo: "supabase/supabase"
+    title: "Feat/sidebar"
+    url: "https://github.com/supabase/supabase/pull/33474"
+    date: "2025-02-10"
+  - number: 28500
+    repo: "supabase/supabase"
+    title: "fix/ sidebar scroll issues on smaller screens"
+    url: "https://github.com/supabase/supabase/pull/28500"
+    date: "2024-08-09"
+  - number: 21550
+    repo: "supabase/supabase"
+    title: "Feat/collapsible nav bar"
+    url: "https://github.com/supabase/supabase/pull/21550"
+    date: "2024-02-28"
+  - number: 21548
+    repo: "supabase/supabase"
+    title: "feat: add resizable inner sidebar"
+    url: "https://github.com/supabase/supabase/pull/21548"
+    date: "2024-02-26"
+  - number: 11187
+    repo: "supabase/supabase"
+    title: "fix self hosting sidebar"
+    url: "https://github.com/supabase/supabase/pull/11187"
+    date: "2022-12-22"
+  - number: 831
+    repo: "supabase/platform"
+    title: "WIP Feature/sql sidebar"
+    url: "https://github.com/supabase/platform/pull/831"
+    date: "2021-02-28"
+  - number: 829
+    repo: "supabase/platform"
+    title: "Feature/sidebar updates"
+    url: "https://github.com/supabase/platform/pull/829"
+    date: "2021-02-28"
+  - number: 30048
+    repo: "supabase/supabase"
+    title: "feat/ design system: inner side bar docs"
+    url: "https://github.com/supabase/supabase/pull/30048"
+    date: "2024-10-30"
+  - number: 21546
+    repo: "supabase/supabase"
+    title: "Chore/improve search input sql editor"
+    url: "https://github.com/supabase/supabase/pull/21546"
+    date: "2024-03-05"
+  - number: 21570
+    repo: "supabase/supabase"
+    title: "bug: Update EntityListItem.tsx"
+    url: "https://github.com/supabase/supabase/pull/21570"
+    date: "2024-02-27"
+  - number: 21112
+    repo: "supabase/supabase"
+    title: "chore: update styling, a11y and markup for table editor side panel"
+    url: "https://github.com/supabase/supabase/pull/21112"
+    date: "2024-02-08"
+  - number: 8297
+    repo: "supabase/supabase"
+    title: "Fix/visual fixes"
+    url: "https://github.com/supabase/supabase/pull/8297"
+    date: "2022-08-14"
+  - number: 8286
+    repo: "supabase/supabase"
+    title: "Chore/docs visual fixes"
+    url: "https://github.com/supabase/supabase/pull/8286"
+    date: "2022-08-14"
+  - number: 4055
+    repo: "supabase/supabase"
+    title: "Fix/docs arrows"
+    url: "https://github.com/supabase/supabase/pull/4055"
+    date: "2021-11-26"
+  - number: 889
+    repo: "supabase/platform"
+    title: "Chore/external link icons"
+    url: "https://github.com/supabase/platform/pull/889"
+    date: "2021-03-21"
+---
+
+
+
+## Related Pull Requests
+
+<PRTable slug="supabase-sidebar-redesign" />
+Navigation is the backbone of any dashboard. As Supabase grew from a handful of features to a comprehensive platform, the original sidebar became cramped and hard to navigate. I led the sidebar redesign effort.
+
+## The Problem
+
+The original sidebar had grown organically:
+
+- Too many top-level items
+- Inconsistent iconography
+- No visual hierarchy between sections
+- Mobile experience was an afterthought
+- No support for collapsing/expanding
+
+## Design Goals
+
+The new sidebar needed to:
+
+1. **Scale** as we add more features
+2. **Collapse** for more screen real estate
+3. **Group** related items logically
+4. **Adapt** to mobile with a sheet/drawer pattern
+5. **Persist** user preferences
+
+## Implementation
+
+### Collapsible Sidebar
+
+The sidebar can collapse to icon-only mode, expanding on hover or click:
+
+```tsx title="Sidebar state management"
+const [isCollapsed, setIsCollapsed] = useState(() => {
+  return localStorage.getItem('sidebar-collapsed') === 'true'
+})
+
+useEffect(() => {
+  localStorage.setItem('sidebar-collapsed', String(isCollapsed))
+}, [isCollapsed])
+```
+
+### Mobile Sheet Pattern
+
+On mobile, the sidebar becomes a sheet that slides in from the left:
+
+```tsx title="Responsive sidebar"
+function Sidebar() {
+  const isMobile = useMediaQuery('(max-width: 768px)')
+  
+  if (isMobile) {
+    return (
+      <Sheet>
+        <SheetTrigger asChild>
+          <Button variant="ghost" size="icon">
+            <MenuIcon />
+          </Button>
+        </SheetTrigger>
+        <SheetContent side="left">
+          <SidebarContent />
+        </SheetContent>
+      </Sheet>
+    )
+  }
+  
+  return <SidebarContent />
+}
+```
+
+### Active State Handling
+
+Navigation items show different stroke widths when active, providing clear visual feedback:
+
+```tsx title="Nav item with active state"
+<NavItem 
+  href="/project/[ref]/editor"
+  icon={<TableIcon strokeWidth={isActive ? 2 : 1.5} />}
+>
+  Table Editor
+</NavItem>
+```
+
+## Project & Org Switching
+
+The sidebar header includes a popover for switching between projects and organizations without leaving the current page:
+
+- Recent projects for quick access
+- Organization grouping
+- Search for large accounts
+- Truncation for long project names
+
+## Result
+
+The new sidebar:
+
+- Reduces cognitive load with better grouping
+- Reclaims screen space when collapsed  
+- Works seamlessly on mobile
+- Scales to accommodate new features
+- Respects user preferences
+
+## Screenshots
+
+Visual documentation from the pull requests:
+
+### Feature/dropdown
+
+![Screenshot](/pr-images/supabase-sidebar-redesign-pr74-33.png)
+
+![Screenshot](/pr-images/supabase-sidebar-redesign-pr74-34.png)
+
+### Feature/sidebar updates
+
+![Screenshot](/pr-images/supabase-sidebar-redesign-pr829-10.png)
+
+![Screenshot](/pr-images/supabase-sidebar-redesign-pr829-11.png)
+
+![Screenshot](/pr-images/supabase-sidebar-redesign-pr829-12.png)
+
+### WIP Feature/sql sidebar
+
+![Screenshot](/pr-images/supabase-sidebar-redesign-pr831-6.png)
+
+![Screenshot](/pr-images/supabase-sidebar-redesign-pr831-7.png)
+
+![Screenshot](/pr-images/supabase-sidebar-redesign-pr831-8.png)
+
+![Screenshot](/pr-images/supabase-sidebar-redesign-pr831-9.png)
+
+![Fix/docs arrows](/pr-images/supabase-sidebar-redesign-pr4055-32.png)
+
+![Feat/cmdk in docs](/pr-images/supabase-sidebar-redesign-pr13310-31.png)
+
+![chore: add collapsible](/pr-images/supabase-sidebar-redesign-pr16343-5.png)
+
+![chore: update styling, a11y and markup for table editor side panel](/pr-images/supabase-sidebar-redesign-pr21112-30.png)
+
+### Chore/improve search input sql editor
+
+![Screenshot](/pr-images/supabase-sidebar-redesign-pr21546-24.png)
+
+![Screenshot](/pr-images/supabase-sidebar-redesign-pr21546-25.png)
+
+![Screenshot](/pr-images/supabase-sidebar-redesign-pr21546-26.png)
+
+![Screenshot](/pr-images/supabase-sidebar-redesign-pr21546-27.png)
+
+![Screenshot](/pr-images/supabase-sidebar-redesign-pr21546-28.png)
+
+![Screenshot](/pr-images/supabase-sidebar-redesign-pr21546-29.png)
+
+![feat: add resizable inner sidebar](/pr-images/supabase-sidebar-redesign-pr21548-4.png)
+
+![Feat/collapsible nav bar](/pr-images/supabase-sidebar-redesign-pr21550-3.png)
+
+![[Design System] chore: add scroll example of Navigation Menu](/pr-images/supabase-sidebar-redesign-pr26974-2.png)
+
+### feat/ design system: inner side bar docs
+
+![Screenshot](/pr-images/supabase-sidebar-redesign-pr30048-19.png)
+
+![Screenshot](/pr-images/supabase-sidebar-redesign-pr30048-20.png)
+
+![Screenshot](/pr-images/supabase-sidebar-redesign-pr30048-21.png)
+
+![Screenshot](/pr-images/supabase-sidebar-redesign-pr30048-22.png)
+
+![Screenshot](/pr-images/supabase-sidebar-redesign-pr30048-23.png)
+
+![Feat/sidebar studio](/pr-images/supabase-sidebar-redesign-pr33612-1.png)
+
+### Feat/api keys rollout prep
+
+![Screenshot](/pr-images/supabase-sidebar-redesign-pr35559-13.png)
+
+![Screenshot](/pr-images/supabase-sidebar-redesign-pr35559-14.png)
+
+![Screenshot](/pr-images/supabase-sidebar-redesign-pr35559-15.png)
+
+![Screenshot](/pr-images/supabase-sidebar-redesign-pr35559-16.png)
+
+![Screenshot](/pr-images/supabase-sidebar-redesign-pr35559-17.png)
+
+![Screenshot](/pr-images/supabase-sidebar-redesign-pr35559-18.png)
+

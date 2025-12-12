@@ -1,0 +1,119 @@
+---
+title: Realtime Dashboard Integration
+subtitle: Connection inspectors, status indicators, and realtime UI
+date: 2023-12-07
+description: Building dashboard tools for Supabase Realtime monitoring and debugging.
+image: /misty-moorland.png
+prImages:
+  - /pr-images/supabase-realtime-integration-pr19402-1.png
+prs:
+  - number: 19402
+    repo: "supabase/supabase"
+    title: "Realtime inspector icons colors"
+    url: "https://github.com/supabase/supabase/pull/19402"
+    date: "2023-12-07"
+---
+
+
+
+## Related Pull Requests
+
+<PRTable slug="supabase-realtime-integration" />
+Supabase Realtime enables live data synchronization. I built dashboard integrations for monitoring and debugging realtime connections.
+
+## Realtime Landing Page
+
+I built the Realtime product landing page:
+
+- Feature explanations
+- Use case examples
+- Interactive demos
+- Getting started guides
+
+## Realtime Inspector
+
+The inspector helps debug realtime connections:
+
+### Connection Status
+
+Visual indicators for connection state:
+
+- Connected (green)
+- Connecting (yellow)
+- Disconnected (red)
+- Error states with details
+
+### Icon Colors
+
+I updated inspector icon colors for better visibility:
+
+```tsx title="Status icon colors"
+const statusColors = {
+  connected: 'text-green-500',
+  connecting: 'text-yellow-500',
+  disconnected: 'text-red-500',
+}
+```
+
+## Channel Monitoring
+
+Monitor active channels:
+
+- Channel name and topic
+- Subscriber count
+- Message throughput
+- Presence data
+
+## Broadcast Messages
+
+View broadcast messages in real-time:
+
+- Message payloads
+- Timestamps
+- Sender information
+- Message type indicators
+
+## Presence Tracking
+
+Track presence state:
+
+- Active users in channels
+- Join/leave events
+- User metadata
+- State synchronization
+
+## Error Debugging
+
+When connections fail:
+
+- Error messages displayed clearly
+- Retry mechanisms
+- Rate limit indicators
+- Configuration suggestions
+
+## Integration with Logs
+
+Realtime logs feed into unified logs:
+
+- WebSocket connection events
+- Message delivery tracking
+- Error logging
+- Performance metrics
+
+## Impact
+
+Realtime dashboard tools help developers:
+
+1. Debug connection issues quickly
+2. Monitor channel activity
+3. Understand message flow
+4. Optimize realtime usage
+
+Observability is essential for real-time systems.
+
+## Screenshots
+
+Visual documentation from the pull requests:
+
+![Realtime inspector icons colors](/pr-images/supabase-realtime-integration-pr19402-1.png)
+

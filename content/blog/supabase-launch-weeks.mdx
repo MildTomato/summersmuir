@@ -1,0 +1,182 @@
+---
+title: Building Launch Week Experiences
+subtitle: Landing pages, tickets, and countdown experiences
+date: 2022-08-12
+description: Creating immersive launch week experiences with custom landing pages and ticket systems.
+image: /misty-moorland.png
+prImages:
+  - /pr-images/supabase-launch-weeks-pr2492-1.jpg
+prs:
+  - number: 30920
+    repo: "supabase/supabase"
+    title: "Lw13/disks"
+    url: "https://github.com/supabase/supabase/pull/30920"
+    date: "2024-12-05"
+  - number: 19680
+    repo: "supabase/supabase"
+    title: "Caption fixes for LWXd3"
+    url: "https://github.com/supabase/supabase/pull/19680"
+    date: "2023-12-13"
+  - number: 19533
+    repo: "supabase/supabase"
+    title: "WIP Blog/lwx how design works at supabase"
+    url: "https://github.com/supabase/supabase/pull/19533"
+    date: "2023-12-08"
+  - number: 13958
+    repo: "supabase/supabase"
+    title: "fix/react-countdown Move package"
+    url: "https://github.com/supabase/supabase/pull/13958"
+    date: "2023-04-25"
+  - number: 13730
+    repo: "supabase/supabase"
+    title: "chore: update one more thing thumbs"
+    url: "https://github.com/supabase/supabase/pull/13730"
+    date: "2023-04-14"
+  - number: 13509
+    repo: "supabase/supabase"
+    title: "Chore/ LW7 favicons and logos"
+    url: "https://github.com/supabase/supabase/pull/13509"
+    date: "2023-04-10"
+  - number: 8392
+    repo: "supabase/supabase"
+    title: "Blog/lw5 2"
+    url: "https://github.com/supabase/supabase/pull/8392"
+    date: "2022-08-16"
+  - number: 8307
+    repo: "supabase/supabase"
+    title: "Chore/update launch week 5 sections"
+    url: "https://github.com/supabase/supabase/pull/8307"
+    date: "2022-08-15"
+  - number: 8256
+    repo: "supabase/supabase"
+    title: "Launch week 5 landing"
+    url: "https://github.com/supabase/supabase/pull/8256"
+    date: "2022-08-12"
+  - number: 2492
+    repo: "supabase/supabase"
+    title: "Chore/update og launch week 2"
+    url: "https://github.com/supabase/supabase/pull/2492"
+    date: "2021-07-24"
+  - number: 983
+    repo: "supabase/supabase"
+    title: "Storage 📦"
+    url: "https://github.com/supabase/supabase/pull/983"
+    date: "2021-03-30"
+---
+
+
+
+## Related Pull Requests
+
+<PRTable slug="supabase-launch-weeks" />
+Supabase Launch Weeks are major events. I built the web experiences that make them memorable—landing pages, ticket systems, and daily reveal mechanics.
+
+## Launch Week Format
+
+Each Launch Week follows a pattern:
+
+- **Monday-Friday**: Daily announcements
+- **Landing page**: Central hub with countdown
+- **Ticket system**: User-generated tickets for engagement
+- **Daily reveals**: Content unlocking at specific times
+
+## Launch Week 5 (2022)
+
+For LW5, I built:
+
+- Animated landing page with day-by-day reveals
+- Video integration with proper aspect ratios
+- Mobile-responsive countdown timers
+- Social sharing integration
+
+```tsx title="Day reveal component"
+<LaunchDay
+  day={5}
+  title="One More Thing"
+  video="/lw5-day5.mp4"
+  blogUrl="/blog/launch-week-5-one-more-thing"
+  isRevealed={currentDay >= 5}
+/>
+```
+
+## Launch Week 7 (2023)
+
+LW7 introduced more polish:
+
+- Custom favicons and logos
+- "One More Thing" thumbnail updates
+- Announcement bar integration
+- Enhanced SEO with video meta tags
+
+## Launch Week X (2023)
+
+For LWX, the experience evolved:
+
+- Database design playground integration
+- Server actions for real-time updates
+- Caption fixes for accessibility
+- Branching documentation updates
+
+## The Ticket System
+
+Users could generate personalized tickets:
+
+```typescript title="Ticket generation"
+interface Ticket {
+  username: string
+  ticketNumber: number
+  generatedAt: Date
+  shareableUrl: string
+}
+```
+
+This drove social engagement as users shared their unique ticket numbers.
+
+## Technical Challenges
+
+### Timezone Handling
+
+Reveals need to happen at the right time globally:
+
+```typescript title="Countdown logic"
+function getRevealTime(day: number) {
+  // All reveals at 9am PT
+  return new Date(`2023-04-${10 + day}T09:00:00-07:00`)
+}
+```
+
+### Performance
+
+Landing pages get massive traffic. Optimizations:
+
+- Static generation where possible
+- Image optimization
+- Lazy loading for videos
+- CDN-first asset delivery
+
+### Accessibility
+
+Launch weeks reach diverse audiences:
+
+- Video captions for all content
+- Keyboard navigation for day selectors
+- Screen reader announcements for reveals
+- Reduced motion alternatives
+
+## Impact
+
+Launch Week landing pages see millions of visits. They:
+
+1. Build anticipation throughout the week
+2. Drive social sharing and engagement
+3. Showcase Supabase's personality
+4. Create memorable brand moments
+
+Launch Week is as much about the experience as the announcements.
+
+## Screenshots
+
+Visual documentation from the pull requests:
+
+![Chore/update og launch week 2](/pr-images/supabase-launch-weeks-pr2492-1.jpg)
+

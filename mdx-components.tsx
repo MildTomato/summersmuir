@@ -2,6 +2,7 @@ import type { MDXComponents } from 'mdx/types';
 import { CodeBlock } from '@/app/components/code-block';
 import { ImageCarousel } from '@/app/components/image-carousel';
 import { HeadingLink } from '@/app/components/heading-link';
+import { PRTable } from '@/components/pr-table';
 import {
   Table,
   TableHeader,
@@ -120,6 +121,7 @@ export function useMDXComponents(components: MDXComponents): MDXComponents {
     td: ({ children }) => <TableCell>{children}</TableCell>,
     // Custom components
     ImageCarousel,
+    PRTable,
     ...components,
   };
 }

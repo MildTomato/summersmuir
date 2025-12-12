@@ -1,0 +1,352 @@
+---
+title: Table Editor Improvements
+subtitle: Enhancing the Supabase data browser
+date: 2025-05-05
+description: Building better sorting, filtering, and column management for the table editor.
+image: /coastal-mountains.png
+prImages:
+  - /pr-images/supabase-table-editor-pr1026-26.png
+  - /pr-images/supabase-table-editor-pr1026-27.png
+  - /pr-images/supabase-table-editor-pr1341-25.png
+  - /pr-images/supabase-table-editor-pr21112-10.png
+  - /pr-images/supabase-table-editor-pr21477-24.png
+  - /pr-images/supabase-table-editor-pr21482-9.png
+  - /pr-images/supabase-table-editor-pr21486-7.png
+  - /pr-images/supabase-table-editor-pr21486-8.png
+  - /pr-images/supabase-table-editor-pr21546-17.png
+  - /pr-images/supabase-table-editor-pr21546-18.png
+  - /pr-images/supabase-table-editor-pr21546-19.png
+  - /pr-images/supabase-table-editor-pr21546-20.png
+  - /pr-images/supabase-table-editor-pr21546-21.png
+  - /pr-images/supabase-table-editor-pr21546-22.png
+  - /pr-images/supabase-table-editor-pr21548-23.png
+  - /pr-images/supabase-table-editor-pr21992-15.png
+  - /pr-images/supabase-table-editor-pr21992-16.png
+  - /pr-images/supabase-table-editor-pr33357-1.png
+  - /pr-images/supabase-table-editor-pr33357-2.png
+  - /pr-images/supabase-table-editor-pr33357-3.png
+  - /pr-images/supabase-table-editor-pr33357-4.png
+  - /pr-images/supabase-table-editor-pr33357-5.png
+  - /pr-images/supabase-table-editor-pr33357-6.png
+  - /pr-images/supabase-table-editor-pr5747-11.png
+  - /pr-images/supabase-table-editor-pr5747-12.png
+  - /pr-images/supabase-table-editor-pr5747-13.png
+prs:
+  - number: 35138
+    repo: "supabase/supabase"
+    title: "Chore/table editor filter sorts logic moved to hooks"
+    url: "https://github.com/supabase/supabase/pull/35138"
+    date: "2025-04-30"
+  - number: 33357
+    repo: "supabase/supabase"
+    title: "feat: new item style for table editor and empty states for both editors"
+    url: "https://github.com/supabase/supabase/pull/33357"
+    date: "2025-02-06"
+  - number: 21486
+    repo: "supabase/supabase"
+    title: "chore: update table editor input and schema selector styling"
+    url: "https://github.com/supabase/supabase/pull/21486"
+    date: "2024-02-26"
+  - number: 21482
+    repo: "supabase/supabase"
+    title: "a11y updates on table editor entity items"
+    url: "https://github.com/supabase/supabase/pull/21482"
+    date: "2024-02-23"
+  - number: 21112
+    repo: "supabase/supabase"
+    title: "chore: update styling, a11y and markup for table editor side panel"
+    url: "https://github.com/supabase/supabase/pull/21112"
+    date: "2024-02-08"
+  - number: 13725
+    repo: "supabase/supabase"
+    title: "Table editor dropdown now animates on keyboard nav"
+    url: "https://github.com/supabase/supabase/pull/13725"
+    date: "2023-04-14"
+  - number: 5747
+    repo: "supabase/supabase"
+    title: "chore: update @supabase/grid"
+    url: "https://github.com/supabase/supabase/pull/5747"
+    date: "2022-03-05"
+  - number: 1726
+    repo: "supabase/platform"
+    title: "[Dash] Chore/rls warning table editor"
+    url: "https://github.com/supabase/platform/pull/1726"
+    date: "2021-08-26"
+  - number: 31071
+    repo: "supabase/supabase"
+    title: "Feat/tabs"
+    url: "https://github.com/supabase/supabase/pull/31071"
+    date: "2025-03-27"
+  - number: 28072
+    repo: "supabase/supabase"
+    title: "fix: temporary remove default sorting"
+    url: "https://github.com/supabase/supabase/pull/28072"
+    date: "2024-07-19"
+  - number: 21992
+    repo: "supabase/supabase"
+    title: "Update Button height size and icon auto sizing"
+    url: "https://github.com/supabase/supabase/pull/21992"
+    date: "2024-03-14"
+  - number: 21546
+    repo: "supabase/supabase"
+    title: "Chore/improve search input sql editor"
+    url: "https://github.com/supabase/supabase/pull/21546"
+    date: "2024-03-05"
+  - number: 21570
+    repo: "supabase/supabase"
+    title: "bug: Update EntityListItem.tsx"
+    url: "https://github.com/supabase/supabase/pull/21570"
+    date: "2024-02-27"
+  - number: 21548
+    repo: "supabase/supabase"
+    title: "feat: add resizable inner sidebar"
+    url: "https://github.com/supabase/supabase/pull/21548"
+    date: "2024-02-26"
+  - number: 21477
+    repo: "supabase/supabase"
+    title: "feat: add new Icons package for custom made icons"
+    url: "https://github.com/supabase/supabase/pull/21477"
+    date: "2024-02-26"
+  - number: 1341
+    repo: "supabase/platform"
+    title: "Fix/date and time fields broken"
+    url: "https://github.com/supabase/platform/pull/1341"
+    date: "2021-07-12"
+  - number: 1188
+    repo: "supabase/platform"
+    title: "Fix/database panels"
+    url: "https://github.com/supabase/platform/pull/1188"
+    date: "2021-06-15"
+  - number: 1026
+    repo: "supabase/platform"
+    title: "fix/table forms"
+    url: "https://github.com/supabase/platform/pull/1026"
+    date: "2021-05-07"
+---
+
+
+
+## Related Pull Requests
+
+<PRTable slug="supabase-table-editor" />
+The table editor is one of the most-used features in Supabase Studio—it's how developers browse, edit, and manage their data. I contributed several improvements to make it more powerful and user-friendly.
+
+## Column Header Sorting
+
+Clicking a column header now toggles through sort states:
+
+```tsx title="Sort via column header"
+function ColumnHeader({ column }: { column: Column }) {
+  const [sortState, setSortState] = useState<'none' | 'asc' | 'desc'>('none')
+  
+  const handleClick = () => {
+    const nextState = {
+      'none': 'asc',
+      'asc': 'desc',
+      'desc': 'none',
+    }[sortState]
+    setSortState(nextState)
+    column.toggleSorting(nextState === 'desc')
+  }
+  
+  return (
+    <button onClick={handleClick} className="flex items-center gap-1">
+      {column.name}
+      {sortState === 'asc' && <ArrowUpIcon className="h-4 w-4" />}
+      {sortState === 'desc' && <ArrowDownIcon className="h-4 w-4" />}
+    </button>
+  )
+}
+```
+
+## Column Visibility and Order
+
+Users can now customize which columns are visible and their order:
+
+```tsx title="Column visibility popover"
+<Popover>
+  <PopoverTrigger asChild>
+    <Button variant="outline" size="sm">
+      <ColumnsIcon className="mr-2 h-4 w-4" />
+      Columns
+    </Button>
+  </PopoverTrigger>
+  <PopoverContent className="w-56">
+    <DragDropContext onDragEnd={handleDragEnd}>
+      <Droppable droppableId="columns">
+        {(provided) => (
+          <div {...provided.droppableProps} ref={provided.innerRef}>
+            {columns.map((column, index) => (
+              <Draggable key={column.id} draggableId={column.id} index={index}>
+                {(provided) => (
+                  <div
+                    ref={provided.innerRef}
+                    {...provided.draggableProps}
+                    className="flex items-center gap-2 py-1"
+                  >
+                    <span {...provided.dragHandleProps}>
+                      <GripVerticalIcon className="h-4 w-4" />
+                    </span>
+                    <Checkbox
+                      checked={column.visible}
+                      onCheckedChange={(checked) => 
+                        toggleColumnVisibility(column.id, checked)
+                      }
+                    />
+                    <span>{column.name}</span>
+                  </div>
+                )}
+              </Draggable>
+            ))}
+            {provided.placeholder}
+          </div>
+        )}
+      </Droppable>
+    </DragDropContext>
+  </PopoverContent>
+</Popover>
+```
+
+## Filter and Sort Logic Refactoring
+
+I moved the filter and sort logic into dedicated hooks for better organization:
+
+```typescript title="useTableFilters hook"
+function useTableFilters(initialFilters: Filter[]) {
+  const [filters, setFilters] = useState(initialFilters)
+  
+  const addFilter = useCallback((filter: Filter) => {
+    setFilters((prev) => [...prev, filter])
+  }, [])
+  
+  const removeFilter = useCallback((id: string) => {
+    setFilters((prev) => prev.filter((f) => f.id !== id))
+  }, [])
+  
+  const updateFilter = useCallback((id: string, updates: Partial<Filter>) => {
+    setFilters((prev) =>
+      prev.map((f) => (f.id === id ? { ...f, ...updates } : f))
+    )
+  }, [])
+  
+  const buildFilterQuery = useCallback(() => {
+    return filters
+      .filter((f) => f.value !== undefined)
+      .map((f) => `${f.column}.${f.operator}.${f.value}`)
+      .join(',')
+  }, [filters])
+  
+  return { filters, addFilter, removeFilter, updateFilter, buildFilterQuery }
+}
+```
+
+## Optimistic Updates
+
+Filter and sort updates now apply optimistically:
+
+```typescript title="Optimistic filter updates"
+const applyFilter = async (filter: Filter) => {
+  // Optimistically update UI
+  setFilters((prev) => [...prev, filter])
+  
+  try {
+    // Sync with server
+    await updateTableState({ filters: [...filters, filter] })
+  } catch (error) {
+    // Rollback on error
+    setFilters((prev) => prev.filter((f) => f.id !== filter.id))
+    toast.error('Failed to apply filter')
+  }
+}
+```
+
+## New Item Style and Empty States
+
+I also improved the visual design for new items and empty states:
+
+```tsx title="Empty state"
+<div className="flex flex-col items-center justify-center py-16">
+  <TableIcon className="h-12 w-12 text-muted-foreground/50" />
+  <h3 className="mt-4 text-lg font-medium">No rows yet</h3>
+  <p className="mt-1 text-sm text-muted-foreground">
+    This table is empty. Create your first row to get started.
+  </p>
+  <Button className="mt-4" onClick={createRow}>
+    <PlusIcon className="mr-2 h-4 w-4" />
+    Add Row
+  </Button>
+</div>
+```
+
+## Result
+
+These improvements make the table editor more intuitive and powerful, reducing the need to write SQL for common data browsing tasks.
+
+## Screenshots
+
+Visual documentation from the pull requests:
+
+### fix/table forms
+
+![Screenshot](/pr-images/supabase-table-editor-pr1026-26.png)
+
+![Screenshot](/pr-images/supabase-table-editor-pr1026-27.png)
+
+![Fix/date and time fields broken](/pr-images/supabase-table-editor-pr1341-25.png)
+
+### chore: update @supabase/grid
+
+![Screenshot](/pr-images/supabase-table-editor-pr5747-11.png)
+
+![Screenshot](/pr-images/supabase-table-editor-pr5747-12.png)
+
+![Screenshot](/pr-images/supabase-table-editor-pr5747-13.png)
+
+![chore: update styling, a11y and markup for table editor side panel](/pr-images/supabase-table-editor-pr21112-10.png)
+
+![feat: add new Icons package for custom made icons](/pr-images/supabase-table-editor-pr21477-24.png)
+
+![a11y updates on table editor entity items](/pr-images/supabase-table-editor-pr21482-9.png)
+
+### chore: update table editor input and schema selector styling
+
+![Screenshot](/pr-images/supabase-table-editor-pr21486-7.png)
+
+![Screenshot](/pr-images/supabase-table-editor-pr21486-8.png)
+
+### Chore/improve search input sql editor
+
+![Screenshot](/pr-images/supabase-table-editor-pr21546-17.png)
+
+![Screenshot](/pr-images/supabase-table-editor-pr21546-18.png)
+
+![Screenshot](/pr-images/supabase-table-editor-pr21546-19.png)
+
+![Screenshot](/pr-images/supabase-table-editor-pr21546-20.png)
+
+![Screenshot](/pr-images/supabase-table-editor-pr21546-21.png)
+
+![Screenshot](/pr-images/supabase-table-editor-pr21546-22.png)
+
+![feat: add resizable inner sidebar](/pr-images/supabase-table-editor-pr21548-23.png)
+
+### Update Button height size and icon auto sizing
+
+![Screenshot](/pr-images/supabase-table-editor-pr21992-15.png)
+
+![Screenshot](/pr-images/supabase-table-editor-pr21992-16.png)
+
+### feat: new item style for table editor and empty states for both editors
+
+![Screenshot](/pr-images/supabase-table-editor-pr33357-1.png)
+
+![Screenshot](/pr-images/supabase-table-editor-pr33357-2.png)
+
+![Screenshot](/pr-images/supabase-table-editor-pr33357-3.png)
+
+![Screenshot](/pr-images/supabase-table-editor-pr33357-4.png)
+
+![Screenshot](/pr-images/supabase-table-editor-pr33357-5.png)
+
+![Screenshot](/pr-images/supabase-table-editor-pr33357-6.png)
+

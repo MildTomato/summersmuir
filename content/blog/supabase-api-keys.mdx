@@ -1,0 +1,240 @@
+---
+title: New API Keys System for Supabase
+subtitle: A modern approach to API key management
+date: 2025-02-05
+description: Building the new API keys interface with better security and UX.
+image: /coastal-mountains.png
+prImages:
+  - /pr-images/supabase-api-keys-pr1272-18.png
+  - /pr-images/supabase-api-keys-pr1272-19.png
+  - /pr-images/supabase-api-keys-pr1272-20.png
+  - /pr-images/supabase-api-keys-pr29664-10.png
+  - /pr-images/supabase-api-keys-pr29664-11.png
+  - /pr-images/supabase-api-keys-pr29664-7.png
+  - /pr-images/supabase-api-keys-pr29664-8.png
+  - /pr-images/supabase-api-keys-pr29664-9.png
+  - /pr-images/supabase-api-keys-pr35559-1.png
+  - /pr-images/supabase-api-keys-pr35559-2.png
+  - /pr-images/supabase-api-keys-pr35559-3.png
+  - /pr-images/supabase-api-keys-pr35559-4.png
+  - /pr-images/supabase-api-keys-pr35559-5.png
+  - /pr-images/supabase-api-keys-pr35559-6.png
+  - /pr-images/supabase-api-keys-pr37097-14.png
+  - /pr-images/supabase-api-keys-pr37097-15.png
+  - /pr-images/supabase-api-keys-pr37097-16.png
+  - /pr-images/supabase-api-keys-pr37097-17.png
+  - /pr-images/supabase-api-keys-pr732-12.png
+  - /pr-images/supabase-api-keys-pr732-13.png
+prs:
+  - number: 35559
+    repo: "supabase/supabase"
+    title: "Feat/api keys rollout prep"
+    url: "https://github.com/supabase/supabase/pull/35559"
+    date: "2025-05-27"
+  - number: 33252
+    repo: "supabase/supabase"
+    title: "feat: new api keys [hidden]"
+    url: "https://github.com/supabase/supabase/pull/33252"
+    date: "2025-02-05"
+  - number: 29664
+    repo: "supabase/supabase"
+    title: "chore/ add API keys upcoming change notice"
+    url: "https://github.com/supabase/supabase/pull/29664"
+    date: "2024-10-07"
+  - number: 19528
+    repo: "supabase/platform"
+    title: "HOTFIX: Update Vercel Marketplace secret key names"
+    url: "https://github.com/supabase/platform/pull/19528"
+    date: "2024-08-28"
+  - number: 16107
+    repo: "supabase/platform"
+    title: "Optionally pass API keys to getSettings to avoid race condition of API keys not being available"
+    url: "https://github.com/supabase/platform/pull/16107"
+    date: "2023-12-07"
+  - number: 10899
+    repo: "supabase/supabase"
+    title: "add env vars, revert to anon key for ticket site when admin not avail"
+    url: "https://github.com/supabase/supabase/pull/10899"
+    date: "2022-12-13"
+  - number: 732
+    repo: "supabase/platform"
+    title: "Chore/hide api keys"
+    url: "https://github.com/supabase/platform/pull/732"
+    date: "2021-01-26"
+  - number: 37097
+    repo: "supabase/supabase"
+    title: "chore: jwt keys page table layout"
+    url: "https://github.com/supabase/supabase/pull/37097"
+    date: "2025-07-14"
+  - number: 1272
+    repo: "supabase/platform"
+    title: "[Feat] usage, project homepage, and loading screen/route update"
+    url: "https://github.com/supabase/platform/pull/1272"
+    date: "2021-07-29"
+---
+
+
+
+## Related Pull Requests
+
+<PRTable slug="supabase-api-keys" />
+API keys are critical infrastructure—they authenticate every request to a Supabase project. I built the new API keys system to improve security, usability, and flexibility.
+
+## Background
+
+The original API keys system was simple: two keys (anon and service_role), displayed in a table. As Supabase grew, we needed:
+
+- **More key types** for different use cases
+- **Key rotation** without downtime
+- **Better visibility** into key usage
+- **Improved security** with masked display
+
+## Key Features
+
+### Multiple Key Types
+
+The new system supports:
+
+- **Anon key**: For client-side code, respects RLS
+- **Service role key**: Server-side, bypasses RLS
+- **Custom keys**: User-defined with specific permissions
+
+### Masked Display
+
+Keys are masked by default with a reveal button:
+
+```tsx title="Masked key display"
+<div className="flex items-center gap-2">
+  <code className="font-mono">
+    {isRevealed ? apiKey : `${apiKey.slice(0, 8)}${'•'.repeat(32)}`}
+  </code>
+  <Button variant="ghost" size="sm" onClick={toggleReveal}>
+    {isRevealed ? <EyeOffIcon /> : <EyeIcon />}
+  </Button>
+  <CopyButton value={apiKey} />
+</div>
+```
+
+### Key Rotation
+
+Users can rotate keys with an overlap period:
+
+```tsx title="Key rotation flow"
+<Dialog>
+  <DialogTrigger asChild>
+    <Button variant="outline">Rotate Key</Button>
+  </DialogTrigger>
+  <DialogContent>
+    <DialogHeader>
+      <DialogTitle>Rotate API Key</DialogTitle>
+      <DialogDescription>
+        A new key will be generated. The old key will remain 
+        active for 24 hours to allow for migration.
+      </DialogDescription>
+    </DialogHeader>
+    <DialogFooter>
+      <Button variant="outline" onClick={close}>Cancel</Button>
+      <Button onClick={rotateKey}>Rotate Key</Button>
+    </DialogFooter>
+  </DialogContent>
+</Dialog>
+```
+
+### JWT Keys Page
+
+A dedicated page for managing JWT signing keys with a table layout:
+
+```tsx title="JWT keys table"
+<Table>
+  <TableHeader>
+    <TableRow>
+      <TableHead>Key ID</TableHead>
+      <TableHead>Algorithm</TableHead>
+      <TableHead>Created</TableHead>
+      <TableHead>Status</TableHead>
+    </TableRow>
+  </TableHeader>
+  <TableBody>
+    {keys.map((key) => (
+      <TableRow key={key.id}>
+        <TableCell>{key.kid}</TableCell>
+        <TableCell>{key.algorithm}</TableCell>
+        <TableCell>{formatDate(key.createdAt)}</TableCell>
+        <TableCell>
+          <Badge variant={key.isActive ? 'default' : 'secondary'}>
+            {key.isActive ? 'Active' : 'Inactive'}
+          </Badge>
+        </TableCell>
+      </TableRow>
+    ))}
+  </TableBody>
+</Table>
+```
+
+## Rollout Strategy
+
+The new API keys were rolled out gradually:
+
+1. Feature-flagged behind `new-api-keys`
+2. Tested with internal projects first
+3. Beta access for interested users
+4. General availability
+
+## Result
+
+The new API keys system provides better security defaults, clearer UI, and the flexibility to support future authentication patterns.
+
+## Screenshots
+
+Visual documentation from the pull requests:
+
+### Chore/hide api keys
+
+![Screenshot](/pr-images/supabase-api-keys-pr732-12.png)
+
+![Screenshot](/pr-images/supabase-api-keys-pr732-13.png)
+
+### [Feat] usage, project homepage, and loading screen/route update
+
+![Screenshot](/pr-images/supabase-api-keys-pr1272-18.png)
+
+![Screenshot](/pr-images/supabase-api-keys-pr1272-19.png)
+
+![Screenshot](/pr-images/supabase-api-keys-pr1272-20.png)
+
+### chore/ add API keys upcoming change notice
+
+![Screenshot](/pr-images/supabase-api-keys-pr29664-10.png)
+
+![Screenshot](/pr-images/supabase-api-keys-pr29664-11.png)
+
+![Screenshot](/pr-images/supabase-api-keys-pr29664-7.png)
+
+![Screenshot](/pr-images/supabase-api-keys-pr29664-8.png)
+
+![Screenshot](/pr-images/supabase-api-keys-pr29664-9.png)
+
+### Feat/api keys rollout prep
+
+![Screenshot](/pr-images/supabase-api-keys-pr35559-1.png)
+
+![Screenshot](/pr-images/supabase-api-keys-pr35559-2.png)
+
+![Screenshot](/pr-images/supabase-api-keys-pr35559-3.png)
+
+![Screenshot](/pr-images/supabase-api-keys-pr35559-4.png)
+
+![Screenshot](/pr-images/supabase-api-keys-pr35559-5.png)
+
+![Screenshot](/pr-images/supabase-api-keys-pr35559-6.png)
+
+### chore: jwt keys page table layout
+
+![Screenshot](/pr-images/supabase-api-keys-pr37097-14.png)
+
+![Screenshot](/pr-images/supabase-api-keys-pr37097-15.png)
+
+![Screenshot](/pr-images/supabase-api-keys-pr37097-16.png)
+
+![Screenshot](/pr-images/supabase-api-keys-pr37097-17.png)
+

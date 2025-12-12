@@ -1,0 +1,151 @@
+---
+title: Building the Supabase Changelog
+subtitle: Keeping users informed about platform updates
+date: 2022-10-05
+description: Creating the changelog system for Supabase product updates.
+image: /valley-explorer.png
+prImages:
+  - /pr-images/supabase-changelog-pr9240-1.png
+prs:
+  - number: 27609
+    repo: "supabase/supabase"
+    title: "[Design system] Update changelog.mdx"
+    url: "https://github.com/supabase/supabase/pull/27609"
+    date: "2024-07-08"
+  - number: 26736
+    repo: "supabase/supabase"
+    title: "[Design system] Update changelog.mdx"
+    url: "https://github.com/supabase/supabase/pull/26736"
+    date: "2024-05-24"
+  - number: 9240
+    repo: "supabase/supabase"
+    title: "Feat/changelog"
+    url: "https://github.com/supabase/supabase/pull/9240"
+    date: "2022-10-05"
+---
+
+
+
+## Related Pull Requests
+
+<PRTable slug="supabase-changelog" />
+A good changelog is essential for any platform—it keeps users informed about new features, fixes, and changes. I built the Supabase changelog system that touches 59 files across the codebase.
+
+## Requirements
+
+The changelog needed to:
+
+- **Display** product updates in a clean, scannable format
+- **Categorize** entries by type (feature, fix, improvement)
+- **Filter** by product area (database, auth, storage, etc.)
+- **Link** to relevant documentation
+- **RSS** support for subscribers
+
+## The Design
+
+### Entry Structure
+
+Each changelog entry includes:
+
+```typescript title="Changelog entry type"
+interface ChangelogEntry {
+  id: string
+  title: string
+  description: string
+  date: Date
+  type: 'feature' | 'fix' | 'improvement' | 'breaking'
+  products: ('database' | 'auth' | 'storage' | 'functions')[]
+  link?: string
+}
+```
+
+### Visual Presentation
+
+Entries are displayed in a timeline format:
+
+```tsx title="Changelog entry component"
+<article className="relative pl-8 pb-8 border-l border-border">
+  <div className="absolute -left-2 top-0 w-4 h-4 rounded-full bg-background border-2 border-primary" />
+  
+  <time className="text-sm text-muted-foreground">
+    {formatDate(entry.date)}
+  </time>
+  
+  <h3 className="text-lg font-semibold mt-1">{entry.title}</h3>
+  
+  <div className="flex gap-2 mt-2">
+    <Badge variant={entry.type}>{entry.type}</Badge>
+    {entry.products.map((product) => (
+      <Badge key={product} variant="outline">{product}</Badge>
+    ))}
+  </div>
+  
+  <p className="mt-3 text-muted-foreground">{entry.description}</p>
+  
+  {entry.link && (
+    <a href={entry.link} className="text-primary hover:underline mt-2 inline-block">
+      Learn more →
+    </a>
+  )}
+</article>
+```
+
+### Filtering
+
+Users can filter by product area:
+
+```tsx title="Product filter"
+<div className="flex gap-2 mb-8">
+  <Button 
+    variant={filter === null ? 'default' : 'outline'}
+    onClick={() => setFilter(null)}
+  >
+    All
+  </Button>
+  {products.map((product) => (
+    <Button
+      key={product}
+      variant={filter === product ? 'default' : 'outline'}
+      onClick={() => setFilter(product)}
+    >
+      {product}
+    </Button>
+  ))}
+</div>
+```
+
+## RSS Feed
+
+The changelog generates an RSS feed for subscribers:
+
+```typescript title="RSS generation"
+function generateRSS(entries: ChangelogEntry[]): string {
+  return `<?xml version="1.0" encoding="UTF-8"?>
+<rss version="2.0">
+  <channel>
+    <title>Supabase Changelog</title>
+    <link>https://supabase.com/changelog</link>
+    <description>Product updates from Supabase</description>
+    ${entries.map(entry => `
+    <item>
+      <title>${escapeXml(entry.title)}</title>
+      <description>${escapeXml(entry.description)}</description>
+      <pubDate>${entry.date.toUTCString()}</pubDate>
+      <guid>https://supabase.com/changelog#${entry.id}</guid>
+    </item>
+    `).join('')}
+  </channel>
+</rss>`
+}
+```
+
+## Result
+
+The changelog has become an important communication channel between Supabase and its users, keeping everyone informed about the rapid pace of development.
+
+## Screenshots
+
+Visual documentation from the pull requests:
+
+![Feat/changelog](/pr-images/supabase-changelog-pr9240-1.png)
+

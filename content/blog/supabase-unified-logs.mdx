@@ -1,0 +1,166 @@
+---
+title: Building Unified Logs for Supabase
+subtitle: A comprehensive logging interface with live filtering
+date: 2025-07-08
+description: How I built the unified logs system with inspection panels, dynamic columns, and live filtering.
+image: /misty-moorland.png
+prImages:
+  - /pr-images/supabase-unified-logs-pr37230-1.png
+  - /pr-images/supabase-unified-logs-pr37230-2.png
+  - /pr-images/supabase-unified-logs-pr37230-3.png
+prs:
+  - number: 37275
+    repo: "supabase/supabase"
+    title: "fix: Debounce filter application in UnifiedLogs"
+    url: "https://github.com/supabase/supabase/pull/37275"
+    date: "2025-09-17"
+  - number: 37262
+    repo: "supabase/supabase"
+    title: "Refactor unified logs count query logic"
+    url: "https://github.com/supabase/supabase/pull/37262"
+    date: "2025-07-17"
+  - number: 37252
+    repo: "supabase/supabase"
+    title: "Chore/logs reloading state"
+    url: "https://github.com/supabase/supabase/pull/37252"
+    date: "2025-07-17"
+  - number: 37243
+    repo: "supabase/supabase"
+    title: "Feat/logs date refactor"
+    url: "https://github.com/supabase/supabase/pull/37243"
+    date: "2025-07-17"
+  - number: 36913
+    repo: "supabase/supabase"
+    title: "Feat/unified logs live filter enums"
+    url: "https://github.com/supabase/supabase/pull/36913"
+    date: "2025-07-09"
+  - number: 36895
+    repo: "supabase/supabase"
+    title: "Feat/unified logs inspection panel"
+    url: "https://github.com/supabase/supabase/pull/36895"
+    date: "2025-07-08"
+  - number: 36556
+    repo: "supabase/supabase"
+    title: "feat: add storage logs to unified logs"
+    url: "https://github.com/supabase/supabase/pull/36556"
+    date: "2025-06-30"
+  - number: 36596
+    repo: "supabase/supabase"
+    title: "chore: converts to POST for queries for unified logs"
+    url: "https://github.com/supabase/supabase/pull/36596"
+    date: "2025-06-24"
+  - number: 37239
+    repo: "supabase/supabase"
+    title: "Add dynamic column generation for UnifiedLogs table"
+    url: "https://github.com/supabase/supabase/pull/37239"
+    date: "2025-07-17"
+  - number: 37232
+    repo: "supabase/supabase"
+    title: "Remove 'host' field from UnifiedLogs interface"
+    url: "https://github.com/supabase/supabase/pull/37232"
+    date: "2025-07-17"
+  - number: 37230
+    repo: "supabase/supabase"
+    title: "Feat/logs preview"
+    url: "https://github.com/supabase/supabase/pull/37230"
+    date: "2025-07-17"
+  - number: 23013
+    repo: "supabase/platform"
+    title: "Accept POST requests for logs.all endpoint"
+    url: "https://github.com/supabase/platform/pull/23013"
+    date: "2025-06-24"
+---
+
+
+
+## Related Pull Requests
+
+<PRTable slug="supabase-unified-logs" />
+Debugging distributed systems requires good logs. When Supabase users have issues, they need to see what's happening across their database, auth, storage, and edge functions. I built the unified logs system to bring all of this together.
+
+## The Challenge
+
+Supabase runs multiple services, each with their own log formats:
+
+- **PostgreSQL** logs for database queries
+- **Auth** logs for authentication events
+- **Storage** logs for file operations  
+- **Edge Functions** logs for serverless execution
+- **Realtime** logs for websocket connections
+
+Previously, each had a separate interface. Developers had to context-switch between pages to debug a single user flow that touched multiple services.
+
+## The Solution
+
+The unified logs interface provides:
+
+- **Single view** for all log types
+- **Dynamic columns** that adapt to the log schema
+- **Live filtering** with type-ahead suggestions
+- **Inspection panel** for detailed log exploration
+- **Time range selection** with relative and absolute options
+
+## Technical Implementation
+
+### Dynamic Columns
+
+Different log types have different fields. Rather than hardcoding columns, the table dynamically generates them based on the data:
+
+```typescript title="Dynamic column generation"
+function generateColumns(logs: Log[]) {
+  const allKeys = new Set<string>()
+  logs.forEach(log => {
+    Object.keys(log).forEach(key => allKeys.add(key))
+  })
+  
+  return Array.from(allKeys).map(key => ({
+    id: key,
+    header: formatHeader(key),
+    accessorFn: (row) => row[key],
+  }))
+}
+```
+
+### Live Filtering
+
+The filter system supports multiple filter types with live enum suggestions:
+
+- **Service type** (postgres, auth, storage, etc.)
+- **Log level** (info, warn, error)
+- **Status code** for HTTP-related logs
+- **Custom fields** specific to each service
+
+### Inspection Panel
+
+Clicking a log row opens a detailed inspection panel showing:
+
+- Full JSON payload with syntax highlighting
+- Related metadata
+- Request/response details (for HTTP logs)
+- Stack traces (for error logs)
+
+## Performance Considerations
+
+Logs can be high volume. The system uses:
+
+- **Pagination** to avoid loading everything at once
+- **Debounced filters** to prevent API spam while typing
+- **POST requests** for complex queries (GET URL limits)
+- **Optimistic UI updates** for responsive filtering
+
+## Result
+
+The unified logs system has become essential for Supabase users debugging their applications. Instead of hunting through multiple interfaces, they can see their entire system's activity in one place.
+
+## Screenshots
+
+Visual documentation from the pull requests:
+
+### Feat/logs preview
+
+![Screenshot](/pr-images/supabase-unified-logs-pr37230-1.png)
+
+![Screenshot](/pr-images/supabase-unified-logs-pr37230-2.png)
+
+![Screenshot](/pr-images/supabase-unified-logs-pr37230-3.png)
+

@@ -1,0 +1,129 @@
+---
+title: Realtime Landing Page
+subtitle: Showcasing Supabase's real-time capabilities
+date: 2022-11-03
+description: Building the marketing landing page for Supabase Realtime.
+image: /highland-hikers.png
+prImages:
+  - /pr-images/supabase-realtime-landing-pr8484-1.png
+  - /pr-images/supabase-realtime-landing-pr8484-2.png
+prs:
+  - number: 8484
+    repo: "supabase/supabase"
+    title: "Feat/realtime landing page"
+    url: "https://github.com/supabase/supabase/pull/8484"
+    date: "2022-11-03"
+---
+
+
+
+## Related Pull Requests
+
+<PRTable slug="supabase-realtime-landing" />
+Supabase Realtime is one of the platform's most powerful features—enabling real-time subscriptions to database changes, presence tracking, and broadcast messaging. I built the landing page to showcase these capabilities.
+
+## The Goal
+
+The landing page needed to:
+
+- **Explain** what Realtime does in simple terms
+- **Demonstrate** the capabilities interactively
+- **Convert** visitors to try Supabase
+- **Document** the feature for existing users
+
+## Interactive Demos
+
+The page includes live demos showing:
+
+### Database Changes
+
+A visual representation of database changes propagating in real-time:
+
+```tsx title="Live database changes demo"
+<div className="grid grid-cols-2 gap-8">
+  <div>
+    <h4>Insert Row</h4>
+    <Button onClick={insertRow}>Add Message</Button>
+  </div>
+  <div>
+    <h4>Live Updates</h4>
+    <AnimatedList>
+      {messages.map((msg) => (
+        <ListItem key={msg.id} animate>
+          {msg.content}
+        </ListItem>
+      ))}
+    </AnimatedList>
+  </div>
+</div>
+```
+
+### Presence
+
+Showing who's online with live cursor positions:
+
+```tsx title="Presence demo"
+<PresenceCanvas>
+  {Object.entries(presence).map(([id, state]) => (
+    <Cursor 
+      key={id}
+      x={state.x}
+      y={state.y}
+      color={state.color}
+      label={state.name}
+    />
+  ))}
+</PresenceCanvas>
+```
+
+### Broadcast
+
+Real-time messaging without persistence:
+
+```tsx title="Broadcast demo"
+<ChatWindow>
+  {broadcasts.map((msg, i) => (
+    <ChatMessage key={i} {...msg} />
+  ))}
+  <ChatInput onSend={broadcast} />
+</ChatWindow>
+```
+
+## Visual Design
+
+The page uses motion and interaction to convey the real-time nature:
+
+- **Animated code examples** showing messages flowing
+- **Live counters** of connected users
+- **Smooth transitions** for all updates
+- **Dark theme** to match the developer aesthetic
+
+## Code Examples
+
+Each feature includes copy-ready code:
+
+```typescript title="Subscribe to changes"
+const channel = supabase
+  .channel('room1')
+  .on(
+    'postgres_changes',
+    { event: 'INSERT', schema: 'public', table: 'messages' },
+    (payload) => console.log('New message:', payload.new)
+  )
+  .subscribe()
+```
+
+## Impact
+
+The Realtime landing page became a key conversion point for developers exploring Supabase's capabilities. The interactive demos help users understand the feature before they even sign up.
+
+## Screenshots
+
+Visual documentation from the pull requests:
+
+### Feat/realtime landing page
+
+![Screenshot](/pr-images/supabase-realtime-landing-pr8484-1.png)
+
+![Screenshot](/pr-images/supabase-realtime-landing-pr8484-2.png)
+

@@ -1,0 +1,129 @@
+---
+title: Building Supabase's Theming System
+subtitle: A flexible theming architecture for light, dark, and beyond
+date: 2022-01-22
+description: How I built the theming infrastructure that powers all Supabase applications.
+image: /scottish-highlands.png
+prs:
+  - number: 18051
+    repo: "supabase/supabase"
+    title: "Feat/design tokens upgrade"
+    url: "https://github.com/supabase/supabase/pull/18051"
+    date: "2023-10-23"
+  - number: 17948
+    repo: "supabase/supabase"
+    title: "Chore/add theming docs"
+    url: "https://github.com/supabase/supabase/pull/17948"
+    date: "2023-10-09"
+  - number: 9394
+    repo: "supabase/supabase"
+    title: "fix: tailwind config"
+    url: "https://github.com/supabase/supabase/pull/9394"
+    date: "2022-10-19"
+  - number: 5789
+    repo: "supabase/supabase"
+    title: "[chore] use CSS variables for chart handler"
+    url: "https://github.com/supabase/supabase/pull/5789"
+    date: "2022-03-23"
+  - number: 308
+    repo: "supabase/ui"
+    title: "Feature/theming"
+    url: "https://github.com/supabase/ui/pull/308"
+    date: "2022-01-22"
+  - number: 34835
+    repo: "supabase/supabase"
+    title: "Revert code style in tailwind"
+    url: "https://github.com/supabase/supabase/pull/34835"
+    date: "2025-04-08"
+  - number: 13137
+    repo: "supabase/supabase"
+    title: "Design tokens <> Tailwind"
+    url: "https://github.com/supabase/supabase/pull/13137"
+    date: "2023-05-23"
+  - number: 12195
+    repo: "supabase/supabase"
+    title: "remove comments"
+    url: "https://github.com/supabase/supabase/pull/12195"
+    date: "2023-02-08"
+  - number: 961
+    repo: "supabase/platform"
+    title: "Chore/ui refactor - updated color scheme"
+    url: "https://github.com/supabase/platform/pull/961"
+    date: "2021-04-27"
+---
+
+
+
+## Related Pull Requests
+
+<PRTable slug="supabase-theming-system" />
+Theming might seem simple—just swap some colors, right? But building a robust theming system for a platform with multiple applications, component states, and accessibility requirements is genuinely complex.
+
+## The Architecture
+
+The theming system I built for Supabase uses CSS custom properties (variables) as the foundation, with Tailwind CSS classes mapping to these variables. This gives us:
+
+- **Runtime theme switching** without JavaScript bundle changes
+- **System preference detection** for automatic dark/light mode
+- **Per-component theme overrides** when needed
+- **Consistent tokens** across all applications
+
+```css title="Theme token structure"
+:root {
+  --background-default: 0 0% 100%;
+  --foreground-default: 222 47% 11%;
+  --border-default: 214 32% 91%;
+  /* ... hundreds more tokens */
+}
+
+[data-theme="dark"] {
+  --background-default: 222 47% 11%;
+  --foreground-default: 210 40% 98%;
+  --border-default: 215 28% 17%;
+}
+```
+
+## Design Tokens
+
+The system uses a semantic token approach:
+
+- **Color tokens** for backgrounds, foregrounds, borders, and accents
+- **Spacing tokens** that scale consistently
+- **Typography tokens** for font sizes, weights, and line heights
+- **Animation tokens** for consistent motion
+
+Each token has semantic meaning. Instead of `bg-gray-900`, we use `bg-background-default`. This abstraction is what allows themes to work—the meaning stays the same, but the actual color values change.
+
+## Implementation Details
+
+The theming system integrates with:
+
+- **next-themes** for SSR-safe theme switching
+- **Tailwind CSS** via a custom plugin for our tokens
+- **Radix UI** for accessible component primitives
+- **Our component library** for consistent usage patterns
+
+```tsx title="Theme provider setup"
+import { ThemeProvider } from '@supabase/ui'
+
+export function App({ children }) {
+  return (
+    <ThemeProvider defaultTheme="system" enableSystem>
+      {children}
+    </ThemeProvider>
+  )
+}
+```
+
+## Impact
+
+The theming system now powers:
+
+- Studio (the main dashboard)
+- The marketing website
+- Documentation site
+- Design system site
+- All internal tools
+
+Users can switch between light and dark modes seamlessly, with their preference persisted and respected across sessions.
+

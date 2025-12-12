@@ -24,6 +24,12 @@ export function Header() {
           >
             Blog
           </Link>
+          <Link 
+            href="/prs" 
+            className="text-sm font-medium text-subtitle hover:text-heading transition-colors"
+          >
+            PRs
+          </Link>
           <ThemeToggle />
         </div>
       </nav>

@@ -1,0 +1,213 @@
+---
+title: Supabase SEO & Sitemaps
+subtitle: Search optimization, sitemaps, and discoverability
+date: 2022-11-14
+description: Building SEO infrastructure including sitemaps, RSS feeds, and meta optimization.
+image: /misty-moorland.png
+prImages:
+  - /pr-images/supabase-seo-sitemaps-pr2492-1.jpg
+prs:
+  - number: 29872
+    repo: "supabase/supabase"
+    title: "Chore/update sitemaps and rss logic"
+    url: "https://github.com/supabase/supabase/pull/29872"
+    date: "2024-11-01"
+  - number: 19372
+    repo: "supabase/supabase"
+    title: "chore: sitemaps update"
+    url: "https://github.com/supabase/supabase/pull/19372"
+    date: "2023-12-01"
+  - number: 15009
+    repo: "supabase/supabase"
+    title: "Chore/remove .xml sitemaps/rss feed from version control"
+    url: "https://github.com/supabase/supabase/pull/15009"
+    date: "2023-06-13"
+  - number: 12463
+    repo: "supabase/supabase"
+    title: "update feeds and sitemap"
+    url: "https://github.com/supabase/supabase/pull/12463"
+    date: "2023-02-16"
+  - number: 12104
+    repo: "supabase/supabase"
+    title: "add video meta tags"
+    url: "https://github.com/supabase/supabase/pull/12104"
+    date: "2023-02-02"
+  - number: 10430
+    repo: "supabase/supabase"
+    title: "fix: docs sitemap"
+    url: "https://github.com/supabase/supabase/pull/10430"
+    date: "2022-11-21"
+  - number: 10307
+    repo: "supabase/supabase"
+    title: "Fix/docs sitemap"
+    url: "https://github.com/supabase/supabase/pull/10307"
+    date: "2022-11-14"
+  - number: 4270
+    repo: "supabase/supabase"
+    title: "Chore/blog rss and image fix"
+    url: "https://github.com/supabase/supabase/pull/4270"
+    date: "2021-12-03"
+  - number: 4021
+    repo: "supabase/supabase"
+    title: "fix: spelt https wrong in sitemap"
+    url: "https://github.com/supabase/supabase/pull/4021"
+    date: "2021-11-23"
+  - number: 4019
+    repo: "supabase/supabase"
+    title: "chore: add sitemap generator"
+    url: "https://github.com/supabase/supabase/pull/4019"
+    date: "2021-11-23"
+  - number: 3760
+    repo: "supabase/supabase"
+    title: "fix: & character breaking rss feed"
+    url: "https://github.com/supabase/supabase/pull/3760"
+    date: "2021-11-03"
+  - number: 3744
+    repo: "supabase/supabase"
+    title: "chore: add rewrites for misc txt pages and rss feed"
+    url: "https://github.com/supabase/supabase/pull/3744"
+    date: "2021-11-03"
+  - number: 930
+    repo: "supabase/supabase"
+    title: "fix: rss feed urls"
+    url: "https://github.com/supabase/supabase/pull/930"
+    date: "2021-03-24"
+  - number: 896
+    repo: "supabase/supabase"
+    title: "fix: rewrite for rss feed"
+    url: "https://github.com/supabase/supabase/pull/896"
+    date: "2021-03-18"
+  - number: 22226
+    repo: "supabase/supabase"
+    title: "Chore/favicon fix"
+    url: "https://github.com/supabase/supabase/pull/22226"
+    date: "2024-03-26"
+  - number: 12643
+    repo: "supabase/supabase"
+    title: "[Docs] meta data wrong on guides and homepage"
+    url: "https://github.com/supabase/supabase/pull/12643"
+    date: "2023-02-24"
+  - number: 9313
+    repo: "supabase/supabase"
+    title: "Fix/blog code wrap"
+    url: "https://github.com/supabase/supabase/pull/9313"
+    date: "2022-10-04"
+  - number: 8392
+    repo: "supabase/supabase"
+    title: "Blog/lw5 2"
+    url: "https://github.com/supabase/supabase/pull/8392"
+    date: "2022-08-16"
+  - number: 8253
+    repo: "supabase/supabase"
+    title: "Fix/blog path issues"
+    url: "https://github.com/supabase/supabase/pull/8253"
+    date: "2022-08-12"
+  - number: 2492
+    repo: "supabase/supabase"
+    title: "Chore/update og launch week 2"
+    url: "https://github.com/supabase/supabase/pull/2492"
+    date: "2021-07-24"
+---
+
+
+
+## Related Pull Requests
+
+<PRTable slug="supabase-seo-sitemaps" />
+Developers find tools through search. I built SEO infrastructure to help Supabase content get discovered.
+
+## Sitemap Generation
+
+Automated sitemap generation for all properties:
+
+```typescript title="Sitemap generation"
+async function generateSitemap() {
+  const pages = await getAllPages()
+  const sitemap = pages.map(page => ({
+    url: `https://supabase.com${page.path}`,
+    lastmod: page.updatedAt,
+    priority: page.priority,
+  }))
+  return toXML(sitemap)
+}
+```
+
+## Sitemap Fixes
+
+Multiple sitemap iterations:
+
+- Fixed HTTPS spelling in sitemap
+- Proper sitemap validation
+- Removed from version control (generated at build)
+- Multi-property sitemap support
+
+## RSS Feeds
+
+RSS for blog and changelog:
+
+- Blog post feed
+- Changelog updates
+- Proper XML encoding
+- & character escaping fix
+
+## Robots.txt
+
+Proper crawl configuration:
+
+- Allow all public pages
+- Disallow admin routes
+- Sitemap location
+- Crawl rate hints
+
+I fixed robots crawl issues to ensure proper indexing.
+
+## Meta Tags
+
+Comprehensive meta tag coverage:
+
+```tsx title="Page metadata"
+<Head>
+  <title>{page.title} | Supabase</title>
+  <meta name="description" content={page.description} />
+  <meta property="og:image" content={page.ogImage} />
+  <meta name="twitter:card" content="summary_large_image" />
+</Head>
+```
+
+## Video Meta Tags
+
+For pages with video content:
+
+```tsx title="Video meta tags"
+<meta property="og:video" content={videoUrl} />
+<meta property="og:video:type" content="video/mp4" />
+<meta property="og:video:width" content="1280" />
+<meta property="og:video:height" content="720" />
+```
+
+## OpenGraph Images
+
+Dynamic OG image generation:
+
+- Page-specific images
+- Blog post images
+- Documentation images
+- Launch week graphics
+
+## Impact
+
+SEO infrastructure:
+
+1. Improves search rankings
+2. Enables content discovery
+3. Drives organic traffic
+4. Supports marketing efforts
+
+Discoverability is distribution.
+
+## Screenshots
+
+Visual documentation from the pull requests:
+
+![Chore/update og launch week 2](/pr-images/supabase-seo-sitemaps-pr2492-1.jpg)
+

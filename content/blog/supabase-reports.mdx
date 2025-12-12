@@ -1,0 +1,136 @@
+---
+title: Reports & Analytics Dashboard
+subtitle: Database metrics, query performance, and usage reports
+date: 2022-03-04
+description: Building the reports system for database metrics, query performance analysis, and usage tracking.
+image: /misty-moorland.png
+prImages:
+  - /pr-images/supabase-reports-pr12561-3.png
+  - /pr-images/supabase-reports-pr5788-1.png
+  - /pr-images/supabase-reports-pr5788-2.png
+prs:
+  - number: 22423
+    repo: "supabase/supabase"
+    title: "chore: move perf report and query perf report to database"
+    url: "https://github.com/supabase/supabase/pull/22423"
+    date: "2024-04-04"
+  - number: 5788
+    repo: "supabase/supabase"
+    title: "Fix/reports dropdown"
+    url: "https://github.com/supabase/supabase/pull/5788"
+    date: "2022-03-05"
+  - number: 1544
+    repo: "supabase/platform"
+    title: "chore: unlock reports and project homepage"
+    url: "https://github.com/supabase/platform/pull/1544"
+    date: "2021-07-29"
+  - number: 37243
+    repo: "supabase/supabase"
+    title: "Feat/logs date refactor"
+    url: "https://github.com/supabase/supabase/pull/37243"
+    date: "2025-07-17"
+  - number: 12561
+    repo: "supabase/supabase"
+    title: "[Dash] Query performance UI"
+    url: "https://github.com/supabase/supabase/pull/12561"
+    date: "2023-02-24"
+  - number: 1579
+    repo: "supabase/platform"
+    title: "fix: spelling of memory and cpu keys fixed"
+    url: "https://github.com/supabase/platform/pull/1579"
+    date: "2021-08-05"
+---
+
+
+
+## Related Pull Requests
+
+<PRTable slug="supabase-reports" />
+Users need visibility into how their database is performing. I built the reports system to surface key metrics and help identify issues.
+
+## Reports Overview
+
+The reports section provides:
+
+- **Database Metrics**: CPU, memory, disk usage over time
+- **Query Performance**: Slow queries, most frequent queries
+- **API Usage**: Request counts, response times
+- **Storage Stats**: Bucket usage, file counts
+
+## Reports Dropdown Fix
+
+Early on, the reports dropdown had display issues:
+
+```tsx title="Reports dropdown fix"
+// Fixed dropdown not displaying correctly
+// Updated to latest @supabase/ui
+<Dropdown overlay={reportsMenu}>
+  <Button type="text">
+    Reports <ChevronDown />
+  </Button>
+</Dropdown>
+```
+
+## Query Performance Report
+
+Added a dedicated report for query performance using the same "hooks factory" pattern as other reports:
+
+```typescript title="Query performance report hook"
+export function useQueryPerformanceReport(projectRef: string) {
+  return useQuery({
+    queryKey: ['query-performance', projectRef],
+    queryFn: () => getQueryStats(projectRef),
+  })
+}
+```
+
+### Features
+
+- Most time-consuming queries
+- Most frequently run queries  
+- Queries with potential for optimization
+- Index suggestions
+
+## Reports Architecture
+
+Reports follow a consistent pattern:
+
+1. **Data fetching**: Custom hooks using react-query
+2. **Visualization**: Charts with Recharts
+3. **Date range**: Shared date picker component
+4. **Export**: CSV/JSON download options
+
+## Unlocking Reports
+
+Reports were initially locked for certain tiers. We unlocked them to give all users visibility:
+
+```typescript title="Unlocking reports"
+// Previously: reports locked for free tier
+// Now: available for all projects
+const canViewReports = true // Removed tier check
+```
+
+## Integration with Logs
+
+Reports now connect with the logs system:
+
+- Click a slow query to see related logs
+- Filter logs by the time range from reports
+- Jump from error spikes to log details
+
+## Result
+
+The reports system helps users understand their database performance and identify optimization opportunities before they become problems.
+
+## Screenshots
+
+Visual documentation from the pull requests:
+
+### Fix/reports dropdown
+
+![Screenshot](/pr-images/supabase-reports-pr5788-1.png)
+
+![Screenshot](/pr-images/supabase-reports-pr5788-2.png)
+
+![[Dash] Query performance UI](/pr-images/supabase-reports-pr12561-3.png)
+

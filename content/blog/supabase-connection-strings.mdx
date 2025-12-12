@@ -1,0 +1,143 @@
+---
+title: Connection String Revamp
+subtitle: Making database connections clearer
+date: 2024-12-05
+description: Redesigning the connection string interface for Supabase projects.
+image: /mountain-lake.png
+prImages:
+  - /pr-images/supabase-connection-strings-pr21079-4.png
+  - /pr-images/supabase-connection-strings-pr30572-1.png
+  - /pr-images/supabase-connection-strings-pr30572-2.png
+  - /pr-images/supabase-connection-strings-pr30572-3.png
+prs:
+  - number: 31023
+    repo: "supabase/supabase"
+    title: "Update PoolerIcons.tsx"
+    url: "https://github.com/supabase/supabase/pull/31023"
+    date: "2024-12-09"
+  - number: 30572
+    repo: "supabase/supabase"
+    title: "Feat/connection string revamp"
+    url: "https://github.com/supabase/supabase/pull/30572"
+    date: "2024-12-05"
+  - number: 28887
+    repo: "supabase/supabase"
+    title: "Update DatabaseConnectionString.tsx"
+    url: "https://github.com/supabase/supabase/pull/28887"
+    date: "2024-08-29"
+  - number: 21079
+    repo: "supabase/supabase"
+    title: "Feat/homepage connect modal combined  styling update"
+    url: "https://github.com/supabase/supabase/pull/21079"
+    date: "2024-02-07"
+---
+
+
+
+## Related Pull Requests
+
+<PRTable slug="supabase-connection-strings" />
+Database connection strings are fundamental to using Supabase—but they can be confusing. There are different strings for different use cases (direct, pooled, transaction mode), and users often copy the wrong one. I revamped the connection string interface to make it clearer.
+
+## The Problem
+
+Users were confused about:
+
+- **Which connection string to use** for their framework
+- **Pooled vs direct** connections and when to use each
+- **Transaction vs session mode** for the pooler
+- **Environment variables** expected by different tools
+
+## The New Design
+
+### Clear Categorization
+
+Connection options are now grouped by use case:
+
+```tsx title="Connection categories"
+<Tabs defaultValue="direct">
+  <TabsList>
+    <TabsTrigger value="direct">Direct Connection</TabsTrigger>
+    <TabsTrigger value="pooler">Connection Pooler</TabsTrigger>
+    <TabsTrigger value="prisma">Prisma</TabsTrigger>
+  </TabsList>
+  
+  <TabsContent value="direct">
+    <ConnectionString 
+      value={directUrl}
+      description="Use for long-running processes like migrations"
+    />
+  </TabsContent>
+  
+  <TabsContent value="pooler">
+    <PoolerModeSelector mode={poolerMode} onChange={setPoolerMode} />
+    <ConnectionString 
+      value={poolerUrl}
+      description="Use for serverless environments"
+    />
+  </TabsContent>
+</Tabs>
+```
+
+### Framework Detection
+
+The UI suggests the right connection based on detected framework:
+
+```typescript title="Framework suggestions"
+const frameworkSuggestions = {
+  'next.js': {
+    variable: 'DATABASE_URL',
+    mode: 'pooler-transaction',
+  },
+  'prisma': {
+    variable: 'DATABASE_URL',
+    mode: 'pooler-session',
+    note: 'Prisma requires session mode for migrations',
+  },
+  'drizzle': {
+    variable: 'DATABASE_URL',
+    mode: 'pooler-transaction',
+  },
+}
+```
+
+### Copy-Ready Snippets
+
+Each connection type shows ready-to-copy snippets:
+
+```tsx title="Environment snippet"
+<CodeBlock title=".env.local">
+  DATABASE_URL={connectionString}
+</CodeBlock>
+<CopyButton value={`DATABASE_URL=${connectionString}`} />
+```
+
+### Pooler Mode Explanation
+
+Clear explanations for each pooler mode:
+
+- **Transaction Mode**: Best for serverless, each query gets its own connection
+- **Session Mode**: Required for prepared statements and Prisma
+
+## Integration with Connect Button
+
+The connection strings interface integrates with the main "Connect" button in the dashboard header, providing quick access from anywhere in the app.
+
+## Result
+
+The revamped connection string interface reduces confusion and support tickets about connection issues. Users can quickly find the right connection string for their specific use case.
+
+## Screenshots
+
+Visual documentation from the pull requests:
+
+![Feat/homepage connect modal combined  styling update](/pr-images/supabase-connection-strings-pr21079-4.png)
+
+### Feat/connection string revamp
+
+![Screenshot](/pr-images/supabase-connection-strings-pr30572-1.png)
+
+![Screenshot](/pr-images/supabase-connection-strings-pr30572-2.png)
+
+![Screenshot](/pr-images/supabase-connection-strings-pr30572-3.png)
+

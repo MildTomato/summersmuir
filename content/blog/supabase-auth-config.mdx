@@ -1,0 +1,189 @@
+---
+title: Refactoring Supabase Auth Configuration
+subtitle: A better interface for authentication settings
+date: 2022-07-14
+description: Rebuilding the auth configuration UI with better validation and UX.
+image: /valley-explorer.png
+prImages:
+  - /pr-images/supabase-auth-config-pr6791-1.png
+  - /pr-images/supabase-auth-config-pr6791-2.png
+  - /pr-images/supabase-auth-config-pr6791-3.png
+  - /pr-images/supabase-auth-config-pr6791-4.png
+prs:
+  - number: 29713
+    repo: "supabase/supabase"
+    title: "Chore/ Remove SMTP banner from project homapage"
+    url: "https://github.com/supabase/supabase/pull/29713"
+    date: "2024-10-07"
+  - number: 7708
+    repo: "supabase/supabase"
+    title: "Fix/add rate limit auth config"
+    url: "https://github.com/supabase/supabase/pull/7708"
+    date: "2022-07-15"
+  - number: 7700
+    repo: "supabase/supabase"
+    title: "Fix/regex smtp domain"
+    url: "https://github.com/supabase/supabase/pull/7700"
+    date: "2022-07-15"
+  - number: 6791
+    repo: "supabase/supabase"
+    title: "feat/auth config refactor"
+    url: "https://github.com/supabase/supabase/pull/6791"
+    date: "2022-07-14"
+  - number: 4512
+    repo: "supabase/platform"
+    title: "fix: trim all white space from URI_ALLOW_LIST in payload for auth config"
+    url: "https://github.com/supabase/platform/pull/4512"
+    date: "2022-03-01"
+  - number: 3304
+    repo: "supabase/supabase"
+    title: "fix: SMTP settings included in free tier"
+    url: "https://github.com/supabase/supabase/pull/3304"
+    date: "2021-09-24"
+  - number: 1777
+    repo: "supabase/platform"
+    title: "fix: smtp toggle"
+    url: "https://github.com/supabase/platform/pull/1777"
+    date: "2021-08-31"
+  - number: 1492
+    repo: "supabase/platform"
+    title: "Fix/smtp settings"
+    url: "https://github.com/supabase/platform/pull/1492"
+    date: "2021-08-05"
+  - number: 7704
+    repo: "supabase/supabase"
+    title: "fix: add rate limit for SMTP settings"
+    url: "https://github.com/supabase/supabase/pull/7704"
+    date: "2022-07-15"
+  - number: 7701
+    repo: "supabase/supabase"
+    title: "fix: issues with double negative keys"
+    url: "https://github.com/supabase/supabase/pull/7701"
+    date: "2022-07-15"
+  - number: 7698
+    repo: "supabase/supabase"
+    title: "Fix/regex issues in auth settings"
+    url: "https://github.com/supabase/supabase/pull/7698"
+    date: "2022-07-15"
+  - number: 2389
+    repo: "supabase/platform"
+    title: "Chore - roll out api.supabase.io and api.supabase.green"
+    url: "https://github.com/supabase/platform/pull/2389"
+    date: "2021-11-17"
+  - number: 1784
+    repo: "supabase/platform"
+    title: "Fix/auth toggle no confirm"
+    url: "https://github.com/supabase/platform/pull/1784"
+    date: "2021-08-31"
+  - number: 1755
+    repo: "supabase/platform"
+    title: "Release"
+    url: "https://github.com/supabase/platform/pull/1755"
+    date: "2021-08-27"
+  - number: 1737
+    repo: "supabase/platform"
+    title: "fix: SMS settings can now be toggled off"
+    url: "https://github.com/supabase/platform/pull/1737"
+    date: "2021-08-26"
+---
+
+
+
+## Related Pull Requests
+
+<PRTable slug="supabase-auth-config" />
+Authentication configuration is complex. Users need to set up OAuth providers, configure email templates, manage rate limits, and handle edge cases like custom SMTP. I refactored the entire auth configuration interface to make it more intuitive and less error-prone.
+
+## The Scope
+
+The refactoring touched 71 files and included:
+
+- **Provider configuration** (Google, GitHub, Apple, etc.)
+- **Email settings** (templates, SMTP, rate limits)
+- **Phone auth** (SMS providers, OTP settings)
+- **URL configuration** (redirect URLs, site URL)
+- **Security settings** (MFA, session length)
+
+## Key Improvements
+
+### Form Validation
+
+Auth configuration has many interdependent fields. For example, enabling SMTP requires valid host, port, and credentials:
+
+```typescript title="Schema validation with Yup"
+const smtpSchema = yup.object({
+  smtp_enabled: yup.boolean(),
+  smtp_host: yup.string().when('smtp_enabled', {
+    is: true,
+    then: yup.string().required('SMTP host is required'),
+  }),
+  smtp_port: yup.number().when('smtp_enabled', {
+    is: true,
+    then: yup.number().required().min(1).max(65535),
+  }),
+  // ...
+})
+```
+
+### Provider Toggle States
+
+Each OAuth provider has an enable/disable toggle with clear visual states:
+
+```tsx title="Provider toggle"
+<Toggle
+  checked={provider.enabled}
+  onChange={(enabled) => {
+    if (enabled && !hasRequiredFields(provider)) {
+      openConfigModal(provider)
+    } else {
+      updateProvider({ ...provider, enabled })
+    }
+  }}
+/>
+```
+
+### Rate Limit Configuration
+
+Added proper rate limit controls for signup, login, and OTP:
+
+```tsx title="Rate limit input"
+<FormField
+  name="rate_limit_email_sent"
+  label="Email rate limit"
+  description="Maximum emails per hour per user"
+>
+  <Input type="number" min={1} max={1000} />
+</FormField>
+```
+
+## Regex and Validation Fixes
+
+Several bugs were fixed around input validation:
+
+- SMTP domain regex that broke on edge cases
+- Double-negative keys in configuration payloads
+- URL allowlist handling with whitespace
+
+## Result
+
+The auth configuration interface is now:
+
+- More intuitive with better grouping
+- Safer with client-side validation
+- Clearer about required vs optional fields
+- Consistent with the rest of the dashboard
+
+## Screenshots
+
+Visual documentation from the pull requests:
+
+### feat/auth config refactor
+
+![Screenshot](/pr-images/supabase-auth-config-pr6791-1.png)
+
+![Screenshot](/pr-images/supabase-auth-config-pr6791-2.png)
+
+![Screenshot](/pr-images/supabase-auth-config-pr6791-3.png)
+
+![Screenshot](/pr-images/supabase-auth-config-pr6791-4.png)
+

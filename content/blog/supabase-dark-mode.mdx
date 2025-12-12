@@ -1,0 +1,257 @@
+---
+title: Dark Mode Implementation at Supabase
+subtitle: Theming, light mode fixes, and consistent dark experiences
+date: 2021-05-04
+description: Implementing and maintaining dark mode across all Supabase properties.
+image: /misty-moorland.png
+prImages:
+  - /pr-images/supabase-dark-mode-pr1026-15.png
+  - /pr-images/supabase-dark-mode-pr1026-16.png
+  - /pr-images/supabase-dark-mode-pr1041-6.png
+  - /pr-images/supabase-dark-mode-pr1041-7.png
+  - /pr-images/supabase-dark-mode-pr1631-4.png
+  - /pr-images/supabase-dark-mode-pr1631-5.png
+  - /pr-images/supabase-dark-mode-pr21482-14.png
+  - /pr-images/supabase-dark-mode-pr21866-12.png
+  - /pr-images/supabase-dark-mode-pr21866-13.png
+  - /pr-images/supabase-dark-mode-pr22392-1.png
+  - /pr-images/supabase-dark-mode-pr22392-2.png
+  - /pr-images/supabase-dark-mode-pr22392-3.png
+  - /pr-images/supabase-dark-mode-pr22591-10.png
+  - /pr-images/supabase-dark-mode-pr22591-11.png
+  - /pr-images/supabase-dark-mode-pr65-8.png
+  - /pr-images/supabase-dark-mode-pr65-9.png
+prs:
+  - number: 22392
+    repo: "supabase/supabase"
+    title: "fix: update dark mode css. update borders for light and dark mode"
+    url: "https://github.com/supabase/supabase/pull/22392"
+    date: "2024-04-05"
+  - number: 13722
+    repo: "supabase/supabase"
+    title: "Fix/cmdk light mode"
+    url: "https://github.com/supabase/supabase/pull/13722"
+    date: "2023-04-14"
+  - number: 1631
+    repo: "supabase/platform"
+    title: "Chore/scroll bar light mode"
+    url: "https://github.com/supabase/platform/pull/1631"
+    date: "2021-08-18"
+  - number: 1041
+    repo: "supabase/platform"
+    title: "fix: roles black text in dark mode"
+    url: "https://github.com/supabase/platform/pull/1041"
+    date: "2021-05-11"
+  - number: 1001
+    repo: "supabase/platform"
+    title: "WIP Fix: Light mode fix 2"
+    url: "https://github.com/supabase/platform/pull/1001"
+    date: "2021-05-04"
+  - number: 1000
+    repo: "supabase/platform"
+    title: "WIP Fix/light mode fix 1"
+    url: "https://github.com/supabase/platform/pull/1000"
+    date: "2021-05-04"
+  - number: 999
+    repo: "supabase/platform"
+    title: "WIP Feature/light mode"
+    url: "https://github.com/supabase/platform/pull/999"
+    date: "2021-05-04"
+  - number: 65
+    repo: "supabase/ui"
+    title: "chore: improved <Badge> colors for dark mode"
+    url: "https://github.com/supabase/ui/pull/65"
+    date: "2021-01-13"
+  - number: 22591
+    repo: "supabase/supabase"
+    title: "chore: update styles"
+    url: "https://github.com/supabase/supabase/pull/22591"
+    date: "2024-04-10"
+  - number: 21866
+    repo: "supabase/supabase"
+    title: "Chore/update light mode overlay bg"
+    url: "https://github.com/supabase/supabase/pull/21866"
+    date: "2024-03-08"
+  - number: 21483
+    repo: "supabase/supabase"
+    title: "fix: update brand colors in SQL editor AI"
+    url: "https://github.com/supabase/supabase/pull/21483"
+    date: "2024-02-23"
+  - number: 21482
+    repo: "supabase/supabase"
+    title: "a11y updates on table editor entity items"
+    url: "https://github.com/supabase/supabase/pull/21482"
+    date: "2024-02-23"
+  - number: 10088
+    repo: "supabase/supabase"
+    title: "Update default-colors.js"
+    url: "https://github.com/supabase/supabase/pull/10088"
+    date: "2022-11-04"
+  - number: 1026
+    repo: "supabase/platform"
+    title: "fix/table forms"
+    url: "https://github.com/supabase/platform/pull/1026"
+    date: "2021-05-07"
+  - number: 20
+    repo: "supabase/ui"
+    title: "Fix/styling fixes and button shadows"
+    url: "https://github.com/supabase/ui/pull/20"
+    date: "2021-01-06"
+---
+
+
+
+## Related Pull Requests
+
+<PRTable slug="supabase-dark-mode" />
+Developers love dark mode. I implemented and maintained dark mode across the Supabase ecosystem.
+
+## Light Mode Fixes
+
+When light mode was added, many issues emerged:
+
+- Roles showing black text on dark backgrounds
+- Monaco editor themes not matching
+- Checkbox colors incorrect
+- Scrollbar styling issues
+
+I fixed these systematically across the dashboard.
+
+## Theme System
+
+The theme system supports:
+
+- System preference detection
+- Manual toggle
+- Persistence across sessions
+- Real-time switching
+
+```typescript title="Theme detection"
+const prefersDark = window.matchMedia('(prefers-color-scheme: dark)')
+
+prefersDark.addEventListener('change', (e) => {
+  setTheme(e.matches ? 'dark' : 'light')
+})
+```
+
+## Monaco Dark Theme
+
+Custom dark theme for the SQL editor:
+
+- Syntax highlighting colors
+- Background matching dashboard
+- Cursor and selection colors
+- Line number styling
+
+## Component Styling
+
+Each component needed dark mode support:
+
+### Inputs
+
+```css title="Dark mode inputs"
+.input {
+  background: var(--bg-secondary);
+  border-color: var(--border-default);
+  color: var(--text-primary);
+}
+```
+
+### Modals
+
+Overlay backgrounds with proper opacity and blur.
+
+### Charts
+
+Tooltip backgrounds fixed for dark mode visibility.
+
+## Scrollbar Styling
+
+Custom scrollbars for dark mode:
+
+```css title="Dark scrollbars"
+::-webkit-scrollbar-track {
+  background: var(--bg-primary);
+}
+::-webkit-scrollbar-thumb {
+  background: var(--bg-tertiary);
+}
+```
+
+## Theme Switcher
+
+The theme switcher in account settings:
+
+- Visual preview of themes
+- Instant application
+- Persisted preference
+
+## Deep Dark Theme
+
+Beyond standard dark mode, I added the "Deep Dark" theme variant:
+
+- Even darker backgrounds
+- Higher contrast text
+- OLED-friendly blacks
+
+## Impact
+
+Dark mode support:
+
+1. Reduces eye strain
+2. Saves battery on OLED
+3. Matches developer preferences
+4. Improves focus
+
+Dark mode is table stakes for developer tools.
+
+## Screenshots
+
+Visual documentation from the pull requests:
+
+### chore: improved <Badge> colors for dark mode
+
+![Screenshot](/pr-images/supabase-dark-mode-pr65-8.png)
+
+![Screenshot](/pr-images/supabase-dark-mode-pr65-9.png)
+
+### fix/table forms
+
+![Screenshot](/pr-images/supabase-dark-mode-pr1026-15.png)
+
+![Screenshot](/pr-images/supabase-dark-mode-pr1026-16.png)
+
+### fix: roles black text in dark mode
+
+![Screenshot](/pr-images/supabase-dark-mode-pr1041-6.png)
+
+![Screenshot](/pr-images/supabase-dark-mode-pr1041-7.png)
+
+### Chore/scroll bar light mode
+
+![Screenshot](/pr-images/supabase-dark-mode-pr1631-4.png)
+
+![Screenshot](/pr-images/supabase-dark-mode-pr1631-5.png)
+
+![a11y updates on table editor entity items](/pr-images/supabase-dark-mode-pr21482-14.png)
+
+### Chore/update light mode overlay bg
+
+![Screenshot](/pr-images/supabase-dark-mode-pr21866-12.png)
+
+![Screenshot](/pr-images/supabase-dark-mode-pr21866-13.png)
+
+### fix: update dark mode css. update borders for light and dark mode
+
+![Screenshot](/pr-images/supabase-dark-mode-pr22392-1.png)
+
+![Screenshot](/pr-images/supabase-dark-mode-pr22392-2.png)
+
+![Screenshot](/pr-images/supabase-dark-mode-pr22392-3.png)
+
+### chore: update styles
+
+![Screenshot](/pr-images/supabase-dark-mode-pr22591-10.png)
+
+![Screenshot](/pr-images/supabase-dark-mode-pr22591-11.png)
+
