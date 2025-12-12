@@ -1,0 +1,102 @@
+---
+title: Migrating Supabase to Turborepo
+subtitle: Consolidating a monorepo with 32,000+ lines changed
+date: 2022-10-06
+description: The story of migrating Supabase's UI library and moving Studio into a unified turborepo.
+image: /misty-highlands.png
+prs:
+  - number: 13330
+    repo: "supabase/supabase"
+    title: "Update turbo.json with cache env vars"
+    url: "https://github.com/supabase/supabase/pull/13330"
+    date: "2023-03-31"
+  - number: 9102
+    repo: "supabase/supabase"
+    title: "docs: turborepo based readmes"
+    url: "https://github.com/supabase/supabase/pull/9102"
+    date: "2022-11-10"
+  - number: 9039
+    repo: "supabase/supabase"
+    title: "Feat - migrate supabase UI. Move studio to turborepo"
+    url: "https://github.com/supabase/supabase/pull/9039"
+    date: "2022-10-06"
+  - number: 9108
+    repo: "supabase/supabase"
+    title: "Revert \"Revert \"migrate studio to turbo\"\""
+    url: "https://github.com/supabase/supabase/pull/9108"
+    date: "2022-09-22"
+  - number: 9107
+    repo: "supabase/supabase"
+    title: "Revert \"migrate studio to turbo\""
+    url: "https://github.com/supabase/supabase/pull/9107"
+    date: "2022-09-22"
+  - number: 26740
+    repo: "supabase/supabase"
+    title: "[design system] chore: add new scripts"
+    url: "https://github.com/supabase/supabase/pull/26740"
+    date: "2024-05-27"
+  - number: 9082
+    repo: "supabase/supabase"
+    title: "migrate studio to turbo"
+    url: "https://github.com/supabase/supabase/pull/9082"
+    date: "2022-09-22"
+  - number: 8292
+    repo: "supabase/supabase"
+    title: "Update package-lock.json"
+    url: "https://github.com/supabase/supabase/pull/8292"
+    date: "2022-08-14"
+---
+
+
+
+## Related Pull Requests
+
+<PRTable slug="supabase-turborepo-migration" />
+This was one of the largest infrastructure changes I led at Supabase—migrating our entire UI library and moving Studio into a consolidated turborepo structure.
+
+## The Problem
+
+Supabase had grown organically with:
+
+- A standalone UI library published to npm
+- Studio (the dashboard) as a separate Next.js application  
+- Marketing site with its own copy of components
+- No shared build pipeline
+
+This meant changes to shared components required publishing to npm, waiting for the package to be available, then updating each application independently. A simple button color change could take hours to propagate.
+
+## The Migration
+
+The migration touched **1,130 files** with over **32,000 lines added** and **14,000 removed**. Key changes included:
+
+- Moving the UI library into `packages/ui` within the monorepo
+- Configuring Turborepo for intelligent caching and parallel builds
+- Setting up shared Tailwind and TypeScript configurations
+- Creating internal package references instead of npm dependencies
+
+```json title="turbo.json"
+{
+  "pipeline": {
+    "build": {
+      "dependsOn": ["^build"],
+      "outputs": [".next/**", "dist/**"]
+    },
+    "dev": {
+      "cache": false,
+      "persistent": true
+    }
+  }
+}
+```
+
+## The Result
+
+After the migration:
+
+- **10x faster local development** with shared caching
+- **Instant component updates** across all applications
+- **Simplified CI/CD** with Turborepo's remote caching
+- **Better DX** for contributors working across packages
+
+This laid the groundwork for the design system site and all subsequent UI improvements.
+

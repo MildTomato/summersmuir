@@ -1,0 +1,280 @@
+---
+title: Privacy-First Analytics at Supabase
+subtitle: Plausible, server-side tracking, and cookie-free analytics
+date: 2023-09-29
+description: How I implemented privacy-respecting analytics across Supabase properties.
+image: /misty-moorland.png
+prImages:
+  - /pr-images/supabase-telemetry-pr684-1.png
+  - /pr-images/supabase-telemetry-pr684-2.png
+prs:
+  - number: 34569
+    repo: "supabase/supabase"
+    title: "chore: UI lib - update telemetry"
+    url: "https://github.com/supabase/supabase/pull/34569"
+    date: "2025-03-31"
+  - number: 15057
+    repo: "supabase/platform"
+    title: "Update telemetry.ts"
+    url: "https://github.com/supabase/platform/pull/15057"
+    date: "2023-10-09"
+  - number: 15001
+    repo: "supabase/platform"
+    title: "hotfix: add plausible analytics"
+    url: "https://github.com/supabase/platform/pull/15001"
+    date: "2023-10-02"
+  - number: 15000
+    repo: "supabase/platform"
+    title: "fix correct domains for plausible"
+    url: "https://github.com/supabase/platform/pull/15000"
+    date: "2023-09-29"
+  - number: 14970
+    repo: "supabase/platform"
+    title: "chore: add plausible to telemetry for page views and events"
+    url: "https://github.com/supabase/platform/pull/14970"
+    date: "2023-09-29"
+  - number: 13622
+    repo: "supabase/supabase"
+    title: "Fix/telemetry issue first page load"
+    url: "https://github.com/supabase/supabase/pull/13622"
+    date: "2023-04-12"
+  - number: 8118
+    repo: "supabase/supabase"
+    title: "Update PageTelemetry.tsx"
+    url: "https://github.com/supabase/supabase/pull/8118"
+    date: "2022-08-05"
+  - number: 8117
+    repo: "supabase/supabase"
+    title: "fix: telemetry sign up"
+    url: "https://github.com/supabase/supabase/pull/8117"
+    date: "2022-08-05"
+  - number: 8115
+    repo: "supabase/supabase"
+    title: "Update PageTelemetry.tsx"
+    url: "https://github.com/supabase/supabase/pull/8115"
+    date: "2022-08-05"
+  - number: 2453
+    repo: "supabase/platform"
+    title: "Update Page tracking Telemetry to include location"
+    url: "https://github.com/supabase/platform/pull/2453"
+    date: "2021-11-23"
+  - number: 2411
+    repo: "supabase/platform"
+    title: "add hubspot back in"
+    url: "https://github.com/supabase/platform/pull/2411"
+    date: "2021-11-18"
+  - number: 2399
+    repo: "supabase/platform"
+    title: "fix: hubspot now doesn't throw error, fixed post fetch in telemetry"
+    url: "https://github.com/supabase/platform/pull/2399"
+    date: "2021-11-18"
+  - number: 2383
+    repo: "supabase/platform"
+    title: "[Release] Remove hubspot until tomorrow"
+    url: "https://github.com/supabase/platform/pull/2383"
+    date: "2021-11-16"
+  - number: 2341
+    repo: "supabase/platform"
+    title: "Feat/add profile to hubspot"
+    url: "https://github.com/supabase/platform/pull/2341"
+    date: "2021-11-16"
+  - number: 2354
+    repo: "supabase/platform"
+    title: "[Release] changes app to use telemetry/page and telemetry/identity "
+    url: "https://github.com/supabase/platform/pull/2354"
+    date: "2021-11-15"
+  - number: 2274
+    repo: "supabase/platform"
+    title: "chore: prep telemetry/page endpoint for supabase.com"
+    url: "https://github.com/supabase/platform/pull/2274"
+    date: "2021-11-03"
+  - number: 1220
+    repo: "supabase/platform"
+    title: "Chore/update analytics for hubspot"
+    url: "https://github.com/supabase/platform/pull/1220"
+    date: "2021-06-18"
+  - number: 695
+    repo: "supabase/supabase"
+    title: "chore: use www.youtube-nocookie.com to remove youtube cookie tracking"
+    url: "https://github.com/supabase/supabase/pull/695"
+    date: "2021-02-11"
+  - number: 726
+    repo: "supabase/platform"
+    title: "chore: remove `ip address` from context traits from page views"
+    url: "https://github.com/supabase/platform/pull/726"
+    date: "2021-01-27"
+  - number: 612
+    repo: "supabase/supabase"
+    title: "Chore/remove tracking cookies and improve privacy"
+    url: "https://github.com/supabase/supabase/pull/612"
+    date: "2021-01-27"
+  - number: 684
+    repo: "supabase/platform"
+    title: "fix: changed Telemetry.indentify() to async/await"
+    url: "https://github.com/supabase/platform/pull/684"
+    date: "2021-01-18"
+  - number: 585
+    repo: "supabase/platform"
+    title: "fix: change endpoint name from /api/analytics to /api/telemetry"
+    url: "https://github.com/supabase/platform/pull/585"
+    date: "2020-12-24"
+  - number: 568
+    repo: "supabase/platform"
+    title: "feat: analytics server based page views and indentify call"
+    url: "https://github.com/supabase/platform/pull/568"
+    date: "2020-12-23"
+  - number: 8422
+    repo: "supabase/platform"
+    title: "fix: manually send user id and email if user is not yet authenticated"
+    url: "https://github.com/supabase/platform/pull/8422"
+    date: "2022-08-04"
+  - number: 2406
+    repo: "supabase/platform"
+    title: "Update profile.js"
+    url: "https://github.com/supabase/platform/pull/2406"
+    date: "2021-11-18"
+  - number: 2389
+    repo: "supabase/platform"
+    title: "Chore - roll out api.supabase.io and api.supabase.green"
+    url: "https://github.com/supabase/platform/pull/2389"
+    date: "2021-11-17"
+  - number: 2381
+    repo: "supabase/platform"
+    title: "Update profile.js"
+    url: "https://github.com/supabase/platform/pull/2381"
+    date: "2021-11-16"
+  - number: 2353
+    repo: "supabase/platform"
+    title: "chore: add temporary routes for testing"
+    url: "https://github.com/supabase/platform/pull/2353"
+    date: "2021-11-15"
+  - number: 1631
+    repo: "supabase/supabase"
+    title: "chore: update privacy policy"
+    url: "https://github.com/supabase/supabase/pull/1631"
+    date: "2021-05-21"
+  - number: 744
+    repo: "supabase/platform"
+    title: "WIP Chore/add cors policy page api and remove date from anonId"
+    url: "https://github.com/supabase/platform/pull/744"
+    date: "2021-01-29"
+  - number: 664
+    repo: "supabase/platform"
+    title: "fix: now sending anon id with server side event for sign_up and added sign_in event"
+    url: "https://github.com/supabase/platform/pull/664"
+    date: "2021-01-13"
+---
+
+
+
+## Related Pull Requests
+
+<PRTable slug="supabase-telemetry" />
+Analytics shouldn't require invasive tracking. I led the implementation of privacy-first analytics across Supabase, eventually migrating to Plausible.
+
+## The Problem with Traditional Analytics
+
+Traditional analytics tools:
+
+- Drop cookies without consent
+- Track users across sites
+- Create privacy compliance headaches
+- Require cookie banners that hurt UX
+
+## Cookie-Free Analytics
+
+Early on, I removed tracking cookies and improved privacy:
+
+```typescript title="Cookie-free page tracking"
+async function trackPageView() {
+  await fetch('/api/telemetry', {
+    method: 'POST',
+    body: JSON.stringify({
+      event: 'page_view',
+      path: window.location.pathname,
+      // No user ID, no cookies
+    }),
+  })
+}
+```
+
+This respects user privacy while still providing aggregate insights.
+
+## Server-Side Events
+
+For authenticated users, server-side tracking provides better data without client-side tracking:
+
+```typescript title="Server-side event tracking"
+// Sign up event - server side
+Telemetry.identify({
+  userId: user.id,
+  traits: {
+    plan: subscription.plan,
+    // Only essential business data
+  },
+})
+```
+
+## Plausible Integration
+
+In 2023, I integrated Plausible for privacy-first analytics:
+
+- **No cookies** required
+- **GDPR compliant** out of the box
+- **Lightweight** (~1KB script)
+- **Open source** and self-hostable
+
+```typescript title="Plausible setup"
+// Added to telemetry for page views and events
+import { trackEvent } from '@plausible/tracker'
+
+trackEvent('signup', {
+  props: { plan: 'pro' }
+})
+```
+
+## What We Track
+
+With privacy-first analytics, we focus on:
+
+- **Aggregate page views** (not individual sessions)
+- **Feature usage** (what's being used)
+- **Error rates** (what's breaking)
+- **Conversion events** (signups, upgrades)
+
+We explicitly don't track:
+
+- Individual user journeys
+- Personal information
+- Cross-site behavior
+- Third-party data
+
+## HubSpot Integration
+
+For marketing automation, I added HubSpot integration with privacy controls:
+
+- Profile syncing only with consent
+- Minimal data transfer
+- Clear opt-out mechanisms
+
+## Results
+
+Privacy-first analytics provides:
+
+1. **Cleaner UX**: No cookie banners needed
+2. **User trust**: Respecting privacy builds goodwill
+3. **Compliance**: GDPR/CCPA friendly by default
+4. **Accurate data**: No ad blockers blocking tracking
+
+You don't need to invade privacy to understand your users.
+
+## Screenshots
+
+Visual documentation from the pull requests:
+
+### fix: changed Telemetry.indentify() to async/await
+
+![Screenshot](/pr-images/supabase-telemetry-pr684-1.png)
+
+![Screenshot](/pr-images/supabase-telemetry-pr684-2.png)
+

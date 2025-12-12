@@ -1,0 +1,275 @@
+---
+title: Monaco Editor Integration in Supabase
+subtitle: SQL editing, JSON panels, and code experiences
+date: 2021-06-29
+description: Integrating Monaco editor for SQL editing and JSON viewing across the Supabase dashboard.
+image: /misty-moorland.png
+prImages:
+  - /pr-images/supabase-monaco-editor-pr1275-7.png
+  - /pr-images/supabase-monaco-editor-pr1275-8.png
+  - /pr-images/supabase-monaco-editor-pr21459-17.png
+  - /pr-images/supabase-monaco-editor-pr21477-16.png
+  - /pr-images/supabase-monaco-editor-pr21546-1.png
+  - /pr-images/supabase-monaco-editor-pr21546-2.png
+  - /pr-images/supabase-monaco-editor-pr21546-3.png
+  - /pr-images/supabase-monaco-editor-pr21546-4.png
+  - /pr-images/supabase-monaco-editor-pr21546-5.png
+  - /pr-images/supabase-monaco-editor-pr21546-6.png
+  - /pr-images/supabase-monaco-editor-pr21548-15.png
+  - /pr-images/supabase-monaco-editor-pr33357-10.png
+  - /pr-images/supabase-monaco-editor-pr33357-11.png
+  - /pr-images/supabase-monaco-editor-pr33357-12.png
+  - /pr-images/supabase-monaco-editor-pr33357-13.png
+  - /pr-images/supabase-monaco-editor-pr33357-14.png
+  - /pr-images/supabase-monaco-editor-pr33357-9.png
+  - /pr-images/supabase-monaco-editor-pr5739-18.png
+  - /pr-images/supabase-monaco-editor-pr5739-19.png
+prs:
+  - number: 21546
+    repo: "supabase/supabase"
+    title: "Chore/improve search input sql editor"
+    url: "https://github.com/supabase/supabase/pull/21546"
+    date: "2024-03-05"
+  - number: 21483
+    repo: "supabase/supabase"
+    title: "fix: update brand colors in SQL editor AI"
+    url: "https://github.com/supabase/supabase/pull/21483"
+    date: "2024-02-23"
+  - number: 16136
+    repo: "supabase/supabase"
+    title: "Feat/ai sql editor styling  with new brand tailwind tokens"
+    url: "https://github.com/supabase/supabase/pull/16136"
+    date: "2023-08-02"
+  - number: 13426
+    repo: "supabase/supabase"
+    title: "[hotfix] fix selection issue in monaco editor"
+    url: "https://github.com/supabase/supabase/pull/13426"
+    date: "2023-04-04"
+  - number: 1909
+    repo: "supabase/platform"
+    title: "fix: SQL editor will no longer run 'previous' version of changes"
+    url: "https://github.com/supabase/platform/pull/1909"
+    date: "2021-09-15"
+  - number: 1275
+    repo: "supabase/platform"
+    title: "Chore/monaco json panel"
+    url: "https://github.com/supabase/platform/pull/1275"
+    date: "2021-06-29"
+  - number: 1066
+    repo: "supabase/platform"
+    title: "fix: dark monaco theme not showing by default"
+    url: "https://github.com/supabase/platform/pull/1066"
+    date: "2021-05-20"
+  - number: 31071
+    repo: "supabase/supabase"
+    title: "Feat/tabs"
+    url: "https://github.com/supabase/supabase/pull/31071"
+    date: "2025-03-27"
+  - number: 33357
+    repo: "supabase/supabase"
+    title: "feat: new item style for table editor and empty states for both editors"
+    url: "https://github.com/supabase/supabase/pull/33357"
+    date: "2025-02-06"
+  - number: 21548
+    repo: "supabase/supabase"
+    title: "feat: add resizable inner sidebar"
+    url: "https://github.com/supabase/supabase/pull/21548"
+    date: "2024-02-26"
+  - number: 21477
+    repo: "supabase/supabase"
+    title: "feat: add new Icons package for custom made icons"
+    url: "https://github.com/supabase/supabase/pull/21477"
+    date: "2024-02-26"
+  - number: 21459
+    repo: "supabase/supabase"
+    title: "Chore/rls assistant iteration templates styling"
+    url: "https://github.com/supabase/supabase/pull/21459"
+    date: "2024-02-26"
+  - number: 6663
+    repo: "supabase/supabase"
+    title: "fix: now supplying projectRef to content store in setProjectRef() in rootStore"
+    url: "https://github.com/supabase/supabase/pull/6663"
+    date: "2022-05-03"
+  - number: 5739
+    repo: "supabase/supabase"
+    title: "Chore/pg stat statement template"
+    url: "https://github.com/supabase/supabase/pull/5739"
+    date: "2022-03-02"
+  - number: 1838
+    repo: "supabase/platform"
+    title: "Fix/localhost mobx reaction sql issue"
+    url: "https://github.com/supabase/platform/pull/1838"
+    date: "2021-09-07"
+  - number: 575
+    repo: "supabase/platform"
+    title: "fix: sql_run event now fires as a click event and events flush immediately "
+    url: "https://github.com/supabase/platform/pull/575"
+    date: "2021-01-04"
+  - number: 474
+    repo: "supabase/platform"
+    title: "Chore: new analytic events"
+    url: "https://github.com/supabase/platform/pull/474"
+    date: "2020-12-14"
+---
+
+
+
+## Related Pull Requests
+
+<PRTable slug="supabase-monaco-editor" />
+Code editing in the browser needs to feel native. I integrated Monaco editor across the Supabase dashboard for SQL editing and data viewing.
+
+## SQL Editor
+
+The SQL editor is where developers spend significant time:
+
+- Writing and testing queries
+- Creating migrations
+- Debugging data issues
+- Exploring schemas
+
+### Dark Theme
+
+Monaco needed to match the Supabase aesthetic:
+
+```typescript title="Custom Monaco theme"
+monaco.editor.defineTheme('supabase-dark', {
+  base: 'vs-dark',
+  inherit: true,
+  rules: [
+    { token: 'keyword', foreground: '3ECF8E' },
+    { token: 'string', foreground: 'F472B6' },
+  ],
+  colors: {
+    'editor.background': '#1a1a1a',
+  },
+})
+```
+
+### SQL Persistence
+
+I built support for saving SQL content:
+
+- Queries persist across sessions
+- Named snippets for reuse
+- Folder organization
+- Share functionality
+
+## JSON Panel
+
+For viewing JSON data in the Table Editor:
+
+```tsx title="JSON panel component"
+<MonacoEditor
+  language="json"
+  value={JSON.stringify(row.data, null, 2)}
+  options={{
+    readOnly: true,
+    minimap: { enabled: false },
+    scrollBeyondLastLine: false,
+  }}
+/>
+```
+
+This makes complex JSON fields readable.
+
+## Performance Fixes
+
+### Lazy Loading
+
+Monaco is heavy. I implemented lazy loading:
+
+```typescript title="Dynamic import"
+const MonacoEditor = dynamic(
+  () => import('@monaco-editor/react'),
+  { ssr: false, loading: () => <Skeleton /> }
+)
+```
+
+### MobX Integration
+
+Fixed issues with MobX reactions and SQL state:
+
+- SQL editor no longer runs "previous" version of changes
+- Proper state synchronization
+- Debounced saves to prevent spam
+
+## Selection Issues
+
+I fixed selection issues in Monaco:
+
+- Text selection works properly
+- Copy/paste functions correctly
+- Cursor positioning accurate
+- Keyboard shortcuts work
+
+## AI Integration
+
+Monaco powers the AI SQL editor:
+
+- Prompt input with syntax highlighting
+- Generated SQL display
+- Diff view for suggestions
+- Brand color integration
+
+## Impact
+
+Monaco integration provides:
+
+1. Familiar editing experience for developers
+2. Syntax highlighting for SQL and JSON
+3. Keyboard shortcuts (Ctrl+Enter to run)
+4. Auto-completion for SQL
+
+A good editor makes the database accessible.
+
+## Screenshots
+
+Visual documentation from the pull requests:
+
+### Chore/monaco json panel
+
+![Screenshot](/pr-images/supabase-monaco-editor-pr1275-7.png)
+
+![Screenshot](/pr-images/supabase-monaco-editor-pr1275-8.png)
+
+### Chore/pg stat statement template
+
+![Screenshot](/pr-images/supabase-monaco-editor-pr5739-18.png)
+
+![Screenshot](/pr-images/supabase-monaco-editor-pr5739-19.png)
+
+![Chore/rls assistant iteration templates styling](/pr-images/supabase-monaco-editor-pr21459-17.png)
+
+![feat: add new Icons package for custom made icons](/pr-images/supabase-monaco-editor-pr21477-16.png)
+
+### Chore/improve search input sql editor
+
+![Screenshot](/pr-images/supabase-monaco-editor-pr21546-1.png)
+
+![Screenshot](/pr-images/supabase-monaco-editor-pr21546-2.png)
+
+![Screenshot](/pr-images/supabase-monaco-editor-pr21546-3.png)
+
+![Screenshot](/pr-images/supabase-monaco-editor-pr21546-4.png)
+
+![Screenshot](/pr-images/supabase-monaco-editor-pr21546-5.png)
+
+![Screenshot](/pr-images/supabase-monaco-editor-pr21546-6.png)
+
+![feat: add resizable inner sidebar](/pr-images/supabase-monaco-editor-pr21548-15.png)
+
+### feat: new item style for table editor and empty states for both editors
+
+![Screenshot](/pr-images/supabase-monaco-editor-pr33357-10.png)
+
+![Screenshot](/pr-images/supabase-monaco-editor-pr33357-11.png)
+
+![Screenshot](/pr-images/supabase-monaco-editor-pr33357-12.png)
+
+![Screenshot](/pr-images/supabase-monaco-editor-pr33357-13.png)
+
+![Screenshot](/pr-images/supabase-monaco-editor-pr33357-14.png)
+
+![Screenshot](/pr-images/supabase-monaco-editor-pr33357-9.png)
+

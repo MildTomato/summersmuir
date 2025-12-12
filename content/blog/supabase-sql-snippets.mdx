@@ -1,0 +1,161 @@
+---
+title: Persisting SQL Queries
+subtitle: Saving and organizing SQL snippets in the dashboard
+date: 2021-09-07
+description: Building the SQL snippets feature to persist queries, organize favorites, and sync across sessions.
+image: /misty-moorland.png
+prImages:
+  - /pr-images/supabase-sql-snippets-pr21546-2.png
+  - /pr-images/supabase-sql-snippets-pr21546-3.png
+  - /pr-images/supabase-sql-snippets-pr21546-4.png
+  - /pr-images/supabase-sql-snippets-pr21546-5.png
+  - /pr-images/supabase-sql-snippets-pr21546-6.png
+  - /pr-images/supabase-sql-snippets-pr21546-7.png
+  - /pr-images/supabase-sql-snippets-pr30050-1.png
+prs:
+  - number: 5654
+    repo: "supabase/platform"
+    title: "feat: add sql saved content support"
+    url: "https://github.com/supabase/platform/pull/5654"
+    date: "2022-03-30"
+  - number: 30050
+    repo: "supabase/supabase"
+    title: "Chore/update sql side panel"
+    url: "https://github.com/supabase/supabase/pull/30050"
+    date: "2024-11-13"
+  - number: 21546
+    repo: "supabase/supabase"
+    title: "Chore/improve search input sql editor"
+    url: "https://github.com/supabase/supabase/pull/21546"
+    date: "2024-03-05"
+  - number: 4399
+    repo: "supabase/supabase"
+    title: "Chore/add type to report"
+    url: "https://github.com/supabase/supabase/pull/4399"
+    date: "2021-12-09"
+  - number: 2705
+    repo: "supabase/platform"
+    title: "fix: ownership checks updated"
+    url: "https://github.com/supabase/platform/pull/2705"
+    date: "2021-12-09"
+  - number: 2393
+    repo: "supabase/platform"
+    title: "Fix/speed user content endpoint"
+    url: "https://github.com/supabase/platform/pull/2393"
+    date: "2021-12-03"
+  - number: 2174
+    repo: "supabase/platform"
+    title: "chore: remove SQL snipet duplicator util"
+    url: "https://github.com/supabase/platform/pull/2174"
+    date: "2021-10-20"
+  - number: 1768
+    repo: "supabase/platform"
+    title: "[Dash] [SQL] Feat - persist sql queries"
+    url: "https://github.com/supabase/platform/pull/1768"
+    date: "2021-09-07"
+---
+
+
+
+## Related Pull Requests
+
+<PRTable slug="supabase-sql-snippets" />
+SQL queries were being lost when users refreshed the page. I built the persistence layer to save queries and bring organization to the SQL Editor.
+
+## The Problem
+
+Users wrote complex queries and lost them:
+- Page refresh cleared everything
+- No way to save useful queries for later
+- Couldn't share queries with team members
+- Favorites existed only in browser memory
+
+## The Solution
+
+Persist SQL snippets in the database using a `user_content` table:
+
+```typescript title="SQL snippet content type"
+interface SqlSnippet {
+  id: string
+  name: string
+  content: string
+  type: 'sql'
+  favorite: boolean
+  projectRef: string
+  ownerId: string
+}
+```
+
+### Storage Architecture
+
+Snippets saved to the main database:
+
+```typescript title="Saving snippets"
+async function saveSnippet(snippet: SqlSnippet) {
+  return await supabase
+    .from('user_content')
+    .upsert({
+      content_type: 'sql',
+      content: snippet,
+      owner_id: user.id,
+    })
+}
+```
+
+### Favorites & Tabs
+
+Favorites and tabs are separated at the store level:
+
+```typescript title="Store separation"
+// Tabs: Current working session
+const openTabs = proxy<SqlSnippet[]>([])
+
+// Favorites: Persisted to database  
+const favorites = proxy<SqlSnippet[]>([])
+```
+
+### Migration from LocalStorage
+
+Existing snippets in localStorage were migrated:
+
+```typescript title="LocalStorage migration"
+// One-time migration on first load
+const localSnippets = JSON.parse(localStorage.getItem('sql-snippets'))
+if (localSnippets?.length) {
+  await bulkInsertSnippets(localSnippets)
+  localStorage.removeItem('sql-snippets')
+}
+```
+
+## SQL Log Content Type
+
+Later added `sql_log` content type to track query history:
+
+- Every executed query logged
+- Quick re-run of recent queries
+- Search through query history
+
+## Result
+
+Users can now save, organize, and access their SQL queries across sessions and devices. No more lost work.
+
+## Screenshots
+
+Visual documentation from the pull requests:
+
+### Chore/improve search input sql editor
+
+![Screenshot](/pr-images/supabase-sql-snippets-pr21546-2.png)
+
+![Screenshot](/pr-images/supabase-sql-snippets-pr21546-3.png)
+
+![Screenshot](/pr-images/supabase-sql-snippets-pr21546-4.png)
+
+![Screenshot](/pr-images/supabase-sql-snippets-pr21546-5.png)
+
+![Screenshot](/pr-images/supabase-sql-snippets-pr21546-6.png)
+
+![Screenshot](/pr-images/supabase-sql-snippets-pr21546-7.png)
+
+![Chore/update sql side panel](/pr-images/supabase-sql-snippets-pr30050-1.png)
+

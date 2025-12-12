@@ -1,0 +1,232 @@
+---
+title: Supabase Storage UI Improvements
+subtitle: File management, folder operations, and storage UX
+date: 2022-05-10
+description: Building a better storage file management experience with proper validation and error handling.
+image: /misty-moorland.png
+prImages:
+  - /pr-images/supabase-storage-ui-pr21477-7.png
+  - /pr-images/supabase-storage-ui-pr21546-1.png
+  - /pr-images/supabase-storage-ui-pr21546-2.png
+  - /pr-images/supabase-storage-ui-pr21546-3.png
+  - /pr-images/supabase-storage-ui-pr21546-4.png
+  - /pr-images/supabase-storage-ui-pr21546-5.png
+  - /pr-images/supabase-storage-ui-pr21546-6.png
+  - /pr-images/supabase-storage-ui-pr2467-8.png
+  - /pr-images/supabase-storage-ui-pr2467-9.png
+prs:
+  - number: 36551
+    repo: "supabase/supabase"
+    title: "fix: reverts local storage"
+    url: "https://github.com/supabase/supabase/pull/36551"
+    date: "2025-06-20"
+  - number: 9816
+    repo: "supabase/supabase"
+    title: "Update 2021-03-30-supabase-storage.mdx"
+    url: "https://github.com/supabase/supabase/pull/9816"
+    date: "2022-10-25"
+  - number: 6754
+    repo: "supabase/supabase"
+    title: "fix: now checks for slash and backslash when renaming storage folder"
+    url: "https://github.com/supabase/supabase/pull/6754"
+    date: "2022-05-10"
+  - number: 6234
+    repo: "supabase/platform"
+    title: "fix: construct temporary attribute by subtracting storage egress from total egress"
+    url: "https://github.com/supabase/platform/pull/6234"
+    date: "2022-04-22"
+  - number: 1173
+    repo: "supabase/platform"
+    title: "fix: storage toast messages"
+    url: "https://github.com/supabase/platform/pull/1173"
+    date: "2021-06-07"
+  - number: 983
+    repo: "supabase/supabase"
+    title: "Storage 📦"
+    url: "https://github.com/supabase/supabase/pull/983"
+    date: "2021-03-30"
+  - number: 6
+    repo: "supabase/ui"
+    title: "fix: rename introduction folder"
+    url: "https://github.com/supabase/ui/pull/6"
+    date: "2020-12-23"
+  - number: 36895
+    repo: "supabase/supabase"
+    title: "Feat/unified logs inspection panel"
+    url: "https://github.com/supabase/supabase/pull/36895"
+    date: "2025-07-08"
+  - number: 31071
+    repo: "supabase/supabase"
+    title: "Feat/tabs"
+    url: "https://github.com/supabase/supabase/pull/31071"
+    date: "2025-03-27"
+  - number: 21546
+    repo: "supabase/supabase"
+    title: "Chore/improve search input sql editor"
+    url: "https://github.com/supabase/supabase/pull/21546"
+    date: "2024-03-05"
+  - number: 21477
+    repo: "supabase/supabase"
+    title: "feat: add new Icons package for custom made icons"
+    url: "https://github.com/supabase/supabase/pull/21477"
+    date: "2024-02-26"
+  - number: 19294
+    repo: "supabase/supabase"
+    title: "chore: added pattern UI for assistant input"
+    url: "https://github.com/supabase/supabase/pull/19294"
+    date: "2023-11-30"
+  - number: 11964
+    repo: "supabase/supabase"
+    title: "Update database-usage.mdx"
+    url: "https://github.com/supabase/supabase/pull/11964"
+    date: "2023-01-27"
+  - number: 10960
+    repo: "supabase/supabase"
+    title: "feat: added 'edit this page' link to guides"
+    url: "https://github.com/supabase/supabase/pull/10960"
+    date: "2022-12-14"
+  - number: 7179
+    repo: "supabase/supabase"
+    title: "Chore/update pricing"
+    url: "https://github.com/supabase/supabase/pull/7179"
+    date: "2022-06-16"
+  - number: 4046
+    repo: "supabase/supabase"
+    title: "Fix/announcement bar flashing"
+    url: "https://github.com/supabase/supabase/pull/4046"
+    date: "2021-11-25"
+  - number: 2467
+    repo: "supabase/platform"
+    title: "Chore/update feedback widget"
+    url: "https://github.com/supabase/platform/pull/2467"
+    date: "2021-11-25"
+  - number: 4012
+    repo: "supabase/supabase"
+    title: "chore: update announcement"
+    url: "https://github.com/supabase/supabase/pull/4012"
+    date: "2021-11-23"
+  - number: 1768
+    repo: "supabase/platform"
+    title: "[Dash] [SQL] Feat - persist sql queries"
+    url: "https://github.com/supabase/platform/pull/1768"
+    date: "2021-09-07"
+---
+
+
+
+## Related Pull Requests
+
+<PRTable slug="supabase-storage-ui" />
+Supabase Storage provides S3-compatible object storage. I worked on the dashboard UI for managing files and folders.
+
+## File Management
+
+The storage UI needed to handle common operations:
+
+- Uploading files (single and batch)
+- Creating folders
+- Renaming files and folders
+- Moving items between folders
+- Deleting with confirmation
+
+## Folder Rename Validation
+
+A subtle but important fix—preventing invalid characters in folder names:
+
+```typescript title="Folder rename validation"
+function validateFolderName(name: string) {
+  if (name.includes('/') || name.includes('\\')) {
+    throw new Error('Folder names cannot contain slashes')
+  }
+  return name.trim()
+}
+```
+
+This prevents broken paths and confusion.
+
+## Error Handling
+
+Storage operations can fail for various reasons:
+
+- File too large
+- Invalid file type
+- Permission denied
+- Network issues
+
+I improved toast messages to be actionable:
+
+```typescript title="Error toast messages"
+toast.error({
+  title: 'Upload failed',
+  description: 'File exceeds 50MB limit. Try compressing or splitting.',
+  action: {
+    label: 'Learn more',
+    onClick: () => openDocs('/storage/limits'),
+  },
+})
+```
+
+## Empty States
+
+When buckets or folders are empty, users need guidance:
+
+- Clear messaging about what goes here
+- Quick action buttons to upload
+- Links to documentation
+- Visual indication of drag-and-drop support
+
+## Performance
+
+Storage UIs can get slow with many files:
+
+- Pagination for large buckets
+- Lazy loading of file previews
+- Virtual scrolling for long lists
+- Optimistic UI updates
+
+## Integration with Policies
+
+Storage policies control access. The UI surfaces policy status:
+
+- Public/private bucket indicators
+- Policy configuration links
+- Access denied explanations
+- Quick policy templates
+
+## Impact
+
+Storage UI improvements help users:
+
+1. Manage files without CLI knowledge
+2. Understand errors and fix them
+3. Navigate large buckets efficiently
+4. Configure access policies correctly
+
+A good storage UI makes object storage accessible to everyone.
+
+## Screenshots
+
+Visual documentation from the pull requests:
+
+### Chore/update feedback widget
+
+![Screenshot](/pr-images/supabase-storage-ui-pr2467-8.png)
+
+![Screenshot](/pr-images/supabase-storage-ui-pr2467-9.png)
+
+![feat: add new Icons package for custom made icons](/pr-images/supabase-storage-ui-pr21477-7.png)
+
+### Chore/improve search input sql editor
+
+![Screenshot](/pr-images/supabase-storage-ui-pr21546-1.png)
+
+![Screenshot](/pr-images/supabase-storage-ui-pr21546-2.png)
+
+![Screenshot](/pr-images/supabase-storage-ui-pr21546-3.png)
+
+![Screenshot](/pr-images/supabase-storage-ui-pr21546-4.png)
+
+![Screenshot](/pr-images/supabase-storage-ui-pr21546-5.png)
+
+![Screenshot](/pr-images/supabase-storage-ui-pr21546-6.png)
+

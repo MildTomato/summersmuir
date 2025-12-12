@@ -1,0 +1,197 @@
+---
+title: Database Triggers & Functions UI
+subtitle: Managing PostgreSQL triggers and functions in the dashboard
+date: 2021-07-30
+description: Building the UI for managing database triggers and functions.
+image: /misty-moorland.png
+prImages:
+  - /pr-images/supabase-triggers-functions-pr1554-1.png
+  - /pr-images/supabase-triggers-functions-pr1554-2.png
+  - /pr-images/supabase-triggers-functions-pr1554-3.png
+  - /pr-images/supabase-triggers-functions-pr1554-4.png
+  - /pr-images/supabase-triggers-functions-pr1554-5.png
+  - /pr-images/supabase-triggers-functions-pr1554-6.png
+  - /pr-images/supabase-triggers-functions-pr1554-7.png
+  - /pr-images/supabase-triggers-functions-pr1554-8.png
+  - /pr-images/supabase-triggers-functions-pr1554-9.png
+  - /pr-images/supabase-triggers-functions-pr15915-14.png
+  - /pr-images/supabase-triggers-functions-pr15915-15.png
+  - /pr-images/supabase-triggers-functions-pr15915-16.png
+  - /pr-images/supabase-triggers-functions-pr21486-12.png
+  - /pr-images/supabase-triggers-functions-pr21486-13.png
+  - /pr-images/supabase-triggers-functions-pr30688-10.png
+  - /pr-images/supabase-triggers-functions-pr30688-11.png
+  - /pr-images/supabase-triggers-functions-pr74-17.png
+  - /pr-images/supabase-triggers-functions-pr74-18.png
+prs:
+  - number: 1554
+    repo: "supabase/platform"
+    title: "Fix/trigger functions UI improvements"
+    url: "https://github.com/supabase/platform/pull/1554"
+    date: "2021-07-30"
+  - number: 1400
+    repo: "supabase/platform"
+    title: "WIP [Feature] triggers / functions / hooks"
+    url: "https://github.com/supabase/platform/pull/1400"
+    date: "2021-07-30"
+  - number: 197
+    repo: "supabase/ui"
+    title: "Fix/dropdown trigger styling"
+    url: "https://github.com/supabase/ui/pull/197"
+    date: "2021-05-19"
+  - number: 30688
+    repo: "supabase/supabase"
+    title: "Update AvailableIntegrations.tsx"
+    url: "https://github.com/supabase/supabase/pull/30688"
+    date: "2024-11-27"
+  - number: 27369
+    repo: "supabase/supabase"
+    title: "[Design System] chore: `<DropdownMenu />` `modal` prop set to `false` as default"
+    url: "https://github.com/supabase/supabase/pull/27369"
+    date: "2024-07-02"
+  - number: 21486
+    repo: "supabase/supabase"
+    title: "chore: update table editor input and schema selector styling"
+    url: "https://github.com/supabase/supabase/pull/21486"
+    date: "2024-02-26"
+  - number: 15915
+    repo: "supabase/supabase"
+    title: "Fix/Chore [vercel integration] improved form validation, combobox component upgrade, loading states added"
+    url: "https://github.com/supabase/supabase/pull/15915"
+    date: "2023-07-27"
+  - number: 273
+    repo: "supabase/ui"
+    title: "Feat/update radix"
+    url: "https://github.com/supabase/ui/pull/273"
+    date: "2021-09-14"
+  - number: 209
+    repo: "supabase/ui"
+    title: "Feat: Context Menu"
+    url: "https://github.com/supabase/ui/pull/209"
+    date: "2021-05-31"
+  - number: 74
+    repo: "supabase/ui"
+    title: "Feature/dropdown"
+    url: "https://github.com/supabase/ui/pull/74"
+    date: "2021-01-18"
+---
+
+
+
+## Related Pull Requests
+
+<PRTable slug="supabase-triggers-functions" />
+PostgreSQL triggers and functions are powerful. I built dashboard UI to make them accessible without writing SQL.
+
+## Triggers Management
+
+The triggers page shows:
+
+- All triggers in the database
+- Associated tables
+- Trigger functions
+- Event types (INSERT, UPDATE, DELETE)
+- Timing (BEFORE, AFTER)
+
+## Trigger Creation
+
+Creating triggers through the UI:
+
+```tsx title="Trigger form"
+<SidePanel title="Create Trigger">
+  <FormField name="name" label="Trigger Name" />
+  <FormField name="table" label="Table" component={TableSelector} />
+  <FormField name="events" label="Events" component={EventCheckboxes} />
+  <FormField name="timing" label="Timing" component={TimingRadio} />
+  <FormField name="function" label="Function" component={FunctionSelector} />
+</SidePanel>
+```
+
+## Functions List
+
+Database functions displayed with:
+
+- Function name and schema
+- Arguments and return type
+- Language (plpgsql, sql, etc.)
+- Security definer status
+
+## UI Improvements
+
+I made improvements to the trigger functions UI:
+
+- Better layout organization
+- Clearer relationship indication
+- Improved error messaging
+- Consistent styling with other pages
+
+## Hooks Integration
+
+Database webhooks (hooks) tie into triggers:
+
+- HTTP endpoints called on events
+- Payload configuration
+- Retry settings
+- Logging integration
+
+## Impact
+
+Trigger and function UI:
+
+1. Makes PostgreSQL features accessible
+2. Reduces SQL knowledge requirements
+3. Prevents syntax errors
+4. Enables rapid prototyping
+
+Advanced database features should be approachable.
+
+## Screenshots
+
+Visual documentation from the pull requests:
+
+### Feature/dropdown
+
+![Screenshot](/pr-images/supabase-triggers-functions-pr74-17.png)
+
+![Screenshot](/pr-images/supabase-triggers-functions-pr74-18.png)
+
+### Fix/trigger functions UI improvements
+
+![Screenshot](/pr-images/supabase-triggers-functions-pr1554-1.png)
+
+![Screenshot](/pr-images/supabase-triggers-functions-pr1554-2.png)
+
+![Screenshot](/pr-images/supabase-triggers-functions-pr1554-3.png)
+
+![Screenshot](/pr-images/supabase-triggers-functions-pr1554-4.png)
+
+![Screenshot](/pr-images/supabase-triggers-functions-pr1554-5.png)
+
+![Screenshot](/pr-images/supabase-triggers-functions-pr1554-6.png)
+
+![Screenshot](/pr-images/supabase-triggers-functions-pr1554-7.png)
+
+![Screenshot](/pr-images/supabase-triggers-functions-pr1554-8.png)
+
+![Screenshot](/pr-images/supabase-triggers-functions-pr1554-9.png)
+
+### Fix/Chore [vercel integration] improved form validation, combobox component upgrade, loading states added
+
+![Screenshot](/pr-images/supabase-triggers-functions-pr15915-14.png)
+
+![Screenshot](/pr-images/supabase-triggers-functions-pr15915-15.png)
+
+![Screenshot](/pr-images/supabase-triggers-functions-pr15915-16.png)
+
+### chore: update table editor input and schema selector styling
+
+![Screenshot](/pr-images/supabase-triggers-functions-pr21486-12.png)
+
+![Screenshot](/pr-images/supabase-triggers-functions-pr21486-13.png)
+
+### Update AvailableIntegrations.tsx
+
+![Screenshot](/pr-images/supabase-triggers-functions-pr30688-10.png)
+
+![Screenshot](/pr-images/supabase-triggers-functions-pr30688-11.png)
+

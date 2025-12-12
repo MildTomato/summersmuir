@@ -1,0 +1,141 @@
+---
+title: Building Supabase's Platform API
+subtitle: A new API architecture for the dashboard
+date: 2021-11-15
+description: Splitting and restructuring the platform API that powers Supabase Studio.
+image: /coastal-mountains.png
+prs:
+  - number: 2395
+    repo: "supabase/platform"
+    title: "[on hold] Release - api.supabase.io roll out"
+    url: "https://github.com/supabase/platform/pull/2395"
+    date: "2021-11-17"
+  - number: 2389
+    repo: "supabase/platform"
+    title: "Chore - roll out api.supabase.io and api.supabase.green"
+    url: "https://github.com/supabase/platform/pull/2389"
+    date: "2021-11-17"
+  - number: 2372
+    repo: "supabase/platform"
+    title: "[Release] Completely remove new API routes"
+    url: "https://github.com/supabase/platform/pull/2372"
+    date: "2021-11-15"
+  - number: 2362
+    repo: "supabase/platform"
+    title: "[Release] Rollout all API route changes. using api.supabase.io"
+    url: "https://github.com/supabase/platform/pull/2362"
+    date: "2021-11-15"
+  - number: 2361
+    repo: "supabase/platform"
+    title: "[Release] rollout profile api route"
+    url: "https://github.com/supabase/platform/pull/2361"
+    date: "2021-11-15"
+  - number: 2304
+    repo: "supabase/platform"
+    title: "Feat/platform api fly.io"
+    url: "https://github.com/supabase/platform/pull/2304"
+    date: "2021-11-15"
+  - number: 2293
+    repo: "supabase/platform"
+    title: "Feat/platform api split "
+    url: "https://github.com/supabase/platform/pull/2293"
+    date: "2021-11-15"
+  - number: 2272
+    repo: "supabase/platform"
+    title: "[On hold] - Do not merge - Platform API routes"
+    url: "https://github.com/supabase/platform/pull/2272"
+    date: "2021-11-15"
+  - number: 2396
+    repo: "supabase/platform"
+    title: "Update .env"
+    url: "https://github.com/supabase/platform/pull/2396"
+    date: "2021-11-17"
+  - number: 2353
+    repo: "supabase/platform"
+    title: "chore: add temporary routes for testing"
+    url: "https://github.com/supabase/platform/pull/2353"
+    date: "2021-11-15"
+  - number: 2325
+    repo: "supabase/platform"
+    title: "chore: update cookie domains to use parent domain"
+    url: "https://github.com/supabase/platform/pull/2325"
+    date: "2021-11-12"
+---
+
+
+
+## Related Pull Requests
+
+<PRTable slug="supabase-platform-api" />
+The Platform API is the backbone of Supabase Studio—every action you take in the dashboard goes through it. I led a major refactoring effort that touched 170+ files and fundamentally changed how the dashboard communicates with backend services.
+
+## The Context
+
+In the early days, the dashboard made direct API calls to various backend services. This worked initially but created problems:
+
+- **Authentication complexity** across multiple endpoints
+- **Inconsistent error handling** 
+- **Tight coupling** between UI and backend implementation
+- **No room for middleware** (rate limiting, logging, etc.)
+
+## The New Architecture
+
+The platform API became a unified gateway:
+
+```
+Dashboard → Platform API → Backend Services
+               ↓
+        [Auth, Logging, Rate Limiting]
+```
+
+Every dashboard request now flows through a consistent API layer that handles:
+
+- **Authentication** via cookies with proper domain handling
+- **Authorization** checking project membership
+- **Telemetry** for usage analytics
+- **Rate limiting** to prevent abuse
+
+## Key Changes
+
+### Cookie Domain Migration
+
+Moving to `app.supabase.com` required careful cookie handling:
+
+```javascript title="Cookie configuration"
+const cookieOptions = {
+  domain: '.supabase.com',
+  secure: true,
+  httpOnly: true,
+  sameSite: 'lax',
+}
+```
+
+### Endpoint Consolidation
+
+Routes were restructured for consistency:
+
+```
+// Before
+/api/pg/projects
+/gotrue/admin/users
+/storage/buckets
+
+// After  
+/platform/projects
+/platform/auth/users
+/platform/storage/buckets
+```
+
+### Fly.io Integration
+
+The platform API was also extended to support Fly.io deployments, allowing Supabase to run closer to users in different regions.
+
+## Impact
+
+The platform API refactoring:
+
+- Simplified frontend code significantly
+- Enabled better security controls
+- Made debugging easier with centralized logging
+- Prepared the foundation for features like organizations and teams
+

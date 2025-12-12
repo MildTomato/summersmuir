@@ -1,0 +1,278 @@
+---
+title: Building the Supabase Docs Platform
+subtitle: CLI docs, ref docs styling, and docs infrastructure
+date: 2022-12-14
+description: How I improved the Supabase documentation platform with better styling, CLI integration, and developer experience.
+image: /misty-moorland.png
+prImages:
+  - /pr-images/supabase-docs-platform-pr21477-2.png
+  - /pr-images/supabase-docs-platform-pr3022-3.png
+  - /pr-images/supabase-docs-platform-pr40897-1.png
+prs:
+  - number: 20833
+    repo: "supabase/supabase"
+    title: "[docs] Update read-replicas.mdx"
+    url: "https://github.com/supabase/supabase/pull/20833"
+    date: "2024-02-12"
+  - number: 20786
+    repo: "supabase/supabase"
+    title: "chore: update migration guides for new assets"
+    url: "https://github.com/supabase/supabase/pull/20786"
+    date: "2024-01-27"
+  - number: 18762
+    repo: "supabase/supabase"
+    title: "[Docs] [Branching] Chore/branching docs"
+    url: "https://github.com/supabase/supabase/pull/18762"
+    date: "2023-11-15"
+  - number: 14119
+    repo: "supabase/supabase"
+    title: "[Docs] basepath fixed"
+    url: "https://github.com/supabase/supabase/pull/14119"
+    date: "2023-05-04"
+  - number: 13453
+    repo: "supabase/supabase"
+    title: "fix margin issue on ref docs"
+    url: "https://github.com/supabase/supabase/pull/13453"
+    date: "2023-04-06"
+  - number: 13156
+    repo: "supabase/supabase"
+    title: "move guides and fix accordion issue"
+    url: "https://github.com/supabase/supabase/pull/13156"
+    date: "2023-03-23"
+  - number: 12878
+    repo: "supabase/supabase"
+    title: "[Docs] Spend cap guide"
+    url: "https://github.com/supabase/supabase/pull/12878"
+    date: "2023-03-10"
+  - number: 12643
+    repo: "supabase/supabase"
+    title: "[Docs] meta data wrong on guides and homepage"
+    url: "https://github.com/supabase/supabase/pull/12643"
+    date: "2023-02-24"
+  - number: 12555
+    repo: "supabase/supabase"
+    title: "[Docs] guide for query performance"
+    url: "https://github.com/supabase/supabase/pull/12555"
+    date: "2023-02-23"
+  - number: 11098
+    repo: "supabase/supabase"
+    title: "[docs] chore: moving self hosted docs for more visibility"
+    url: "https://github.com/supabase/supabase/pull/11098"
+    date: "2022-12-20"
+  - number: 10960
+    repo: "supabase/supabase"
+    title: "feat: added 'edit this page' link to guides"
+    url: "https://github.com/supabase/supabase/pull/10960"
+    date: "2022-12-14"
+  - number: 10430
+    repo: "supabase/supabase"
+    title: "fix: docs sitemap"
+    url: "https://github.com/supabase/supabase/pull/10430"
+    date: "2022-11-21"
+  - number: 10307
+    repo: "supabase/supabase"
+    title: "Fix/docs sitemap"
+    url: "https://github.com/supabase/supabase/pull/10307"
+    date: "2022-11-14"
+  - number: 8665
+    repo: "supabase/supabase"
+    title: "Update docusaurus.config.js"
+    url: "https://github.com/supabase/supabase/pull/8665"
+    date: "2022-08-26"
+  - number: 8240
+    repo: "supabase/supabase"
+    title: "Feat/ref docs styling"
+    url: "https://github.com/supabase/supabase/pull/8240"
+    date: "2022-08-13"
+  - number: 4001
+    repo: "supabase/supabase"
+    title: "Add redirect for /oss to docs/oss"
+    url: "https://github.com/supabase/supabase/pull/4001"
+    date: "2021-11-22"
+  - number: 3133
+    repo: "supabase/supabase"
+    title: "Chore/update docusaurus beta"
+    url: "https://github.com/supabase/supabase/pull/3133"
+    date: "2021-09-12"
+  - number: 967
+    repo: "supabase/supabase"
+    title: "fix pricing UI and added redirect in for /docs/pricing to /pricing"
+    url: "https://github.com/supabase/supabase/pull/967"
+    date: "2021-03-29"
+  - number: 40897
+    repo: "supabase/supabase"
+    title: "Feat/mermaid blog"
+    url: "https://github.com/supabase/supabase/pull/40897"
+    date: "2025-12-03"
+  - number: 30220
+    repo: "supabase/supabase"
+    title: "chore: add vercel toolbar for prod / also created /providers package"
+    url: "https://github.com/supabase/supabase/pull/30220"
+    date: "2024-11-04"
+  - number: 22103
+    repo: "supabase/supabase"
+    title: "chore: add more opengraph to docs"
+    url: "https://github.com/supabase/supabase/pull/22103"
+    date: "2024-03-19"
+  - number: 21477
+    repo: "supabase/supabase"
+    title: "feat: add new Icons package for custom made icons"
+    url: "https://github.com/supabase/supabase/pull/21477"
+    date: "2024-02-26"
+  - number: 14528
+    repo: "supabase/supabase"
+    title: "Feat/UI components uishadcn"
+    url: "https://github.com/supabase/supabase/pull/14528"
+    date: "2023-07-18"
+  - number: 11107
+    repo: "supabase/supabase"
+    title: "chore: use next/image for images in articles"
+    url: "https://github.com/supabase/supabase/pull/11107"
+    date: "2022-12-20"
+  - number: 7487
+    repo: "supabase/supabase"
+    title: "Update next.config.js"
+    url: "https://github.com/supabase/supabase/pull/7487"
+    date: "2022-06-29"
+  - number: 3022
+    repo: "supabase/supabase"
+    title: "Docs: integration guides"
+    url: "https://github.com/supabase/supabase/pull/3022"
+    date: "2021-11-29"
+  - number: 2301
+    repo: "supabase/platform"
+    title: "Fix/vercel severless functions"
+    url: "https://github.com/supabase/platform/pull/2301"
+    date: "2021-11-09"
+---
+
+
+
+## Related Pull Requests
+
+<PRTable slug="supabase-docs-platform" />
+Documentation is product. I worked extensively on the Supabase docs platform, improving everything from styling to CLI command documentation.
+
+## Docs Infrastructure
+
+### Moving to Turborepo
+
+The docs moved from a standalone repo into the monorepo:
+
+- Shared UI components with the main app
+- Consistent styling across all properties
+- Faster builds with caching
+- Unified dependency management
+
+### Speed Optimizations
+
+Docs sites need to be fast. I made several improvements:
+
+- Fixed slow page loads from heavy imports
+- Optimized sitemap generation
+- Improved build times
+- Added proper caching headers
+
+## CLI Documentation
+
+The Supabase CLI needed comprehensive docs. I built:
+
+### Command Sections
+
+```tsx title="CLI command section component"
+<CLICommandSection
+  command="supabase db push"
+  description="Push local migrations to remote"
+  flags={[
+    { name: '--dry-run', description: 'Preview changes' },
+    { name: '--linked', description: 'Use linked project' },
+  ]}
+  isOptional={false}
+/>
+```
+
+### Global Flags
+
+I added global flags documentation showing flags that work across all commands:
+
+- `--debug`: Enable debug output
+- `--workdir`: Set working directory
+- `--experimental`: Enable experimental features
+
+## Reference Docs Styling
+
+The API reference docs needed visual improvements:
+
+- Consistent code block styling
+- Better typography hierarchy
+- Improved mobile responsiveness
+- Dark mode support
+
+## Content Improvements
+
+### "Edit This Page" Links
+
+I added "Edit this page" links to all guides:
+
+```tsx title="Edit link component"
+<a href={`https://github.com/supabase/supabase/edit/master/docs/${path}`}>
+  Edit this page on GitHub
+</a>
+```
+
+This encourages community contributions.
+
+### Self-Hosting Visibility
+
+I reorganized self-hosting docs for better visibility:
+
+- Moved to prominent navigation position
+- Added clearer setup instructions
+- Improved Docker configuration docs
+
+### Navigation Improvements
+
+- Accordion fixes for nested navigation
+- Collapsible sidebar improvements
+- Mobile menu fixes
+- Active state indicators
+
+## CMDK Integration
+
+I integrated CMDK (Command+K) search into docs:
+
+- Fuzzy search across all content
+- Keyboard navigation
+- Recent searches
+- Quick actions
+
+## SEO & Metadata
+
+Improved discoverability:
+
+- Proper OpenGraph images
+- Meta descriptions for all pages
+- Sitemap generation and validation
+- Robots.txt optimization
+
+## Impact
+
+The docs platform now:
+
+1. Loads faster with better caching
+2. Is easier to navigate and search
+3. Encourages community contributions
+4. Provides comprehensive CLI documentation
+
+Good docs reduce support load and help developers succeed faster.
+
+## Screenshots
+
+Visual documentation from the pull requests:
+
+![Docs: integration guides](/pr-images/supabase-docs-platform-pr3022-3.png)
+
+![feat: add new Icons package for custom made icons](/pr-images/supabase-docs-platform-pr21477-2.png)
+
+![Feat/mermaid blog](/pr-images/supabase-docs-platform-pr40897-1.png)
+

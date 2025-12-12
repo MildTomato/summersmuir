@@ -1,0 +1,237 @@
+---
+title: The Supabase Project Homepage
+subtitle: Dashboard home, status indicators, and quick actions
+date: 2021-07-29
+description: Building the project homepage with usage metrics, status indicators, and developer quick actions.
+image: /misty-moorland.png
+prImages:
+  - /pr-images/supabase-project-homepage-pr1272-2.png
+  - /pr-images/supabase-project-homepage-pr1272-3.png
+  - /pr-images/supabase-project-homepage-pr1272-4.png
+  - /pr-images/supabase-project-homepage-pr21079-1.png
+  - /pr-images/supabase-project-homepage-pr23234-10.png
+  - /pr-images/supabase-project-homepage-pr23234-5.png
+  - /pr-images/supabase-project-homepage-pr23234-6.png
+  - /pr-images/supabase-project-homepage-pr23234-7.png
+  - /pr-images/supabase-project-homepage-pr23234-8.png
+  - /pr-images/supabase-project-homepage-pr23234-9.png
+  - /pr-images/supabase-project-homepage-pr4055-13.png
+  - /pr-images/supabase-project-homepage-pr6582-11.png
+  - /pr-images/supabase-project-homepage-pr6582-12.png
+prs:
+  - number: 26706
+    repo: "supabase/supabase"
+    title: "[Design system] Update homepage links"
+    url: "https://github.com/supabase/supabase/pull/26706"
+    date: "2024-05-23"
+  - number: 21079
+    repo: "supabase/supabase"
+    title: "Feat/homepage connect modal combined  styling update"
+    url: "https://github.com/supabase/supabase/pull/21079"
+    date: "2024-02-07"
+  - number: 12643
+    repo: "supabase/supabase"
+    title: "[Docs] meta data wrong on guides and homepage"
+    url: "https://github.com/supabase/supabase/pull/12643"
+    date: "2023-02-24"
+  - number: 11194
+    repo: "supabase/supabase"
+    title: "Docs homepage link broken"
+    url: "https://github.com/supabase/supabase/pull/11194"
+    date: "2022-12-22"
+  - number: 1544
+    repo: "supabase/platform"
+    title: "chore: unlock reports and project homepage"
+    url: "https://github.com/supabase/platform/pull/1544"
+    date: "2021-07-29"
+  - number: 1272
+    repo: "supabase/platform"
+    title: "[Feat] usage, project homepage, and loading screen/route update"
+    url: "https://github.com/supabase/platform/pull/1272"
+    date: "2021-07-29"
+  - number: 33415
+    repo: "supabase/supabase"
+    title: "fix: mobile issues for getLayout"
+    url: "https://github.com/supabase/supabase/pull/33415"
+    date: "2025-02-07"
+  - number: 29713
+    repo: "supabase/supabase"
+    title: "Chore/ Remove SMTP banner from project homapage"
+    url: "https://github.com/supabase/supabase/pull/29713"
+    date: "2024-10-07"
+  - number: 23234
+    repo: "supabase/supabase"
+    title: "feat: add compute badge"
+    url: "https://github.com/supabase/supabase/pull/23234"
+    date: "2024-08-27"
+  - number: 13509
+    repo: "supabase/supabase"
+    title: "Chore/ LW7 favicons and logos"
+    url: "https://github.com/supabase/supabase/pull/13509"
+    date: "2023-04-10"
+  - number: 7298
+    repo: "supabase/supabase"
+    title: "chore: moved images to youtube"
+    url: "https://github.com/supabase/supabase/pull/7298"
+    date: "2022-08-09"
+  - number: 6993
+    repo: "supabase/supabase"
+    title: "chore: remove redundant charts"
+    url: "https://github.com/supabase/supabase/pull/6993"
+    date: "2022-05-25"
+  - number: 6582
+    repo: "supabase/supabase"
+    title: "Feat/quota billing"
+    url: "https://github.com/supabase/supabase/pull/6582"
+    date: "2022-04-29"
+  - number: 4055
+    repo: "supabase/supabase"
+    title: "Fix/docs arrows"
+    url: "https://github.com/supabase/supabase/pull/4055"
+    date: "2021-11-26"
+  - number: 1580
+    repo: "supabase/platform"
+    title: "Fix/metric spelling and labels"
+    url: "https://github.com/supabase/platform/pull/1580"
+    date: "2021-08-05"
+  - number: 934
+    repo: "supabase/supabase"
+    title: "Feature/marketing content update"
+    url: "https://github.com/supabase/supabase/pull/934"
+    date: "2021-03-29"
+---
+
+
+
+## Related Pull Requests
+
+<PRTable slug="supabase-project-homepage" />
+The project homepage is where developers start their day. I built key parts of this experience.
+
+## Dashboard Layout
+
+The homepage provides at-a-glance information:
+
+- **Project status**: Running, paused, upgrading
+- **Quick metrics**: Database size, bandwidth, connections
+- **Recent activity**: Latest changes and events
+- **Quick actions**: Common tasks
+
+## Usage Metrics
+
+Real-time usage displayed prominently:
+
+```tsx title="Usage display"
+<UsageCard
+  title="Database Size"
+  current={formatBytes(usage.dbSize)}
+  limit={formatBytes(plan.dbLimit)}
+  percentage={(usage.dbSize / plan.dbLimit) * 100}
+/>
+```
+
+## Paused Project States
+
+When projects are paused:
+
+- Clear visual indication
+- Reason for pause
+- Restore action button
+- Warning about data retention
+
+I improved the paused card layout for clarity.
+
+## Connect Modal
+
+The homepage connect modal combines:
+
+- Connection strings for different platforms
+- Quick start code snippets
+- Environment variable exports
+- Framework-specific examples
+
+I updated styling for the combined connect modal.
+
+## Status Indicators
+
+Project health at a glance:
+
+- Database running status
+- API health check
+- Auth service status
+- Realtime connection state
+
+## Empty States
+
+New projects need guidance:
+
+- Getting started steps
+- Documentation links
+- Quick action buttons
+- Example code snippets
+
+## Performance
+
+The homepage loads frequently, so performance matters:
+
+- Lazy loading of charts
+- Optimistic UI for status
+- Cached metric values
+- Stale-while-revalidate pattern
+
+## Mobile Experience
+
+Dashboard works on mobile:
+
+- Responsive card layout
+- Collapsible sections
+- Touch-friendly actions
+- Simplified metrics view
+
+## Impact
+
+The project homepage:
+
+1. Provides immediate project health visibility
+2. Surfaces important warnings
+3. Enables quick common actions
+4. Guides new users to next steps
+
+The first screen developers see sets the tone.
+
+## Screenshots
+
+Visual documentation from the pull requests:
+
+### [Feat] usage, project homepage, and loading screen/route update
+
+![Screenshot](/pr-images/supabase-project-homepage-pr1272-2.png)
+
+![Screenshot](/pr-images/supabase-project-homepage-pr1272-3.png)
+
+![Screenshot](/pr-images/supabase-project-homepage-pr1272-4.png)
+
+![Fix/docs arrows](/pr-images/supabase-project-homepage-pr4055-13.png)
+
+### Feat/quota billing
+
+![Screenshot](/pr-images/supabase-project-homepage-pr6582-11.png)
+
+![Screenshot](/pr-images/supabase-project-homepage-pr6582-12.png)
+
+![Feat/homepage connect modal combined  styling update](/pr-images/supabase-project-homepage-pr21079-1.png)
+
+### feat: add compute badge
+
+![Screenshot](/pr-images/supabase-project-homepage-pr23234-10.png)
+
+![Screenshot](/pr-images/supabase-project-homepage-pr23234-5.png)
+
+![Screenshot](/pr-images/supabase-project-homepage-pr23234-6.png)
+
+![Screenshot](/pr-images/supabase-project-homepage-pr23234-7.png)
+
+![Screenshot](/pr-images/supabase-project-homepage-pr23234-8.png)
+
+![Screenshot](/pr-images/supabase-project-homepage-pr23234-9.png)
+

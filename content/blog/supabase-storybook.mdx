@@ -1,0 +1,155 @@
+---
+title: Adding Storybook to Supabase
+subtitle: Component development and documentation with Storybook
+date: 2024-03-01
+description: Setting up Storybook for isolated component development at Supabase.
+image: /mountain-lake.png
+prImages:
+  - /pr-images/supabase-storybook-pr21960-1.png
+prs:
+  - number: 26599
+    repo: "supabase/supabase"
+    title: "Start removing storybook"
+    url: "https://github.com/supabase/supabase/pull/26599"
+    date: "2024-06-11"
+  - number: 21682
+    repo: "supabase/supabase"
+    title: "Feat/add storybook app"
+    url: "https://github.com/supabase/supabase/pull/21682"
+    date: "2024-03-01"
+  - number: 21960
+    repo: "supabase/supabase"
+    title: "feat: TreeView primitive"
+    url: "https://github.com/supabase/supabase/pull/21960"
+    date: "2024-04-26"
+  - number: 21989
+    repo: "supabase/supabase"
+    title: "fix: FormItemLayout width fix, `<Sheet/>` renamed with prop name reverted, started new form story"
+    url: "https://github.com/supabase/supabase/pull/21989"
+    date: "2024-03-13"
+  - number: 21835
+    repo: "supabase/supabase"
+    title: "Feat/form item layout"
+    url: "https://github.com/supabase/supabase/pull/21835"
+    date: "2024-03-08"
+  - number: 21741
+    repo: "supabase/supabase"
+    title: "Chore/add first pattern docs"
+    url: "https://github.com/supabase/supabase/pull/21741"
+    date: "2024-03-05"
+  - number: 21726
+    repo: "supabase/supabase"
+    title: "Chore/upgrade sb"
+    url: "https://github.com/supabase/supabase/pull/21726"
+    date: "2024-03-05"
+  - number: 21688
+    repo: "supabase/supabase"
+    title: "Chore/move dialog to patterns"
+    url: "https://github.com/supabase/supabase/pull/21688"
+    date: "2024-03-01"
+  - number: 14528
+    repo: "supabase/supabase"
+    title: "Feat/UI components uishadcn"
+    url: "https://github.com/supabase/supabase/pull/14528"
+    date: "2023-07-18"
+  - number: 13137
+    repo: "supabase/supabase"
+    title: "Design tokens <> Tailwind"
+    url: "https://github.com/supabase/supabase/pull/13137"
+    date: "2023-05-23"
+---
+
+
+
+## Related Pull Requests
+
+<PRTable slug="supabase-storybook" />
+Storybook transforms component development. Instead of navigating through an entire application to test a button variant, you can develop and test components in isolation with hot reloading.
+
+I set up Storybook as a dedicated app within our turborepo to improve the component development workflow.
+
+## The Setup
+
+Adding Storybook to an existing monorepo requires careful configuration to work with:
+
+- Our existing Tailwind setup and design tokens
+- The theming system (light, dark, deep-dark)
+- TypeScript and path aliases
+- Component dependencies from `packages/ui`
+
+```js title=".storybook/main.js"
+module.exports = {
+  stories: ['../packages/ui/**/*.stories.@(ts|tsx)'],
+  addons: [
+    '@storybook/addon-essentials',
+    '@storybook/addon-themes',
+  ],
+  framework: {
+    name: '@storybook/nextjs',
+    options: {},
+  },
+}
+```
+
+## Key Features
+
+The Storybook setup includes:
+
+- **Theme switching** to preview components in all themes
+- **Viewport testing** for responsive behavior
+- **Controls panel** for interactive prop manipulation  
+- **Auto-generated docs** from TypeScript types
+- **Accessibility testing** with a11y addon
+
+## Story Structure
+
+Each component has stories that demonstrate:
+
+```tsx title="Button.stories.tsx"
+import type { Meta, StoryObj } from '@storybook/react'
+import { Button } from './Button'
+
+const meta: Meta<typeof Button> = {
+  component: Button,
+  tags: ['autodocs'],
+}
+
+export default meta
+type Story = StoryObj<typeof Button>
+
+export const Primary: Story = {
+  args: {
+    variant: 'default',
+    children: 'Primary Button',
+  },
+}
+
+export const AllVariants: Story = {
+  render: () => (
+    <div className="flex gap-4">
+      <Button variant="default">Default</Button>
+      <Button variant="outline">Outline</Button>
+      <Button variant="ghost">Ghost</Button>
+      <Button variant="destructive">Destructive</Button>
+    </div>
+  ),
+}
+```
+
+## Impact
+
+Storybook has improved our development workflow by:
+
+- Enabling **faster iteration** on component designs
+- Providing a **visual regression baseline** for testing
+- Serving as **living documentation** that's always up to date
+- Making it easier for **contributors** to understand our component library
+
+The setup later evolved into our full design system site, which uses Storybook concepts but with a custom implementation using iframes for better isolation.
+
+## Screenshots
+
+Visual documentation from the pull requests:
+
+![feat: TreeView primitive](/pr-images/supabase-storybook-pr21960-1.png)
+

@@ -112,7 +112,7 @@ export function TimeMachine({ posts }: TimeMachineProps) {
   return (
     <div 
       ref={containerRef}
-      className="relative h-[80vh] w-full cursor-ns-resize"
+      className="relative h-[80vh] w-full cursor-ns-resize overflow-hidden"
     >
       {/* Perspective container */}
       <div 
@@ -365,3 +365,4 @@ export function TimeMachine({ posts }: TimeMachineProps) {
     </div>
   );
 }
+

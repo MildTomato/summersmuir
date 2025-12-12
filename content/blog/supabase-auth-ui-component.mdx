@@ -1,0 +1,183 @@
+---
+title: The Supabase Auth UI Component
+subtitle: Drop-in authentication for any React app
+date: 2021-01-12
+description: Building the original Auth component that powers authentication in Supabase apps.
+image: /misty-moorland.png
+prs:
+  - number: 8536
+    repo: "supabase/supabase"
+    title: "Feat/auth widget demo and MFA sign up"
+    url: "https://github.com/supabase/supabase/pull/8536"
+    date: "2022-08-19"
+  - number: 8511
+    repo: "supabase/supabase"
+    title: "docs / auth ui"
+    url: "https://github.com/supabase/supabase/pull/8511"
+    date: "2022-08-19"
+  - number: 55
+    repo: "supabase/ui"
+    title: "Feat: Feature/auth component"
+    url: "https://github.com/supabase/ui/pull/55"
+    date: "2021-01-12"
+---
+
+
+
+## Related Pull Requests
+
+<PRTable slug="supabase-auth-ui-component" />
+Authentication is the first thing most apps need. I built the original `<Auth />` component for `@supabase/ui`—a drop-in solution for any React application.
+
+## The Vision
+
+Instead of building auth UI from scratch every time, developers should have:
+
+```tsx title="One-line authentication"
+<Auth supabaseClient={supabase} />
+```
+
+That's it. Full authentication flow, styled and functional.
+
+## Supported Auth Methods
+
+The component supports all Supabase auth methods:
+
+### Email/Password
+
+```tsx title="Email authentication"
+<Auth
+  supabaseClient={supabase}
+  providers={[]}
+  view="sign_in"
+/>
+```
+
+### Magic Links
+
+Passwordless email authentication:
+
+```tsx title="Magic link flow"
+<Auth
+  supabaseClient={supabase}
+  magicLink
+/>
+```
+
+### OAuth Providers
+
+Social authentication with multiple providers:
+
+```tsx title="OAuth providers"
+<Auth
+  supabaseClient={supabase}
+  providers={['google', 'github', 'twitter', 'discord']}
+/>
+```
+
+### Phone/SMS
+
+Phone number authentication with OTP:
+
+```tsx title="Phone auth"
+<Auth
+  supabaseClient={supabase}
+  view="phone_sign_in"
+/>
+```
+
+## MFA Support
+
+In 2022, I added MFA sign-up widget support:
+
+- TOTP enrollment flow
+- QR code generation
+- Backup codes display
+- Factor management
+
+## Customization
+
+### Theme Support
+
+Full theming via CSS variables:
+
+```tsx title="Custom theming"
+<Auth
+  supabaseClient={supabase}
+  theme="dark"
+  appearance={{
+    variables: {
+      default: {
+        colors: {
+          brand: '#3ECF8E',
+          brandAccent: '#2B9E6A',
+        },
+      },
+    },
+  }}
+/>
+```
+
+### Redirect Handling
+
+Custom redirect after authentication:
+
+```tsx title="Redirect configuration"
+<Auth
+  supabaseClient={supabase}
+  redirectTo="https://app.example.com/dashboard"
+/>
+```
+
+## Auth UI Package
+
+The component eventually moved to `@supabase/auth-ui-react`:
+
+- Separate package for flexibility
+- Stitches for styling (later migrated)
+- Theme exports for customization
+- Type-safe props
+
+## Technical Details
+
+### State Management
+
+The component handles complex auth state:
+
+- Loading states during auth operations
+- Error display with clear messaging
+- View transitions (sign in → sign up → forgot password)
+- Success states and redirects
+
+### Accessibility
+
+Authentication must be accessible:
+
+- Keyboard navigation throughout
+- Screen reader announcements
+- Focus management between views
+- Error messaging for assistive tech
+
+### Auto-focus
+
+I added auto-focus for better UX:
+
+```tsx title="Auto-focus on load"
+<Input
+  autoFocus={view === 'sign_in'}
+  type="email"
+  placeholder="Your email"
+/>
+```
+
+## Impact
+
+The Auth component:
+
+1. Saves hours of development time per project
+2. Ensures consistent, tested auth flows
+3. Handles edge cases developers might miss
+4. Stays updated with Supabase Auth features
+
+Authentication shouldn't require reinventing the wheel.
+

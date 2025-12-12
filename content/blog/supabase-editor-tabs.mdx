@@ -1,0 +1,91 @@
+---
+title: Editor Tabs System
+subtitle: VSCode-style tabs for SQL and Table Editor
+date: 2025-03-27
+description: Building a tabbed interface for the SQL Editor and Table Editor, with persistent state and VSCode-like behavior.
+image: /misty-moorland.png
+prs:
+  - number: 31071
+    repo: "supabase/supabase"
+    title: "Feat/tabs"
+    url: "https://github.com/supabase/supabase/pull/31071"
+    date: "2025-03-27"
+---
+
+
+
+## Related Pull Requests
+
+<PRTable slug="supabase-editor-tabs" />
+The Supabase dashboard needed a better way to manage multiple queries and tables. I built a tabbed interface inspired by VSCode that brings familiar workflows to the browser.
+
+## The Problem
+
+Users were constantly losing context:
+- Switching between SQL queries lost their work
+- Opening multiple tables meant navigating back and forth
+- No way to keep related queries open together
+
+## The Solution
+
+A full tabbed interface for both SQL Editor and Table Editor:
+
+### Tab Behavior
+
+Tabs follow VSCode conventions:
+- **Preview tabs**: Single-click opens a "preview" tab that gets replaced
+- **Permanent tabs**: Double-click or editing makes a tab permanent
+- **Dirty indicators**: Unsaved changes shown with a dot
+- **Drag to reorder**: Rearrange tabs as needed
+
+### State Persistence
+
+Tabs persist across sessions using Valtio and localStorage:
+
+```typescript title="Tab state management"
+const tabStore = proxy({
+  tabs: [],
+  activeTabId: null,
+})
+
+// Subscribe to changes and persist
+subscribe(tabStore, () => {
+  localStorage.setItem('editor-tabs', JSON.stringify(snapshot(tabStore)))
+})
+```
+
+### Empty State
+
+New tab shows a helpful empty state:
+- Recent items list for quick access
+- Quick actions: "Create table", "New query"
+- Keyboard shortcuts reference
+
+### Plus Button
+
+The plus button behavior adapts to context:
+- In Table Editor: Opens empty state with options
+- In SQL Editor: Opens a new blank query
+
+## Technical Challenges
+
+### Feature Flags
+
+The feature rolled out behind a team feature flag:
+
+```typescript title="Feature flag check"
+const { tabs: tabsEnabled } = useFeatureFlags()
+
+if (!tabsEnabled) {
+  return <LegacyLayout>{children}</LegacyLayout>
+}
+```
+
+### Cross-Editor Navigation
+
+Tabs needed to work across SQL and Table editors seamlessly, maintaining context when switching between them.
+
+## Result
+
+Users can now work with multiple queries and tables simultaneously, just like they would in a local IDE. The tabbed interface significantly improves the development workflow in the dashboard.
+

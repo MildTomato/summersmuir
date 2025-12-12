@@ -1,0 +1,122 @@
+---
+title: Vercel Marketplace Integration
+subtitle: Supabase on the Vercel Marketplace
+date: 2024-08-23
+description: Building and maintaining the Vercel Marketplace integration for Supabase.
+image: /misty-moorland.png
+prImages:
+  - /pr-images/supabase-marketplace-pr16398-1.png
+  - /pr-images/supabase-marketplace-pr16398-2.png
+prs:
+  - number: 28958
+    repo: "supabase/supabase"
+    title: "Vercel marketplace docs"
+    url: "https://github.com/supabase/supabase/pull/28958"
+    date: "2024-08-28"
+  - number: 19528
+    repo: "supabase/platform"
+    title: "HOTFIX: Update Vercel Marketplace secret key names"
+    url: "https://github.com/supabase/platform/pull/19528"
+    date: "2024-08-28"
+  - number: 19500
+    repo: "supabase/platform"
+    title: "Chore: Vercel Marketplace | More secrets"
+    url: "https://github.com/supabase/platform/pull/19500"
+    date: "2024-08-26"
+  - number: 28786
+    repo: "supabase/supabase"
+    title: "Vercel marketplace"
+    url: "https://github.com/supabase/supabase/pull/28786"
+    date: "2024-08-23"
+  - number: 16398
+    repo: "supabase/supabase"
+    title: "chore: fix empty states for Vercel Integration"
+    url: "https://github.com/supabase/supabase/pull/16398"
+    date: "2023-08-10"
+---
+
+
+
+## Related Pull Requests
+
+<PRTable slug="supabase-marketplace" />
+The Vercel Marketplace brings Supabase to Vercel's ecosystem. I built and maintained key parts of this integration.
+
+## Marketplace Presence
+
+Supabase on the Vercel Marketplace enables:
+
+- One-click provisioning from Vercel
+- Environment variable syncing
+- Project connection management
+- Unified billing
+
+## Secret Management
+
+I worked on secret key configuration:
+
+```typescript title="Secret key setup"
+const secrets = {
+  SUPABASE_URL: project.apiUrl,
+  SUPABASE_ANON_KEY: project.anonKey,
+  SUPABASE_SERVICE_ROLE_KEY: project.serviceRoleKey,
+}
+```
+
+Multiple iterations to get secret key names right for the marketplace.
+
+## Documentation
+
+I added Vercel Marketplace documentation:
+
+- Getting started guide
+- Configuration options
+- Troubleshooting
+- Migration from standalone
+
+## Testing Infrastructure
+
+Setting up testing URLs for marketplace flows:
+
+- Staging environment URLs
+- Preview deployment support
+- Integration test flows
+
+## Integration Fixes
+
+Various fixes during rollout:
+
+- Secret key name updates
+- Configuration ID returns
+- Connection validation
+- Error handling improvements
+
+## Environment Variables
+
+Proper environment variable syncing:
+
+- Development, Preview, Production targets
+- Branch-aware configuration
+- Automatic updates on changes
+
+## Impact
+
+Vercel Marketplace integration:
+
+1. Reaches Vercel's large developer base
+2. Simplifies deployment workflow
+3. Provides seamless integration
+4. Enables platform partnerships
+
+Platform integrations expand reach.
+
+## Screenshots
+
+Visual documentation from the pull requests:
+
+### chore: fix empty states for Vercel Integration
+
+![Screenshot](/pr-images/supabase-marketplace-pr16398-1.png)
+
+![Screenshot](/pr-images/supabase-marketplace-pr16398-2.png)
+

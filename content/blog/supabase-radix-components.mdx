@@ -1,0 +1,194 @@
+---
+title: Building UI Components with Radix
+subtitle: Accessible primitives for Supabase
+date: 2021-07-29
+description: Implementing dropdown menus, popovers, and select components with Radix UI.
+image: /mountain-lake.png
+prImages:
+  - /pr-images/supabase-radix-components-pr20865-1.png
+  - /pr-images/supabase-radix-components-pr20865-2.png
+  - /pr-images/supabase-radix-components-pr20865-3.png
+  - /pr-images/supabase-radix-components-pr20865-4.png
+prs:
+  - number: 10907
+    repo: "supabase/supabase"
+    title: "update radix portal"
+    url: "https://github.com/supabase/supabase/pull/10907"
+    date: "2022-12-13"
+  - number: 275
+    repo: "supabase/ui"
+    title: "fix: radix types updated"
+    url: "https://github.com/supabase/ui/pull/275"
+    date: "2021-09-14"
+  - number: 273
+    repo: "supabase/ui"
+    title: "Feat/update radix"
+    url: "https://github.com/supabase/ui/pull/273"
+    date: "2021-09-14"
+  - number: 187
+    repo: "supabase/ui"
+    title: "feat: added radix dropdown."
+    url: "https://github.com/supabase/ui/pull/187"
+    date: "2021-05-10"
+  - number: 20865
+    repo: "supabase/supabase"
+    title: "chore: update themes and add dark-new theme set"
+    url: "https://github.com/supabase/supabase/pull/20865"
+    date: "2024-02-15"
+  - number: 308
+    repo: "supabase/ui"
+    title: "Feature/theming"
+    url: "https://github.com/supabase/ui/pull/308"
+    date: "2022-01-22"
+  - number: 294
+    repo: "supabase/ui"
+    title: "hotfix: fix: quick fix for tabs content."
+    url: "https://github.com/supabase/ui/pull/294"
+    date: "2021-11-26"
+  - number: 251
+    repo: "supabase/ui"
+    title: "feat: nested dropdowns"
+    url: "https://github.com/supabase/ui/pull/251"
+    date: "2021-07-29"
+---
+
+
+
+## Related Pull Requests
+
+<PRTable slug="supabase-radix-components" />
+When I started building Supabase's component library, Radix UI was emerging as the best solution for accessible, unstyled primitives. I implemented several core components using Radix, including nested dropdowns, context menus, popovers, and selects.
+
+## Why Radix?
+
+Before Radix, building accessible interactive components meant:
+
+- Writing complex keyboard navigation from scratch
+- Managing focus trapping manually
+- Implementing ARIA attributes correctly
+- Handling edge cases across browsers
+
+Radix provides these behaviors out of the box, letting us focus on styling and integration.
+
+## Nested Dropdowns
+
+The nested dropdown implementation was a significant contribution—25,000+ lines changed across the UI library:
+
+```tsx title="Nested dropdown usage"
+<DropdownMenu>
+  <DropdownMenuTrigger asChild>
+    <Button>Options</Button>
+  </DropdownMenuTrigger>
+  <DropdownMenuContent>
+    <DropdownMenuItem>New File</DropdownMenuItem>
+    <DropdownMenuItem>New Folder</DropdownMenuItem>
+    <DropdownMenuSeparator />
+    <DropdownMenuSub>
+      <DropdownMenuSubTrigger>Export As</DropdownMenuSubTrigger>
+      <DropdownMenuSubContent>
+        <DropdownMenuItem>CSV</DropdownMenuItem>
+        <DropdownMenuItem>JSON</DropdownMenuItem>
+        <DropdownMenuItem>SQL</DropdownMenuItem>
+      </DropdownMenuSubContent>
+    </DropdownMenuSub>
+  </DropdownMenuContent>
+</DropdownMenu>
+```
+
+## Context Menu
+
+The context menu provides right-click functionality:
+
+```tsx title="Context menu"
+<ContextMenu>
+  <ContextMenuTrigger asChild>
+    <div className="w-64 h-32 border border-dashed rounded flex items-center justify-center">
+      Right click here
+    </div>
+  </ContextMenuTrigger>
+  <ContextMenuContent>
+    <ContextMenuItem>Cut</ContextMenuItem>
+    <ContextMenuItem>Copy</ContextMenuItem>
+    <ContextMenuItem>Paste</ContextMenuItem>
+    <ContextMenuSeparator />
+    <ContextMenuItem>Delete</ContextMenuItem>
+  </ContextMenuContent>
+</ContextMenu>
+```
+
+## Popover
+
+The popover component is used throughout the dashboard:
+
+```tsx title="Popover"
+<Popover>
+  <PopoverTrigger asChild>
+    <Button variant="outline">Open Popover</Button>
+  </PopoverTrigger>
+  <PopoverContent className="w-80">
+    <div className="grid gap-4">
+      <div className="space-y-2">
+        <h4 className="font-medium leading-none">Dimensions</h4>
+        <p className="text-sm text-muted-foreground">
+          Set the dimensions for the layer.
+        </p>
+      </div>
+      <div className="grid gap-2">
+        <Label htmlFor="width">Width</Label>
+        <Input id="width" defaultValue="100%" />
+      </div>
+    </div>
+  </PopoverContent>
+</Popover>
+```
+
+## Styled Select
+
+The select component with full keyboard support:
+
+```tsx title="Select"
+<Select value={value} onValueChange={setValue}>
+  <SelectTrigger className="w-48">
+    <SelectValue placeholder="Select a region" />
+  </SelectTrigger>
+  <SelectContent>
+    <SelectItem value="us-east-1">US East (Virginia)</SelectItem>
+    <SelectItem value="us-west-2">US West (Oregon)</SelectItem>
+    <SelectItem value="eu-west-1">EU (Ireland)</SelectItem>
+    <SelectItem value="ap-southeast-1">Asia Pacific (Singapore)</SelectItem>
+  </SelectContent>
+</Select>
+```
+
+## Safari Fixes
+
+During implementation, I encountered Safari-specific rendering issues with popovers in grid contexts:
+
+```tsx title="Safari popover fix"
+// Force compositing layer to fix Safari rendering
+<PopoverContent 
+  style={{ transform: 'translateZ(0)' }}
+  className="..."
+>
+  {children}
+</PopoverContent>
+```
+
+## Result
+
+The Radix-based components form the foundation of Supabase's UI. They're accessible by default, consistent in behavior, and integrate seamlessly with our theming system.
+
+## Screenshots
+
+Visual documentation from the pull requests:
+
+### chore: update themes and add dark-new theme set
+
+![Screenshot](/pr-images/supabase-radix-components-pr20865-1.png)
+
+![Screenshot](/pr-images/supabase-radix-components-pr20865-2.png)
+
+![Screenshot](/pr-images/supabase-radix-components-pr20865-3.png)
+
+![Screenshot](/pr-images/supabase-radix-components-pr20865-4.png)
+

@@ -1,0 +1,259 @@
+---
+title: Building Supabase Billing & Subscriptions
+subtitle: Self-serve payments, spend caps, and usage tracking
+date: 2022-04-18
+description: How I built the self-serve billing system, quota management, and spend cap functionality.
+image: /misty-moorland.png
+prImages:
+  - /pr-images/supabase-billing-pr2211-9.png
+  - /pr-images/supabase-billing-pr2246-8.png
+  - /pr-images/supabase-billing-pr6431-6.png
+  - /pr-images/supabase-billing-pr6431-7.png
+  - /pr-images/supabase-billing-pr6579-3.png
+  - /pr-images/supabase-billing-pr6582-1.png
+  - /pr-images/supabase-billing-pr6582-2.png
+  - /pr-images/supabase-billing-pr955-4.png
+  - /pr-images/supabase-billing-pr955-5.png
+prs:
+  - number: 12878
+    repo: "supabase/supabase"
+    title: "[Docs] Spend cap guide"
+    url: "https://github.com/supabase/supabase/pull/12878"
+    date: "2023-03-10"
+  - number: 10766
+    repo: "supabase/platform"
+    title: "Update readme with alt stripe sync instructions"
+    url: "https://github.com/supabase/platform/pull/10766"
+    date: "2023-01-03"
+  - number: 6582
+    repo: "supabase/supabase"
+    title: "Feat/quota billing"
+    url: "https://github.com/supabase/supabase/pull/6582"
+    date: "2022-04-29"
+  - number: 6579
+    repo: "supabase/supabase"
+    title: "Feat/quota billing"
+    url: "https://github.com/supabase/supabase/pull/6579"
+    date: "2022-04-27"
+  - number: 6525
+    repo: "supabase/supabase"
+    title: "fix: billing labelling issues with max, sum and egress"
+    url: "https://github.com/supabase/supabase/pull/6525"
+    date: "2022-04-22"
+  - number: 2258
+    repo: "supabase/platform"
+    title: "fix: remove stripe subscription limit"
+    url: "https://github.com/supabase/platform/pull/2258"
+    date: "2021-11-08"
+  - number: 2268
+    repo: "supabase/platform"
+    title: "move getStripeCustomer out of promise all"
+    url: "https://github.com/supabase/platform/pull/2268"
+    date: "2021-11-02"
+  - number: 1297
+    repo: "supabase/platform"
+    title: "Fix/missing org in create subscription"
+    url: "https://github.com/supabase/platform/pull/1297"
+    date: "2021-06-29"
+  - number: 1167
+    repo: "supabase/platform"
+    title: "Chore/remove stripe worker"
+    url: "https://github.com/supabase/platform/pull/1167"
+    date: "2021-06-10"
+  - number: 962
+    repo: "supabase/platform"
+    title: "chore: update stripe on org transfer"
+    url: "https://github.com/supabase/platform/pull/962"
+    date: "2021-04-19"
+  - number: 955
+    repo: "supabase/platform"
+    title: "fix: stripe tier usage and customer_stripe_id errors"
+    url: "https://github.com/supabase/platform/pull/955"
+    date: "2021-04-19"
+  - number: 939
+    repo: "supabase/platform"
+    title: "Fix/billing fixes"
+    url: "https://github.com/supabase/platform/pull/939"
+    date: "2021-04-12"
+  - number: 23210
+    repo: "supabase/supabase"
+    title: "move to shared types"
+    url: "https://github.com/supabase/supabase/pull/23210"
+    date: "2024-04-24"
+  - number: 14812
+    repo: "supabase/supabase"
+    title: "Feat/sticky header usage"
+    url: "https://github.com/supabase/supabase/pull/14812"
+    date: "2023-06-06"
+  - number: 6993
+    repo: "supabase/supabase"
+    title: "chore: remove redundant charts"
+    url: "https://github.com/supabase/supabase/pull/6993"
+    date: "2022-05-25"
+  - number: 6652
+    repo: "supabase/supabase"
+    title: "Fix/strip headers test"
+    url: "https://github.com/supabase/supabase/pull/6652"
+    date: "2022-05-02"
+  - number: 6234
+    repo: "supabase/platform"
+    title: "fix: construct temporary attribute by subtracting storage egress from total egress"
+    url: "https://github.com/supabase/platform/pull/6234"
+    date: "2022-04-22"
+  - number: 6431
+    repo: "supabase/supabase"
+    title: "feat: Self serve subscription and global spend cap"
+    url: "https://github.com/supabase/supabase/pull/6431"
+    date: "2022-04-18"
+  - number: 2272
+    repo: "supabase/platform"
+    title: "[On hold] - Do not merge - Platform API routes"
+    url: "https://github.com/supabase/platform/pull/2272"
+    date: "2021-11-15"
+  - number: 2246
+    repo: "supabase/platform"
+    title: "chore: unlimited paid projects"
+    url: "https://github.com/supabase/platform/pull/2246"
+    date: "2021-11-01"
+  - number: 2229
+    repo: "supabase/platform"
+    title: "fix: wrong var names"
+    url: "https://github.com/supabase/platform/pull/2229"
+    date: "2021-10-27"
+  - number: 2211
+    repo: "supabase/platform"
+    title: "Feat/exit survey"
+    url: "https://github.com/supabase/platform/pull/2211"
+    date: "2021-10-27"
+  - number: 2147
+    repo: "supabase/platform"
+    title: "fix: remove dayjs from createSubscription"
+    url: "https://github.com/supabase/platform/pull/2147"
+    date: "2021-10-14"
+---
+
+
+
+## Related Pull Requests
+
+<PRTable slug="supabase-billing" />
+Billing is where product meets business. I built key parts of Supabase's billing infrastructure, making it self-serve and transparent.
+
+## Self-Serve Subscription Management
+
+The goal was letting users upgrade, downgrade, and manage their subscriptions without contacting support:
+
+- **Plan selection** with clear feature comparison
+- **Payment method management** via Stripe
+- **Upgrade/downgrade flows** with prorated billing
+- **Spend cap controls** for budget management
+
+## The Spend Cap Feature
+
+One of the most requested features: spend caps. Users wanted to set a maximum monthly spend to avoid surprise bills.
+
+```typescript title="Spend cap implementation"
+interface SpendCap {
+  enabled: boolean
+  limit: number // in dollars
+  currentUsage: number
+  projectedUsage: number
+}
+```
+
+When approaching the cap, users receive warnings. At the cap, overage services pause until the next billing cycle.
+
+## Quota Billing
+
+Usage-based billing required tracking multiple dimensions:
+
+- **Database size** (GB stored)
+- **Bandwidth** (GB transferred)
+- **Edge Function invocations**
+- **Auth MAUs** (monthly active users)
+- **Storage** (files stored)
+- **Realtime** (peak connections)
+
+The billing page shows:
+
+- Current usage vs included quota
+- Projected end-of-month usage
+- Cost breakdown by service
+- Historical usage trends
+
+## Usage-Based Billing Cycle
+
+I updated the billing page to show usage based on actual billing cycles:
+
+```typescript title="Billing cycle alignment"
+function getBillingPeriod(subscription: Subscription) {
+  return {
+    start: subscription.current_period_start,
+    end: subscription.current_period_end,
+    daysRemaining: differenceInDays(
+      subscription.current_period_end,
+      new Date()
+    ),
+  }
+}
+```
+
+This prevents confusion about when usage resets.
+
+## Stripe Integration
+
+Deep integration with Stripe for:
+
+- Subscription lifecycle management
+- Invoice generation and history
+- Payment method updates
+- Webhook handling for async events
+
+## Clear Pricing Communication
+
+I added clear warnings and explanations:
+
+- "$25 charge" notice when creating Pro projects
+- Explanation of what happens at quota limits
+- Clarification on enterprise pricing
+- Links from pricing page to relevant docs
+
+## Impact
+
+Self-serve billing reduced support tickets significantly. Users can now:
+
+1. Upgrade instantly when they need more resources
+2. Set spend limits for budget control
+3. Understand exactly what they're paying for
+4. Manage payment methods independently
+
+Transparent billing builds trust.
+
+## Screenshots
+
+Visual documentation from the pull requests:
+
+### fix: stripe tier usage and customer_stripe_id errors
+
+![Screenshot](/pr-images/supabase-billing-pr955-4.png)
+
+![Screenshot](/pr-images/supabase-billing-pr955-5.png)
+
+![Feat/exit survey](/pr-images/supabase-billing-pr2211-9.png)
+
+![chore: unlimited paid projects](/pr-images/supabase-billing-pr2246-8.png)
+
+### feat: Self serve subscription and global spend cap
+
+![Screenshot](/pr-images/supabase-billing-pr6431-6.png)
+
+![Screenshot](/pr-images/supabase-billing-pr6431-7.png)
+
+![Feat/quota billing](/pr-images/supabase-billing-pr6579-3.png)
+
+### Feat/quota billing
+
+![Screenshot](/pr-images/supabase-billing-pr6582-1.png)
+
+![Screenshot](/pr-images/supabase-billing-pr6582-2.png)
+

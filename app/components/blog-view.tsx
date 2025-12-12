@@ -24,14 +24,10 @@ export function BlogView({ posts }: BlogViewProps) {
   return (
     <div className="min-h-screen bg-app-bg">
       {/* Header with view toggle */}
-      <div className="pt-8 pb-4 px-6 md:px-12 lg:px-20">
-        <div className="max-w-6xl mx-auto flex flex-col md:flex-row md:items-center md:justify-between gap-4">
-          <div className={view === 'rolodex' ? 'text-center md:text-left w-full' : ''}>
-            
-          </div>
-          
+      <div className="relative z-[200] pt-4 pb-4 px-6 md:px-12 lg:px-20">
+        <div className="max-w-6xl mx-auto flex items-center justify-end">
           {/* View toggle */}
-          <div className={`flex items-center gap-1 p-1 rounded-lg bg-warm-cream dark:bg-neutral-900/50 border border-border-color ${view === 'rolodex' ? 'mx-auto md:mx-0' : ''}`}>
+          <div className="flex items-center gap-1 p-1 rounded-lg bg-warm-cream dark:bg-neutral-900/50 border border-border-color">
             <button
               onClick={() => setView('rolodex')}
               className={`

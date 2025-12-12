@@ -1,0 +1,116 @@
+---
+title: Supabase Icons Package
+subtitle: Custom icons for the Supabase design system
+date: 2024-02-26
+description: Building a custom icons package with consistent styling across the dashboard.
+image: /misty-moorland.png
+prImages:
+  - /pr-images/supabase-icons-package-pr21477-1.png
+prs:
+  - number: 21556
+    repo: "supabase/supabase"
+    title: "use lucide for some icons in nav"
+    url: "https://github.com/supabase/supabase/pull/21556"
+    date: "2024-02-26"
+  - number: 21477
+    repo: "supabase/supabase"
+    title: "feat: add new Icons package for custom made icons"
+    url: "https://github.com/supabase/supabase/pull/21477"
+    date: "2024-02-26"
+---
+
+
+
+## Related Pull Requests
+
+<PRTable slug="supabase-icons-package" />
+Icons are a visual language. I built the Supabase icons package for consistent iconography across all products.
+
+## Icons Package
+
+A dedicated icons package for custom-made icons:
+
+```tsx title="Using custom icons"
+import { DatabaseIcon, AuthIcon, StorageIcon } from '@supabase/icons'
+
+<DatabaseIcon className="w-5 h-5" />
+```
+
+## Icon Design Principles
+
+Consistent icon design:
+
+- 24x24 base grid
+- 1.5px stroke weight
+- Rounded corners
+- Consistent padding
+
+## Lucide Integration
+
+Combining custom icons with Lucide:
+
+```tsx title="Mixed icon usage"
+import { Settings } from 'lucide-react'
+import { DatabaseIcon } from '@supabase/icons'
+```
+
+## Navigation Icons
+
+Special treatment for nav icons:
+
+- Different stroke width when active
+- Filled vs outlined variants
+- Consistent sizing
+- Hover states
+
+## Deprecation Notices
+
+I added deprecation notices to old icons:
+
+```tsx title="Deprecation notice"
+/**
+ * @deprecated Use lucide-react icons instead
+ */
+export const OldIcon = () => { ... }
+```
+
+## Icon Props
+
+Consistent props interface:
+
+```typescript title="Icon interface"
+interface IconProps {
+  size?: number
+  strokeWidth?: number
+  className?: string
+  fill?: string
+  stroke?: string
+}
+```
+
+## Nav Icon Updates
+
+Updated navigation icons:
+
+- Lighter weight for inactive
+- Bolder for active state
+- Consistent visual weight
+- Better recognition
+
+## Impact
+
+Custom icons package:
+
+1. Ensures visual consistency
+2. Enables brand recognition
+3. Improves icon quality
+4. Simplifies icon usage
+
+Icons are part of the design language.
+
+## Screenshots
+
+Visual documentation from the pull requests:
+
+![feat: add new Icons package for custom made icons](/pr-images/supabase-icons-package-pr21477-1.png)
+

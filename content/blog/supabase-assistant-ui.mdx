@@ -1,0 +1,155 @@
+---
+title: AI Assistant UI Patterns
+subtitle: Chat forms, command popovers, and AI integration
+date: 2024-03-29
+description: Building UI patterns for AI assistant integration across the Supabase dashboard.
+image: /misty-moorland.png
+prImages:
+  - /pr-images/supabase-assistant-ui-pr19296-2.png
+  - /pr-images/supabase-assistant-ui-pr21459-3.png
+  - /pr-images/supabase-assistant-ui-pr30560-4.png
+  - /pr-images/supabase-assistant-ui-pr35106-1.png
+prs:
+  - number: 35106
+    repo: "supabase/supabase"
+    title: "feat: add AI assistant callout on support form"
+    url: "https://github.com/supabase/supabase/pull/35106"
+    date: "2025-04-22"
+  - number: 27952
+    repo: "supabase/supabase"
+    title: "[Design System] Feat: Assistant Chat fragment component"
+    url: "https://github.com/supabase/supabase/pull/27952"
+    date: "2024-07-12"
+  - number: 19296
+    repo: "supabase/supabase"
+    title: "feat: AssistantChatForm ui-pattern and AssistantCommandsPopover ui-pattern"
+    url: "https://github.com/supabase/supabase/pull/19296"
+    date: "2024-03-29"
+  - number: 21459
+    repo: "supabase/supabase"
+    title: "Chore/rls assistant iteration templates styling"
+    url: "https://github.com/supabase/supabase/pull/21459"
+    date: "2024-02-26"
+  - number: 19294
+    repo: "supabase/supabase"
+    title: "chore: added pattern UI for assistant input"
+    url: "https://github.com/supabase/supabase/pull/19294"
+    date: "2023-11-30"
+  - number: 30560
+    repo: "supabase/supabase"
+    title: "Chore/styling spam banner"
+    url: "https://github.com/supabase/supabase/pull/30560"
+    date: "2024-11-28"
+---
+
+
+
+## Related Pull Requests
+
+<PRTable slug="supabase-assistant-ui" />
+AI is becoming integral to developer tools. I built UI patterns for AI assistant integration.
+
+## AssistantChatForm
+
+A reusable chat form component:
+
+```tsx title="Assistant chat form"
+<AssistantChatForm
+  onSubmit={handleMessage}
+  placeholder="Ask me anything..."
+  isLoading={isProcessing}
+/>
+```
+
+### Features
+
+- Text input with auto-resize
+- Submit button with loading state
+- Keyboard shortcuts (Enter to send)
+- Token count indicator
+
+## AssistantCommandsPopover
+
+Quick access to AI commands:
+
+```tsx title="Commands popover"
+<AssistantCommandsPopover>
+  <Command>Generate SQL</Command>
+  <Command>Explain query</Command>
+  <Command>Optimize performance</Command>
+</AssistantCommandsPopover>
+```
+
+## SQL Editor AI
+
+AI integration in the SQL editor:
+
+- Generate SQL from natural language
+- Explain existing queries
+- Suggest optimizations
+- Fix syntax errors
+
+### Brand Colors
+
+Updated AI assistant with brand colors:
+
+```css title="AI brand styling"
+.ai-assistant {
+  --ai-accent: var(--brand-green);
+  --ai-bg: var(--surface-100);
+}
+```
+
+## Chat Fragment Component
+
+Display AI conversation fragments:
+
+```tsx title="Chat fragment"
+<AssistantChatFragment
+  role="assistant"
+  content={response}
+  timestamp={new Date()}
+/>
+```
+
+## Database Design AI
+
+AI-powered database design:
+
+- Natural language to schema
+- Relationship suggestions
+- Index recommendations
+- Messages saved to Supabase
+
+## Pattern Documentation
+
+AI patterns documented in design system:
+
+- Chat interfaces
+- Command palettes
+- Inline suggestions
+- Loading states
+
+## Impact
+
+AI assistant patterns:
+
+1. Consistent AI experiences
+2. Accessible interfaces
+3. Reusable components
+4. Brand alignment
+
+AI UX is a new design discipline.
+
+## Screenshots
+
+Visual documentation from the pull requests:
+
+![feat: AssistantChatForm ui-pattern and AssistantCommandsPopover ui-pattern](/pr-images/supabase-assistant-ui-pr19296-2.png)
+
+![Chore/rls assistant iteration templates styling](/pr-images/supabase-assistant-ui-pr21459-3.png)
+
+![Chore/styling spam banner](/pr-images/supabase-assistant-ui-pr30560-4.png)
+
+![feat: add AI assistant callout on support form](/pr-images/supabase-assistant-ui-pr35106-1.png)
+

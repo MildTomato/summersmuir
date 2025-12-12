@@ -1,0 +1,191 @@
+---
+title: Multi-Select & Advanced Selection Components
+subtitle: Multi-select, combobox, and complex selection patterns
+date: 2024-05-24
+description: Building advanced selection components for complex data entry.
+image: /misty-moorland.png
+prImages:
+  - /pr-images/supabase-multi-select-pr15915-1.png
+  - /pr-images/supabase-multi-select-pr15915-2.png
+  - /pr-images/supabase-multi-select-pr15915-3.png
+  - /pr-images/supabase-multi-select-pr21124-6.png
+  - /pr-images/supabase-multi-select-pr21124-7.png
+  - /pr-images/supabase-multi-select-pr21124-8.png
+  - /pr-images/supabase-multi-select-pr21124-9.png
+  - /pr-images/supabase-multi-select-pr26719-4.png
+  - /pr-images/supabase-multi-select-pr26719-5.png
+prs:
+  - number: 21811
+    repo: "supabase/supabase"
+    title: "Update Listbox2.tsx"
+    url: "https://github.com/supabase/supabase/pull/21811"
+    date: "2024-03-07"
+  - number: 15915
+    repo: "supabase/supabase"
+    title: "Fix/Chore [vercel integration] improved form validation, combobox component upgrade, loading states added"
+    url: "https://github.com/supabase/supabase/pull/15915"
+    date: "2023-07-27"
+  - number: 268
+    repo: "supabase/ui"
+    title: "Fix/listbox render issues"
+    url: "https://github.com/supabase/ui/pull/268"
+    date: "2021-08-20"
+  - number: 266
+    repo: "supabase/ui"
+    title: "Fix/listbox multiple arrays"
+    url: "https://github.com/supabase/ui/pull/266"
+    date: "2021-08-18"
+  - number: 26719
+    repo: "supabase/supabase"
+    title: "[Design System] feat: Multi Select"
+    url: "https://github.com/supabase/supabase/pull/26719"
+    date: "2024-05-24"
+  - number: 22326
+    repo: "supabase/supabase"
+    title: "chore: update Selects in create index form"
+    url: "https://github.com/supabase/supabase/pull/22326"
+    date: "2024-04-02"
+  - number: 21124
+    repo: "supabase/supabase"
+    title: "chore: update a11y and styles of notifications v2"
+    url: "https://github.com/supabase/supabase/pull/21124"
+    date: "2024-02-09"
+  - number: 14528
+    repo: "supabase/supabase"
+    title: "Feat/UI components uishadcn"
+    url: "https://github.com/supabase/supabase/pull/14528"
+    date: "2023-07-18"
+---
+
+
+
+## Related Pull Requests
+
+<PRTable slug="supabase-multi-select" />
+Simple selects aren't always enough. I built advanced selection components for complex use cases.
+
+## Multi-Select Component
+
+Select multiple values:
+
+```tsx title="Multi-select usage"
+<MultiSelect
+  options={availableTags}
+  value={selectedTags}
+  onChange={setSelectedTags}
+  placeholder="Select tags..."
+/>
+```
+
+### Features
+
+- Search/filter within options
+- Keyboard navigation
+- Tag-style display
+- Clear all button
+- Group support
+
+## Combobox Upgrade
+
+Enhanced combobox for the Vercel integration:
+
+```tsx title="Combobox component"
+<Combobox
+  options={projects}
+  value={selectedProject}
+  onChange={setSelectedProject}
+  onSearch={searchProjects}
+  placeholder="Search projects..."
+/>
+```
+
+### Improvements
+
+- Form validation integration
+- Loading states
+- Empty state messaging
+- Async search support
+
+## Listbox Fixes
+
+I fixed listbox rendering issues:
+
+- Multiple arrays handling
+- Proper option rendering
+- Keyboard navigation fixes
+- Accessibility improvements
+
+## Select Scroll Behavior
+
+Fixed scroll behavior in Select:
+
+- Proper scroll containment
+- Virtual scrolling for long lists
+- Maintain scroll position
+- Smooth scrolling
+
+## Schema Selector
+
+Database schema selection:
+
+```tsx title="Schema selector"
+<SchemaSelector
+  schemas={availableSchemas}
+  value={currentSchema}
+  onChange={switchSchema}
+/>
+```
+
+Updated styling for better integration.
+
+## Integration Pill Filtering
+
+Pill-based filtering for integrations:
+
+```tsx title="Pill filters"
+<PillFilter
+  options={['Vercel', 'GitHub', 'Netlify']}
+  selected={activeFilters}
+  onChange={setActiveFilters}
+/>
+```
+
+## Impact
+
+Advanced selection:
+
+1. Handles complex data
+2. Improves usability
+3. Reduces errors
+4. Enables power users
+
+Complex inputs need careful design.
+
+## Screenshots
+
+Visual documentation from the pull requests:
+
+### Fix/Chore [vercel integration] improved form validation, combobox component upgrade, loading states added
+
+![Screenshot](/pr-images/supabase-multi-select-pr15915-1.png)
+
+![Screenshot](/pr-images/supabase-multi-select-pr15915-2.png)
+
+![Screenshot](/pr-images/supabase-multi-select-pr15915-3.png)
+
+### chore: update a11y and styles of notifications v2
+
+![Screenshot](/pr-images/supabase-multi-select-pr21124-6.png)
+
+![Screenshot](/pr-images/supabase-multi-select-pr21124-7.png)
+
+![Screenshot](/pr-images/supabase-multi-select-pr21124-8.png)
+
+![Screenshot](/pr-images/supabase-multi-select-pr21124-9.png)
+
+### [Design System] feat: Multi Select
+
+![Screenshot](/pr-images/supabase-multi-select-pr26719-4.png)
+
+![Screenshot](/pr-images/supabase-multi-select-pr26719-5.png)
+

@@ -40,4 +40,11 @@ yarn-error.log*
 *.tsbuildinfo
 next-env.d.ts
 
+# scripts data (large files)
 scripts/*
+
+# PR videos (large files)
+/pr-videos
+
+# Raw PR images (unoptimized)
+/pr-images-raw

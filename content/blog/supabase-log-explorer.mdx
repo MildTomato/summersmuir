@@ -1,0 +1,112 @@
+---
+title: Building the Supabase Log Explorer
+subtitle: Powerful log querying and visualization
+date: 2022-03-30
+description: Creating the log explorer and saved views feature for Supabase.
+image: /scottish-highlands.png
+prs:
+  - number: 6023
+    repo: "supabase/supabase"
+    title: "Feat/log explorer and log views UI"
+    url: "https://github.com/supabase/supabase/pull/6023"
+    date: "2022-03-30"
+---
+
+
+
+## Related Pull Requests
+
+<PRTable slug="supabase-log-explorer" />
+Before the unified logs system, I built the original log explorer—a feature that gave users powerful querying capabilities over their logs. This was one of my larger contributions with 97 files changed.
+
+## The Feature
+
+The log explorer provides:
+
+- **Custom SQL queries** against log data
+- **Saved views** for frequently used queries
+- **Templates** for common log patterns
+- **Time range selection** with relative and absolute options
+- **Result visualization** with charts and tables
+
+## Saved Content Support
+
+Users can save their favorite queries for quick access:
+
+```typescript title="Saved query structure"
+interface SavedQuery {
+  id: string
+  name: string
+  description?: string
+  query: string
+  createdAt: Date
+  projectRef: string
+}
+```
+
+The content store syncs with the backend and provides optimistic updates:
+
+```typescript title="Content store integration"
+// Set project ref synchronously to avoid race conditions
+contentStore.setProjectRef(projectRef)
+
+// Load saved content
+await contentStore.load()
+```
+
+## Query Templates
+
+Common queries are provided as templates:
+
+```sql title="Example: Error logs in last hour"
+SELECT 
+  timestamp,
+  event_message,
+  metadata
+FROM postgres_logs
+WHERE 
+  timestamp > now() - interval '1 hour'
+  AND metadata->>'level' = 'error'
+ORDER BY timestamp DESC
+LIMIT 100
+```
+
+## Charts and Visualization
+
+Log data can be visualized with time-series charts:
+
+- **Request counts** over time
+- **Error rates** by category
+- **Response times** distribution
+- **Top endpoints** by volume
+
+## Store Architecture
+
+The log explorer uses MobX stores with careful attention to synchronization:
+
+```typescript title="Store pattern"
+class LogStore {
+  @observable logs: Log[] = []
+  @observable isLoading = false
+  
+  @action
+  async fetchLogs(query: string) {
+    this.isLoading = true
+    try {
+      const result = await api.queryLogs(query)
+      runInAction(() => {
+        this.logs = result.data
+      })
+    } finally {
+      runInAction(() => {
+        this.isLoading = false
+      })
+    }
+  }
+}
+```
+
+## Result
+
+The log explorer became a power-user feature that's especially valuable for debugging complex issues. It laid the groundwork for the unified logs system that came later.
+

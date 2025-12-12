@@ -1,0 +1,199 @@
+---
+title: Command Palette for Supabase
+subtitle: Fast navigation with CMDK
+date: 2023-03-30
+description: Implementing a command palette for quick navigation across Supabase.
+image: /scottish-highlands.png
+prImages:
+  - /pr-images/supabase-cmdk-pr13310-6.png
+  - /pr-images/supabase-cmdk-pr21957-4.png
+  - /pr-images/supabase-cmdk-pr21957-5.png
+  - /pr-images/supabase-cmdk-pr27236-1.png
+  - /pr-images/supabase-cmdk-pr27236-2.png
+  - /pr-images/supabase-cmdk-pr27236-3.png
+  - /pr-images/supabase-cmdk-pr33612-7.png
+prs:
+  - number: 27236
+    repo: "supabase/supabase"
+    title: "Fix/cmdk color issues"
+    url: "https://github.com/supabase/supabase/pull/27236"
+    date: "2024-06-14"
+  - number: 21957
+    repo: "supabase/supabase"
+    title: "Chore/move cmdk"
+    url: "https://github.com/supabase/supabase/pull/21957"
+    date: "2024-03-12"
+  - number: 21936
+    repo: "supabase/supabase"
+    title: "Chore/move cmdk"
+    url: "https://github.com/supabase/supabase/pull/21936"
+    date: "2024-03-11"
+  - number: 13722
+    repo: "supabase/supabase"
+    title: "Fix/cmdk light mode"
+    url: "https://github.com/supabase/supabase/pull/13722"
+    date: "2023-04-14"
+  - number: 13310
+    repo: "supabase/supabase"
+    title: "Feat/cmdk in docs"
+    url: "https://github.com/supabase/supabase/pull/13310"
+    date: "2023-03-30"
+  - number: 33612
+    repo: "supabase/supabase"
+    title: "Feat/sidebar studio"
+    url: "https://github.com/supabase/supabase/pull/33612"
+    date: "2025-02-25"
+---
+
+
+
+## Related Pull Requests
+
+<PRTable slug="supabase-cmdk" />
+Command palettes have become essential for power users—a quick way to navigate, search, and execute actions without reaching for the mouse. I implemented CMDK (Command K) for Supabase, bringing this pattern to the dashboard and documentation.
+
+## The Implementation
+
+The command palette appears on `Cmd/Ctrl + K` and provides:
+
+- **Quick navigation** to any page in the dashboard
+- **Search** across projects, tables, and documentation
+- **Actions** like creating new projects or tables
+- **Recent items** for fast access
+
+## Technical Stack
+
+The implementation uses the `cmdk` library with custom styling:
+
+```tsx title="CMDK setup"
+import { Command } from 'cmdk'
+
+function CommandPalette() {
+  const [open, setOpen] = useState(false)
+  
+  useEffect(() => {
+    const down = (e: KeyboardEvent) => {
+      if (e.key === 'k' && (e.metaKey || e.ctrlKey)) {
+        e.preventDefault()
+        setOpen((open) => !open)
+      }
+    }
+    
+    document.addEventListener('keydown', down)
+    return () => document.removeEventListener('keydown', down)
+  }, [])
+  
+  return (
+    <Command.Dialog open={open} onOpenChange={setOpen}>
+      <Command.Input placeholder="Type a command or search..." />
+      <Command.List>
+        <Command.Empty>No results found.</Command.Empty>
+        <CommandGroups />
+      </Command.List>
+    </Command.Dialog>
+  )
+}
+```
+
+## Command Groups
+
+Commands are organized into logical groups:
+
+```tsx title="Command groups"
+function CommandGroups() {
+  return (
+    <>
+      <Command.Group heading="Navigation">
+        <CommandItem icon={<HomeIcon />} onSelect={() => navigate('/')}>
+          Dashboard
+        </CommandItem>
+        <CommandItem icon={<TableIcon />} onSelect={() => navigate('/editor')}>
+          Table Editor
+        </CommandItem>
+        <CommandItem icon={<CodeIcon />} onSelect={() => navigate('/sql')}>
+          SQL Editor
+        </CommandItem>
+      </Command.Group>
+      
+      <Command.Group heading="Actions">
+        <CommandItem icon={<PlusIcon />} onSelect={createProject}>
+          New Project
+        </CommandItem>
+        <CommandItem icon={<TableIcon />} onSelect={createTable}>
+          New Table
+        </CommandItem>
+      </Command.Group>
+      
+      <Command.Group heading="Recent">
+        {recentItems.map((item) => (
+          <CommandItem key={item.id} {...item} />
+        ))}
+      </Command.Group>
+    </>
+  )
+}
+```
+
+## Theming
+
+The command palette needed to work with our theming system:
+
+```tsx title="CMDK theme integration"
+<Command.Dialog
+  className={cn(
+    'bg-background border border-border rounded-lg shadow-lg',
+    'data-[state=open]:animate-in data-[state=closed]:animate-out',
+    'data-[state=closed]:fade-out-0 data-[state=open]:fade-in-0',
+  )}
+>
+  {/* ... */}
+</Command.Dialog>
+```
+
+## Keyboard Navigation
+
+Full keyboard support following standard patterns:
+
+- **Arrow keys**: Navigate between items
+- **Enter**: Select item
+- **Escape**: Close palette
+- **Backspace**: Clear search (when empty, close palette)
+
+## Light Mode Fixes
+
+The initial implementation had color issues in light mode that required fixing:
+
+```css title="Light mode fixes"
+[data-theme='light'] [cmdk-root] {
+  --cmdk-item-bg: var(--background-surface);
+  --cmdk-item-bg-selected: var(--background-overlay);
+  --cmdk-border: var(--border-default);
+}
+```
+
+## Result
+
+The command palette has become a favorite feature for power users, enabling them to navigate the increasingly complex dashboard without hunting through menus.
+
+## Screenshots
+
+Visual documentation from the pull requests:
+
+![Feat/cmdk in docs](/pr-images/supabase-cmdk-pr13310-6.png)
+
+### Chore/move cmdk
+
+![Screenshot](/pr-images/supabase-cmdk-pr21957-4.png)
+
+![Screenshot](/pr-images/supabase-cmdk-pr21957-5.png)
+
+### Fix/cmdk color issues
+
+![Screenshot](/pr-images/supabase-cmdk-pr27236-1.png)
+
+![Screenshot](/pr-images/supabase-cmdk-pr27236-2.png)
+
+![Screenshot](/pr-images/supabase-cmdk-pr27236-3.png)
+
+![Feat/sidebar studio](/pr-images/supabase-cmdk-pr33612-7.png)
+

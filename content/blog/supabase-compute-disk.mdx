@@ -1,0 +1,179 @@
+---
+title: Compute and Disk Management UI
+subtitle: Resource configuration for Supabase projects
+date: 2024-11-04
+description: Building the interface for managing compute resources and disk storage.
+image: /fjord-twilight.png
+prImages:
+  - /pr-images/supabase-compute-disk-pr2118-10.png
+  - /pr-images/supabase-compute-disk-pr2118-11.png
+  - /pr-images/supabase-compute-disk-pr23234-2.png
+  - /pr-images/supabase-compute-disk-pr23234-3.png
+  - /pr-images/supabase-compute-disk-pr23234-4.png
+  - /pr-images/supabase-compute-disk-pr23234-5.png
+  - /pr-images/supabase-compute-disk-pr23234-6.png
+  - /pr-images/supabase-compute-disk-pr23234-7.png
+  - /pr-images/supabase-compute-disk-pr30068-1.png
+  - /pr-images/supabase-compute-disk-pr6431-8.png
+  - /pr-images/supabase-compute-disk-pr6431-9.png
+prs:
+  - number: 30920
+    repo: "supabase/supabase"
+    title: "Lw13/disks"
+    url: "https://github.com/supabase/supabase/pull/30920"
+    date: "2024-12-05"
+  - number: 30277
+    repo: "supabase/supabase"
+    title: "Chore/compute follow up"
+    url: "https://github.com/supabase/supabase/pull/30277"
+    date: "2024-11-04"
+  - number: 30068
+    repo: "supabase/supabase"
+    title: "Feat/compute and disk"
+    url: "https://github.com/supabase/supabase/pull/30068"
+    date: "2024-11-04"
+  - number: 14619
+    repo: "supabase/supabase"
+    title: "Feat/update disk size"
+    url: "https://github.com/supabase/supabase/pull/14619"
+    date: "2023-05-30"
+---
+
+
+
+## Related Pull Requests
+
+<PRTable slug="supabase-compute-disk" />
+Supabase projects have configurable compute resources. Users can scale their databases up or down, adjust disk size, and manage their infrastructure—all through the dashboard. I built the UI for compute and disk management.
+
+## The Feature Set
+
+The compute and disk management interface includes:
+
+- **Compute tier selection** (from Micro to 16XL)
+- **Disk size configuration** with limits and pricing
+- **Usage visualization** showing current utilization
+- **IOPS and throughput** configuration
+- **Upgrade/downgrade flows** with confirmation
+
+## UI Components
+
+### Tier Selection
+
+Users select compute tiers from a visual grid:
+
+```tsx title="Compute tier selector"
+<div className="grid grid-cols-2 md:grid-cols-4 gap-4">
+  {tiers.map((tier) => (
+    <Card
+      key={tier.id}
+      selected={selectedTier === tier.id}
+      onClick={() => setSelectedTier(tier.id)}
+    >
+      <CardTitle>{tier.name}</CardTitle>
+      <CardDescription>
+        {tier.cpu} CPU • {tier.memory} RAM
+      </CardDescription>
+      <CardPrice>${tier.price}/mo</CardPrice>
+    </Card>
+  ))}
+</div>
+```
+
+### Disk Configuration
+
+Disk size uses a slider with clear limits:
+
+```tsx title="Disk size slider"
+<FormField label="Disk Size" description={`${minDisk}GB - ${maxDisk}GB`}>
+  <Slider
+    value={[diskSize]}
+    min={minDisk}
+    max={maxDisk}
+    step={1}
+    onValueChange={([value]) => setDiskSize(value)}
+  />
+  <div className="flex justify-between text-sm">
+    <span>{diskSize}GB</span>
+    <span>${calculatePrice(diskSize)}/mo</span>
+  </div>
+</FormField>
+```
+
+### Usage Visualization
+
+Current resource usage is displayed with clear progress indicators:
+
+```tsx title="Usage display"
+<div className="space-y-4">
+  <UsageBar
+    label="CPU Usage"
+    current={cpuUsage}
+    limit={cpuLimit}
+    unit="%"
+  />
+  <UsageBar
+    label="Memory Usage"
+    current={memoryUsage}
+    limit={memoryLimit}
+    unit="GB"
+  />
+  <UsageBar
+    label="Disk Usage"
+    current={diskUsage}
+    limit={diskLimit}
+    unit="GB"
+  />
+</div>
+```
+
+## Feature Flags
+
+The compute features were rolled out gradually using feature flags:
+
+```tsx title="Feature flag check"
+const { computeEnabled } = useFeatureFlags()
+
+if (!computeEnabled) {
+  return <ComputeComingSoon />
+}
+
+return <ComputeSettings />
+```
+
+## Result
+
+The compute and disk management UI gives users self-serve control over their infrastructure, reducing support requests and enabling faster scaling.
+
+## Screenshots
+
+Visual documentation from the pull requests:
+
+### Feat/ billing page now shows usage based on actual billing cycle
+
+![Screenshot](/pr-images/supabase-compute-disk-pr2118-10.png)
+
+![Screenshot](/pr-images/supabase-compute-disk-pr2118-11.png)
+
+### feat: Self serve subscription and global spend cap
+
+![Screenshot](/pr-images/supabase-compute-disk-pr6431-8.png)
+
+![Screenshot](/pr-images/supabase-compute-disk-pr6431-9.png)
+
+### feat: add compute badge
+
+![Screenshot](/pr-images/supabase-compute-disk-pr23234-2.png)
+
+![Screenshot](/pr-images/supabase-compute-disk-pr23234-3.png)
+
+![Screenshot](/pr-images/supabase-compute-disk-pr23234-4.png)
+
+![Screenshot](/pr-images/supabase-compute-disk-pr23234-5.png)
+
+![Screenshot](/pr-images/supabase-compute-disk-pr23234-6.png)
+
+![Screenshot](/pr-images/supabase-compute-disk-pr23234-7.png)
+
+![Feat/compute and disk](/pr-images/supabase-compute-disk-pr30068-1.png)
+

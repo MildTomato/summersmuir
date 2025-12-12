@@ -1,0 +1,138 @@
+---
+title: Query Performance Tools for Supabase
+subtitle: Helping developers optimize their database queries
+date: 2023-02-24
+description: Building query performance UI, index suggestions, and pg_stat_statements integration.
+image: /misty-moorland.png
+prImages:
+  - /pr-images/supabase-query-performance-pr12561-1.png
+  - /pr-images/supabase-query-performance-pr35107-4.png
+  - /pr-images/supabase-query-performance-pr35107-5.png
+  - /pr-images/supabase-query-performance-pr5739-2.png
+  - /pr-images/supabase-query-performance-pr5739-3.png
+prs:
+  - number: 12561
+    repo: "supabase/supabase"
+    title: "[Dash] Query performance UI"
+    url: "https://github.com/supabase/supabase/pull/12561"
+    date: "2023-02-24"
+  - number: 12555
+    repo: "supabase/supabase"
+    title: "[Docs] guide for query performance"
+    url: "https://github.com/supabase/supabase/pull/12555"
+    date: "2023-02-23"
+  - number: 5739
+    repo: "supabase/supabase"
+    title: "Chore/pg stat statement template"
+    url: "https://github.com/supabase/supabase/pull/5739"
+    date: "2022-03-02"
+  - number: 35107
+    repo: "supabase/supabase"
+    title: "Feat/index suggestions inline"
+    url: "https://github.com/supabase/supabase/pull/35107"
+    date: "2025-05-07"
+  - number: 22423
+    repo: "supabase/supabase"
+    title: "chore: move perf report and query perf report to database"
+    url: "https://github.com/supabase/supabase/pull/22423"
+    date: "2024-04-04"
+---
+
+
+
+## Related Pull Requests
+
+<PRTable slug="supabase-query-performance" />
+Slow queries kill user experience. I built tools to help Supabase users identify and fix performance issues before they become problems.
+
+## The Query Performance UI
+
+The query performance page surfaces insights from PostgreSQL's `pg_stat_statements` extension:
+
+- **Most time-consuming queries** ranked by total execution time
+- **Most frequently run queries** with call counts
+- **Slowest individual queries** by mean execution time
+- **Row scan analysis** to identify table scans
+
+## pg_stat_statements Integration
+
+PostgreSQL tracks query statistics internally. The challenge was making this data accessible:
+
+```sql title="Query statistics template"
+SELECT 
+  query,
+  calls,
+  mean_exec_time,
+  total_exec_time,
+  rows
+FROM pg_stat_statements
+ORDER BY total_exec_time DESC
+LIMIT 20;
+```
+
+The UI presents this data with:
+
+- Query syntax highlighting
+- Time formatting (ms, seconds, minutes)
+- Percentage of total database time
+- Trend indicators
+
+## Inline Index Suggestions
+
+In 2025, I added inline index suggestions directly in the Table Editor:
+
+When a column is frequently used in WHERE clauses but lacks an index, the UI suggests:
+
+```sql title="Suggested index"
+CREATE INDEX idx_users_email ON users (email);
+```
+
+This proactive approach helps developers optimize before issues arise.
+
+## Performance Reports
+
+The performance report page provides:
+
+- **Overview metrics**: Cache hit ratio, index usage
+- **Query breakdown**: By type (SELECT, INSERT, UPDATE, DELETE)
+- **Time-based analysis**: Performance over time
+- **Recommendations**: Actionable optimization suggestions
+
+## Documentation
+
+I also wrote the query performance guide in the docs, explaining:
+
+- How to read EXPLAIN ANALYZE output
+- When to add indexes
+- Common anti-patterns to avoid
+- Connection pooling considerations
+
+## Impact
+
+These tools help Supabase users:
+
+1. **Identify slow queries** before users complain
+2. **Understand query patterns** across their application
+3. **Make informed decisions** about indexing
+4. **Optimize proactively** rather than reactively
+
+Query performance visibility is essential for any production database—these tools make that accessible to developers of all experience levels.
+
+## Screenshots
+
+Visual documentation from the pull requests:
+
+### Chore/pg stat statement template
+
+![Screenshot](/pr-images/supabase-query-performance-pr5739-2.png)
+
+![Screenshot](/pr-images/supabase-query-performance-pr5739-3.png)
+
+![[Dash] Query performance UI](/pr-images/supabase-query-performance-pr12561-1.png)
+
+### Feat/index suggestions inline
+
+![Screenshot](/pr-images/supabase-query-performance-pr35107-4.png)
+
+![Screenshot](/pr-images/supabase-query-performance-pr35107-5.png)
+

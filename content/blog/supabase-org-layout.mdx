@@ -1,0 +1,103 @@
+---
+title: Organization Layout Redesign
+subtitle: Restructuring the dashboard for teams
+date: 2025-04-08
+description: Redesigning the organization-level layout for better team workflows and navigation.
+image: /misty-moorland.png
+prs:
+  - number: 33150
+    repo: "supabase/supabase"
+    title: "Feat/ Org layout"
+    url: "https://github.com/supabase/supabase/pull/33150"
+    date: "2025-04-08"
+  - number: 33415
+    repo: "supabase/supabase"
+    title: "fix: mobile issues for getLayout"
+    url: "https://github.com/supabase/supabase/pull/33415"
+    date: "2025-02-07"
+  - number: 33365
+    repo: "supabase/supabase"
+    title: "Feat/get layout - Project pages updated to use getLayout"
+    url: "https://github.com/supabase/supabase/pull/33365"
+    date: "2025-02-07"
+  - number: 30538
+    repo: "supabase/supabase"
+    title: "Feat/integrations get layout"
+    url: "https://github.com/supabase/supabase/pull/30538"
+    date: "2024-11-20"
+  - number: 33361
+    repo: "supabase/supabase"
+    title: "Chore/mobile sheet app state"
+    url: "https://github.com/supabase/supabase/pull/33361"
+    date: "2025-02-06"
+  - number: 30585
+    repo: "supabase/supabase"
+    title: "chore/ update integrations routes"
+    url: "https://github.com/supabase/supabase/pull/30585"
+    date: "2024-11-21"
+---
+
+
+
+## Related Pull Requests
+
+<PRTable slug="supabase-org-layout" />
+As Supabase grew to support larger teams, the organization-level experience needed restructuring. I redesigned the org layout to better support team workflows.
+
+## The Changes
+
+### New Layout Structure
+
+Organization pages now have a dedicated layout:
+- Consistent sidebar across org pages
+- Clear navigation between org settings
+- Better hierarchy between org and project levels
+
+### Navigation Improvements
+
+- Org-level menu items grouped logically
+- Quick switching between organizations
+- Breadcrumbs showing org > project hierarchy
+
+### Settings Organization
+
+Org settings restructured into clear categories:
+- **General**: Name, slug, avatar
+- **Team**: Members, roles, invites
+- **Billing**: Plans, usage, invoices
+- **Security**: SSO, audit logs
+
+## Technical Implementation
+
+Using a shared layout wrapper:
+
+```tsx title="Org layout"
+export function OrgLayout({ children }) {
+  const org = useCurrentOrg()
+  
+  return (
+    <div className="flex">
+      <OrgSidebar org={org} />
+      <main className="flex-1">
+        <OrgHeader org={org} />
+        {children}
+      </main>
+    </div>
+  )
+}
+```
+
+### getLayout Pattern
+
+Pages can opt into the org layout:
+
+```tsx title="Page with org layout"
+SettingsPage.getLayout = (page) => (
+  <OrgLayout>{page}</OrgLayout>
+)
+```
+
+## Result
+
+Teams can now navigate organization settings more intuitively, with a clear separation between org-level and project-level concerns.
+
