@@ -1,9 +1,14 @@
 'use client';
 
-import { useState, useEffect, useRef } from 'react';
+import { useState, useEffect, useRef, useCallback } from 'react';
+import type {
+  KeyboardEvent as ReactKeyboardEvent,
+  MouseEvent as ReactMouseEvent,
+  PointerEvent as ReactPointerEvent,
+} from 'react';
 import Link from 'next/link';
-import Image from 'next/image';
-import { motion, AnimatePresence } from 'framer-motion';
+import { motion } from 'framer-motion';
+import { SharedBlogImage } from './blog-motion';
 
 interface Post {
   slug: string;
@@ -19,87 +24,225 @@ interface TimeMachineProps {
 }
 
 export function TimeMachine({ posts }: TimeMachineProps) {
-  const [activeIndex, setActiveIndex] = useState(Math.min(4, Math.floor(posts.length / 3)));
+  const initialActiveIndex = Math.min(4, Math.floor(posts.length / 3));
+  const [activeIndex, setActiveIndex] = useState(initialActiveIndex);
   const [dragProgress, setDragProgress] = useState(0); // -1 to 1, tension before snap
   const containerRef = useRef<HTMLDivElement>(null);
-  const scrollAccumulator = useRef(0);
-  const snapThreshold = 0.25; // Must scroll 25% to snap to next card
+  const activeIndexRef = useRef(activeIndex);
+  const dragProgressRef = useRef(0);
+  const wheelAccumulatorRef = useRef(0);
+  const wheelDirectionRef = useRef(0);
+  const wheelLockedRef = useRef(false);
+  const wheelEndTimerRef = useRef<ReturnType<typeof setTimeout> | null>(null);
+  const suppressClickRef = useRef(false);
+  const pointerGestureRef = useRef<{
+    pointerId: number;
+    startX: number;
+    startY: number;
+    lastCoordinate: number;
+    lastTime: number;
+    axis: 'x' | 'y' | null;
+    velocity: number;
+    dragged: boolean;
+  } | null>(null);
 
-  // Snap logic - if past threshold, go to next/prev card
-  const handleRelease = () => {
-    if (Math.abs(dragProgress) > snapThreshold) {
-      const direction = dragProgress > 0 ? 1 : -1;
-      const newIndex = Math.max(0, Math.min(posts.length - 1, activeIndex + direction));
-      setActiveIndex(newIndex);
-    }
-    setDragProgress(0);
-  };
+  const snapThreshold = 0.24;
+  const gestureDistance = 150;
+  const wheelThreshold = 60;
+  const wheelIdleDelay = 140;
 
-  // Keyboard navigation
   useEffect(() => {
-    const handleKeyDown = (e: KeyboardEvent) => {
-      if (e.key === 'ArrowUp' || e.key === 'ArrowLeft') {
-        e.preventDefault();
-        setActiveIndex((current) => Math.max(0, current - 1));
-      } else if (e.key === 'ArrowDown' || e.key === 'ArrowRight') {
-        e.preventDefault();
-        setActiveIndex((current) => Math.min(posts.length - 1, current + 1));
-      }
-    };
+    activeIndexRef.current = activeIndex;
+  }, [activeIndex]);
 
-    window.addEventListener('keydown', handleKeyDown);
-    return () => window.removeEventListener('keydown', handleKeyDown);
-  }, [posts.length]);
+  const updateDragProgress = useCallback((progress: number) => {
+    const clampedProgress = Math.max(-1, Math.min(1, progress));
+    dragProgressRef.current = clampedProgress;
+    setDragProgress(clampedProgress);
+  }, []);
 
-  // Scroll with tension/snap
+  const moveByDirection = useCallback((direction: number) => {
+    const currentIndex = activeIndexRef.current;
+    const nextIndex = Math.max(0, Math.min(posts.length - 1, currentIndex + direction));
+
+    updateDragProgress(0);
+
+    if (nextIndex === currentIndex) return;
+
+    activeIndexRef.current = nextIndex;
+    setActiveIndex(nextIndex);
+  }, [posts.length, updateDragProgress]);
+
+  const finishGesture = useCallback((velocity = 0) => {
+    const progress = dragProgressRef.current;
+    const hasDistance = Math.abs(progress) >= snapThreshold;
+    const hasFlickVelocity = Math.abs(velocity) >= 0.35 && Math.abs(progress) >= 0.06;
+
+    if (hasDistance || hasFlickVelocity) {
+      const directionSource = Math.abs(progress) >= 0.01 ? progress : velocity;
+      moveByDirection(directionSource > 0 ? 1 : -1);
+      return;
+    }
+
+    updateDragProgress(0);
+  }, [moveByDirection, updateDragProgress]);
+
+  // Advance as soon as a wheel gesture crosses the threshold, then absorb its
+  // momentum tail so one deliberate gesture always moves exactly one card.
   useEffect(() => {
     const container = containerRef.current;
     if (!container) return;
 
+    const endWheelGesture = () => {
+      wheelAccumulatorRef.current = 0;
+      wheelDirectionRef.current = 0;
+      wheelLockedRef.current = false;
+      updateDragProgress(0);
+      wheelEndTimerRef.current = null;
+    };
+
     const handleWheel = (e: WheelEvent) => {
+      // Trackpad pinch-to-zoom is exposed as a ctrl+wheel gesture.
+      if (e.ctrlKey) return;
+
+      const dominantDelta = Math.abs(e.deltaY) >= Math.abs(e.deltaX) ? e.deltaY : e.deltaX;
+      if (dominantDelta === 0) return;
+
+      const modeScale = e.deltaMode === WheelEvent.DOM_DELTA_LINE
+        ? 16
+        : e.deltaMode === WheelEvent.DOM_DELTA_PAGE
+          ? container.clientHeight
+          : 1;
+      const normalizedDelta = dominantDelta * modeScale;
+      const direction = normalizedDelta > 0 ? 1 : -1;
+      const atStart = activeIndexRef.current === 0 && direction < 0;
+      const atEnd = activeIndexRef.current === posts.length - 1 && direction > 0;
+
+      // Once momentum has ended, let a fresh outward gesture scroll the page.
+      // Momentum from the gesture that reached the boundary stays contained.
+      if ((atStart || atEnd) && !wheelLockedRef.current) {
+        endWheelGesture();
+        return;
+      }
+
       e.preventDefault();
-      
-      scrollAccumulator.current += e.deltaY * 0.012;
-      
-      setDragProgress((current) => {
-        const newProgress = current + scrollAccumulator.current;
-        scrollAccumulator.current = 0;
-        
-        // If we've crossed threshold, snap immediately
-        if (Math.abs(newProgress) > 1) {
-          const direction = newProgress > 0 ? 1 : -1;
-          const newIndex = Math.max(0, Math.min(posts.length - 1, activeIndex + direction));
-          setTimeout(() => {
-            setActiveIndex(newIndex);
-            setDragProgress(0);
-          }, 0);
-          return 0;
-        }
-        
-        return Math.max(-1, Math.min(1, newProgress));
-      });
+
+      if (wheelEndTimerRef.current) {
+        clearTimeout(wheelEndTimerRef.current);
+      }
+      wheelEndTimerRef.current = setTimeout(endWheelGesture, wheelIdleDelay);
+
+      if (wheelLockedRef.current) return;
+
+      if (wheelDirectionRef.current !== 0 && wheelDirectionRef.current !== direction) {
+        wheelAccumulatorRef.current = 0;
+      }
+
+      wheelDirectionRef.current = direction;
+      wheelAccumulatorRef.current += normalizedDelta;
+
+      const progress = wheelAccumulatorRef.current / wheelThreshold;
+      updateDragProgress(Math.max(-0.95, Math.min(0.95, progress)));
+
+      if (Math.abs(wheelAccumulatorRef.current) < wheelThreshold) return;
+
+      wheelLockedRef.current = true;
+      wheelAccumulatorRef.current = 0;
+      moveByDirection(direction);
     };
 
-    const handleWheelEnd = () => {
-      handleRelease();
-    };
+    container.addEventListener('wheel', handleWheel, { passive: false });
 
-    let wheelTimeout: NodeJS.Timeout;
-    const handleWheelWithDebounce = (e: WheelEvent) => {
-      handleWheel(e);
-      clearTimeout(wheelTimeout);
-      wheelTimeout = setTimeout(handleWheelEnd, 40);
-    };
-
-    container.addEventListener('wheel', handleWheelWithDebounce, { passive: false });
     return () => {
-      container.removeEventListener('wheel', handleWheelWithDebounce);
-      clearTimeout(wheelTimeout);
+      container.removeEventListener('wheel', handleWheel);
+      if (wheelEndTimerRef.current) {
+        clearTimeout(wheelEndTimerRef.current);
+      }
     };
-  }, [posts.length, activeIndex]);
+  }, [moveByDirection, posts.length, updateDragProgress]);
 
-  // For timeline calculations
-  const scrollPosition = activeIndex;
+  const handlePointerDown = (event: ReactPointerEvent<HTMLDivElement>) => {
+    if (!event.isPrimary || (event.pointerType === 'mouse' && event.button !== 0)) return;
+    if ((event.target as HTMLElement).closest('[data-timeline-scrubber]')) return;
+
+    pointerGestureRef.current = {
+      pointerId: event.pointerId,
+      startX: event.clientX,
+      startY: event.clientY,
+      lastCoordinate: event.clientY,
+      lastTime: event.timeStamp,
+      axis: null,
+      velocity: 0,
+      dragged: false,
+    };
+    event.currentTarget.setPointerCapture(event.pointerId);
+  };
+
+  const handlePointerMove = (event: ReactPointerEvent<HTMLDivElement>) => {
+    const gesture = pointerGestureRef.current;
+    if (!gesture || gesture.pointerId !== event.pointerId) return;
+
+    const deltaX = event.clientX - gesture.startX;
+    const deltaY = event.clientY - gesture.startY;
+
+    if (!gesture.axis) {
+      if (Math.max(Math.abs(deltaX), Math.abs(deltaY)) < 8) return;
+      gesture.axis = Math.abs(deltaY) >= Math.abs(deltaX) ? 'y' : 'x';
+      gesture.lastCoordinate = gesture.axis === 'y' ? event.clientY : event.clientX;
+      gesture.lastTime = event.timeStamp;
+    }
+
+    const coordinate = gesture.axis === 'y' ? event.clientY : event.clientX;
+    const startCoordinate = gesture.axis === 'y' ? gesture.startY : gesture.startX;
+    const elapsed = Math.max(1, event.timeStamp - gesture.lastTime);
+
+    gesture.velocity = (gesture.lastCoordinate - coordinate) / elapsed;
+    gesture.lastCoordinate = coordinate;
+    gesture.lastTime = event.timeStamp;
+    gesture.dragged = true;
+    suppressClickRef.current = true;
+
+    event.preventDefault();
+    updateDragProgress((startCoordinate - coordinate) / gestureDistance);
+  };
+
+  const handlePointerEnd = (event: ReactPointerEvent<HTMLDivElement>) => {
+    const gesture = pointerGestureRef.current;
+    if (!gesture || gesture.pointerId !== event.pointerId) return;
+
+    if (event.currentTarget.hasPointerCapture(event.pointerId)) {
+      event.currentTarget.releasePointerCapture(event.pointerId);
+    }
+
+    if (gesture.dragged) {
+      finishGesture(gesture.velocity);
+      setTimeout(() => {
+        suppressClickRef.current = false;
+      }, 0);
+    } else {
+      updateDragProgress(0);
+    }
+
+    pointerGestureRef.current = null;
+  };
+
+  const handleClickCapture = (event: ReactMouseEvent<HTMLDivElement>) => {
+    if (!suppressClickRef.current) return;
+
+    event.preventDefault();
+    event.stopPropagation();
+    suppressClickRef.current = false;
+  };
+
+  const handleKeyDown = (event: ReactKeyboardEvent<HTMLDivElement>) => {
+    if (event.key === 'ArrowUp' || event.key === 'ArrowLeft') {
+      event.preventDefault();
+      moveByDirection(-1);
+    } else if (event.key === 'ArrowDown' || event.key === 'ArrowRight') {
+      event.preventDefault();
+      moveByDirection(1);
+    }
+  };
 
   if (posts.length === 0) {
     return (
@@ -113,6 +256,17 @@ export function TimeMachine({ posts }: TimeMachineProps) {
     <div 
       ref={containerRef}
       className="relative h-[80vh] w-full cursor-ns-resize overflow-hidden"
+      style={{ touchAction: 'none' }}
+      role="region"
+      aria-roledescription="carousel"
+      aria-label="Blog post Rolodex"
+      tabIndex={0}
+      onPointerDown={handlePointerDown}
+      onPointerMove={handlePointerMove}
+      onPointerUp={handlePointerEnd}
+      onPointerCancel={handlePointerEnd}
+      onClickCapture={handleClickCapture}
+      onKeyDown={handleKeyDown}
     >
       {/* Perspective container */}
       <div 
@@ -130,8 +284,8 @@ export function TimeMachine({ posts }: TimeMachineProps) {
             let translateY = offset * 45;
             let translateZ = -absOffset * 60;
             let rotateX = 0;
-            let opacity = Math.max(0.4, 1 - absOffset * 0.08);
-            let scale = Math.max(0.7, 1 - absOffset * 0.035);
+            const opacity = Math.max(0.4, 1 - absOffset * 0.08);
+            const scale = Math.max(0.7, 1 - absOffset * 0.035);
             
             // Active card - lifts up and tilts as you drag
             if (isActive && Math.abs(dragProgress) > 0.05) {
@@ -157,12 +311,17 @@ export function TimeMachine({ posts }: TimeMachineProps) {
                   opacity,
                 }}
                 transition={{ 
-                  type: 'spring', 
-                  stiffness: 350, 
-                  damping: 30,
+                  ...(isActive && Math.abs(dragProgress) > 0.01
+                    ? { type: 'tween' as const, duration: 0.08, ease: 'easeOut' as const }
+                    : { type: 'spring' as const, stiffness: 350, damping: 30 }),
                 }}
+                aria-hidden={!isActive}
               >
-                <Link href={`/blog/${post.slug}`} className="block h-full">
+                <Link
+                  href={`/blog/${post.slug}`}
+                  className="block h-full"
+                  tabIndex={isActive ? 0 : -1}
+                >
                 <article 
                   className={`
                     h-full overflow-hidden
@@ -171,22 +330,21 @@ export function TimeMachine({ posts }: TimeMachineProps) {
                   `}
                 >
                   {/* Image section */}
-                  <div className="relative h-3/5 bg-muted overflow-hidden">
-                    {post.image ? (
-                      <Image
-                        src={post.image}
-                        alt={post.title}
-                        fill
+                  {post.image ? (
+                    <SharedBlogImage
+                      slug={post.slug}
+                      src={post.image}
+                      alt={post.title}
                         sizes="(max-width: 768px) 100vw, 768px"
-                        className="object-cover"
-                        priority={index === 0}
-                      />
-                    ) : (
-                      <div className="absolute inset-0 bg-gradient-to-br from-neutral-200 to-neutral-300 dark:from-neutral-700 dark:to-neutral-800 flex items-center justify-center">
-                        <span className="text-6xl opacity-20">📝</span>
-                      </div>
-                    )}
-                  </div>
+                        className="relative h-3/5 overflow-hidden bg-muted"
+                        imageClassName="object-cover"
+                        preload={index === initialActiveIndex}
+                    />
+                  ) : (
+                    <div className="relative h-3/5 overflow-hidden bg-gradient-to-br from-neutral-200 to-neutral-300 dark:from-neutral-700 dark:to-neutral-800 flex items-center justify-center">
+                      <span className="text-6xl opacity-20">📝</span>
+                    </div>
+                  )}
                   
                   {/* Content section */}
                   <div className="p-6 h-2/5 flex flex-col justify-center">
@@ -229,16 +387,19 @@ export function TimeMachine({ posts }: TimeMachineProps) {
         const sortedByDate = [...posts].filter(p => p.date).sort((a, b) => 
           new Date(a.date!).getTime() - new Date(b.date!).getTime()
         );
-        const oldestDate = sortedByDate[0]?.date ? new Date(sortedByDate[0].date) : new Date();
-        const newestDate = sortedByDate[sortedByDate.length - 1]?.date ? new Date(sortedByDate[sortedByDate.length - 1].date) : new Date();
-        const totalDays = Math.ceil((newestDate.getTime() - oldestDate.getTime()) / (1000 * 60 * 60 * 24));
+        const oldestDateValue = sortedByDate[0]?.date;
+        const newestDateValue = sortedByDate.at(-1)?.date;
+        const oldestDate = oldestDateValue ? new Date(oldestDateValue) : new Date();
+        const newestDate = newestDateValue ? new Date(newestDateValue) : new Date();
+        const dateRange = Math.max(1, newestDate.getTime() - oldestDate.getTime());
+        const totalDays = Math.ceil(dateRange / (1000 * 60 * 60 * 24));
         
         // Create tick marks - one per week, max 40
         const tickCount = Math.min(Math.max(Math.ceil(totalDays / 7), 10), 40);
         const ticks = [];
         
         for (let i = 0; i <= tickCount; i++) {
-          const tickTime = oldestDate.getTime() + (i / tickCount) * (newestDate.getTime() - oldestDate.getTime());
+          const tickTime = oldestDate.getTime() + (i / tickCount) * dateRange;
           const tickDate = new Date(tickTime);
           // Check if a post exists within 4 days of this tick
           const postIndex = posts.findIndex(p => 
@@ -255,38 +416,54 @@ export function TimeMachine({ posts }: TimeMachineProps) {
         // Current post position on timeline
         const currentPost = posts[activeIndex];
         const currentTime = currentPost?.date ? new Date(currentPost.date).getTime() : newestDate.getTime();
-        const currentPosition = (currentTime - oldestDate.getTime()) / (newestDate.getTime() - oldestDate.getTime());
+        const currentPosition = (currentTime - oldestDate.getTime()) / dateRange;
+
+        const updateFromPointer = (clientY: number, element: HTMLDivElement) => {
+          const rect = element.getBoundingClientRect();
+          const y = clientY - rect.top;
+          const percentage = Math.max(0, Math.min(1, y / rect.height));
+          const targetTime = oldestDate.getTime() + percentage * dateRange;
+          let nearestIndex = 0;
+          let nearestDiff = Infinity;
+
+          posts.forEach((post, index) => {
+            if (!post.date) return;
+
+            const diff = Math.abs(new Date(post.date).getTime() - targetTime);
+            if (diff < nearestDiff) {
+              nearestDiff = diff;
+              nearestIndex = index;
+            }
+          });
+
+          activeIndexRef.current = nearestIndex;
+          setActiveIndex(nearestIndex);
+        };
         
         return (
           <div 
+            data-timeline-scrubber
             className="absolute right-4 top-1/2 -translate-y-1/2 h-[70%] flex flex-col items-end select-none"
-            onMouseDown={(e) => {
-              const rect = e.currentTarget.getBoundingClientRect();
-              const handleDrag = (moveEvent: MouseEvent) => {
-                const y = moveEvent.clientY - rect.top;
-                const percentage = Math.max(0, Math.min(1, y / rect.height));
-                const targetTime = oldestDate.getTime() + percentage * (newestDate.getTime() - oldestDate.getTime());
-                // Find nearest post
-                let nearestIndex = 0;
-                let nearestDiff = Infinity;
-                posts.forEach((post, i) => {
-                  if (post.date) {
-                    const diff = Math.abs(new Date(post.date).getTime() - targetTime);
-                    if (diff < nearestDiff) {
-                      nearestDiff = diff;
-                      nearestIndex = i;
-                    }
-                  }
-                });
-                setActiveIndex(nearestIndex);
-              };
-              const handleUp = () => {
-                window.removeEventListener('mousemove', handleDrag);
-                window.removeEventListener('mouseup', handleUp);
-              };
-              handleDrag(e.nativeEvent);
-              window.addEventListener('mousemove', handleDrag);
-              window.addEventListener('mouseup', handleUp);
+            style={{ touchAction: 'none' }}
+            onPointerDown={(event) => {
+              event.stopPropagation();
+              event.preventDefault();
+              event.currentTarget.setPointerCapture(event.pointerId);
+              event.currentTarget.dataset.dragging = 'true';
+              updateFromPointer(event.clientY, event.currentTarget);
+            }}
+            onPointerMove={(event) => {
+              if (event.currentTarget.dataset.dragging !== 'true') return;
+              updateFromPointer(event.clientY, event.currentTarget);
+            }}
+            onPointerUp={(event) => {
+              delete event.currentTarget.dataset.dragging;
+              if (event.currentTarget.hasPointerCapture(event.pointerId)) {
+                event.currentTarget.releasePointerCapture(event.pointerId);
+              }
+            }}
+            onPointerCancel={(event) => {
+              delete event.currentTarget.dataset.dragging;
             }}
           >
             {/* Timeline track */}
@@ -306,7 +483,7 @@ export function TimeMachine({ posts }: TimeMachineProps) {
               {posts.map((post, index) => {
                 if (!post.date) return null;
                 const postTime = new Date(post.date).getTime();
-                const postPosition = (postTime - oldestDate.getTime()) / (newestDate.getTime() - oldestDate.getTime());
+                const postPosition = (postTime - oldestDate.getTime()) / dateRange;
                 const isActive = index === activeIndex;
                 
                 return (
@@ -360,9 +537,8 @@ export function TimeMachine({ posts }: TimeMachineProps) {
 
       {/* Keyboard hint */}
       <div className="absolute bottom-8 left-8 text-xs text-faded hidden md:block">
-        Scroll or drag timeline
+        Scroll, swipe, or drag timeline
       </div>
     </div>
   );
 }
-

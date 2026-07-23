@@ -1,7 +1,6 @@
 'use client';
 
 import { useState } from 'react';
-import { LayoutGroup, AnimatePresence } from 'framer-motion';
 import { TimeMachine } from './time-machine';
 import { BlogList } from './blog-list';
 

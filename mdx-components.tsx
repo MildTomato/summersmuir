@@ -95,8 +95,9 @@ export function useMDXComponents(components: MDXComponents): MDXComponents {
       }
       
       // No caption - just return the img
-      // eslint-disable-next-line @next/next/no-img-element
       return (
+        // MDX images can contain arbitrary authored dimensions and paths.
+        // eslint-disable-next-line @next/next/no-img-element
         <img
           className={`rounded-lg my-8 ${isWide ? 'wide-image' : 'w-full'}`}
           {...props}
@@ -125,6 +126,5 @@ export function useMDXComponents(components: MDXComponents): MDXComponents {
     ...components,
   };
 }
-
 
 

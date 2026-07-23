@@ -9,7 +9,7 @@ export function Header() {
           href="/" 
           className="text-lg font-semibold tracking-tight text-heading hover:text-subtitle transition-colors"
         >
-          summersmuir
+          jonny.design
         </Link>
         <div className="flex items-center gap-6">
           <Link 
@@ -36,4 +36,3 @@ export function Header() {
     </header>
   );
 }
-

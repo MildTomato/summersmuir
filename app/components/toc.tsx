@@ -31,33 +31,37 @@ export function TableOfContents() {
   }, [activeId]);
 
   useEffect(() => {
-    // Get all h2 and h3 headings from the article
-    const article = document.querySelector('article');
-    if (!article) return;
+    let observer: IntersectionObserver | null = null;
+    const frame = requestAnimationFrame(() => {
+      const article = document.querySelector('article');
+      if (!article) return;
 
-    const headings = article.querySelectorAll('h2[id], h3[id]');
-    const tocItems: TocItem[] = Array.from(headings).map((heading) => ({
-      id: heading.id,
-      text: heading.textContent || '',
-      level: parseInt(heading.tagName[1]),
-    }));
-    setItems(tocItems);
+      const headings = article.querySelectorAll('h2[id], h3[id]');
+      const tocItems: TocItem[] = Array.from(headings).map((heading) => ({
+        id: heading.id,
+        text: heading.textContent || '',
+        level: parseInt(heading.tagName[1]),
+      }));
+      setItems(tocItems);
 
-    // Set up intersection observer
-    const observer = new IntersectionObserver(
-      (entries) => {
-        entries.forEach((entry) => {
-          if (entry.isIntersecting) {
-            setActiveId(entry.target.id);
-          }
-        });
-      },
-      { rootMargin: '-100px 0px -66% 0px' }
-    );
+      observer = new IntersectionObserver(
+        (entries) => {
+          entries.forEach((entry) => {
+            if (entry.isIntersecting) {
+              setActiveId(entry.target.id);
+            }
+          });
+        },
+        { rootMargin: '-100px 0px -66% 0px' }
+      );
 
-    headings.forEach((heading) => observer.observe(heading));
+      headings.forEach((heading) => observer?.observe(heading));
+    });
 
-    return () => observer.disconnect();
+    return () => {
+      cancelAnimationFrame(frame);
+      observer?.disconnect();
+    };
   }, []);
 
   // Update indicator position when activeId changes

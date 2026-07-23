@@ -4,12 +4,19 @@ import { formatDate } from '@/lib/format';
 import { rehypePlugins, remarkPlugins } from '@/lib/mdx';
 import { MDXRemote } from 'next-mdx-remote/rsc';
 import Link from 'next/link';
-import Image from 'next/image';
-import { useMDXComponents } from '@/mdx-components';
+import { useMDXComponents as getMDXComponents } from '@/mdx-components';
 import { PageLayout } from '@/app/components/page-layout';
 import { TableOfContents } from '@/app/components/toc';
+import { SharedBlogImage } from '@/app/components/blog-motion';
+import { isProductionDeployment } from '@/lib/deployment';
+
+export const dynamicParams = false;
 
 export async function generateStaticParams() {
+  if (isProductionDeployment) {
+    return [];
+  }
+
   const posts = getBlogPosts();
   return posts.map((post) => ({
     slug: post.slug,
@@ -55,22 +62,22 @@ export default async function BlogPostPage({ params }: { params: Promise<{ slug:
         </div>
 
         {post.image && (
-          <div className="mt-8 overflow-hidden rounded-lg">
-            <Image
-              src={post.image}
-              alt={post.title}
-              width={1200}
-              height={630}
-              className="w-full object-cover"
-              priority
-            />
-          </div>
+          <SharedBlogImage
+            slug={post.slug}
+            src={post.image}
+            alt={post.title}
+            sizes="(max-width: 1280px) 100vw, 1280px"
+              className="relative mt-8 aspect-[40/21] w-full overflow-hidden bg-muted"
+              imageClassName="object-cover"
+              borderRadius="0.5rem"
+              preload
+          />
         )}
 
         <div className="prose mt-12 max-w-3xl mx-auto">
           <MDXRemote 
             source={post.content} 
-            components={useMDXComponents({})}
+            components={getMDXComponents({})}
             options={{
               mdxOptions: { remarkPlugins, rehypePlugins },
             }}
@@ -84,4 +91,3 @@ export default async function BlogPostPage({ params }: { params: Promise<{ slug:
     </PageLayout>
   );
 }
-

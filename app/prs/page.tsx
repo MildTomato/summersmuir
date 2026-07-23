@@ -4,7 +4,7 @@ import { DataTable } from './data-table';
 import { columns } from './columns';
 
 export const metadata = {
-  title: 'Supabase PRs | summersmuir',
+  title: 'Supabase PRs | jonny.design',
   description: 'All my pull requests to supabase/supabase',
 };
 

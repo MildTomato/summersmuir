@@ -18,7 +18,7 @@ interface ImageCarouselProps {
   }[];
 }
 
-export function ImageCarousel({ images }: ImageCarouselProps) {
+export function ImageCarousel({ images = [] }: Partial<ImageCarouselProps>) {
   const [api, setApi] = React.useState<CarouselApi>();
   const [current, setCurrent] = React.useState(0);
 
@@ -31,6 +31,8 @@ export function ImageCarousel({ images }: ImageCarouselProps) {
       setCurrent(api.selectedScrollSnap());
     });
   }, [api]);
+
+  if (images.length === 0) return null;
 
   return (
     <div className="my-8">

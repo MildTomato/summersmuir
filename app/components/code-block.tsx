@@ -1,6 +1,6 @@
 'use client';
 
-import { useState, useRef, useEffect } from 'react';
+import { useState, useRef } from 'react';
 
 interface CodeBlockProps {
   children: React.ReactNode;
@@ -10,10 +10,10 @@ interface CodeBlockProps {
 
 export function CodeBlock({ children, title, className }: CodeBlockProps) {
   const [copied, setCopied] = useState(false);
-  const preRef = useRef<HTMLPreElement>(null);
+  const codeRef = useRef<HTMLDivElement>(null);
 
   const handleCopy = async () => {
-    const code = preRef.current?.textContent || '';
+    const code = codeRef.current?.textContent || '';
     await navigator.clipboard.writeText(code);
     setCopied(true);
     setTimeout(() => setCopied(false), 2000);
@@ -35,7 +35,7 @@ export function CodeBlock({ children, title, className }: CodeBlockProps) {
         >
           {copied ? <CheckIcon /> : <CopyIcon />}
         </button>
-        <div ref={preRef as React.RefObject<HTMLDivElement>} className={className}>
+        <div ref={codeRef} className={className}>
           {children}
         </div>
       </div>

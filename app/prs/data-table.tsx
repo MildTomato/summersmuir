@@ -75,6 +75,9 @@ export function DataTable<TData extends PRData, TValue>({
     setPagination(prev => ({ ...prev, pageIndex: 0 }));
   }, [repoFilter, typeFilter, globalFilter]);
 
+  // TanStack Table intentionally returns stateful functions that should not be
+  // memoized by the React Compiler.
+  // eslint-disable-next-line react-hooks/incompatible-library
   const table = useReactTable({
     data: filteredData,
     columns,

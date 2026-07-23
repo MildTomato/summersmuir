@@ -1,6 +1,7 @@
 import { notFound } from 'next/navigation';
 import Link from 'next/link';
 import { getPR, getPRs, type PRType } from '@/lib/prs';
+import { isProductionDeployment } from '@/lib/deployment';
 
 const TYPE_COLORS: Record<PRType, string> = {
   feat: 'bg-green-100 text-green-800 dark:bg-green-900/30 dark:text-green-300',
@@ -21,7 +22,13 @@ interface PageProps {
   params: Promise<{ number: string }>;
 }
 
+export const dynamicParams = false;
+
 export async function generateStaticParams() {
+  if (isProductionDeployment) {
+    return [];
+  }
+
   const prs = getPRs();
   return prs.map((pr) => ({
     number: pr.number.toString(),
@@ -37,7 +44,7 @@ export async function generateMetadata({ params }: PageProps) {
   }
 
   return {
-    title: `PR #${pr.number}: ${pr.title} | summersmuir`,
+    title: `PR #${pr.number}: ${pr.title} | jonny.design`,
     description: pr.body?.slice(0, 160) || `Pull request #${pr.number} to ${pr.repo || 'supabase/supabase'}`,
   };
 }
