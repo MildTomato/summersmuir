@@ -24,7 +24,7 @@ function BuildingDotGrid() {
         <span
           key={index}
           className="status-grid-dot bg-current"
-          style={{ animationDelay: `${index * 90}ms` }}
+          style={{ animationDelay: `${index * 180}ms` }}
         />
       ))}
     </span>
@@ -49,11 +49,9 @@ export function CommitPreviewCard({
       <HoverCardTrigger
         delay={150}
         render={<button type="button" />}
-        className="inline-flex cursor-default items-center gap-2 text-subtitle transition-colors hover:text-heading focus-visible:rounded-sm focus-visible:text-heading focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-heading"
+        className="inline-flex cursor-default items-center gap-2 border-b border-dotted border-border-color pb-px text-subtitle transition-colors hover:text-heading focus-visible:rounded-sm focus-visible:text-heading focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-heading"
       >
-        <span className="underline decoration-dotted decoration-border-color underline-offset-4">
-          site in progress
-        </span>
+        <span>site in progress</span>
         <BuildingDotGrid />
       </HoverCardTrigger>
 

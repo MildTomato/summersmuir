@@ -414,7 +414,7 @@ table td:last-child {
 }
 
 .status-grid-dot {
-  animation: status-grid-pulse 1.35s ease-in-out infinite;
+  animation: status-grid-pulse 3.2s ease-in-out infinite;
 }
 
 @media (prefers-reduced-motion: reduce) {
