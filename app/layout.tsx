@@ -1,7 +1,6 @@
 import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
-import { Header } from "./components/header";
 import { HoldingPage } from "./components/holding-page";
 import { ThemeProvider } from "./components/theme-provider";
 import { isProductionDeployment } from "@/lib/deployment";
@@ -41,16 +40,7 @@ export default function RootLayout({
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
       >
         <ThemeProvider>
-          {isProductionDeployment ? (
-            <HoldingPage />
-          ) : (
-            <>
-              <Header />
-              <div className="pt-16">
-                {children}
-              </div>
-            </>
-          )}
+          {isProductionDeployment ? <HoldingPage /> : children}
         </ThemeProvider>
       </body>
     </html>

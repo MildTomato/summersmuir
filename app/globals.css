@@ -1,5 +1,6 @@
 @import "tailwindcss";
 @import "tw-animate-css";
+@import "shadcn/tailwind.css";
 
 /* ABC Oracle Static Fonts */
 @font-face {
@@ -85,6 +86,10 @@
   --radius-md: calc(var(--radius) - 2px);
   --radius-lg: var(--radius);
   --radius-xl: calc(var(--radius) + 4px);
+  --font-heading: var(--font-sans);
+  --radius-2xl: calc(var(--radius) * 1.8);
+  --radius-3xl: calc(var(--radius) * 2.2);
+  --radius-4xl: calc(var(--radius) * 2.6);
 }
 
 :root {
@@ -394,4 +399,27 @@ table td:first-child {
 table th:last-child,
 table td:last-child {
   padding-right: 1rem;
+}
+
+@keyframes status-grid-pulse {
+  0%,
+  24%,
+  100% {
+    opacity: 0.22;
+  }
+
+  8% {
+    opacity: 0.9;
+  }
+}
+
+.status-grid-dot {
+  animation: status-grid-pulse 1.35s ease-in-out infinite;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .status-grid-dot {
+    animation: none;
+    opacity: 0.45;
+  }
 }

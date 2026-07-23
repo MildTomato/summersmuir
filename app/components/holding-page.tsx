@@ -1,87 +1,80 @@
-'use client';
+import { CommitPreviewCard } from '@/app/components/commit-preview-card';
 
-import { motion, useReducedMotion } from 'framer-motion';
+function parseCommitStat(value: string | undefined) {
+  if (!value) return undefined;
 
-const ease = [0.4, 0, 0.2, 1] as const;
+  const stat = Number.parseInt(value, 10);
+  return Number.isNaN(stat) ? undefined : stat;
+}
 
 export function HoldingPage() {
-  const shouldReduceMotion = useReducedMotion();
+  const commitDate = process.env.NEXT_PUBLIC_COMMIT_DATE;
+  const commitSha = process.env.NEXT_PUBLIC_COMMIT_SHA;
+  const commitMessage = process.env.NEXT_PUBLIC_COMMIT_MESSAGE;
+  const commitAdditions = parseCommitStat(
+    process.env.NEXT_PUBLIC_COMMIT_ADDITIONS
+  );
+  const commitDeletions = parseCommitStat(
+    process.env.NEXT_PUBLIC_COMMIT_DELETIONS
+  );
+  const formattedCommitDate = commitDate
+    ? new Intl.DateTimeFormat('en-GB', {
+        day: '2-digit',
+        month: 'short',
+        year: 'numeric',
+        hour: '2-digit',
+        minute: '2-digit',
+        hour12: false,
+        timeZone: 'Asia/Singapore',
+        timeZoneName: 'short',
+      }).format(new Date(commitDate))
+        .replace(', ', ' · ')
+        .toUpperCase()
+    : null;
 
   return (
-    <main className="relative min-h-dvh overflow-hidden bg-[#f2efe8] text-[#20201d] dark:bg-[#161714] dark:text-[#f2efe8]">
-      <div
-        aria-hidden
-        className="absolute inset-0 opacity-80 dark:opacity-35"
-        style={{
-          background:
-            'radial-gradient(circle at 18% 18%, rgba(214, 225, 205, 0.9), transparent 34%), radial-gradient(circle at 78% 76%, rgba(223, 207, 184, 0.75), transparent 38%)',
-        }}
-      />
-
-      <motion.div
-        aria-hidden
-        className="absolute left-[8%] top-[14%] h-[34rem] w-[34rem] rounded-full border border-[#20201d]/10 dark:border-[#f2efe8]/10"
-        animate={shouldReduceMotion ? undefined : { x: [0, 18, 0], y: [0, -12, 0] }}
-        transition={{ duration: 12, repeat: Infinity, ease }}
-      />
-      <motion.div
-        aria-hidden
-        className="absolute -bottom-40 -right-28 h-[30rem] w-[30rem] rounded-full border border-[#20201d]/10 dark:border-[#f2efe8]/10"
-        animate={shouldReduceMotion ? undefined : { x: [0, -14, 0], y: [0, 20, 0] }}
-        transition={{ duration: 14, repeat: Infinity, ease }}
-      />
-
-      <div className="relative z-10 mx-auto flex min-h-dvh max-w-7xl flex-col justify-between px-6 py-7 sm:px-10 sm:py-9 lg:px-16 lg:py-12">
-        <motion.div
-          className="flex items-center gap-3"
-          initial={shouldReduceMotion ? false : { opacity: 0, y: -8 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.5, ease }}
-        >
-          <div className="grid size-10 place-items-center rounded-full border border-current/30">
-            <span className="font-serif text-lg italic">N</span>
+    <main className="flex min-h-dvh items-center justify-center bg-app-bg p-6 leading-[1.45] tracking-[-0.01em] text-heading">
+      <section className="w-full max-w-md">
+        <div>
+          <div className="flex flex-col items-start gap-8">
+            <span aria-hidden className="relative block h-[18px] w-[22px]">
+              <span className="absolute left-px top-0 z-30 h-3 w-5 border border-heading bg-app-bg" />
+              <span className="absolute left-[3px] top-[3px] z-20 h-3 w-4 border border-subtitle bg-app-bg" />
+              <span className="absolute left-[5px] top-[6px] z-10 h-3 w-3 border border-faded bg-app-bg" />
+            </span>
+            <p>hello, i&apos;m jonny</p>
           </div>
-          <span className="text-sm font-medium tracking-[-0.02em]">jonny.design</span>
-        </motion.div>
 
-        <div className="max-w-4xl pb-[8vh]">
-          <motion.p
-            className="mb-7 text-[11px] font-medium uppercase tracking-[0.22em] text-[#65655f] dark:text-[#aaa99f]"
-            initial={shouldReduceMotion ? false : { opacity: 0, y: 10 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ delay: 0.08, duration: 0.5, ease }}
-          >
-            Work in progress
-          </motion.p>
-          <motion.h1
-            className="max-w-4xl text-balance text-[clamp(3.4rem,9vw,8.5rem)] font-light leading-[0.88] tracking-[-0.065em]"
-            initial={shouldReduceMotion ? false : { opacity: 0, y: 24 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ delay: 0.14, duration: 0.65, ease }}
-          >
-            A new chapter is taking shape.
-          </motion.h1>
-          <motion.p
-            className="mt-8 max-w-xl text-pretty text-base leading-7 text-[#65655f] dark:text-[#aaa99f] sm:text-lg sm:leading-8"
-            initial={shouldReduceMotion ? false : { opacity: 0, y: 16 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ delay: 0.24, duration: 0.55, ease }}
-          >
-            The site is being refined. Design, product, and the systems behind
-            both will return here soon.
-          </motion.p>
+          <div className="mt-4">
+            <p>founding designer at supabase</p>
+            <p className="text-subtitle">currently head of design</p>
+          </div>
+
+          <div className="mt-7">
+            <a
+              href="https://x.com/jsummersmuir"
+              target="_blank"
+              rel="noreferrer"
+              className="-my-3 inline-block py-3 underline decoration-border-color underline-offset-4 transition-colors hover:text-subtitle focus-visible:rounded-sm focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-heading"
+            >
+              @jsummersmuir
+            </a>
+            {formattedCommitDate ? (
+              <div className="mt-7 w-fit">
+                <CommitPreviewCard
+                  additions={commitAdditions}
+                  date={formattedCommitDate}
+                  deletions={commitDeletions}
+                  message={commitMessage}
+                  sha={commitSha}
+                />
+              </div>
+            ) : (
+              <p className="mt-7 text-subtitle">site in progress</p>
+            )}
+          </div>
         </div>
-
-        <motion.div
-          className="flex items-end justify-between border-t border-current/15 pt-5 text-[11px] uppercase tracking-[0.18em] text-[#65655f] dark:text-[#aaa99f]"
-          initial={shouldReduceMotion ? false : { opacity: 0 }}
-          animate={{ opacity: 1 }}
-          transition={{ delay: 0.36, duration: 0.5, ease }}
-        >
-          <span>Back shortly</span>
-          <span aria-hidden>© {new Date().getFullYear()}</span>
-        </motion.div>
-      </div>
+      </section>
     </main>
   );
 }
