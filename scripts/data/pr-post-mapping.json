@@ -1,0 +1,5372 @@
+{
+  "supabase-ui-library": [
+    {
+      "number": 19296,
+      "title": "feat: AssistantChatForm ui-pattern and AssistantCommandsPopover ui-pattern",
+      "repo": "supabase/supabase",
+      "url": "https://github.com/supabase/supabase/pull/19296",
+      "date": "2024-03-29",
+      "titleMatch": true
+    },
+    {
+      "number": 271,
+      "title": "Feat/popover",
+      "repo": "supabase/ui",
+      "url": "https://github.com/supabase/ui/pull/271",
+      "date": "2021-08-26",
+      "titleMatch": true
+    },
+    {
+      "number": 1628,
+      "title": "chore: update @supabase/ui to 0.32.2",
+      "repo": "supabase/platform",
+      "url": "https://github.com/supabase/platform/pull/1628",
+      "date": "2021-08-17",
+      "titleMatch": true
+    },
+    {
+      "number": 251,
+      "title": "feat: nested dropdowns",
+      "repo": "supabase/ui",
+      "url": "https://github.com/supabase/ui/pull/251",
+      "date": "2021-07-29",
+      "titleMatch": true
+    },
+    {
+      "number": 249,
+      "title": "Feat/new providers",
+      "repo": "supabase/ui",
+      "url": "https://github.com/supabase/ui/pull/249",
+      "date": "2021-07-26",
+      "titleMatch": true
+    },
+    {
+      "number": 243,
+      "title": "Feat/select styled",
+      "repo": "supabase/ui",
+      "url": "https://github.com/supabase/ui/pull/243",
+      "date": "2021-07-12",
+      "titleMatch": true
+    },
+    {
+      "number": 209,
+      "title": "Feat: Context Menu",
+      "repo": "supabase/ui",
+      "url": "https://github.com/supabase/ui/pull/209",
+      "date": "2021-05-31",
+      "titleMatch": true
+    },
+    {
+      "number": 187,
+      "title": "feat: added radix dropdown.",
+      "repo": "supabase/ui",
+      "url": "https://github.com/supabase/ui/pull/187",
+      "date": "2021-05-10",
+      "titleMatch": true
+    },
+    {
+      "number": 1292,
+      "title": "Example/next js auth example without @supabase/ui auth component ",
+      "repo": "supabase/supabase",
+      "url": "https://github.com/supabase/supabase/pull/1292",
+      "date": "2021-05-02",
+      "titleMatch": true
+    },
+    {
+      "number": 139,
+      "title": "Feature/input sizes",
+      "repo": "supabase/ui",
+      "url": "https://github.com/supabase/ui/pull/139",
+      "date": "2021-03-02",
+      "titleMatch": true
+    },
+    {
+      "number": 130,
+      "title": "fix: modal now supports `style` and `className` props for the main mo…",
+      "repo": "supabase/ui",
+      "url": "https://github.com/supabase/ui/pull/130",
+      "date": "2021-02-17",
+      "titleMatch": true
+    },
+    {
+      "number": 120,
+      "title": "Feature/typings",
+      "repo": "supabase/ui",
+      "url": "https://github.com/supabase/ui/pull/120",
+      "date": "2021-02-07",
+      "titleMatch": true
+    },
+    {
+      "number": 112,
+      "title": "Feature/treeshaking",
+      "repo": "supabase/ui",
+      "url": "https://github.com/supabase/ui/pull/112",
+      "date": "2021-02-05",
+      "titleMatch": true
+    },
+    {
+      "number": 107,
+      "title": "feat: add `active` prop to `<Menu.Item>`",
+      "repo": "supabase/ui",
+      "url": "https://github.com/supabase/ui/pull/107",
+      "date": "2021-01-29",
+      "titleMatch": true
+    },
+    {
+      "number": 100,
+      "title": "Feature/reveal and copy in inputs",
+      "repo": "supabase/ui",
+      "url": "https://github.com/supabase/ui/pull/100",
+      "date": "2021-01-25",
+      "titleMatch": true
+    },
+    {
+      "number": 85,
+      "title": "feature/Tabs",
+      "repo": "supabase/ui",
+      "url": "https://github.com/supabase/ui/pull/85",
+      "date": "2021-01-18",
+      "titleMatch": true
+    },
+    {
+      "number": 84,
+      "title": "Feat/divider update",
+      "repo": "supabase/ui",
+      "url": "https://github.com/supabase/ui/pull/84",
+      "date": "2021-01-18",
+      "titleMatch": true
+    },
+    {
+      "number": 70,
+      "title": "feat: <Loading> component added",
+      "repo": "supabase/ui",
+      "url": "https://github.com/supabase/ui/pull/70",
+      "date": "2021-01-14",
+      "titleMatch": true
+    },
+    {
+      "number": 69,
+      "title": "Feature/modal layouts",
+      "repo": "supabase/ui",
+      "url": "https://github.com/supabase/ui/pull/69",
+      "date": "2021-01-14",
+      "titleMatch": true
+    },
+    {
+      "number": 63,
+      "title": "fix: modal icon was in wrong position.",
+      "repo": "supabase/ui",
+      "url": "https://github.com/supabase/ui/pull/63",
+      "date": "2021-01-13",
+      "titleMatch": true
+    },
+    {
+      "number": 62,
+      "title": "fix: Modal css styling fixed. also adjusted colors slightly and layout.",
+      "repo": "supabase/ui",
+      "url": "https://github.com/supabase/ui/pull/62",
+      "date": "2021-01-13",
+      "titleMatch": true
+    },
+    {
+      "number": 44,
+      "title": "chore: migrate components from JS to TS",
+      "repo": "supabase/ui",
+      "url": "https://github.com/supabase/ui/pull/44",
+      "date": "2021-01-13",
+      "titleMatch": true
+    },
+    {
+      "number": 53,
+      "title": "fix: checkbox selectors updated",
+      "repo": "supabase/ui",
+      "url": "https://github.com/supabase/ui/pull/53",
+      "date": "2021-01-12",
+      "titleMatch": true
+    },
+    {
+      "number": 33,
+      "title": "fix: Checkbox fixes",
+      "repo": "supabase/ui",
+      "url": "https://github.com/supabase/ui/pull/33",
+      "date": "2021-01-07",
+      "titleMatch": true
+    },
+    {
+      "number": 434,
+      "title": "chore: remove UI library. UI library moved to @supabase/ui",
+      "repo": "supabase/supabase",
+      "url": "https://github.com/supabase/supabase/pull/434",
+      "date": "2020-12-23",
+      "titleMatch": true
+    },
+    {
+      "number": 23210,
+      "title": "move to shared types",
+      "repo": "supabase/supabase",
+      "url": "https://github.com/supabase/supabase/pull/23210",
+      "date": "2024-04-24",
+      "titleMatch": false
+    },
+    {
+      "number": 21936,
+      "title": "Chore/move cmdk",
+      "repo": "supabase/supabase",
+      "url": "https://github.com/supabase/supabase/pull/21936",
+      "date": "2024-03-11",
+      "titleMatch": false
+    },
+    {
+      "number": 21741,
+      "title": "Chore/add first pattern docs",
+      "repo": "supabase/supabase",
+      "url": "https://github.com/supabase/supabase/pull/21741",
+      "date": "2024-03-05",
+      "titleMatch": false
+    },
+    {
+      "number": 21546,
+      "title": "Chore/improve search input sql editor",
+      "repo": "supabase/supabase",
+      "url": "https://github.com/supabase/supabase/pull/21546",
+      "date": "2024-03-05",
+      "titleMatch": false
+    },
+    {
+      "number": 9039,
+      "title": "Feat - migrate supabase UI. Move studio to turborepo",
+      "repo": "supabase/supabase",
+      "url": "https://github.com/supabase/supabase/pull/9039",
+      "date": "2022-10-06",
+      "titleMatch": false
+    },
+    {
+      "number": 6766,
+      "title": "Fix/date input move submit",
+      "repo": "supabase/supabase",
+      "url": "https://github.com/supabase/supabase/pull/6766",
+      "date": "2022-05-12",
+      "titleMatch": false
+    },
+    {
+      "number": 5788,
+      "title": "Fix/reports dropdown",
+      "repo": "supabase/supabase",
+      "url": "https://github.com/supabase/supabase/pull/5788",
+      "date": "2022-03-05",
+      "titleMatch": false
+    },
+    {
+      "number": 308,
+      "title": "Feature/theming",
+      "repo": "supabase/ui",
+      "url": "https://github.com/supabase/ui/pull/308",
+      "date": "2022-01-22",
+      "titleMatch": false
+    },
+    {
+      "number": 1055,
+      "title": "chore: add password strength bar",
+      "repo": "supabase/platform",
+      "url": "https://github.com/supabase/platform/pull/1055",
+      "date": "2021-05-17",
+      "titleMatch": false
+    },
+    {
+      "number": 174,
+      "title": "Feat/transition update",
+      "repo": "supabase/ui",
+      "url": "https://github.com/supabase/ui/pull/174",
+      "date": "2021-04-19",
+      "titleMatch": false
+    },
+    {
+      "number": 981,
+      "title": "fix: typography color",
+      "repo": "supabase/supabase",
+      "url": "https://github.com/supabase/supabase/pull/981",
+      "date": "2021-03-30",
+      "titleMatch": false
+    },
+    {
+      "number": 74,
+      "title": "Feature/dropdown",
+      "repo": "supabase/ui",
+      "url": "https://github.com/supabase/ui/pull/74",
+      "date": "2021-01-18",
+      "titleMatch": false
+    }
+  ],
+  "supabase-unified-logs": [
+    {
+      "number": 37275,
+      "title": "fix: Debounce filter application in UnifiedLogs",
+      "repo": "supabase/supabase",
+      "url": "https://github.com/supabase/supabase/pull/37275",
+      "date": "2025-09-17",
+      "titleMatch": true
+    },
+    {
+      "number": 37262,
+      "title": "Refactor unified logs count query logic",
+      "repo": "supabase/supabase",
+      "url": "https://github.com/supabase/supabase/pull/37262",
+      "date": "2025-07-17",
+      "titleMatch": true
+    },
+    {
+      "number": 37252,
+      "title": "Chore/logs reloading state",
+      "repo": "supabase/supabase",
+      "url": "https://github.com/supabase/supabase/pull/37252",
+      "date": "2025-07-17",
+      "titleMatch": true
+    },
+    {
+      "number": 37243,
+      "title": "Feat/logs date refactor",
+      "repo": "supabase/supabase",
+      "url": "https://github.com/supabase/supabase/pull/37243",
+      "date": "2025-07-17",
+      "titleMatch": true
+    },
+    {
+      "number": 36913,
+      "title": "Feat/unified logs live filter enums",
+      "repo": "supabase/supabase",
+      "url": "https://github.com/supabase/supabase/pull/36913",
+      "date": "2025-07-09",
+      "titleMatch": true
+    },
+    {
+      "number": 36895,
+      "title": "Feat/unified logs inspection panel",
+      "repo": "supabase/supabase",
+      "url": "https://github.com/supabase/supabase/pull/36895",
+      "date": "2025-07-08",
+      "titleMatch": true
+    },
+    {
+      "number": 36556,
+      "title": "feat: add storage logs to unified logs",
+      "repo": "supabase/supabase",
+      "url": "https://github.com/supabase/supabase/pull/36556",
+      "date": "2025-06-30",
+      "titleMatch": true
+    },
+    {
+      "number": 36596,
+      "title": "chore: converts to POST for queries for unified logs",
+      "repo": "supabase/supabase",
+      "url": "https://github.com/supabase/supabase/pull/36596",
+      "date": "2025-06-24",
+      "titleMatch": true
+    },
+    {
+      "number": 37239,
+      "title": "Add dynamic column generation for UnifiedLogs table",
+      "repo": "supabase/supabase",
+      "url": "https://github.com/supabase/supabase/pull/37239",
+      "date": "2025-07-17",
+      "titleMatch": false
+    },
+    {
+      "number": 37232,
+      "title": "Remove 'host' field from UnifiedLogs interface",
+      "repo": "supabase/supabase",
+      "url": "https://github.com/supabase/supabase/pull/37232",
+      "date": "2025-07-17",
+      "titleMatch": false
+    },
+    {
+      "number": 37230,
+      "title": "Feat/logs preview",
+      "repo": "supabase/supabase",
+      "url": "https://github.com/supabase/supabase/pull/37230",
+      "date": "2025-07-17",
+      "titleMatch": false
+    },
+    {
+      "number": 23013,
+      "title": "Accept POST requests for logs.all endpoint",
+      "repo": "supabase/platform",
+      "url": "https://github.com/supabase/platform/pull/23013",
+      "date": "2025-06-24",
+      "titleMatch": false
+    }
+  ],
+  "supabase-query-performance": [
+    {
+      "number": 12561,
+      "title": "[Dash] Query performance UI",
+      "repo": "supabase/supabase",
+      "url": "https://github.com/supabase/supabase/pull/12561",
+      "date": "2023-02-24",
+      "titleMatch": true
+    },
+    {
+      "number": 12555,
+      "title": "[Docs] guide for query performance",
+      "repo": "supabase/supabase",
+      "url": "https://github.com/supabase/supabase/pull/12555",
+      "date": "2023-02-23",
+      "titleMatch": true
+    },
+    {
+      "number": 5739,
+      "title": "Chore/pg stat statement template",
+      "repo": "supabase/supabase",
+      "url": "https://github.com/supabase/supabase/pull/5739",
+      "date": "2022-03-02",
+      "titleMatch": true
+    },
+    {
+      "number": 35107,
+      "title": "Feat/index suggestions inline",
+      "repo": "supabase/supabase",
+      "url": "https://github.com/supabase/supabase/pull/35107",
+      "date": "2025-05-07",
+      "titleMatch": false
+    },
+    {
+      "number": 22423,
+      "title": "chore: move perf report and query perf report to database",
+      "repo": "supabase/supabase",
+      "url": "https://github.com/supabase/supabase/pull/22423",
+      "date": "2024-04-04",
+      "titleMatch": false
+    }
+  ],
+  "supabase-billing": [
+    {
+      "number": 12878,
+      "title": "[Docs] Spend cap guide",
+      "repo": "supabase/supabase",
+      "url": "https://github.com/supabase/supabase/pull/12878",
+      "date": "2023-03-10",
+      "titleMatch": true
+    },
+    {
+      "number": 10766,
+      "title": "Update readme with alt stripe sync instructions",
+      "repo": "supabase/platform",
+      "url": "https://github.com/supabase/platform/pull/10766",
+      "date": "2023-01-03",
+      "titleMatch": true
+    },
+    {
+      "number": 6582,
+      "title": "Feat/quota billing",
+      "repo": "supabase/supabase",
+      "url": "https://github.com/supabase/supabase/pull/6582",
+      "date": "2022-04-29",
+      "titleMatch": true
+    },
+    {
+      "number": 6579,
+      "title": "Feat/quota billing",
+      "repo": "supabase/supabase",
+      "url": "https://github.com/supabase/supabase/pull/6579",
+      "date": "2022-04-27",
+      "titleMatch": true
+    },
+    {
+      "number": 6525,
+      "title": "fix: billing labelling issues with max, sum and egress",
+      "repo": "supabase/supabase",
+      "url": "https://github.com/supabase/supabase/pull/6525",
+      "date": "2022-04-22",
+      "titleMatch": true
+    },
+    {
+      "number": 2258,
+      "title": "fix: remove stripe subscription limit",
+      "repo": "supabase/platform",
+      "url": "https://github.com/supabase/platform/pull/2258",
+      "date": "2021-11-08",
+      "titleMatch": true
+    },
+    {
+      "number": 2268,
+      "title": "move getStripeCustomer out of promise all",
+      "repo": "supabase/platform",
+      "url": "https://github.com/supabase/platform/pull/2268",
+      "date": "2021-11-02",
+      "titleMatch": true
+    },
+    {
+      "number": 1297,
+      "title": "Fix/missing org in create subscription",
+      "repo": "supabase/platform",
+      "url": "https://github.com/supabase/platform/pull/1297",
+      "date": "2021-06-29",
+      "titleMatch": true
+    },
+    {
+      "number": 1167,
+      "title": "Chore/remove stripe worker",
+      "repo": "supabase/platform",
+      "url": "https://github.com/supabase/platform/pull/1167",
+      "date": "2021-06-10",
+      "titleMatch": true
+    },
+    {
+      "number": 962,
+      "title": "chore: update stripe on org transfer",
+      "repo": "supabase/platform",
+      "url": "https://github.com/supabase/platform/pull/962",
+      "date": "2021-04-19",
+      "titleMatch": true
+    },
+    {
+      "number": 955,
+      "title": "fix: stripe tier usage and customer_stripe_id errors",
+      "repo": "supabase/platform",
+      "url": "https://github.com/supabase/platform/pull/955",
+      "date": "2021-04-19",
+      "titleMatch": true
+    },
+    {
+      "number": 939,
+      "title": "Fix/billing fixes",
+      "repo": "supabase/platform",
+      "url": "https://github.com/supabase/platform/pull/939",
+      "date": "2021-04-12",
+      "titleMatch": true
+    },
+    {
+      "number": 23210,
+      "title": "move to shared types",
+      "repo": "supabase/supabase",
+      "url": "https://github.com/supabase/supabase/pull/23210",
+      "date": "2024-04-24",
+      "titleMatch": false
+    },
+    {
+      "number": 14812,
+      "title": "Feat/sticky header usage",
+      "repo": "supabase/supabase",
+      "url": "https://github.com/supabase/supabase/pull/14812",
+      "date": "2023-06-06",
+      "titleMatch": false
+    },
+    {
+      "number": 6993,
+      "title": "chore: remove redundant charts",
+      "repo": "supabase/supabase",
+      "url": "https://github.com/supabase/supabase/pull/6993",
+      "date": "2022-05-25",
+      "titleMatch": false
+    },
+    {
+      "number": 6652,
+      "title": "Fix/strip headers test",
+      "repo": "supabase/supabase",
+      "url": "https://github.com/supabase/supabase/pull/6652",
+      "date": "2022-05-02",
+      "titleMatch": false
+    },
+    {
+      "number": 6234,
+      "title": "fix: construct temporary attribute by subtracting storage egress from total egress",
+      "repo": "supabase/platform",
+      "url": "https://github.com/supabase/platform/pull/6234",
+      "date": "2022-04-22",
+      "titleMatch": false
+    },
+    {
+      "number": 6431,
+      "title": "feat: Self serve subscription and global spend cap",
+      "repo": "supabase/supabase",
+      "url": "https://github.com/supabase/supabase/pull/6431",
+      "date": "2022-04-18",
+      "titleMatch": false
+    },
+    {
+      "number": 2272,
+      "title": "[On hold] - Do not merge - Platform API routes",
+      "repo": "supabase/platform",
+      "url": "https://github.com/supabase/platform/pull/2272",
+      "date": "2021-11-15",
+      "titleMatch": false
+    },
+    {
+      "number": 2246,
+      "title": "chore: unlimited paid projects",
+      "repo": "supabase/platform",
+      "url": "https://github.com/supabase/platform/pull/2246",
+      "date": "2021-11-01",
+      "titleMatch": false
+    },
+    {
+      "number": 2229,
+      "title": "fix: wrong var names",
+      "repo": "supabase/platform",
+      "url": "https://github.com/supabase/platform/pull/2229",
+      "date": "2021-10-27",
+      "titleMatch": false
+    },
+    {
+      "number": 2211,
+      "title": "Feat/exit survey",
+      "repo": "supabase/platform",
+      "url": "https://github.com/supabase/platform/pull/2211",
+      "date": "2021-10-27",
+      "titleMatch": false
+    },
+    {
+      "number": 2147,
+      "title": "fix: remove dayjs from createSubscription",
+      "repo": "supabase/platform",
+      "url": "https://github.com/supabase/platform/pull/2147",
+      "date": "2021-10-14",
+      "titleMatch": false
+    }
+  ],
+  "supabase-support-system": [
+    {
+      "number": 35070,
+      "title": "Chore/related items support form",
+      "repo": "supabase/supabase",
+      "url": "https://github.com/supabase/supabase/pull/35070",
+      "date": "2025-05-05",
+      "titleMatch": true
+    },
+    {
+      "number": 35106,
+      "title": "feat: add AI assistant callout on support form",
+      "repo": "supabase/supabase",
+      "url": "https://github.com/supabase/supabase/pull/35106",
+      "date": "2025-04-22",
+      "titleMatch": true
+    },
+    {
+      "number": 35066,
+      "title": "Chore: Support form | support access true as default ",
+      "repo": "supabase/supabase",
+      "url": "https://github.com/supabase/supabase/pull/35066",
+      "date": "2025-04-16",
+      "titleMatch": true
+    },
+    {
+      "number": 28333,
+      "title": "chore: Update TicketForm.tsx to remove filter",
+      "repo": "supabase/supabase",
+      "url": "https://github.com/supabase/supabase/pull/28333",
+      "date": "2024-08-02",
+      "titleMatch": true
+    },
+    {
+      "number": 6217,
+      "title": "feat: feedback now sent to airtable",
+      "repo": "supabase/platform",
+      "url": "https://github.com/supabase/platform/pull/6217",
+      "date": "2022-04-21",
+      "titleMatch": true
+    },
+    {
+      "number": 6189,
+      "title": "HOTFIX: support form errors with 'no-project' and project tier checks",
+      "repo": "supabase/platform",
+      "url": "https://github.com/supabase/platform/pull/6189",
+      "date": "2022-04-18",
+      "titleMatch": true
+    },
+    {
+      "number": 2197,
+      "title": "chore: add priority to support form (#2163)",
+      "repo": "supabase/platform",
+      "url": "https://github.com/supabase/platform/pull/2197",
+      "date": "2021-10-22",
+      "titleMatch": true
+    },
+    {
+      "number": 2163,
+      "title": "chore: add priority to support form",
+      "repo": "supabase/platform",
+      "url": "https://github.com/supabase/platform/pull/2163",
+      "date": "2021-10-22",
+      "titleMatch": true
+    },
+    {
+      "number": 2125,
+      "title": "fix: spelling in support form",
+      "repo": "supabase/platform",
+      "url": "https://github.com/supabase/platform/pull/2125",
+      "date": "2021-10-12",
+      "titleMatch": true
+    },
+    {
+      "number": 1834,
+      "title": "Feat/support form",
+      "repo": "supabase/platform",
+      "url": "https://github.com/supabase/platform/pull/1834",
+      "date": "2021-09-22",
+      "titleMatch": true
+    },
+    {
+      "number": 1711,
+      "title": "chore: update feedback form to send Questions and Problem tickets to Freshdesk",
+      "repo": "supabase/platform",
+      "url": "https://github.com/supabase/platform/pull/1711",
+      "date": "2021-08-24",
+      "titleMatch": true
+    },
+    {
+      "number": 5996,
+      "title": "fix: don't check projects if 'no-project' is in ref",
+      "repo": "supabase/platform",
+      "url": "https://github.com/supabase/platform/pull/5996",
+      "date": "2022-04-19",
+      "titleMatch": false
+    },
+    {
+      "number": 5229,
+      "title": "fix: verify the membership of project ref properly",
+      "repo": "supabase/platform",
+      "url": "https://github.com/supabase/platform/pull/5229",
+      "date": "2022-03-16",
+      "titleMatch": false
+    },
+    {
+      "number": 2467,
+      "title": "Chore/update feedback widget",
+      "repo": "supabase/platform",
+      "url": "https://github.com/supabase/platform/pull/2467",
+      "date": "2021-11-25",
+      "titleMatch": false
+    },
+    {
+      "number": 2436,
+      "title": "fix: stripe ids are present in STRIPE_PRODUCT_IDS constant",
+      "repo": "supabase/platform",
+      "url": "https://github.com/supabase/platform/pull/2436",
+      "date": "2021-11-22",
+      "titleMatch": false
+    },
+    {
+      "number": 2211,
+      "title": "Feat/exit survey",
+      "repo": "supabase/platform",
+      "url": "https://github.com/supabase/platform/pull/2211",
+      "date": "2021-10-27",
+      "titleMatch": false
+    },
+    {
+      "number": 1631,
+      "title": "Chore/scroll bar light mode",
+      "repo": "supabase/platform",
+      "url": "https://github.com/supabase/platform/pull/1631",
+      "date": "2021-08-18",
+      "titleMatch": false
+    }
+  ],
+  "supabase-telemetry": [
+    {
+      "number": 34569,
+      "title": "chore: UI lib - update telemetry",
+      "repo": "supabase/supabase",
+      "url": "https://github.com/supabase/supabase/pull/34569",
+      "date": "2025-03-31",
+      "titleMatch": true
+    },
+    {
+      "number": 15057,
+      "title": "Update telemetry.ts",
+      "repo": "supabase/platform",
+      "url": "https://github.com/supabase/platform/pull/15057",
+      "date": "2023-10-09",
+      "titleMatch": true
+    },
+    {
+      "number": 15001,
+      "title": "hotfix: add plausible analytics",
+      "repo": "supabase/platform",
+      "url": "https://github.com/supabase/platform/pull/15001",
+      "date": "2023-10-02",
+      "titleMatch": true
+    },
+    {
+      "number": 15000,
+      "title": "fix correct domains for plausible",
+      "repo": "supabase/platform",
+      "url": "https://github.com/supabase/platform/pull/15000",
+      "date": "2023-09-29",
+      "titleMatch": true
+    },
+    {
+      "number": 14970,
+      "title": "chore: add plausible to telemetry for page views and events",
+      "repo": "supabase/platform",
+      "url": "https://github.com/supabase/platform/pull/14970",
+      "date": "2023-09-29",
+      "titleMatch": true
+    },
+    {
+      "number": 13622,
+      "title": "Fix/telemetry issue first page load",
+      "repo": "supabase/supabase",
+      "url": "https://github.com/supabase/supabase/pull/13622",
+      "date": "2023-04-12",
+      "titleMatch": true
+    },
+    {
+      "number": 8118,
+      "title": "Update PageTelemetry.tsx",
+      "repo": "supabase/supabase",
+      "url": "https://github.com/supabase/supabase/pull/8118",
+      "date": "2022-08-05",
+      "titleMatch": true
+    },
+    {
+      "number": 8117,
+      "title": "fix: telemetry sign up",
+      "repo": "supabase/supabase",
+      "url": "https://github.com/supabase/supabase/pull/8117",
+      "date": "2022-08-05",
+      "titleMatch": true
+    },
+    {
+      "number": 8115,
+      "title": "Update PageTelemetry.tsx",
+      "repo": "supabase/supabase",
+      "url": "https://github.com/supabase/supabase/pull/8115",
+      "date": "2022-08-05",
+      "titleMatch": true
+    },
+    {
+      "number": 2453,
+      "title": "Update Page tracking Telemetry to include location",
+      "repo": "supabase/platform",
+      "url": "https://github.com/supabase/platform/pull/2453",
+      "date": "2021-11-23",
+      "titleMatch": true
+    },
+    {
+      "number": 2411,
+      "title": "add hubspot back in",
+      "repo": "supabase/platform",
+      "url": "https://github.com/supabase/platform/pull/2411",
+      "date": "2021-11-18",
+      "titleMatch": true
+    },
+    {
+      "number": 2399,
+      "title": "fix: hubspot now doesn't throw error, fixed post fetch in telemetry",
+      "repo": "supabase/platform",
+      "url": "https://github.com/supabase/platform/pull/2399",
+      "date": "2021-11-18",
+      "titleMatch": true
+    },
+    {
+      "number": 2383,
+      "title": "[Release] Remove hubspot until tomorrow",
+      "repo": "supabase/platform",
+      "url": "https://github.com/supabase/platform/pull/2383",
+      "date": "2021-11-16",
+      "titleMatch": true
+    },
+    {
+      "number": 2341,
+      "title": "Feat/add profile to hubspot",
+      "repo": "supabase/platform",
+      "url": "https://github.com/supabase/platform/pull/2341",
+      "date": "2021-11-16",
+      "titleMatch": true
+    },
+    {
+      "number": 2354,
+      "title": "[Release] changes app to use telemetry/page and telemetry/identity ",
+      "repo": "supabase/platform",
+      "url": "https://github.com/supabase/platform/pull/2354",
+      "date": "2021-11-15",
+      "titleMatch": true
+    },
+    {
+      "number": 2274,
+      "title": "chore: prep telemetry/page endpoint for supabase.com",
+      "repo": "supabase/platform",
+      "url": "https://github.com/supabase/platform/pull/2274",
+      "date": "2021-11-03",
+      "titleMatch": true
+    },
+    {
+      "number": 1220,
+      "title": "Chore/update analytics for hubspot",
+      "repo": "supabase/platform",
+      "url": "https://github.com/supabase/platform/pull/1220",
+      "date": "2021-06-18",
+      "titleMatch": true
+    },
+    {
+      "number": 695,
+      "title": "chore: use www.youtube-nocookie.com to remove youtube cookie tracking",
+      "repo": "supabase/supabase",
+      "url": "https://github.com/supabase/supabase/pull/695",
+      "date": "2021-02-11",
+      "titleMatch": true
+    },
+    {
+      "number": 726,
+      "title": "chore: remove `ip address` from context traits from page views",
+      "repo": "supabase/platform",
+      "url": "https://github.com/supabase/platform/pull/726",
+      "date": "2021-01-27",
+      "titleMatch": true
+    },
+    {
+      "number": 612,
+      "title": "Chore/remove tracking cookies and improve privacy",
+      "repo": "supabase/supabase",
+      "url": "https://github.com/supabase/supabase/pull/612",
+      "date": "2021-01-27",
+      "titleMatch": true
+    },
+    {
+      "number": 684,
+      "title": "fix: changed Telemetry.indentify() to async/await",
+      "repo": "supabase/platform",
+      "url": "https://github.com/supabase/platform/pull/684",
+      "date": "2021-01-18",
+      "titleMatch": true
+    },
+    {
+      "number": 585,
+      "title": "fix: change endpoint name from /api/analytics to /api/telemetry",
+      "repo": "supabase/platform",
+      "url": "https://github.com/supabase/platform/pull/585",
+      "date": "2020-12-24",
+      "titleMatch": true
+    },
+    {
+      "number": 568,
+      "title": "feat: analytics server based page views and indentify call",
+      "repo": "supabase/platform",
+      "url": "https://github.com/supabase/platform/pull/568",
+      "date": "2020-12-23",
+      "titleMatch": true
+    },
+    {
+      "number": 8422,
+      "title": "fix: manually send user id and email if user is not yet authenticated",
+      "repo": "supabase/platform",
+      "url": "https://github.com/supabase/platform/pull/8422",
+      "date": "2022-08-04",
+      "titleMatch": false
+    },
+    {
+      "number": 2406,
+      "title": "Update profile.js",
+      "repo": "supabase/platform",
+      "url": "https://github.com/supabase/platform/pull/2406",
+      "date": "2021-11-18",
+      "titleMatch": false
+    },
+    {
+      "number": 2389,
+      "title": "Chore - roll out api.supabase.io and api.supabase.green",
+      "repo": "supabase/platform",
+      "url": "https://github.com/supabase/platform/pull/2389",
+      "date": "2021-11-17",
+      "titleMatch": false
+    },
+    {
+      "number": 2381,
+      "title": "Update profile.js",
+      "repo": "supabase/platform",
+      "url": "https://github.com/supabase/platform/pull/2381",
+      "date": "2021-11-16",
+      "titleMatch": false
+    },
+    {
+      "number": 2353,
+      "title": "chore: add temporary routes for testing",
+      "repo": "supabase/platform",
+      "url": "https://github.com/supabase/platform/pull/2353",
+      "date": "2021-11-15",
+      "titleMatch": false
+    },
+    {
+      "number": 1631,
+      "title": "chore: update privacy policy",
+      "repo": "supabase/supabase",
+      "url": "https://github.com/supabase/supabase/pull/1631",
+      "date": "2021-05-21",
+      "titleMatch": false
+    },
+    {
+      "number": 744,
+      "title": "WIP Chore/add cors policy page api and remove date from anonId",
+      "repo": "supabase/platform",
+      "url": "https://github.com/supabase/platform/pull/744",
+      "date": "2021-01-29",
+      "titleMatch": false
+    },
+    {
+      "number": 664,
+      "title": "fix: now sending anon id with server side event for sign_up and added sign_in event",
+      "repo": "supabase/platform",
+      "url": "https://github.com/supabase/platform/pull/664",
+      "date": "2021-01-13",
+      "titleMatch": false
+    }
+  ],
+  "supabase-launch-weeks": [
+    {
+      "number": 30920,
+      "title": "Lw13/disks",
+      "repo": "supabase/supabase",
+      "url": "https://github.com/supabase/supabase/pull/30920",
+      "date": "2024-12-05",
+      "titleMatch": true
+    },
+    {
+      "number": 19680,
+      "title": "Caption fixes for LWXd3",
+      "repo": "supabase/supabase",
+      "url": "https://github.com/supabase/supabase/pull/19680",
+      "date": "2023-12-13",
+      "titleMatch": true
+    },
+    {
+      "number": 19533,
+      "title": "WIP Blog/lwx how design works at supabase",
+      "repo": "supabase/supabase",
+      "url": "https://github.com/supabase/supabase/pull/19533",
+      "date": "2023-12-08",
+      "titleMatch": true
+    },
+    {
+      "number": 13958,
+      "title": "fix/react-countdown Move package",
+      "repo": "supabase/supabase",
+      "url": "https://github.com/supabase/supabase/pull/13958",
+      "date": "2023-04-25",
+      "titleMatch": true
+    },
+    {
+      "number": 13730,
+      "title": "chore: update one more thing thumbs",
+      "repo": "supabase/supabase",
+      "url": "https://github.com/supabase/supabase/pull/13730",
+      "date": "2023-04-14",
+      "titleMatch": true
+    },
+    {
+      "number": 13509,
+      "title": "Chore/ LW7 favicons and logos",
+      "repo": "supabase/supabase",
+      "url": "https://github.com/supabase/supabase/pull/13509",
+      "date": "2023-04-10",
+      "titleMatch": true
+    },
+    {
+      "number": 8392,
+      "title": "Blog/lw5 2",
+      "repo": "supabase/supabase",
+      "url": "https://github.com/supabase/supabase/pull/8392",
+      "date": "2022-08-16",
+      "titleMatch": true
+    },
+    {
+      "number": 8307,
+      "title": "Chore/update launch week 5 sections",
+      "repo": "supabase/supabase",
+      "url": "https://github.com/supabase/supabase/pull/8307",
+      "date": "2022-08-15",
+      "titleMatch": true
+    },
+    {
+      "number": 8256,
+      "title": "Launch week 5 landing",
+      "repo": "supabase/supabase",
+      "url": "https://github.com/supabase/supabase/pull/8256",
+      "date": "2022-08-12",
+      "titleMatch": true
+    },
+    {
+      "number": 2492,
+      "title": "Chore/update og launch week 2",
+      "repo": "supabase/supabase",
+      "url": "https://github.com/supabase/supabase/pull/2492",
+      "date": "2021-07-24",
+      "titleMatch": true
+    },
+    {
+      "number": 983,
+      "title": "Storage 📦",
+      "repo": "supabase/supabase",
+      "url": "https://github.com/supabase/supabase/pull/983",
+      "date": "2021-03-30",
+      "titleMatch": false
+    }
+  ],
+  "supabase-docs-platform": [
+    {
+      "number": 20833,
+      "title": "[docs] Update read-replicas.mdx",
+      "repo": "supabase/supabase",
+      "url": "https://github.com/supabase/supabase/pull/20833",
+      "date": "2024-02-12",
+      "titleMatch": true
+    },
+    {
+      "number": 20786,
+      "title": "chore: update migration guides for new assets",
+      "repo": "supabase/supabase",
+      "url": "https://github.com/supabase/supabase/pull/20786",
+      "date": "2024-01-27",
+      "titleMatch": true
+    },
+    {
+      "number": 18762,
+      "title": "[Docs] [Branching] Chore/branching docs",
+      "repo": "supabase/supabase",
+      "url": "https://github.com/supabase/supabase/pull/18762",
+      "date": "2023-11-15",
+      "titleMatch": true
+    },
+    {
+      "number": 14119,
+      "title": "[Docs] basepath fixed",
+      "repo": "supabase/supabase",
+      "url": "https://github.com/supabase/supabase/pull/14119",
+      "date": "2023-05-04",
+      "titleMatch": true
+    },
+    {
+      "number": 13453,
+      "title": "fix margin issue on ref docs",
+      "repo": "supabase/supabase",
+      "url": "https://github.com/supabase/supabase/pull/13453",
+      "date": "2023-04-06",
+      "titleMatch": true
+    },
+    {
+      "number": 13156,
+      "title": "move guides and fix accordion issue",
+      "repo": "supabase/supabase",
+      "url": "https://github.com/supabase/supabase/pull/13156",
+      "date": "2023-03-23",
+      "titleMatch": true
+    },
+    {
+      "number": 12878,
+      "title": "[Docs] Spend cap guide",
+      "repo": "supabase/supabase",
+      "url": "https://github.com/supabase/supabase/pull/12878",
+      "date": "2023-03-10",
+      "titleMatch": true
+    },
+    {
+      "number": 12643,
+      "title": "[Docs] meta data wrong on guides and homepage",
+      "repo": "supabase/supabase",
+      "url": "https://github.com/supabase/supabase/pull/12643",
+      "date": "2023-02-24",
+      "titleMatch": true
+    },
+    {
+      "number": 12555,
+      "title": "[Docs] guide for query performance",
+      "repo": "supabase/supabase",
+      "url": "https://github.com/supabase/supabase/pull/12555",
+      "date": "2023-02-23",
+      "titleMatch": true
+    },
+    {
+      "number": 11098,
+      "title": "[docs] chore: moving self hosted docs for more visibility",
+      "repo": "supabase/supabase",
+      "url": "https://github.com/supabase/supabase/pull/11098",
+      "date": "2022-12-20",
+      "titleMatch": true
+    },
+    {
+      "number": 10960,
+      "title": "feat: added 'edit this page' link to guides",
+      "repo": "supabase/supabase",
+      "url": "https://github.com/supabase/supabase/pull/10960",
+      "date": "2022-12-14",
+      "titleMatch": true
+    },
+    {
+      "number": 10430,
+      "title": "fix: docs sitemap",
+      "repo": "supabase/supabase",
+      "url": "https://github.com/supabase/supabase/pull/10430",
+      "date": "2022-11-21",
+      "titleMatch": true
+    },
+    {
+      "number": 10307,
+      "title": "Fix/docs sitemap",
+      "repo": "supabase/supabase",
+      "url": "https://github.com/supabase/supabase/pull/10307",
+      "date": "2022-11-14",
+      "titleMatch": true
+    },
+    {
+      "number": 8665,
+      "title": "Update docusaurus.config.js",
+      "repo": "supabase/supabase",
+      "url": "https://github.com/supabase/supabase/pull/8665",
+      "date": "2022-08-26",
+      "titleMatch": true
+    },
+    {
+      "number": 8240,
+      "title": "Feat/ref docs styling",
+      "repo": "supabase/supabase",
+      "url": "https://github.com/supabase/supabase/pull/8240",
+      "date": "2022-08-13",
+      "titleMatch": true
+    },
+    {
+      "number": 4001,
+      "title": "Add redirect for /oss to docs/oss",
+      "repo": "supabase/supabase",
+      "url": "https://github.com/supabase/supabase/pull/4001",
+      "date": "2021-11-22",
+      "titleMatch": true
+    },
+    {
+      "number": 3133,
+      "title": "Chore/update docusaurus beta",
+      "repo": "supabase/supabase",
+      "url": "https://github.com/supabase/supabase/pull/3133",
+      "date": "2021-09-12",
+      "titleMatch": true
+    },
+    {
+      "number": 967,
+      "title": "fix pricing UI and added redirect in for /docs/pricing to /pricing",
+      "repo": "supabase/supabase",
+      "url": "https://github.com/supabase/supabase/pull/967",
+      "date": "2021-03-29",
+      "titleMatch": true
+    },
+    {
+      "number": 40897,
+      "title": "Feat/mermaid blog",
+      "repo": "supabase/supabase",
+      "url": "https://github.com/supabase/supabase/pull/40897",
+      "date": "2025-12-03",
+      "titleMatch": false
+    },
+    {
+      "number": 30220,
+      "title": "chore: add vercel toolbar for prod / also created /providers package",
+      "repo": "supabase/supabase",
+      "url": "https://github.com/supabase/supabase/pull/30220",
+      "date": "2024-11-04",
+      "titleMatch": false
+    },
+    {
+      "number": 22103,
+      "title": "chore: add more opengraph to docs",
+      "repo": "supabase/supabase",
+      "url": "https://github.com/supabase/supabase/pull/22103",
+      "date": "2024-03-19",
+      "titleMatch": false
+    },
+    {
+      "number": 21477,
+      "title": "feat: add new Icons package for custom made icons",
+      "repo": "supabase/supabase",
+      "url": "https://github.com/supabase/supabase/pull/21477",
+      "date": "2024-02-26",
+      "titleMatch": false
+    },
+    {
+      "number": 14528,
+      "title": "Feat/UI components uishadcn",
+      "repo": "supabase/supabase",
+      "url": "https://github.com/supabase/supabase/pull/14528",
+      "date": "2023-07-18",
+      "titleMatch": false
+    },
+    {
+      "number": 11107,
+      "title": "chore: use next/image for images in articles",
+      "repo": "supabase/supabase",
+      "url": "https://github.com/supabase/supabase/pull/11107",
+      "date": "2022-12-20",
+      "titleMatch": false
+    },
+    {
+      "number": 7487,
+      "title": "Update next.config.js",
+      "repo": "supabase/supabase",
+      "url": "https://github.com/supabase/supabase/pull/7487",
+      "date": "2022-06-29",
+      "titleMatch": false
+    },
+    {
+      "number": 3022,
+      "title": "Docs: integration guides",
+      "repo": "supabase/supabase",
+      "url": "https://github.com/supabase/supabase/pull/3022",
+      "date": "2021-11-29",
+      "titleMatch": false
+    },
+    {
+      "number": 2301,
+      "title": "Fix/vercel severless functions",
+      "repo": "supabase/platform",
+      "url": "https://github.com/supabase/platform/pull/2301",
+      "date": "2021-11-09",
+      "titleMatch": false
+    }
+  ],
+  "supabase-security-page": [
+    {
+      "number": 12877,
+      "title": "[www] fix SOC2 button",
+      "repo": "supabase/supabase",
+      "url": "https://github.com/supabase/supabase/pull/12877",
+      "date": "2023-03-10",
+      "titleMatch": true
+    },
+    {
+      "number": 8434,
+      "title": "feat: add dpa",
+      "repo": "supabase/supabase",
+      "url": "https://github.com/supabase/supabase/pull/8434",
+      "date": "2022-08-17",
+      "titleMatch": true
+    },
+    {
+      "number": 9617,
+      "title": "Update security.mdx",
+      "repo": "supabase/supabase",
+      "url": "https://github.com/supabase/supabase/pull/9617",
+      "date": "2022-10-17",
+      "titleMatch": false
+    }
+  ],
+  "supabase-database-metrics": [
+    {
+      "number": 1597,
+      "title": "fix: support for day step intervals for infra-monitoring",
+      "repo": "supabase/platform",
+      "url": "https://github.com/supabase/platform/pull/1597",
+      "date": "2021-08-13",
+      "titleMatch": true
+    },
+    {
+      "number": 1541,
+      "title": "Feature/db metrics and usage",
+      "repo": "supabase/platform",
+      "url": "https://github.com/supabase/platform/pull/1541",
+      "date": "2021-07-29",
+      "titleMatch": true
+    },
+    {
+      "number": 1270,
+      "title": "fix: sparkbar for db was being multiplied wrong",
+      "repo": "supabase/platform",
+      "url": "https://github.com/supabase/platform/pull/1270",
+      "date": "2021-07-05",
+      "titleMatch": true
+    },
+    {
+      "number": 2118,
+      "title": "Feat/ billing page now shows usage based on actual billing cycle",
+      "repo": "supabase/platform",
+      "url": "https://github.com/supabase/platform/pull/2118",
+      "date": "2021-10-19",
+      "titleMatch": false
+    }
+  ],
+  "supabase-storage-ui": [
+    {
+      "number": 36551,
+      "title": "fix: reverts local storage",
+      "repo": "supabase/supabase",
+      "url": "https://github.com/supabase/supabase/pull/36551",
+      "date": "2025-06-20",
+      "titleMatch": true
+    },
+    {
+      "number": 9816,
+      "title": "Update 2021-03-30-supabase-storage.mdx",
+      "repo": "supabase/supabase",
+      "url": "https://github.com/supabase/supabase/pull/9816",
+      "date": "2022-10-25",
+      "titleMatch": true
+    },
+    {
+      "number": 6754,
+      "title": "fix: now checks for slash and backslash when renaming storage folder",
+      "repo": "supabase/supabase",
+      "url": "https://github.com/supabase/supabase/pull/6754",
+      "date": "2022-05-10",
+      "titleMatch": true
+    },
+    {
+      "number": 6234,
+      "title": "fix: construct temporary attribute by subtracting storage egress from total egress",
+      "repo": "supabase/platform",
+      "url": "https://github.com/supabase/platform/pull/6234",
+      "date": "2022-04-22",
+      "titleMatch": true
+    },
+    {
+      "number": 1173,
+      "title": "fix: storage toast messages",
+      "repo": "supabase/platform",
+      "url": "https://github.com/supabase/platform/pull/1173",
+      "date": "2021-06-07",
+      "titleMatch": true
+    },
+    {
+      "number": 983,
+      "title": "Storage 📦",
+      "repo": "supabase/supabase",
+      "url": "https://github.com/supabase/supabase/pull/983",
+      "date": "2021-03-30",
+      "titleMatch": true
+    },
+    {
+      "number": 6,
+      "title": "fix: rename introduction folder",
+      "repo": "supabase/ui",
+      "url": "https://github.com/supabase/ui/pull/6",
+      "date": "2020-12-23",
+      "titleMatch": true
+    },
+    {
+      "number": 36895,
+      "title": "Feat/unified logs inspection panel",
+      "repo": "supabase/supabase",
+      "url": "https://github.com/supabase/supabase/pull/36895",
+      "date": "2025-07-08",
+      "titleMatch": false
+    },
+    {
+      "number": 31071,
+      "title": "Feat/tabs",
+      "repo": "supabase/supabase",
+      "url": "https://github.com/supabase/supabase/pull/31071",
+      "date": "2025-03-27",
+      "titleMatch": false
+    },
+    {
+      "number": 21546,
+      "title": "Chore/improve search input sql editor",
+      "repo": "supabase/supabase",
+      "url": "https://github.com/supabase/supabase/pull/21546",
+      "date": "2024-03-05",
+      "titleMatch": false
+    },
+    {
+      "number": 21477,
+      "title": "feat: add new Icons package for custom made icons",
+      "repo": "supabase/supabase",
+      "url": "https://github.com/supabase/supabase/pull/21477",
+      "date": "2024-02-26",
+      "titleMatch": false
+    },
+    {
+      "number": 19294,
+      "title": "chore: added pattern UI for assistant input",
+      "repo": "supabase/supabase",
+      "url": "https://github.com/supabase/supabase/pull/19294",
+      "date": "2023-11-30",
+      "titleMatch": false
+    },
+    {
+      "number": 11964,
+      "title": "Update database-usage.mdx",
+      "repo": "supabase/supabase",
+      "url": "https://github.com/supabase/supabase/pull/11964",
+      "date": "2023-01-27",
+      "titleMatch": false
+    },
+    {
+      "number": 10960,
+      "title": "feat: added 'edit this page' link to guides",
+      "repo": "supabase/supabase",
+      "url": "https://github.com/supabase/supabase/pull/10960",
+      "date": "2022-12-14",
+      "titleMatch": false
+    },
+    {
+      "number": 7179,
+      "title": "Chore/update pricing",
+      "repo": "supabase/supabase",
+      "url": "https://github.com/supabase/supabase/pull/7179",
+      "date": "2022-06-16",
+      "titleMatch": false
+    },
+    {
+      "number": 4046,
+      "title": "Fix/announcement bar flashing",
+      "repo": "supabase/supabase",
+      "url": "https://github.com/supabase/supabase/pull/4046",
+      "date": "2021-11-25",
+      "titleMatch": false
+    },
+    {
+      "number": 2467,
+      "title": "Chore/update feedback widget",
+      "repo": "supabase/platform",
+      "url": "https://github.com/supabase/platform/pull/2467",
+      "date": "2021-11-25",
+      "titleMatch": false
+    },
+    {
+      "number": 4012,
+      "title": "chore: update announcement",
+      "repo": "supabase/supabase",
+      "url": "https://github.com/supabase/supabase/pull/4012",
+      "date": "2021-11-23",
+      "titleMatch": false
+    },
+    {
+      "number": 1768,
+      "title": "[Dash] [SQL] Feat - persist sql queries",
+      "repo": "supabase/platform",
+      "url": "https://github.com/supabase/platform/pull/1768",
+      "date": "2021-09-07",
+      "titleMatch": false
+    }
+  ],
+  "supabase-auth-ui-component": [
+    {
+      "number": 8536,
+      "title": "Feat/auth widget demo and MFA sign up",
+      "repo": "supabase/supabase",
+      "url": "https://github.com/supabase/supabase/pull/8536",
+      "date": "2022-08-19",
+      "titleMatch": true
+    },
+    {
+      "number": 8511,
+      "title": "docs / auth ui",
+      "repo": "supabase/supabase",
+      "url": "https://github.com/supabase/supabase/pull/8511",
+      "date": "2022-08-19",
+      "titleMatch": true
+    },
+    {
+      "number": 55,
+      "title": "Feat: Feature/auth component",
+      "repo": "supabase/ui",
+      "url": "https://github.com/supabase/ui/pull/55",
+      "date": "2021-01-12",
+      "titleMatch": false
+    }
+  ],
+  "supabase-monaco-editor": [
+    {
+      "number": 21546,
+      "title": "Chore/improve search input sql editor",
+      "repo": "supabase/supabase",
+      "url": "https://github.com/supabase/supabase/pull/21546",
+      "date": "2024-03-05",
+      "titleMatch": true
+    },
+    {
+      "number": 21483,
+      "title": "fix: update brand colors in SQL editor AI",
+      "repo": "supabase/supabase",
+      "url": "https://github.com/supabase/supabase/pull/21483",
+      "date": "2024-02-23",
+      "titleMatch": true
+    },
+    {
+      "number": 16136,
+      "title": "Feat/ai sql editor styling  with new brand tailwind tokens",
+      "repo": "supabase/supabase",
+      "url": "https://github.com/supabase/supabase/pull/16136",
+      "date": "2023-08-02",
+      "titleMatch": true
+    },
+    {
+      "number": 13426,
+      "title": "[hotfix] fix selection issue in monaco editor",
+      "repo": "supabase/supabase",
+      "url": "https://github.com/supabase/supabase/pull/13426",
+      "date": "2023-04-04",
+      "titleMatch": true
+    },
+    {
+      "number": 1909,
+      "title": "fix: SQL editor will no longer run 'previous' version of changes",
+      "repo": "supabase/platform",
+      "url": "https://github.com/supabase/platform/pull/1909",
+      "date": "2021-09-15",
+      "titleMatch": true
+    },
+    {
+      "number": 1275,
+      "title": "Chore/monaco json panel",
+      "repo": "supabase/platform",
+      "url": "https://github.com/supabase/platform/pull/1275",
+      "date": "2021-06-29",
+      "titleMatch": true
+    },
+    {
+      "number": 1066,
+      "title": "fix: dark monaco theme not showing by default",
+      "repo": "supabase/platform",
+      "url": "https://github.com/supabase/platform/pull/1066",
+      "date": "2021-05-20",
+      "titleMatch": true
+    },
+    {
+      "number": 31071,
+      "title": "Feat/tabs",
+      "repo": "supabase/supabase",
+      "url": "https://github.com/supabase/supabase/pull/31071",
+      "date": "2025-03-27",
+      "titleMatch": false
+    },
+    {
+      "number": 33357,
+      "title": "feat: new item style for table editor and empty states for both editors",
+      "repo": "supabase/supabase",
+      "url": "https://github.com/supabase/supabase/pull/33357",
+      "date": "2025-02-06",
+      "titleMatch": false
+    },
+    {
+      "number": 21548,
+      "title": "feat: add resizable inner sidebar",
+      "repo": "supabase/supabase",
+      "url": "https://github.com/supabase/supabase/pull/21548",
+      "date": "2024-02-26",
+      "titleMatch": false
+    },
+    {
+      "number": 21477,
+      "title": "feat: add new Icons package for custom made icons",
+      "repo": "supabase/supabase",
+      "url": "https://github.com/supabase/supabase/pull/21477",
+      "date": "2024-02-26",
+      "titleMatch": false
+    },
+    {
+      "number": 21459,
+      "title": "Chore/rls assistant iteration templates styling",
+      "repo": "supabase/supabase",
+      "url": "https://github.com/supabase/supabase/pull/21459",
+      "date": "2024-02-26",
+      "titleMatch": false
+    },
+    {
+      "number": 6663,
+      "title": "fix: now supplying projectRef to content store in setProjectRef() in rootStore",
+      "repo": "supabase/supabase",
+      "url": "https://github.com/supabase/supabase/pull/6663",
+      "date": "2022-05-03",
+      "titleMatch": false
+    },
+    {
+      "number": 5739,
+      "title": "Chore/pg stat statement template",
+      "repo": "supabase/supabase",
+      "url": "https://github.com/supabase/supabase/pull/5739",
+      "date": "2022-03-02",
+      "titleMatch": false
+    },
+    {
+      "number": 1838,
+      "title": "Fix/localhost mobx reaction sql issue",
+      "repo": "supabase/platform",
+      "url": "https://github.com/supabase/platform/pull/1838",
+      "date": "2021-09-07",
+      "titleMatch": false
+    },
+    {
+      "number": 575,
+      "title": "fix: sql_run event now fires as a click event and events flush immediately ",
+      "repo": "supabase/platform",
+      "url": "https://github.com/supabase/platform/pull/575",
+      "date": "2021-01-04",
+      "titleMatch": false
+    },
+    {
+      "number": 474,
+      "title": "Chore: new analytic events",
+      "repo": "supabase/platform",
+      "url": "https://github.com/supabase/platform/pull/474",
+      "date": "2020-12-14",
+      "titleMatch": false
+    }
+  ],
+  "supabase-org-management": [
+    {
+      "number": 2124,
+      "title": "feat: org selection now available when creating project",
+      "repo": "supabase/platform",
+      "url": "https://github.com/supabase/platform/pull/2124",
+      "date": "2021-10-12",
+      "titleMatch": true
+    },
+    {
+      "number": 16398,
+      "title": "chore: fix empty states for Vercel Integration",
+      "repo": "supabase/supabase",
+      "url": "https://github.com/supabase/supabase/pull/16398",
+      "date": "2023-08-10",
+      "titleMatch": false
+    },
+    {
+      "number": 11033,
+      "title": "Fix/members owner leave team action",
+      "repo": "supabase/supabase",
+      "url": "https://github.com/supabase/supabase/pull/11033",
+      "date": "2022-12-19",
+      "titleMatch": false
+    },
+    {
+      "number": 7553,
+      "title": "chore: added a verification endpoint for email invite",
+      "repo": "supabase/platform",
+      "url": "https://github.com/supabase/platform/pull/7553",
+      "date": "2022-06-28",
+      "titleMatch": false
+    },
+    {
+      "number": 6909,
+      "title": "hotfix: members/add and members/remove no longer using org id in body",
+      "repo": "supabase/platform",
+      "url": "https://github.com/supabase/platform/pull/6909",
+      "date": "2022-05-23",
+      "titleMatch": false
+    },
+    {
+      "number": 2301,
+      "title": "Fix/vercel severless functions",
+      "repo": "supabase/platform",
+      "url": "https://github.com/supabase/platform/pull/2301",
+      "date": "2021-11-09",
+      "titleMatch": false
+    },
+    {
+      "number": 2246,
+      "title": "chore: unlimited paid projects",
+      "repo": "supabase/platform",
+      "url": "https://github.com/supabase/platform/pull/2246",
+      "date": "2021-11-01",
+      "titleMatch": false
+    },
+    {
+      "number": 1768,
+      "title": "[Dash] [SQL] Feat - persist sql queries",
+      "repo": "supabase/platform",
+      "url": "https://github.com/supabase/platform/pull/1768",
+      "date": "2021-09-07",
+      "titleMatch": false
+    },
+    {
+      "number": 1297,
+      "title": "Fix/missing org in create subscription",
+      "repo": "supabase/platform",
+      "url": "https://github.com/supabase/platform/pull/1297",
+      "date": "2021-06-29",
+      "titleMatch": false
+    }
+  ],
+  "supabase-project-homepage": [
+    {
+      "number": 26706,
+      "title": "[Design system] Update homepage links",
+      "repo": "supabase/supabase",
+      "url": "https://github.com/supabase/supabase/pull/26706",
+      "date": "2024-05-23",
+      "titleMatch": true
+    },
+    {
+      "number": 21079,
+      "title": "Feat/homepage connect modal combined  styling update",
+      "repo": "supabase/supabase",
+      "url": "https://github.com/supabase/supabase/pull/21079",
+      "date": "2024-02-07",
+      "titleMatch": true
+    },
+    {
+      "number": 12643,
+      "title": "[Docs] meta data wrong on guides and homepage",
+      "repo": "supabase/supabase",
+      "url": "https://github.com/supabase/supabase/pull/12643",
+      "date": "2023-02-24",
+      "titleMatch": true
+    },
+    {
+      "number": 11194,
+      "title": "Docs homepage link broken",
+      "repo": "supabase/supabase",
+      "url": "https://github.com/supabase/supabase/pull/11194",
+      "date": "2022-12-22",
+      "titleMatch": true
+    },
+    {
+      "number": 1544,
+      "title": "chore: unlock reports and project homepage",
+      "repo": "supabase/platform",
+      "url": "https://github.com/supabase/platform/pull/1544",
+      "date": "2021-07-29",
+      "titleMatch": true
+    },
+    {
+      "number": 1272,
+      "title": "[Feat] usage, project homepage, and loading screen/route update",
+      "repo": "supabase/platform",
+      "url": "https://github.com/supabase/platform/pull/1272",
+      "date": "2021-07-29",
+      "titleMatch": true
+    },
+    {
+      "number": 33415,
+      "title": "fix: mobile issues for getLayout",
+      "repo": "supabase/supabase",
+      "url": "https://github.com/supabase/supabase/pull/33415",
+      "date": "2025-02-07",
+      "titleMatch": false
+    },
+    {
+      "number": 29713,
+      "title": "Chore/ Remove SMTP banner from project homapage",
+      "repo": "supabase/supabase",
+      "url": "https://github.com/supabase/supabase/pull/29713",
+      "date": "2024-10-07",
+      "titleMatch": false
+    },
+    {
+      "number": 23234,
+      "title": "feat: add compute badge",
+      "repo": "supabase/supabase",
+      "url": "https://github.com/supabase/supabase/pull/23234",
+      "date": "2024-08-27",
+      "titleMatch": false
+    },
+    {
+      "number": 13509,
+      "title": "Chore/ LW7 favicons and logos",
+      "repo": "supabase/supabase",
+      "url": "https://github.com/supabase/supabase/pull/13509",
+      "date": "2023-04-10",
+      "titleMatch": false
+    },
+    {
+      "number": 7298,
+      "title": "chore: moved images to youtube",
+      "repo": "supabase/supabase",
+      "url": "https://github.com/supabase/supabase/pull/7298",
+      "date": "2022-08-09",
+      "titleMatch": false
+    },
+    {
+      "number": 6993,
+      "title": "chore: remove redundant charts",
+      "repo": "supabase/supabase",
+      "url": "https://github.com/supabase/supabase/pull/6993",
+      "date": "2022-05-25",
+      "titleMatch": false
+    },
+    {
+      "number": 6582,
+      "title": "Feat/quota billing",
+      "repo": "supabase/supabase",
+      "url": "https://github.com/supabase/supabase/pull/6582",
+      "date": "2022-04-29",
+      "titleMatch": false
+    },
+    {
+      "number": 4055,
+      "title": "Fix/docs arrows",
+      "repo": "supabase/supabase",
+      "url": "https://github.com/supabase/supabase/pull/4055",
+      "date": "2021-11-26",
+      "titleMatch": false
+    },
+    {
+      "number": 1580,
+      "title": "Fix/metric spelling and labels",
+      "repo": "supabase/platform",
+      "url": "https://github.com/supabase/platform/pull/1580",
+      "date": "2021-08-05",
+      "titleMatch": false
+    },
+    {
+      "number": 934,
+      "title": "Feature/marketing content update",
+      "repo": "supabase/supabase",
+      "url": "https://github.com/supabase/supabase/pull/934",
+      "date": "2021-03-29",
+      "titleMatch": false
+    }
+  ],
+  "supabase-table-forms": [
+    {
+      "number": 30050,
+      "title": "Chore/update sql side panel",
+      "repo": "supabase/supabase",
+      "url": "https://github.com/supabase/supabase/pull/30050",
+      "date": "2024-11-13",
+      "titleMatch": true
+    },
+    {
+      "number": 21112,
+      "title": "chore: update styling, a11y and markup for table editor side panel",
+      "repo": "supabase/supabase",
+      "url": "https://github.com/supabase/supabase/pull/21112",
+      "date": "2024-02-08",
+      "titleMatch": true
+    },
+    {
+      "number": 1149,
+      "title": "Refactor table forms | Now using Supabase UI",
+      "repo": "supabase/platform",
+      "url": "https://github.com/supabase/platform/pull/1149",
+      "date": "2021-06-07",
+      "titleMatch": true
+    },
+    {
+      "number": 203,
+      "title": "Fix/accessible side panel",
+      "repo": "supabase/ui",
+      "url": "https://github.com/supabase/ui/pull/203",
+      "date": "2021-05-28",
+      "titleMatch": true
+    },
+    {
+      "number": 1026,
+      "title": "fix/table forms",
+      "repo": "supabase/platform",
+      "url": "https://github.com/supabase/platform/pull/1026",
+      "date": "2021-05-07",
+      "titleMatch": true
+    },
+    {
+      "number": 21546,
+      "title": "Chore/improve search input sql editor",
+      "repo": "supabase/supabase",
+      "url": "https://github.com/supabase/supabase/pull/21546",
+      "date": "2024-03-05",
+      "titleMatch": false
+    },
+    {
+      "number": 6766,
+      "title": "Fix/date input move submit",
+      "repo": "supabase/supabase",
+      "url": "https://github.com/supabase/supabase/pull/6766",
+      "date": "2022-05-12",
+      "titleMatch": false
+    },
+    {
+      "number": 308,
+      "title": "Feature/theming",
+      "repo": "supabase/ui",
+      "url": "https://github.com/supabase/ui/pull/308",
+      "date": "2022-01-22",
+      "titleMatch": false
+    },
+    {
+      "number": 1341,
+      "title": "Fix/date and time fields broken",
+      "repo": "supabase/platform",
+      "url": "https://github.com/supabase/platform/pull/1341",
+      "date": "2021-07-12",
+      "titleMatch": false
+    }
+  ],
+  "supabase-realtime-integration": [
+    {
+      "number": 19402,
+      "title": "Realtime inspector icons colors",
+      "repo": "supabase/supabase",
+      "url": "https://github.com/supabase/supabase/pull/19402",
+      "date": "2023-12-07",
+      "titleMatch": true
+    }
+  ],
+  "supabase-brand-assets": [
+    {
+      "number": 33301,
+      "title": "Fix/secret api badge",
+      "repo": "supabase/supabase",
+      "url": "https://github.com/supabase/supabase/pull/33301",
+      "date": "2025-02-04",
+      "titleMatch": true
+    },
+    {
+      "number": 23234,
+      "title": "feat: add compute badge",
+      "repo": "supabase/supabase",
+      "url": "https://github.com/supabase/supabase/pull/23234",
+      "date": "2024-08-27",
+      "titleMatch": true
+    },
+    {
+      "number": 22736,
+      "title": "blog image fix",
+      "repo": "supabase/supabase",
+      "url": "https://github.com/supabase/supabase/pull/22736",
+      "date": "2024-04-15",
+      "titleMatch": true
+    },
+    {
+      "number": 22037,
+      "title": "Deprecate old Badge component",
+      "repo": "supabase/supabase",
+      "url": "https://github.com/supabase/supabase/pull/22037",
+      "date": "2024-03-19",
+      "titleMatch": true
+    },
+    {
+      "number": 17665,
+      "title": "Chore/update badge SVGs",
+      "repo": "supabase/supabase",
+      "url": "https://github.com/supabase/supabase/pull/17665",
+      "date": "2023-09-28",
+      "titleMatch": true
+    },
+    {
+      "number": 17663,
+      "title": "Chore/update readme with made with badges",
+      "repo": "supabase/supabase",
+      "url": "https://github.com/supabase/supabase/pull/17663",
+      "date": "2023-09-23",
+      "titleMatch": true
+    },
+    {
+      "number": 17661,
+      "title": "chore: add \"made with supabase\" badges to public asset dir",
+      "repo": "supabase/supabase",
+      "url": "https://github.com/supabase/supabase/pull/17661",
+      "date": "2023-09-23",
+      "titleMatch": true
+    },
+    {
+      "number": 7299,
+      "title": "chore: add gradient bg to blog images",
+      "repo": "supabase/supabase",
+      "url": "https://github.com/supabase/supabase/pull/7299",
+      "date": "2022-06-16",
+      "titleMatch": true
+    },
+    {
+      "number": 4230,
+      "title": "Fix/ blog image",
+      "repo": "supabase/supabase",
+      "url": "https://github.com/supabase/supabase/pull/4230",
+      "date": "2021-12-02",
+      "titleMatch": true
+    },
+    {
+      "number": 1588,
+      "title": "Feature/brand assets page",
+      "repo": "supabase/supabase",
+      "url": "https://github.com/supabase/supabase/pull/1588",
+      "date": "2021-05-19",
+      "titleMatch": true
+    },
+    {
+      "number": 943,
+      "title": "fix: og images",
+      "repo": "supabase/supabase",
+      "url": "https://github.com/supabase/supabase/pull/943",
+      "date": "2021-03-25",
+      "titleMatch": true
+    },
+    {
+      "number": 65,
+      "title": "chore: improved <Badge> colors for dark mode",
+      "repo": "supabase/ui",
+      "url": "https://github.com/supabase/ui/pull/65",
+      "date": "2021-01-13",
+      "titleMatch": true
+    },
+    {
+      "number": 35066,
+      "title": "Chore: Support form | support access true as default ",
+      "repo": "supabase/supabase",
+      "url": "https://github.com/supabase/supabase/pull/35066",
+      "date": "2025-04-16",
+      "titleMatch": false
+    },
+    {
+      "number": 28499,
+      "title": "[dashboard] fix: auth policies button",
+      "repo": "supabase/supabase",
+      "url": "https://github.com/supabase/supabase/pull/28499",
+      "date": "2024-08-09",
+      "titleMatch": false
+    },
+    {
+      "number": 26997,
+      "title": "[Dashboard] Chore/refactor new project form",
+      "repo": "supabase/supabase",
+      "url": "https://github.com/supabase/supabase/pull/26997",
+      "date": "2024-06-06",
+      "titleMatch": false
+    },
+    {
+      "number": 26808,
+      "title": "[Dashboard] New project form now using react-hook-form",
+      "repo": "supabase/supabase",
+      "url": "https://github.com/supabase/supabase/pull/26808",
+      "date": "2024-06-04",
+      "titleMatch": false
+    },
+    {
+      "number": 21835,
+      "title": "Feat/form item layout",
+      "repo": "supabase/supabase",
+      "url": "https://github.com/supabase/supabase/pull/21835",
+      "date": "2024-03-08",
+      "titleMatch": false
+    },
+    {
+      "number": 16117,
+      "title": "Chore/ updating tailwind classes - all brand based classes migrated",
+      "repo": "supabase/supabase",
+      "url": "https://github.com/supabase/supabase/pull/16117",
+      "date": "2023-08-01",
+      "titleMatch": false
+    },
+    {
+      "number": 14528,
+      "title": "Feat/UI components uishadcn",
+      "repo": "supabase/supabase",
+      "url": "https://github.com/supabase/supabase/pull/14528",
+      "date": "2023-07-18",
+      "titleMatch": false
+    },
+    {
+      "number": 13722,
+      "title": "Fix/cmdk light mode",
+      "repo": "supabase/supabase",
+      "url": "https://github.com/supabase/supabase/pull/13722",
+      "date": "2023-04-14",
+      "titleMatch": false
+    },
+    {
+      "number": 8192,
+      "title": "fix: issue with blog urls",
+      "repo": "supabase/supabase",
+      "url": "https://github.com/supabase/supabase/pull/8192",
+      "date": "2022-08-10",
+      "titleMatch": false
+    },
+    {
+      "number": 2492,
+      "title": "Chore/update og launch week 2",
+      "repo": "supabase/supabase",
+      "url": "https://github.com/supabase/supabase/pull/2492",
+      "date": "2021-07-24",
+      "titleMatch": false
+    },
+    {
+      "number": 988,
+      "title": "Chore/update logo and og",
+      "repo": "supabase/platform",
+      "url": "https://github.com/supabase/platform/pull/988",
+      "date": "2021-04-26",
+      "titleMatch": false
+    },
+    {
+      "number": 934,
+      "title": "Feature/marketing content update",
+      "repo": "supabase/supabase",
+      "url": "https://github.com/supabase/supabase/pull/934",
+      "date": "2021-03-29",
+      "titleMatch": false
+    }
+  ],
+  "supabase-triggers-functions": [
+    {
+      "number": 1554,
+      "title": "Fix/trigger functions UI improvements",
+      "repo": "supabase/platform",
+      "url": "https://github.com/supabase/platform/pull/1554",
+      "date": "2021-07-30",
+      "titleMatch": true
+    },
+    {
+      "number": 1400,
+      "title": "WIP [Feature] triggers / functions / hooks",
+      "repo": "supabase/platform",
+      "url": "https://github.com/supabase/platform/pull/1400",
+      "date": "2021-07-30",
+      "titleMatch": true
+    },
+    {
+      "number": 197,
+      "title": "Fix/dropdown trigger styling",
+      "repo": "supabase/ui",
+      "url": "https://github.com/supabase/ui/pull/197",
+      "date": "2021-05-19",
+      "titleMatch": true
+    },
+    {
+      "number": 30688,
+      "title": "Update AvailableIntegrations.tsx",
+      "repo": "supabase/supabase",
+      "url": "https://github.com/supabase/supabase/pull/30688",
+      "date": "2024-11-27",
+      "titleMatch": false
+    },
+    {
+      "number": 27369,
+      "title": "[Design System] chore: `<DropdownMenu />` `modal` prop set to `false` as default",
+      "repo": "supabase/supabase",
+      "url": "https://github.com/supabase/supabase/pull/27369",
+      "date": "2024-07-02",
+      "titleMatch": false
+    },
+    {
+      "number": 21486,
+      "title": "chore: update table editor input and schema selector styling",
+      "repo": "supabase/supabase",
+      "url": "https://github.com/supabase/supabase/pull/21486",
+      "date": "2024-02-26",
+      "titleMatch": false
+    },
+    {
+      "number": 15915,
+      "title": "Fix/Chore [vercel integration] improved form validation, combobox component upgrade, loading states added",
+      "repo": "supabase/supabase",
+      "url": "https://github.com/supabase/supabase/pull/15915",
+      "date": "2023-07-27",
+      "titleMatch": false
+    },
+    {
+      "number": 273,
+      "title": "Feat/update radix",
+      "repo": "supabase/ui",
+      "url": "https://github.com/supabase/ui/pull/273",
+      "date": "2021-09-14",
+      "titleMatch": false
+    },
+    {
+      "number": 209,
+      "title": "Feat: Context Menu",
+      "repo": "supabase/ui",
+      "url": "https://github.com/supabase/ui/pull/209",
+      "date": "2021-05-31",
+      "titleMatch": false
+    },
+    {
+      "number": 74,
+      "title": "Feature/dropdown",
+      "repo": "supabase/ui",
+      "url": "https://github.com/supabase/ui/pull/74",
+      "date": "2021-01-18",
+      "titleMatch": false
+    }
+  ],
+  "supabase-marketplace": [
+    {
+      "number": 28958,
+      "title": "Vercel marketplace docs",
+      "repo": "supabase/supabase",
+      "url": "https://github.com/supabase/supabase/pull/28958",
+      "date": "2024-08-28",
+      "titleMatch": true
+    },
+    {
+      "number": 19528,
+      "title": "HOTFIX: Update Vercel Marketplace secret key names",
+      "repo": "supabase/platform",
+      "url": "https://github.com/supabase/platform/pull/19528",
+      "date": "2024-08-28",
+      "titleMatch": true
+    },
+    {
+      "number": 19500,
+      "title": "Chore: Vercel Marketplace | More secrets",
+      "repo": "supabase/platform",
+      "url": "https://github.com/supabase/platform/pull/19500",
+      "date": "2024-08-26",
+      "titleMatch": true
+    },
+    {
+      "number": 28786,
+      "title": "Vercel marketplace",
+      "repo": "supabase/supabase",
+      "url": "https://github.com/supabase/supabase/pull/28786",
+      "date": "2024-08-23",
+      "titleMatch": true
+    },
+    {
+      "number": 16398,
+      "title": "chore: fix empty states for Vercel Integration",
+      "repo": "supabase/supabase",
+      "url": "https://github.com/supabase/supabase/pull/16398",
+      "date": "2023-08-10",
+      "titleMatch": false
+    }
+  ],
+  "supabase-pricing-page": [
+    {
+      "number": 7077,
+      "title": "fix: update links from CTAs on pricing page",
+      "repo": "supabase/supabase",
+      "url": "https://github.com/supabase/supabase/pull/7077",
+      "date": "2022-05-31",
+      "titleMatch": true
+    },
+    {
+      "number": 6166,
+      "title": "[on hold] Feat/pricing page updates",
+      "repo": "supabase/supabase",
+      "url": "https://github.com/supabase/supabase/pull/6166",
+      "date": "2022-03-30",
+      "titleMatch": true
+    },
+    {
+      "number": 23234,
+      "title": "feat: add compute badge",
+      "repo": "supabase/supabase",
+      "url": "https://github.com/supabase/supabase/pull/23234",
+      "date": "2024-08-27",
+      "titleMatch": false
+    },
+    {
+      "number": 13595,
+      "title": "Fix/www pricing modal",
+      "repo": "supabase/supabase",
+      "url": "https://github.com/supabase/supabase/pull/13595",
+      "date": "2023-04-11",
+      "titleMatch": false
+    },
+    {
+      "number": 3304,
+      "title": "fix: SMTP settings included in free tier",
+      "repo": "supabase/supabase",
+      "url": "https://github.com/supabase/supabase/pull/3304",
+      "date": "2021-09-24",
+      "titleMatch": false
+    },
+    {
+      "number": 967,
+      "title": "fix pricing UI and added redirect in for /docs/pricing to /pricing",
+      "repo": "supabase/supabase",
+      "url": "https://github.com/supabase/supabase/pull/967",
+      "date": "2021-03-29",
+      "titleMatch": false
+    },
+    {
+      "number": 966,
+      "title": "Pricing update",
+      "repo": "supabase/supabase",
+      "url": "https://github.com/supabase/supabase/pull/966",
+      "date": "2021-03-29",
+      "titleMatch": false
+    }
+  ],
+  "supabase-seo-sitemaps": [
+    {
+      "number": 29872,
+      "title": "Chore/update sitemaps and rss logic",
+      "repo": "supabase/supabase",
+      "url": "https://github.com/supabase/supabase/pull/29872",
+      "date": "2024-11-01",
+      "titleMatch": true
+    },
+    {
+      "number": 19372,
+      "title": "chore: sitemaps update",
+      "repo": "supabase/supabase",
+      "url": "https://github.com/supabase/supabase/pull/19372",
+      "date": "2023-12-01",
+      "titleMatch": true
+    },
+    {
+      "number": 15009,
+      "title": "Chore/remove .xml sitemaps/rss feed from version control",
+      "repo": "supabase/supabase",
+      "url": "https://github.com/supabase/supabase/pull/15009",
+      "date": "2023-06-13",
+      "titleMatch": true
+    },
+    {
+      "number": 12463,
+      "title": "update feeds and sitemap",
+      "repo": "supabase/supabase",
+      "url": "https://github.com/supabase/supabase/pull/12463",
+      "date": "2023-02-16",
+      "titleMatch": true
+    },
+    {
+      "number": 12104,
+      "title": "add video meta tags",
+      "repo": "supabase/supabase",
+      "url": "https://github.com/supabase/supabase/pull/12104",
+      "date": "2023-02-02",
+      "titleMatch": true
+    },
+    {
+      "number": 10430,
+      "title": "fix: docs sitemap",
+      "repo": "supabase/supabase",
+      "url": "https://github.com/supabase/supabase/pull/10430",
+      "date": "2022-11-21",
+      "titleMatch": true
+    },
+    {
+      "number": 10307,
+      "title": "Fix/docs sitemap",
+      "repo": "supabase/supabase",
+      "url": "https://github.com/supabase/supabase/pull/10307",
+      "date": "2022-11-14",
+      "titleMatch": true
+    },
+    {
+      "number": 4270,
+      "title": "Chore/blog rss and image fix",
+      "repo": "supabase/supabase",
+      "url": "https://github.com/supabase/supabase/pull/4270",
+      "date": "2021-12-03",
+      "titleMatch": true
+    },
+    {
+      "number": 4021,
+      "title": "fix: spelt https wrong in sitemap",
+      "repo": "supabase/supabase",
+      "url": "https://github.com/supabase/supabase/pull/4021",
+      "date": "2021-11-23",
+      "titleMatch": true
+    },
+    {
+      "number": 4019,
+      "title": "chore: add sitemap generator",
+      "repo": "supabase/supabase",
+      "url": "https://github.com/supabase/supabase/pull/4019",
+      "date": "2021-11-23",
+      "titleMatch": true
+    },
+    {
+      "number": 3760,
+      "title": "fix: & character breaking rss feed",
+      "repo": "supabase/supabase",
+      "url": "https://github.com/supabase/supabase/pull/3760",
+      "date": "2021-11-03",
+      "titleMatch": true
+    },
+    {
+      "number": 3744,
+      "title": "chore: add rewrites for misc txt pages and rss feed",
+      "repo": "supabase/supabase",
+      "url": "https://github.com/supabase/supabase/pull/3744",
+      "date": "2021-11-03",
+      "titleMatch": true
+    },
+    {
+      "number": 930,
+      "title": "fix: rss feed urls",
+      "repo": "supabase/supabase",
+      "url": "https://github.com/supabase/supabase/pull/930",
+      "date": "2021-03-24",
+      "titleMatch": true
+    },
+    {
+      "number": 896,
+      "title": "fix: rewrite for rss feed",
+      "repo": "supabase/supabase",
+      "url": "https://github.com/supabase/supabase/pull/896",
+      "date": "2021-03-18",
+      "titleMatch": true
+    },
+    {
+      "number": 22226,
+      "title": "Chore/favicon fix",
+      "repo": "supabase/supabase",
+      "url": "https://github.com/supabase/supabase/pull/22226",
+      "date": "2024-03-26",
+      "titleMatch": false
+    },
+    {
+      "number": 12643,
+      "title": "[Docs] meta data wrong on guides and homepage",
+      "repo": "supabase/supabase",
+      "url": "https://github.com/supabase/supabase/pull/12643",
+      "date": "2023-02-24",
+      "titleMatch": false
+    },
+    {
+      "number": 9313,
+      "title": "Fix/blog code wrap",
+      "repo": "supabase/supabase",
+      "url": "https://github.com/supabase/supabase/pull/9313",
+      "date": "2022-10-04",
+      "titleMatch": false
+    },
+    {
+      "number": 8392,
+      "title": "Blog/lw5 2",
+      "repo": "supabase/supabase",
+      "url": "https://github.com/supabase/supabase/pull/8392",
+      "date": "2022-08-16",
+      "titleMatch": false
+    },
+    {
+      "number": 8253,
+      "title": "Fix/blog path issues",
+      "repo": "supabase/supabase",
+      "url": "https://github.com/supabase/supabase/pull/8253",
+      "date": "2022-08-12",
+      "titleMatch": false
+    },
+    {
+      "number": 2492,
+      "title": "Chore/update og launch week 2",
+      "repo": "supabase/supabase",
+      "url": "https://github.com/supabase/supabase/pull/2492",
+      "date": "2021-07-24",
+      "titleMatch": false
+    }
+  ],
+  "supabase-accessibility": [
+    {
+      "number": 21482,
+      "title": "a11y updates on table editor entity items",
+      "repo": "supabase/supabase",
+      "url": "https://github.com/supabase/supabase/pull/21482",
+      "date": "2024-02-23",
+      "titleMatch": true
+    },
+    {
+      "number": 21124,
+      "title": "chore: update a11y and styles of notifications v2",
+      "repo": "supabase/supabase",
+      "url": "https://github.com/supabase/supabase/pull/21124",
+      "date": "2024-02-09",
+      "titleMatch": true
+    },
+    {
+      "number": 21112,
+      "title": "chore: update styling, a11y and markup for table editor side panel",
+      "repo": "supabase/supabase",
+      "url": "https://github.com/supabase/supabase/pull/21112",
+      "date": "2024-02-08",
+      "titleMatch": true
+    },
+    {
+      "number": 5789,
+      "title": "[chore] use CSS variables for chart handler",
+      "repo": "supabase/supabase",
+      "url": "https://github.com/supabase/supabase/pull/5789",
+      "date": "2022-03-23",
+      "titleMatch": true
+    },
+    {
+      "number": 36895,
+      "title": "Feat/unified logs inspection panel",
+      "repo": "supabase/supabase",
+      "url": "https://github.com/supabase/supabase/pull/36895",
+      "date": "2025-07-08",
+      "titleMatch": false
+    },
+    {
+      "number": 35272,
+      "title": "align alert dialog to design syste,",
+      "repo": "supabase/supabase",
+      "url": "https://github.com/supabase/supabase/pull/35272",
+      "date": "2025-04-28",
+      "titleMatch": false
+    },
+    {
+      "number": 27055,
+      "title": "[Design System] Iterate Button styles",
+      "repo": "supabase/supabase",
+      "url": "https://github.com/supabase/supabase/pull/27055",
+      "date": "2024-06-12",
+      "titleMatch": false
+    },
+    {
+      "number": 22037,
+      "title": "Deprecate old Badge component",
+      "repo": "supabase/supabase",
+      "url": "https://github.com/supabase/supabase/pull/22037",
+      "date": "2024-03-19",
+      "titleMatch": false
+    },
+    {
+      "number": 21992,
+      "title": "Update Button height size and icon auto sizing",
+      "repo": "supabase/supabase",
+      "url": "https://github.com/supabase/supabase/pull/21992",
+      "date": "2024-03-14",
+      "titleMatch": false
+    },
+    {
+      "number": 21835,
+      "title": "Feat/form item layout",
+      "repo": "supabase/supabase",
+      "url": "https://github.com/supabase/supabase/pull/21835",
+      "date": "2024-03-08",
+      "titleMatch": false
+    },
+    {
+      "number": 21477,
+      "title": "feat: add new Icons package for custom made icons",
+      "repo": "supabase/supabase",
+      "url": "https://github.com/supabase/supabase/pull/21477",
+      "date": "2024-02-26",
+      "titleMatch": false
+    },
+    {
+      "number": 14062,
+      "title": "chore: add PATCH endpoints for integration project connections",
+      "repo": "supabase/platform",
+      "url": "https://github.com/supabase/platform/pull/14062",
+      "date": "2023-08-03",
+      "titleMatch": false
+    },
+    {
+      "number": 16158,
+      "title": "feat: resync vercel env vars",
+      "repo": "supabase/supabase",
+      "url": "https://github.com/supabase/supabase/pull/16158",
+      "date": "2023-08-02",
+      "titleMatch": false
+    },
+    {
+      "number": 14999,
+      "title": "Feat/button shadcn, fix double tabbing in menu nav items",
+      "repo": "supabase/supabase",
+      "url": "https://github.com/supabase/supabase/pull/14999",
+      "date": "2023-06-19",
+      "titleMatch": false
+    },
+    {
+      "number": 13137,
+      "title": "Design tokens <> Tailwind",
+      "repo": "supabase/supabase",
+      "url": "https://github.com/supabase/supabase/pull/13137",
+      "date": "2023-05-23",
+      "titleMatch": false
+    },
+    {
+      "number": 13310,
+      "title": "Feat/cmdk in docs",
+      "repo": "supabase/supabase",
+      "url": "https://github.com/supabase/supabase/pull/13310",
+      "date": "2023-03-30",
+      "titleMatch": false
+    },
+    {
+      "number": 13073,
+      "title": "Chore/move studio main domain",
+      "repo": "supabase/supabase",
+      "url": "https://github.com/supabase/supabase/pull/13073",
+      "date": "2023-03-18",
+      "titleMatch": false
+    },
+    {
+      "number": 9394,
+      "title": "fix: tailwind config",
+      "repo": "supabase/supabase",
+      "url": "https://github.com/supabase/supabase/pull/9394",
+      "date": "2022-10-19",
+      "titleMatch": false
+    },
+    {
+      "number": 308,
+      "title": "Feature/theming",
+      "repo": "supabase/ui",
+      "url": "https://github.com/supabase/ui/pull/308",
+      "date": "2022-01-22",
+      "titleMatch": false
+    },
+    {
+      "number": 1149,
+      "title": "Refactor table forms | Now using Supabase UI",
+      "repo": "supabase/platform",
+      "url": "https://github.com/supabase/platform/pull/1149",
+      "date": "2021-06-07",
+      "titleMatch": false
+    },
+    {
+      "number": 1055,
+      "title": "chore: add password strength bar",
+      "repo": "supabase/platform",
+      "url": "https://github.com/supabase/platform/pull/1055",
+      "date": "2021-05-17",
+      "titleMatch": false
+    },
+    {
+      "number": 187,
+      "title": "feat: added radix dropdown.",
+      "repo": "supabase/ui",
+      "url": "https://github.com/supabase/ui/pull/187",
+      "date": "2021-05-10",
+      "titleMatch": false
+    },
+    {
+      "number": 961,
+      "title": "Chore/ui refactor - updated color scheme",
+      "repo": "supabase/platform",
+      "url": "https://github.com/supabase/platform/pull/961",
+      "date": "2021-04-27",
+      "titleMatch": false
+    }
+  ],
+  "supabase-dark-mode": [
+    {
+      "number": 22392,
+      "title": "fix: update dark mode css. update borders for light and dark mode",
+      "repo": "supabase/supabase",
+      "url": "https://github.com/supabase/supabase/pull/22392",
+      "date": "2024-04-05",
+      "titleMatch": true
+    },
+    {
+      "number": 13722,
+      "title": "Fix/cmdk light mode",
+      "repo": "supabase/supabase",
+      "url": "https://github.com/supabase/supabase/pull/13722",
+      "date": "2023-04-14",
+      "titleMatch": true
+    },
+    {
+      "number": 1631,
+      "title": "Chore/scroll bar light mode",
+      "repo": "supabase/platform",
+      "url": "https://github.com/supabase/platform/pull/1631",
+      "date": "2021-08-18",
+      "titleMatch": true
+    },
+    {
+      "number": 1041,
+      "title": "fix: roles black text in dark mode",
+      "repo": "supabase/platform",
+      "url": "https://github.com/supabase/platform/pull/1041",
+      "date": "2021-05-11",
+      "titleMatch": true
+    },
+    {
+      "number": 1001,
+      "title": "WIP Fix: Light mode fix 2",
+      "repo": "supabase/platform",
+      "url": "https://github.com/supabase/platform/pull/1001",
+      "date": "2021-05-04",
+      "titleMatch": true
+    },
+    {
+      "number": 1000,
+      "title": "WIP Fix/light mode fix 1",
+      "repo": "supabase/platform",
+      "url": "https://github.com/supabase/platform/pull/1000",
+      "date": "2021-05-04",
+      "titleMatch": true
+    },
+    {
+      "number": 999,
+      "title": "WIP Feature/light mode",
+      "repo": "supabase/platform",
+      "url": "https://github.com/supabase/platform/pull/999",
+      "date": "2021-05-04",
+      "titleMatch": true
+    },
+    {
+      "number": 65,
+      "title": "chore: improved <Badge> colors for dark mode",
+      "repo": "supabase/ui",
+      "url": "https://github.com/supabase/ui/pull/65",
+      "date": "2021-01-13",
+      "titleMatch": true
+    },
+    {
+      "number": 22591,
+      "title": "chore: update styles",
+      "repo": "supabase/supabase",
+      "url": "https://github.com/supabase/supabase/pull/22591",
+      "date": "2024-04-10",
+      "titleMatch": false
+    },
+    {
+      "number": 21866,
+      "title": "Chore/update light mode overlay bg",
+      "repo": "supabase/supabase",
+      "url": "https://github.com/supabase/supabase/pull/21866",
+      "date": "2024-03-08",
+      "titleMatch": false
+    },
+    {
+      "number": 21483,
+      "title": "fix: update brand colors in SQL editor AI",
+      "repo": "supabase/supabase",
+      "url": "https://github.com/supabase/supabase/pull/21483",
+      "date": "2024-02-23",
+      "titleMatch": false
+    },
+    {
+      "number": 21482,
+      "title": "a11y updates on table editor entity items",
+      "repo": "supabase/supabase",
+      "url": "https://github.com/supabase/supabase/pull/21482",
+      "date": "2024-02-23",
+      "titleMatch": false
+    },
+    {
+      "number": 10088,
+      "title": "Update default-colors.js",
+      "repo": "supabase/supabase",
+      "url": "https://github.com/supabase/supabase/pull/10088",
+      "date": "2022-11-04",
+      "titleMatch": false
+    },
+    {
+      "number": 1026,
+      "title": "fix/table forms",
+      "repo": "supabase/platform",
+      "url": "https://github.com/supabase/platform/pull/1026",
+      "date": "2021-05-07",
+      "titleMatch": false
+    },
+    {
+      "number": 20,
+      "title": "Fix/styling fixes and button shadows",
+      "repo": "supabase/ui",
+      "url": "https://github.com/supabase/ui/pull/20",
+      "date": "2021-01-06",
+      "titleMatch": false
+    }
+  ],
+  "supabase-icons-package": [
+    {
+      "number": 21556,
+      "title": "use lucide for some icons in nav",
+      "repo": "supabase/supabase",
+      "url": "https://github.com/supabase/supabase/pull/21556",
+      "date": "2024-02-26",
+      "titleMatch": true
+    },
+    {
+      "number": 21477,
+      "title": "feat: add new Icons package for custom made icons",
+      "repo": "supabase/supabase",
+      "url": "https://github.com/supabase/supabase/pull/21477",
+      "date": "2024-02-26",
+      "titleMatch": true
+    }
+  ],
+  "supabase-blog-improvements": [
+    {
+      "number": 34528,
+      "title": "fix image in blog post",
+      "repo": "supabase/supabase",
+      "url": "https://github.com/supabase/supabase/pull/34528",
+      "date": "2025-03-29",
+      "titleMatch": true
+    },
+    {
+      "number": 22736,
+      "title": "blog image fix",
+      "repo": "supabase/supabase",
+      "url": "https://github.com/supabase/supabase/pull/22736",
+      "date": "2024-04-15",
+      "titleMatch": true
+    },
+    {
+      "number": 20506,
+      "title": "Update branching blog post",
+      "repo": "supabase/supabase",
+      "url": "https://github.com/supabase/supabase/pull/20506",
+      "date": "2024-01-17",
+      "titleMatch": true
+    },
+    {
+      "number": 19533,
+      "title": "WIP Blog/lwx how design works at supabase",
+      "repo": "supabase/supabase",
+      "url": "https://github.com/supabase/supabase/pull/19533",
+      "date": "2023-12-08",
+      "titleMatch": true
+    },
+    {
+      "number": 14012,
+      "title": "Blog post for PostgREST v11 ",
+      "repo": "supabase/supabase",
+      "url": "https://github.com/supabase/supabase/pull/14012",
+      "date": "2023-07-12",
+      "titleMatch": true
+    },
+    {
+      "number": 13514,
+      "title": "[blog post] Designing with ai : designing unique artwork for every user",
+      "repo": "supabase/supabase",
+      "url": "https://github.com/supabase/supabase/pull/13514",
+      "date": "2023-04-07",
+      "titleMatch": true
+    },
+    {
+      "number": 12458,
+      "title": "Fix/blog post duplication",
+      "repo": "supabase/supabase",
+      "url": "https://github.com/supabase/supabase/pull/12458",
+      "date": "2023-02-16",
+      "titleMatch": true
+    },
+    {
+      "number": 12233,
+      "title": "Fix video width of blog post",
+      "repo": "supabase/supabase",
+      "url": "https://github.com/supabase/supabase/pull/12233",
+      "date": "2023-02-07",
+      "titleMatch": true
+    },
+    {
+      "number": 11107,
+      "title": "chore: use next/image for images in articles",
+      "repo": "supabase/supabase",
+      "url": "https://github.com/supabase/supabase/pull/11107",
+      "date": "2022-12-20",
+      "titleMatch": true
+    },
+    {
+      "number": 8392,
+      "title": "Blog/lw5 2",
+      "repo": "supabase/supabase",
+      "url": "https://github.com/supabase/supabase/pull/8392",
+      "date": "2022-08-16",
+      "titleMatch": true
+    },
+    {
+      "number": 8172,
+      "title": "Blog/slackbot",
+      "repo": "supabase/supabase",
+      "url": "https://github.com/supabase/supabase/pull/8172",
+      "date": "2022-08-09",
+      "titleMatch": true
+    },
+    {
+      "number": 7297,
+      "title": "fix:blog posts now using @next/image",
+      "repo": "supabase/supabase",
+      "url": "https://github.com/supabase/supabase/pull/7297",
+      "date": "2022-06-16",
+      "titleMatch": true
+    },
+    {
+      "number": 7072,
+      "title": "fix: clarification on enterprise blog post",
+      "repo": "supabase/supabase",
+      "url": "https://github.com/supabase/supabase/pull/7072",
+      "date": "2022-05-31",
+      "titleMatch": true
+    },
+    {
+      "number": 4230,
+      "title": "Fix/ blog image",
+      "repo": "supabase/supabase",
+      "url": "https://github.com/supabase/supabase/pull/4230",
+      "date": "2021-12-02",
+      "titleMatch": true
+    },
+    {
+      "number": 4206,
+      "title": "fix: add overflow css to table in blog post",
+      "repo": "supabase/supabase",
+      "url": "https://github.com/supabase/supabase/pull/4206",
+      "date": "2021-12-01",
+      "titleMatch": true
+    },
+    {
+      "number": 4139,
+      "title": "fix: images for postgrest 9 blog post",
+      "repo": "supabase/supabase",
+      "url": "https://github.com/supabase/supabase/pull/4139",
+      "date": "2021-11-30",
+      "titleMatch": true
+    },
+    {
+      "number": 895,
+      "title": "fix: next and prev buttons on blog posts",
+      "repo": "supabase/supabase",
+      "url": "https://github.com/supabase/supabase/pull/895",
+      "date": "2021-03-18",
+      "titleMatch": true
+    },
+    {
+      "number": 694,
+      "title": "chore: add images to roboflow blog post",
+      "repo": "supabase/supabase",
+      "url": "https://github.com/supabase/supabase/pull/694",
+      "date": "2021-02-09",
+      "titleMatch": true
+    },
+    {
+      "number": 40897,
+      "title": "Feat/mermaid blog",
+      "repo": "supabase/supabase",
+      "url": "https://github.com/supabase/supabase/pull/40897",
+      "date": "2025-12-03",
+      "titleMatch": false
+    },
+    {
+      "number": 35070,
+      "title": "Chore/related items support form",
+      "repo": "supabase/supabase",
+      "url": "https://github.com/supabase/supabase/pull/35070",
+      "date": "2025-05-05",
+      "titleMatch": false
+    },
+    {
+      "number": 30920,
+      "title": "Lw13/disks",
+      "repo": "supabase/supabase",
+      "url": "https://github.com/supabase/supabase/pull/30920",
+      "date": "2024-12-05",
+      "titleMatch": false
+    },
+    {
+      "number": 7299,
+      "title": "chore: add gradient bg to blog images",
+      "repo": "supabase/supabase",
+      "url": "https://github.com/supabase/supabase/pull/7299",
+      "date": "2022-06-16",
+      "titleMatch": false
+    },
+    {
+      "number": 6760,
+      "title": "Update Announcement.json",
+      "repo": "supabase/supabase",
+      "url": "https://github.com/supabase/supabase/pull/6760",
+      "date": "2022-05-10",
+      "titleMatch": false
+    },
+    {
+      "number": 6166,
+      "title": "[on hold] Feat/pricing page updates",
+      "repo": "supabase/supabase",
+      "url": "https://github.com/supabase/supabase/pull/6166",
+      "date": "2022-03-30",
+      "titleMatch": false
+    },
+    {
+      "number": 5609,
+      "title": "chore: add Supabase Beta update January 2022",
+      "repo": "supabase/supabase",
+      "url": "https://github.com/supabase/supabase/pull/5609",
+      "date": "2022-02-23",
+      "titleMatch": false
+    },
+    {
+      "number": 4130,
+      "title": "Chore/blog update",
+      "repo": "supabase/supabase",
+      "url": "https://github.com/supabase/supabase/pull/4130",
+      "date": "2021-12-09",
+      "titleMatch": false
+    },
+    {
+      "number": 3022,
+      "title": "Docs: integration guides",
+      "repo": "supabase/supabase",
+      "url": "https://github.com/supabase/supabase/pull/3022",
+      "date": "2021-11-29",
+      "titleMatch": false
+    },
+    {
+      "number": 2491,
+      "title": "chore: add date",
+      "repo": "supabase/supabase",
+      "url": "https://github.com/supabase/supabase/pull/2491",
+      "date": "2021-07-23",
+      "titleMatch": false
+    },
+    {
+      "number": 983,
+      "title": "Storage 📦",
+      "repo": "supabase/supabase",
+      "url": "https://github.com/supabase/supabase/pull/983",
+      "date": "2021-03-30",
+      "titleMatch": false
+    },
+    {
+      "number": 981,
+      "title": "fix: typography color",
+      "repo": "supabase/supabase",
+      "url": "https://github.com/supabase/supabase/pull/981",
+      "date": "2021-03-30",
+      "titleMatch": false
+    },
+    {
+      "number": 966,
+      "title": "Pricing update",
+      "repo": "supabase/supabase",
+      "url": "https://github.com/supabase/supabase/pull/966",
+      "date": "2021-03-29",
+      "titleMatch": false
+    },
+    {
+      "number": 952,
+      "title": "fix: local builds. tag pages failing to compile",
+      "repo": "supabase/supabase",
+      "url": "https://github.com/supabase/supabase/pull/952",
+      "date": "2021-03-26",
+      "titleMatch": false
+    },
+    {
+      "number": 930,
+      "title": "fix: rss feed urls",
+      "repo": "supabase/supabase",
+      "url": "https://github.com/supabase/supabase/pull/930",
+      "date": "2021-03-24",
+      "titleMatch": false
+    },
+    {
+      "number": 830,
+      "title": "Posts/toadli",
+      "repo": "supabase/supabase",
+      "url": "https://github.com/supabase/supabase/pull/830",
+      "date": "2021-03-11",
+      "titleMatch": false
+    },
+    {
+      "number": 706,
+      "title": "Chore/non cookie analytics",
+      "repo": "supabase/platform",
+      "url": "https://github.com/supabase/platform/pull/706",
+      "date": "2021-01-25",
+      "titleMatch": false
+    }
+  ],
+  "supabase-form-components": [
+    {
+      "number": 28333,
+      "title": "chore: Update TicketForm.tsx to remove filter",
+      "repo": "supabase/supabase",
+      "url": "https://github.com/supabase/supabase/pull/28333",
+      "date": "2024-08-02",
+      "titleMatch": true
+    },
+    {
+      "number": 26808,
+      "title": "[Dashboard] New project form now using react-hook-form",
+      "repo": "supabase/supabase",
+      "url": "https://github.com/supabase/supabase/pull/26808",
+      "date": "2024-06-04",
+      "titleMatch": true
+    },
+    {
+      "number": 26793,
+      "title": "[Dashboard] Postgrest API settings renamed to \"Data API\" settings. now using react-hook-form",
+      "repo": "supabase/supabase",
+      "url": "https://github.com/supabase/supabase/pull/26793",
+      "date": "2024-05-29",
+      "titleMatch": true
+    },
+    {
+      "number": 26712,
+      "title": "[Design System] Feat: `BeforeLabel` / `AfterLabel` props for <FormItemLayout/> and <InfoTooltip/> documented",
+      "repo": "supabase/supabase",
+      "url": "https://github.com/supabase/supabase/pull/26712",
+      "date": "2024-05-24",
+      "titleMatch": true
+    },
+    {
+      "number": 21989,
+      "title": "fix: FormItemLayout width fix, `<Sheet/>` renamed with prop name reverted, started new form story",
+      "repo": "supabase/supabase",
+      "url": "https://github.com/supabase/supabase/pull/21989",
+      "date": "2024-03-13",
+      "titleMatch": true
+    },
+    {
+      "number": 15915,
+      "title": "Fix/Chore [vercel integration] improved form validation, combobox component upgrade, loading states added",
+      "repo": "supabase/supabase",
+      "url": "https://github.com/supabase/supabase/pull/15915",
+      "date": "2023-07-27",
+      "titleMatch": true
+    },
+    {
+      "number": 26997,
+      "title": "[Dashboard] Chore/refactor new project form",
+      "repo": "supabase/supabase",
+      "url": "https://github.com/supabase/supabase/pull/26997",
+      "date": "2024-06-06",
+      "titleMatch": false
+    },
+    {
+      "number": 21835,
+      "title": "Feat/form item layout",
+      "repo": "supabase/supabase",
+      "url": "https://github.com/supabase/supabase/pull/21835",
+      "date": "2024-03-08",
+      "titleMatch": false
+    },
+    {
+      "number": 21741,
+      "title": "Chore/add first pattern docs",
+      "repo": "supabase/supabase",
+      "url": "https://github.com/supabase/supabase/pull/21741",
+      "date": "2024-03-05",
+      "titleMatch": false
+    },
+    {
+      "number": 14528,
+      "title": "Feat/UI components uishadcn",
+      "repo": "supabase/supabase",
+      "url": "https://github.com/supabase/supabase/pull/14528",
+      "date": "2023-07-18",
+      "titleMatch": false
+    }
+  ],
+  "supabase-assistant-ui": [
+    {
+      "number": 35106,
+      "title": "feat: add AI assistant callout on support form",
+      "repo": "supabase/supabase",
+      "url": "https://github.com/supabase/supabase/pull/35106",
+      "date": "2025-04-22",
+      "titleMatch": true
+    },
+    {
+      "number": 27952,
+      "title": "[Design System] Feat: Assistant Chat fragment component",
+      "repo": "supabase/supabase",
+      "url": "https://github.com/supabase/supabase/pull/27952",
+      "date": "2024-07-12",
+      "titleMatch": true
+    },
+    {
+      "number": 19296,
+      "title": "feat: AssistantChatForm ui-pattern and AssistantCommandsPopover ui-pattern",
+      "repo": "supabase/supabase",
+      "url": "https://github.com/supabase/supabase/pull/19296",
+      "date": "2024-03-29",
+      "titleMatch": true
+    },
+    {
+      "number": 21459,
+      "title": "Chore/rls assistant iteration templates styling",
+      "repo": "supabase/supabase",
+      "url": "https://github.com/supabase/supabase/pull/21459",
+      "date": "2024-02-26",
+      "titleMatch": true
+    },
+    {
+      "number": 19294,
+      "title": "chore: added pattern UI for assistant input",
+      "repo": "supabase/supabase",
+      "url": "https://github.com/supabase/supabase/pull/19294",
+      "date": "2023-11-30",
+      "titleMatch": true
+    },
+    {
+      "number": 30560,
+      "title": "Chore/styling spam banner",
+      "repo": "supabase/supabase",
+      "url": "https://github.com/supabase/supabase/pull/30560",
+      "date": "2024-11-28",
+      "titleMatch": false
+    }
+  ],
+  "supabase-multi-select": [
+    {
+      "number": 21811,
+      "title": "Update Listbox2.tsx",
+      "repo": "supabase/supabase",
+      "url": "https://github.com/supabase/supabase/pull/21811",
+      "date": "2024-03-07",
+      "titleMatch": true
+    },
+    {
+      "number": 15915,
+      "title": "Fix/Chore [vercel integration] improved form validation, combobox component upgrade, loading states added",
+      "repo": "supabase/supabase",
+      "url": "https://github.com/supabase/supabase/pull/15915",
+      "date": "2023-07-27",
+      "titleMatch": true
+    },
+    {
+      "number": 268,
+      "title": "Fix/listbox render issues",
+      "repo": "supabase/ui",
+      "url": "https://github.com/supabase/ui/pull/268",
+      "date": "2021-08-20",
+      "titleMatch": true
+    },
+    {
+      "number": 266,
+      "title": "Fix/listbox multiple arrays",
+      "repo": "supabase/ui",
+      "url": "https://github.com/supabase/ui/pull/266",
+      "date": "2021-08-18",
+      "titleMatch": true
+    },
+    {
+      "number": 26719,
+      "title": "[Design System] feat: Multi Select",
+      "repo": "supabase/supabase",
+      "url": "https://github.com/supabase/supabase/pull/26719",
+      "date": "2024-05-24",
+      "titleMatch": false
+    },
+    {
+      "number": 22326,
+      "title": "chore: update Selects in create index form",
+      "repo": "supabase/supabase",
+      "url": "https://github.com/supabase/supabase/pull/22326",
+      "date": "2024-04-02",
+      "titleMatch": false
+    },
+    {
+      "number": 21124,
+      "title": "chore: update a11y and styles of notifications v2",
+      "repo": "supabase/supabase",
+      "url": "https://github.com/supabase/supabase/pull/21124",
+      "date": "2024-02-09",
+      "titleMatch": false
+    },
+    {
+      "number": 14528,
+      "title": "Feat/UI components uishadcn",
+      "repo": "supabase/supabase",
+      "url": "https://github.com/supabase/supabase/pull/14528",
+      "date": "2023-07-18",
+      "titleMatch": false
+    }
+  ],
+  "supabase-design-system": [
+    {
+      "number": 30048,
+      "title": "feat/ design system: inner side bar docs",
+      "repo": "supabase/supabase",
+      "url": "https://github.com/supabase/supabase/pull/30048",
+      "date": "2024-10-30",
+      "titleMatch": true
+    },
+    {
+      "number": 28989,
+      "title": "Fix/build issue design system",
+      "repo": "supabase/supabase",
+      "url": "https://github.com/supabase/supabase/pull/28989",
+      "date": "2024-09-03",
+      "titleMatch": true
+    },
+    {
+      "number": 27839,
+      "title": "[Design System] feat: Added Chart component",
+      "repo": "supabase/supabase",
+      "url": "https://github.com/supabase/supabase/pull/27839",
+      "date": "2024-08-30",
+      "titleMatch": true
+    },
+    {
+      "number": 27382,
+      "title": "[Design system] Feat/sonner",
+      "repo": "supabase/supabase",
+      "url": "https://github.com/supabase/supabase/pull/27382",
+      "date": "2024-07-19",
+      "titleMatch": true
+    },
+    {
+      "number": 27952,
+      "title": "[Design System] Feat: Assistant Chat fragment component",
+      "repo": "supabase/supabase",
+      "url": "https://github.com/supabase/supabase/pull/27952",
+      "date": "2024-07-12",
+      "titleMatch": true
+    },
+    {
+      "number": 27609,
+      "title": "[Design system] Update changelog.mdx",
+      "repo": "supabase/supabase",
+      "url": "https://github.com/supabase/supabase/pull/27609",
+      "date": "2024-07-08",
+      "titleMatch": true
+    },
+    {
+      "number": 27234,
+      "title": "[Design System] fix: change default size of Input to \"small\"",
+      "repo": "supabase/supabase",
+      "url": "https://github.com/supabase/supabase/pull/27234",
+      "date": "2024-07-08",
+      "titleMatch": true
+    },
+    {
+      "number": 27369,
+      "title": "[Design System] chore: `<DropdownMenu />` `modal` prop set to `false` as default",
+      "repo": "supabase/supabase",
+      "url": "https://github.com/supabase/supabase/pull/27369",
+      "date": "2024-07-02",
+      "titleMatch": true
+    },
+    {
+      "number": 27351,
+      "title": "[Design system] update side menu text size",
+      "repo": "supabase/supabase",
+      "url": "https://github.com/supabase/supabase/pull/27351",
+      "date": "2024-06-19",
+      "titleMatch": true
+    },
+    {
+      "number": 27342,
+      "title": "[Design system] fix: text sizes in context-menu",
+      "repo": "supabase/supabase",
+      "url": "https://github.com/supabase/supabase/pull/27342",
+      "date": "2024-06-19",
+      "titleMatch": true
+    },
+    {
+      "number": 27198,
+      "title": "[Design System] Fix: Select Scroll behaviour ",
+      "repo": "supabase/supabase",
+      "url": "https://github.com/supabase/supabase/pull/27198",
+      "date": "2024-06-12",
+      "titleMatch": true
+    },
+    {
+      "number": 27055,
+      "title": "[Design System] Iterate Button styles",
+      "repo": "supabase/supabase",
+      "url": "https://github.com/supabase/supabase/pull/27055",
+      "date": "2024-06-12",
+      "titleMatch": true
+    },
+    {
+      "number": 26599,
+      "title": "Start removing storybook",
+      "repo": "supabase/supabase",
+      "url": "https://github.com/supabase/supabase/pull/26599",
+      "date": "2024-06-11",
+      "titleMatch": true
+    },
+    {
+      "number": 27058,
+      "title": "[Design System] fix: `<Sheet />` z-index value",
+      "repo": "supabase/supabase",
+      "url": "https://github.com/supabase/supabase/pull/27058",
+      "date": "2024-06-06",
+      "titleMatch": true
+    },
+    {
+      "number": 26974,
+      "title": "[Design System] chore: add scroll example of Navigation Menu",
+      "repo": "supabase/supabase",
+      "url": "https://github.com/supabase/supabase/pull/26974",
+      "date": "2024-06-03",
+      "titleMatch": true
+    },
+    {
+      "number": 26821,
+      "title": "[Design System] Chore: add tree-view documentation",
+      "repo": "supabase/supabase",
+      "url": "https://github.com/supabase/supabase/pull/26821",
+      "date": "2024-05-28",
+      "titleMatch": true
+    },
+    {
+      "number": 26740,
+      "title": "[design system] chore: add new scripts",
+      "repo": "supabase/supabase",
+      "url": "https://github.com/supabase/supabase/pull/26740",
+      "date": "2024-05-27",
+      "titleMatch": true
+    },
+    {
+      "number": 26736,
+      "title": "[Design system] Update changelog.mdx",
+      "repo": "supabase/supabase",
+      "url": "https://github.com/supabase/supabase/pull/26736",
+      "date": "2024-05-24",
+      "titleMatch": true
+    },
+    {
+      "number": 26719,
+      "title": "[Design System] feat: Multi Select",
+      "repo": "supabase/supabase",
+      "url": "https://github.com/supabase/supabase/pull/26719",
+      "date": "2024-05-24",
+      "titleMatch": true
+    },
+    {
+      "number": 26712,
+      "title": "[Design System] Feat: `BeforeLabel` / `AfterLabel` props for <FormItemLayout/> and <InfoTooltip/> documented",
+      "repo": "supabase/supabase",
+      "url": "https://github.com/supabase/supabase/pull/26712",
+      "date": "2024-05-24",
+      "titleMatch": true
+    },
+    {
+      "number": 26710,
+      "title": "add Admonition to Design System",
+      "repo": "supabase/supabase",
+      "url": "https://github.com/supabase/supabase/pull/26710",
+      "date": "2024-05-24",
+      "titleMatch": true
+    },
+    {
+      "number": 26706,
+      "title": "[Design system] Update homepage links",
+      "repo": "supabase/supabase",
+      "url": "https://github.com/supabase/supabase/pull/26706",
+      "date": "2024-05-23",
+      "titleMatch": true
+    },
+    {
+      "number": 26586,
+      "title": "Feat/design system site",
+      "repo": "supabase/supabase",
+      "url": "https://github.com/supabase/supabase/pull/26586",
+      "date": "2024-05-23",
+      "titleMatch": true
+    },
+    {
+      "number": 21682,
+      "title": "Feat/add storybook app",
+      "repo": "supabase/supabase",
+      "url": "https://github.com/supabase/supabase/pull/21682",
+      "date": "2024-03-01",
+      "titleMatch": true
+    },
+    {
+      "number": 40897,
+      "title": "Feat/mermaid blog",
+      "repo": "supabase/supabase",
+      "url": "https://github.com/supabase/supabase/pull/40897",
+      "date": "2025-12-03",
+      "titleMatch": false
+    },
+    {
+      "number": 35272,
+      "title": "align alert dialog to design syste,",
+      "repo": "supabase/supabase",
+      "url": "https://github.com/supabase/supabase/pull/35272",
+      "date": "2025-04-28",
+      "titleMatch": false
+    },
+    {
+      "number": 26844,
+      "title": "[Dashboard] Chore: update `Modal` component to use new components",
+      "repo": "supabase/supabase",
+      "url": "https://github.com/supabase/supabase/pull/26844",
+      "date": "2024-06-05",
+      "titleMatch": false
+    },
+    {
+      "number": 23210,
+      "title": "move to shared types",
+      "repo": "supabase/supabase",
+      "url": "https://github.com/supabase/supabase/pull/23210",
+      "date": "2024-04-24",
+      "titleMatch": false
+    },
+    {
+      "number": 21936,
+      "title": "Chore/move cmdk",
+      "repo": "supabase/supabase",
+      "url": "https://github.com/supabase/supabase/pull/21936",
+      "date": "2024-03-11",
+      "titleMatch": false
+    },
+    {
+      "number": 21835,
+      "title": "Feat/form item layout",
+      "repo": "supabase/supabase",
+      "url": "https://github.com/supabase/supabase/pull/21835",
+      "date": "2024-03-08",
+      "titleMatch": false
+    },
+    {
+      "number": 21741,
+      "title": "Chore/add first pattern docs",
+      "repo": "supabase/supabase",
+      "url": "https://github.com/supabase/supabase/pull/21741",
+      "date": "2024-03-05",
+      "titleMatch": false
+    },
+    {
+      "number": 21726,
+      "title": "Chore/upgrade sb",
+      "repo": "supabase/supabase",
+      "url": "https://github.com/supabase/supabase/pull/21726",
+      "date": "2024-03-05",
+      "titleMatch": false
+    },
+    {
+      "number": 21546,
+      "title": "Chore/improve search input sql editor",
+      "repo": "supabase/supabase",
+      "url": "https://github.com/supabase/supabase/pull/21546",
+      "date": "2024-03-05",
+      "titleMatch": false
+    },
+    {
+      "number": 14528,
+      "title": "Feat/UI components uishadcn",
+      "repo": "supabase/supabase",
+      "url": "https://github.com/supabase/supabase/pull/14528",
+      "date": "2023-07-18",
+      "titleMatch": false
+    },
+    {
+      "number": 13137,
+      "title": "Design tokens <> Tailwind",
+      "repo": "supabase/supabase",
+      "url": "https://github.com/supabase/supabase/pull/13137",
+      "date": "2023-05-23",
+      "titleMatch": false
+    }
+  ],
+  "supabase-turborepo-migration": [
+    {
+      "number": 13330,
+      "title": "Update turbo.json with cache env vars",
+      "repo": "supabase/supabase",
+      "url": "https://github.com/supabase/supabase/pull/13330",
+      "date": "2023-03-31",
+      "titleMatch": true
+    },
+    {
+      "number": 9102,
+      "title": "docs: turborepo based readmes",
+      "repo": "supabase/supabase",
+      "url": "https://github.com/supabase/supabase/pull/9102",
+      "date": "2022-11-10",
+      "titleMatch": true
+    },
+    {
+      "number": 9039,
+      "title": "Feat - migrate supabase UI. Move studio to turborepo",
+      "repo": "supabase/supabase",
+      "url": "https://github.com/supabase/supabase/pull/9039",
+      "date": "2022-10-06",
+      "titleMatch": true
+    },
+    {
+      "number": 9108,
+      "title": "Revert \"Revert \"migrate studio to turbo\"\"",
+      "repo": "supabase/supabase",
+      "url": "https://github.com/supabase/supabase/pull/9108",
+      "date": "2022-09-22",
+      "titleMatch": true
+    },
+    {
+      "number": 9107,
+      "title": "Revert \"migrate studio to turbo\"",
+      "repo": "supabase/supabase",
+      "url": "https://github.com/supabase/supabase/pull/9107",
+      "date": "2022-09-22",
+      "titleMatch": true
+    },
+    {
+      "number": 26740,
+      "title": "[design system] chore: add new scripts",
+      "repo": "supabase/supabase",
+      "url": "https://github.com/supabase/supabase/pull/26740",
+      "date": "2024-05-27",
+      "titleMatch": false
+    },
+    {
+      "number": 9082,
+      "title": "migrate studio to turbo",
+      "repo": "supabase/supabase",
+      "url": "https://github.com/supabase/supabase/pull/9082",
+      "date": "2022-09-22",
+      "titleMatch": false
+    },
+    {
+      "number": 8292,
+      "title": "Update package-lock.json",
+      "repo": "supabase/supabase",
+      "url": "https://github.com/supabase/supabase/pull/8292",
+      "date": "2022-08-14",
+      "titleMatch": false
+    }
+  ],
+  "supabase-shadcn-migration": [
+    {
+      "number": 14528,
+      "title": "Feat/UI components uishadcn",
+      "repo": "supabase/supabase",
+      "url": "https://github.com/supabase/supabase/pull/14528",
+      "date": "2023-07-18",
+      "titleMatch": true
+    },
+    {
+      "number": 14999,
+      "title": "Feat/button shadcn, fix double tabbing in menu nav items",
+      "repo": "supabase/supabase",
+      "url": "https://github.com/supabase/supabase/pull/14999",
+      "date": "2023-06-19",
+      "titleMatch": true
+    },
+    {
+      "number": 35272,
+      "title": "align alert dialog to design syste,",
+      "repo": "supabase/supabase",
+      "url": "https://github.com/supabase/supabase/pull/35272",
+      "date": "2025-04-28",
+      "titleMatch": false
+    },
+    {
+      "number": 33612,
+      "title": "Feat/sidebar studio",
+      "repo": "supabase/supabase",
+      "url": "https://github.com/supabase/supabase/pull/33612",
+      "date": "2025-02-25",
+      "titleMatch": false
+    },
+    {
+      "number": 27058,
+      "title": "[Design System] fix: `<Sheet />` z-index value",
+      "repo": "supabase/supabase",
+      "url": "https://github.com/supabase/supabase/pull/27058",
+      "date": "2024-06-06",
+      "titleMatch": false
+    },
+    {
+      "number": 21835,
+      "title": "Feat/form item layout",
+      "repo": "supabase/supabase",
+      "url": "https://github.com/supabase/supabase/pull/21835",
+      "date": "2024-03-08",
+      "titleMatch": false
+    },
+    {
+      "number": 21459,
+      "title": "Chore/rls assistant iteration templates styling",
+      "repo": "supabase/supabase",
+      "url": "https://github.com/supabase/supabase/pull/21459",
+      "date": "2024-02-26",
+      "titleMatch": false
+    },
+    {
+      "number": 20865,
+      "title": "chore: update themes and add dark-new theme set",
+      "repo": "supabase/supabase",
+      "url": "https://github.com/supabase/supabase/pull/20865",
+      "date": "2024-02-15",
+      "titleMatch": false
+    }
+  ],
+  "supabase-theming-system": [
+    {
+      "number": 18051,
+      "title": "Feat/design tokens upgrade",
+      "repo": "supabase/supabase",
+      "url": "https://github.com/supabase/supabase/pull/18051",
+      "date": "2023-10-23",
+      "titleMatch": true
+    },
+    {
+      "number": 17948,
+      "title": "Chore/add theming docs",
+      "repo": "supabase/supabase",
+      "url": "https://github.com/supabase/supabase/pull/17948",
+      "date": "2023-10-09",
+      "titleMatch": true
+    },
+    {
+      "number": 9394,
+      "title": "fix: tailwind config",
+      "repo": "supabase/supabase",
+      "url": "https://github.com/supabase/supabase/pull/9394",
+      "date": "2022-10-19",
+      "titleMatch": true
+    },
+    {
+      "number": 5789,
+      "title": "[chore] use CSS variables for chart handler",
+      "repo": "supabase/supabase",
+      "url": "https://github.com/supabase/supabase/pull/5789",
+      "date": "2022-03-23",
+      "titleMatch": true
+    },
+    {
+      "number": 308,
+      "title": "Feature/theming",
+      "repo": "supabase/ui",
+      "url": "https://github.com/supabase/ui/pull/308",
+      "date": "2022-01-22",
+      "titleMatch": true
+    },
+    {
+      "number": 34835,
+      "title": "Revert code style in tailwind",
+      "repo": "supabase/supabase",
+      "url": "https://github.com/supabase/supabase/pull/34835",
+      "date": "2025-04-08",
+      "titleMatch": false
+    },
+    {
+      "number": 13137,
+      "title": "Design tokens <> Tailwind",
+      "repo": "supabase/supabase",
+      "url": "https://github.com/supabase/supabase/pull/13137",
+      "date": "2023-05-23",
+      "titleMatch": false
+    },
+    {
+      "number": 12195,
+      "title": "remove comments",
+      "repo": "supabase/supabase",
+      "url": "https://github.com/supabase/supabase/pull/12195",
+      "date": "2023-02-08",
+      "titleMatch": false
+    },
+    {
+      "number": 961,
+      "title": "Chore/ui refactor - updated color scheme",
+      "repo": "supabase/platform",
+      "url": "https://github.com/supabase/platform/pull/961",
+      "date": "2021-04-27",
+      "titleMatch": false
+    }
+  ],
+  "supabase-deep-dark-theme": [
+    {
+      "number": 28282,
+      "title": "fix/ deep-dark theme name issue ",
+      "repo": "supabase/supabase",
+      "url": "https://github.com/supabase/supabase/pull/28282",
+      "date": "2024-07-30",
+      "titleMatch": true
+    },
+    {
+      "number": 27026,
+      "title": "Feat/deep dark",
+      "repo": "supabase/supabase",
+      "url": "https://github.com/supabase/supabase/pull/27026",
+      "date": "2024-07-30",
+      "titleMatch": true
+    },
+    {
+      "number": 21682,
+      "title": "Feat/add storybook app",
+      "repo": "supabase/supabase",
+      "url": "https://github.com/supabase/supabase/pull/21682",
+      "date": "2024-03-01",
+      "titleMatch": false
+    },
+    {
+      "number": 20865,
+      "title": "chore: update themes and add dark-new theme set",
+      "repo": "supabase/supabase",
+      "url": "https://github.com/supabase/supabase/pull/20865",
+      "date": "2024-02-15",
+      "titleMatch": false
+    }
+  ],
+  "supabase-storybook": [
+    {
+      "number": 26599,
+      "title": "Start removing storybook",
+      "repo": "supabase/supabase",
+      "url": "https://github.com/supabase/supabase/pull/26599",
+      "date": "2024-06-11",
+      "titleMatch": true
+    },
+    {
+      "number": 21682,
+      "title": "Feat/add storybook app",
+      "repo": "supabase/supabase",
+      "url": "https://github.com/supabase/supabase/pull/21682",
+      "date": "2024-03-01",
+      "titleMatch": true
+    },
+    {
+      "number": 21960,
+      "title": "feat: TreeView primitive",
+      "repo": "supabase/supabase",
+      "url": "https://github.com/supabase/supabase/pull/21960",
+      "date": "2024-04-26",
+      "titleMatch": false
+    },
+    {
+      "number": 21989,
+      "title": "fix: FormItemLayout width fix, `<Sheet/>` renamed with prop name reverted, started new form story",
+      "repo": "supabase/supabase",
+      "url": "https://github.com/supabase/supabase/pull/21989",
+      "date": "2024-03-13",
+      "titleMatch": false
+    },
+    {
+      "number": 21835,
+      "title": "Feat/form item layout",
+      "repo": "supabase/supabase",
+      "url": "https://github.com/supabase/supabase/pull/21835",
+      "date": "2024-03-08",
+      "titleMatch": false
+    },
+    {
+      "number": 21741,
+      "title": "Chore/add first pattern docs",
+      "repo": "supabase/supabase",
+      "url": "https://github.com/supabase/supabase/pull/21741",
+      "date": "2024-03-05",
+      "titleMatch": false
+    },
+    {
+      "number": 21726,
+      "title": "Chore/upgrade sb",
+      "repo": "supabase/supabase",
+      "url": "https://github.com/supabase/supabase/pull/21726",
+      "date": "2024-03-05",
+      "titleMatch": false
+    },
+    {
+      "number": 21688,
+      "title": "Chore/move dialog to patterns",
+      "repo": "supabase/supabase",
+      "url": "https://github.com/supabase/supabase/pull/21688",
+      "date": "2024-03-01",
+      "titleMatch": false
+    },
+    {
+      "number": 14528,
+      "title": "Feat/UI components uishadcn",
+      "repo": "supabase/supabase",
+      "url": "https://github.com/supabase/supabase/pull/14528",
+      "date": "2023-07-18",
+      "titleMatch": false
+    },
+    {
+      "number": 13137,
+      "title": "Design tokens <> Tailwind",
+      "repo": "supabase/supabase",
+      "url": "https://github.com/supabase/supabase/pull/13137",
+      "date": "2023-05-23",
+      "titleMatch": false
+    }
+  ],
+  "supabase-sidebar-redesign": [
+    {
+      "number": 34544,
+      "title": "chore: ui lib / new sidebar mobile hook, and props update, more SSR ",
+      "repo": "supabase/supabase",
+      "url": "https://github.com/supabase/supabase/pull/34544",
+      "date": "2025-03-31",
+      "titleMatch": true
+    },
+    {
+      "number": 33887,
+      "title": "Fix: sidebar flex shrink issue FE-1435",
+      "repo": "supabase/supabase",
+      "url": "https://github.com/supabase/supabase/pull/33887",
+      "date": "2025-02-27",
+      "titleMatch": true
+    },
+    {
+      "number": 33872,
+      "title": "fix sidebar states",
+      "repo": "supabase/supabase",
+      "url": "https://github.com/supabase/supabase/pull/33872",
+      "date": "2025-02-26",
+      "titleMatch": true
+    },
+    {
+      "number": 33612,
+      "title": "Feat/sidebar studio",
+      "repo": "supabase/supabase",
+      "url": "https://github.com/supabase/supabase/pull/33612",
+      "date": "2025-02-25",
+      "titleMatch": true
+    },
+    {
+      "number": 33474,
+      "title": "Feat/sidebar",
+      "repo": "supabase/supabase",
+      "url": "https://github.com/supabase/supabase/pull/33474",
+      "date": "2025-02-10",
+      "titleMatch": true
+    },
+    {
+      "number": 28500,
+      "title": "fix/ sidebar scroll issues on smaller screens",
+      "repo": "supabase/supabase",
+      "url": "https://github.com/supabase/supabase/pull/28500",
+      "date": "2024-08-09",
+      "titleMatch": true
+    },
+    {
+      "number": 21550,
+      "title": "Feat/collapsible nav bar",
+      "repo": "supabase/supabase",
+      "url": "https://github.com/supabase/supabase/pull/21550",
+      "date": "2024-02-28",
+      "titleMatch": true
+    },
+    {
+      "number": 21548,
+      "title": "feat: add resizable inner sidebar",
+      "repo": "supabase/supabase",
+      "url": "https://github.com/supabase/supabase/pull/21548",
+      "date": "2024-02-26",
+      "titleMatch": true
+    },
+    {
+      "number": 11187,
+      "title": "fix self hosting sidebar",
+      "repo": "supabase/supabase",
+      "url": "https://github.com/supabase/supabase/pull/11187",
+      "date": "2022-12-22",
+      "titleMatch": true
+    },
+    {
+      "number": 831,
+      "title": "WIP Feature/sql sidebar",
+      "repo": "supabase/platform",
+      "url": "https://github.com/supabase/platform/pull/831",
+      "date": "2021-02-28",
+      "titleMatch": true
+    },
+    {
+      "number": 829,
+      "title": "Feature/sidebar updates",
+      "repo": "supabase/platform",
+      "url": "https://github.com/supabase/platform/pull/829",
+      "date": "2021-02-28",
+      "titleMatch": true
+    },
+    {
+      "number": 30048,
+      "title": "feat/ design system: inner side bar docs",
+      "repo": "supabase/supabase",
+      "url": "https://github.com/supabase/supabase/pull/30048",
+      "date": "2024-10-30",
+      "titleMatch": false
+    },
+    {
+      "number": 21546,
+      "title": "Chore/improve search input sql editor",
+      "repo": "supabase/supabase",
+      "url": "https://github.com/supabase/supabase/pull/21546",
+      "date": "2024-03-05",
+      "titleMatch": false
+    },
+    {
+      "number": 21570,
+      "title": "bug: Update EntityListItem.tsx",
+      "repo": "supabase/supabase",
+      "url": "https://github.com/supabase/supabase/pull/21570",
+      "date": "2024-02-27",
+      "titleMatch": false
+    },
+    {
+      "number": 21112,
+      "title": "chore: update styling, a11y and markup for table editor side panel",
+      "repo": "supabase/supabase",
+      "url": "https://github.com/supabase/supabase/pull/21112",
+      "date": "2024-02-08",
+      "titleMatch": false
+    },
+    {
+      "number": 8297,
+      "title": "Fix/visual fixes",
+      "repo": "supabase/supabase",
+      "url": "https://github.com/supabase/supabase/pull/8297",
+      "date": "2022-08-14",
+      "titleMatch": false
+    },
+    {
+      "number": 8286,
+      "title": "Chore/docs visual fixes",
+      "repo": "supabase/supabase",
+      "url": "https://github.com/supabase/supabase/pull/8286",
+      "date": "2022-08-14",
+      "titleMatch": false
+    },
+    {
+      "number": 4055,
+      "title": "Fix/docs arrows",
+      "repo": "supabase/supabase",
+      "url": "https://github.com/supabase/supabase/pull/4055",
+      "date": "2021-11-26",
+      "titleMatch": false
+    },
+    {
+      "number": 889,
+      "title": "Chore/external link icons",
+      "repo": "supabase/platform",
+      "url": "https://github.com/supabase/platform/pull/889",
+      "date": "2021-03-21",
+      "titleMatch": false
+    }
+  ],
+  "supabase-platform-api": [
+    {
+      "number": 2395,
+      "title": "[on hold] Release - api.supabase.io roll out",
+      "repo": "supabase/platform",
+      "url": "https://github.com/supabase/platform/pull/2395",
+      "date": "2021-11-17",
+      "titleMatch": true
+    },
+    {
+      "number": 2389,
+      "title": "Chore - roll out api.supabase.io and api.supabase.green",
+      "repo": "supabase/platform",
+      "url": "https://github.com/supabase/platform/pull/2389",
+      "date": "2021-11-17",
+      "titleMatch": true
+    },
+    {
+      "number": 2372,
+      "title": "[Release] Completely remove new API routes",
+      "repo": "supabase/platform",
+      "url": "https://github.com/supabase/platform/pull/2372",
+      "date": "2021-11-15",
+      "titleMatch": true
+    },
+    {
+      "number": 2362,
+      "title": "[Release] Rollout all API route changes. using api.supabase.io",
+      "repo": "supabase/platform",
+      "url": "https://github.com/supabase/platform/pull/2362",
+      "date": "2021-11-15",
+      "titleMatch": true
+    },
+    {
+      "number": 2361,
+      "title": "[Release] rollout profile api route",
+      "repo": "supabase/platform",
+      "url": "https://github.com/supabase/platform/pull/2361",
+      "date": "2021-11-15",
+      "titleMatch": true
+    },
+    {
+      "number": 2304,
+      "title": "Feat/platform api fly.io",
+      "repo": "supabase/platform",
+      "url": "https://github.com/supabase/platform/pull/2304",
+      "date": "2021-11-15",
+      "titleMatch": true
+    },
+    {
+      "number": 2293,
+      "title": "Feat/platform api split ",
+      "repo": "supabase/platform",
+      "url": "https://github.com/supabase/platform/pull/2293",
+      "date": "2021-11-15",
+      "titleMatch": true
+    },
+    {
+      "number": 2272,
+      "title": "[On hold] - Do not merge - Platform API routes",
+      "repo": "supabase/platform",
+      "url": "https://github.com/supabase/platform/pull/2272",
+      "date": "2021-11-15",
+      "titleMatch": true
+    },
+    {
+      "number": 2396,
+      "title": "Update .env",
+      "repo": "supabase/platform",
+      "url": "https://github.com/supabase/platform/pull/2396",
+      "date": "2021-11-17",
+      "titleMatch": false
+    },
+    {
+      "number": 2353,
+      "title": "chore: add temporary routes for testing",
+      "repo": "supabase/platform",
+      "url": "https://github.com/supabase/platform/pull/2353",
+      "date": "2021-11-15",
+      "titleMatch": false
+    },
+    {
+      "number": 2325,
+      "title": "chore: update cookie domains to use parent domain",
+      "repo": "supabase/platform",
+      "url": "https://github.com/supabase/platform/pull/2325",
+      "date": "2021-11-12",
+      "titleMatch": false
+    }
+  ],
+  "supabase-auth-config": [
+    {
+      "number": 29713,
+      "title": "Chore/ Remove SMTP banner from project homapage",
+      "repo": "supabase/supabase",
+      "url": "https://github.com/supabase/supabase/pull/29713",
+      "date": "2024-10-07",
+      "titleMatch": true
+    },
+    {
+      "number": 7708,
+      "title": "Fix/add rate limit auth config",
+      "repo": "supabase/supabase",
+      "url": "https://github.com/supabase/supabase/pull/7708",
+      "date": "2022-07-15",
+      "titleMatch": true
+    },
+    {
+      "number": 7700,
+      "title": "Fix/regex smtp domain",
+      "repo": "supabase/supabase",
+      "url": "https://github.com/supabase/supabase/pull/7700",
+      "date": "2022-07-15",
+      "titleMatch": true
+    },
+    {
+      "number": 6791,
+      "title": "feat/auth config refactor",
+      "repo": "supabase/supabase",
+      "url": "https://github.com/supabase/supabase/pull/6791",
+      "date": "2022-07-14",
+      "titleMatch": true
+    },
+    {
+      "number": 4512,
+      "title": "fix: trim all white space from URI_ALLOW_LIST in payload for auth config",
+      "repo": "supabase/platform",
+      "url": "https://github.com/supabase/platform/pull/4512",
+      "date": "2022-03-01",
+      "titleMatch": true
+    },
+    {
+      "number": 3304,
+      "title": "fix: SMTP settings included in free tier",
+      "repo": "supabase/supabase",
+      "url": "https://github.com/supabase/supabase/pull/3304",
+      "date": "2021-09-24",
+      "titleMatch": true
+    },
+    {
+      "number": 1777,
+      "title": "fix: smtp toggle",
+      "repo": "supabase/platform",
+      "url": "https://github.com/supabase/platform/pull/1777",
+      "date": "2021-08-31",
+      "titleMatch": true
+    },
+    {
+      "number": 1492,
+      "title": "Fix/smtp settings",
+      "repo": "supabase/platform",
+      "url": "https://github.com/supabase/platform/pull/1492",
+      "date": "2021-08-05",
+      "titleMatch": true
+    },
+    {
+      "number": 7704,
+      "title": "fix: add rate limit for SMTP settings",
+      "repo": "supabase/supabase",
+      "url": "https://github.com/supabase/supabase/pull/7704",
+      "date": "2022-07-15",
+      "titleMatch": false
+    },
+    {
+      "number": 7701,
+      "title": "fix: issues with double negative keys",
+      "repo": "supabase/supabase",
+      "url": "https://github.com/supabase/supabase/pull/7701",
+      "date": "2022-07-15",
+      "titleMatch": false
+    },
+    {
+      "number": 7698,
+      "title": "Fix/regex issues in auth settings",
+      "repo": "supabase/supabase",
+      "url": "https://github.com/supabase/supabase/pull/7698",
+      "date": "2022-07-15",
+      "titleMatch": false
+    },
+    {
+      "number": 2389,
+      "title": "Chore - roll out api.supabase.io and api.supabase.green",
+      "repo": "supabase/platform",
+      "url": "https://github.com/supabase/platform/pull/2389",
+      "date": "2021-11-17",
+      "titleMatch": false
+    },
+    {
+      "number": 1784,
+      "title": "Fix/auth toggle no confirm",
+      "repo": "supabase/platform",
+      "url": "https://github.com/supabase/platform/pull/1784",
+      "date": "2021-08-31",
+      "titleMatch": false
+    },
+    {
+      "number": 1755,
+      "title": "Release",
+      "repo": "supabase/platform",
+      "url": "https://github.com/supabase/platform/pull/1755",
+      "date": "2021-08-27",
+      "titleMatch": false
+    },
+    {
+      "number": 1737,
+      "title": "fix: SMS settings can now be toggled off",
+      "repo": "supabase/platform",
+      "url": "https://github.com/supabase/platform/pull/1737",
+      "date": "2021-08-26",
+      "titleMatch": false
+    }
+  ],
+  "supabase-log-explorer": [
+    {
+      "number": 6023,
+      "title": "Feat/log explorer and log views UI",
+      "repo": "supabase/supabase",
+      "url": "https://github.com/supabase/supabase/pull/6023",
+      "date": "2022-03-30",
+      "titleMatch": true
+    }
+  ],
+  "supabase-treeview": [
+    {
+      "number": 34561,
+      "title": "update treeview spacing",
+      "repo": "supabase/supabase",
+      "url": "https://github.com/supabase/supabase/pull/34561",
+      "date": "2025-03-31",
+      "titleMatch": true
+    },
+    {
+      "number": 26821,
+      "title": "[Design System] Chore: add tree-view documentation",
+      "repo": "supabase/supabase",
+      "url": "https://github.com/supabase/supabase/pull/26821",
+      "date": "2024-05-28",
+      "titleMatch": true
+    },
+    {
+      "number": 21960,
+      "title": "feat: TreeView primitive",
+      "repo": "supabase/supabase",
+      "url": "https://github.com/supabase/supabase/pull/21960",
+      "date": "2024-04-26",
+      "titleMatch": true
+    }
+  ],
+  "supabase-compute-disk": [
+    {
+      "number": 30920,
+      "title": "Lw13/disks",
+      "repo": "supabase/supabase",
+      "url": "https://github.com/supabase/supabase/pull/30920",
+      "date": "2024-12-05",
+      "titleMatch": true
+    },
+    {
+      "number": 30277,
+      "title": "Chore/compute follow up",
+      "repo": "supabase/supabase",
+      "url": "https://github.com/supabase/supabase/pull/30277",
+      "date": "2024-11-04",
+      "titleMatch": true
+    },
+    {
+      "number": 30068,
+      "title": "Feat/compute and disk",
+      "repo": "supabase/supabase",
+      "url": "https://github.com/supabase/supabase/pull/30068",
+      "date": "2024-11-04",
+      "titleMatch": true
+    },
+    {
+      "number": 14619,
+      "title": "Feat/update disk size",
+      "repo": "supabase/supabase",
+      "url": "https://github.com/supabase/supabase/pull/14619",
+      "date": "2023-05-30",
+      "titleMatch": true
+    }
+  ],
+  "supabase-connection-strings": [
+    {
+      "number": 31023,
+      "title": "Update PoolerIcons.tsx",
+      "repo": "supabase/supabase",
+      "url": "https://github.com/supabase/supabase/pull/31023",
+      "date": "2024-12-09",
+      "titleMatch": true
+    },
+    {
+      "number": 30572,
+      "title": "Feat/connection string revamp",
+      "repo": "supabase/supabase",
+      "url": "https://github.com/supabase/supabase/pull/30572",
+      "date": "2024-12-05",
+      "titleMatch": true
+    },
+    {
+      "number": 28887,
+      "title": "Update DatabaseConnectionString.tsx",
+      "repo": "supabase/supabase",
+      "url": "https://github.com/supabase/supabase/pull/28887",
+      "date": "2024-08-29",
+      "titleMatch": true
+    },
+    {
+      "number": 21079,
+      "title": "Feat/homepage connect modal combined  styling update",
+      "repo": "supabase/supabase",
+      "url": "https://github.com/supabase/supabase/pull/21079",
+      "date": "2024-02-07",
+      "titleMatch": true
+    }
+  ],
+  "supabase-api-keys": [
+    {
+      "number": 35559,
+      "title": "Feat/api keys rollout prep",
+      "repo": "supabase/supabase",
+      "url": "https://github.com/supabase/supabase/pull/35559",
+      "date": "2025-05-27",
+      "titleMatch": true
+    },
+    {
+      "number": 33252,
+      "title": "feat: new api keys [hidden]",
+      "repo": "supabase/supabase",
+      "url": "https://github.com/supabase/supabase/pull/33252",
+      "date": "2025-02-05",
+      "titleMatch": true
+    },
+    {
+      "number": 29664,
+      "title": "chore/ add API keys upcoming change notice",
+      "repo": "supabase/supabase",
+      "url": "https://github.com/supabase/supabase/pull/29664",
+      "date": "2024-10-07",
+      "titleMatch": true
+    },
+    {
+      "number": 19528,
+      "title": "HOTFIX: Update Vercel Marketplace secret key names",
+      "repo": "supabase/platform",
+      "url": "https://github.com/supabase/platform/pull/19528",
+      "date": "2024-08-28",
+      "titleMatch": true
+    },
+    {
+      "number": 16107,
+      "title": "Optionally pass API keys to getSettings to avoid race condition of API keys not being available",
+      "repo": "supabase/platform",
+      "url": "https://github.com/supabase/platform/pull/16107",
+      "date": "2023-12-07",
+      "titleMatch": true
+    },
+    {
+      "number": 10899,
+      "title": "add env vars, revert to anon key for ticket site when admin not avail",
+      "repo": "supabase/supabase",
+      "url": "https://github.com/supabase/supabase/pull/10899",
+      "date": "2022-12-13",
+      "titleMatch": true
+    },
+    {
+      "number": 732,
+      "title": "Chore/hide api keys",
+      "repo": "supabase/platform",
+      "url": "https://github.com/supabase/platform/pull/732",
+      "date": "2021-01-26",
+      "titleMatch": true
+    },
+    {
+      "number": 37097,
+      "title": "chore: jwt keys page table layout",
+      "repo": "supabase/supabase",
+      "url": "https://github.com/supabase/supabase/pull/37097",
+      "date": "2025-07-14",
+      "titleMatch": false
+    },
+    {
+      "number": 1272,
+      "title": "[Feat] usage, project homepage, and loading screen/route update",
+      "repo": "supabase/platform",
+      "url": "https://github.com/supabase/platform/pull/1272",
+      "date": "2021-07-29",
+      "titleMatch": false
+    }
+  ],
+  "supabase-oauth-management": [
+    {
+      "number": 34591,
+      "title": "Feat: Adds Oauth client management",
+      "repo": "supabase/supabase",
+      "url": "https://github.com/supabase/supabase/pull/34591",
+      "date": "2025-04-07",
+      "titleMatch": true
+    }
+  ],
+  "supabase-realtime-landing": [
+    {
+      "number": 8484,
+      "title": "Feat/realtime landing page",
+      "repo": "supabase/supabase",
+      "url": "https://github.com/supabase/supabase/pull/8484",
+      "date": "2022-11-03",
+      "titleMatch": true
+    }
+  ],
+  "supabase-changelog": [
+    {
+      "number": 27609,
+      "title": "[Design system] Update changelog.mdx",
+      "repo": "supabase/supabase",
+      "url": "https://github.com/supabase/supabase/pull/27609",
+      "date": "2024-07-08",
+      "titleMatch": true
+    },
+    {
+      "number": 26736,
+      "title": "[Design system] Update changelog.mdx",
+      "repo": "supabase/supabase",
+      "url": "https://github.com/supabase/supabase/pull/26736",
+      "date": "2024-05-24",
+      "titleMatch": true
+    },
+    {
+      "number": 9240,
+      "title": "Feat/changelog",
+      "repo": "supabase/supabase",
+      "url": "https://github.com/supabase/supabase/pull/9240",
+      "date": "2022-10-05",
+      "titleMatch": true
+    }
+  ],
+  "supabase-cmdk": [
+    {
+      "number": 27236,
+      "title": "Fix/cmdk color issues",
+      "repo": "supabase/supabase",
+      "url": "https://github.com/supabase/supabase/pull/27236",
+      "date": "2024-06-14",
+      "titleMatch": true
+    },
+    {
+      "number": 21957,
+      "title": "Chore/move cmdk",
+      "repo": "supabase/supabase",
+      "url": "https://github.com/supabase/supabase/pull/21957",
+      "date": "2024-03-12",
+      "titleMatch": true
+    },
+    {
+      "number": 21936,
+      "title": "Chore/move cmdk",
+      "repo": "supabase/supabase",
+      "url": "https://github.com/supabase/supabase/pull/21936",
+      "date": "2024-03-11",
+      "titleMatch": true
+    },
+    {
+      "number": 13722,
+      "title": "Fix/cmdk light mode",
+      "repo": "supabase/supabase",
+      "url": "https://github.com/supabase/supabase/pull/13722",
+      "date": "2023-04-14",
+      "titleMatch": true
+    },
+    {
+      "number": 13310,
+      "title": "Feat/cmdk in docs",
+      "repo": "supabase/supabase",
+      "url": "https://github.com/supabase/supabase/pull/13310",
+      "date": "2023-03-30",
+      "titleMatch": true
+    },
+    {
+      "number": 33612,
+      "title": "Feat/sidebar studio",
+      "repo": "supabase/supabase",
+      "url": "https://github.com/supabase/supabase/pull/33612",
+      "date": "2025-02-25",
+      "titleMatch": false
+    }
+  ],
+  "supabase-branching": [
+    {
+      "number": 27064,
+      "title": "[Dashboard] fix: dialog branching, add `block`",
+      "repo": "supabase/supabase",
+      "url": "https://github.com/supabase/supabase/pull/27064",
+      "date": "2024-06-06",
+      "titleMatch": true
+    },
+    {
+      "number": 20721,
+      "title": "Clearer Branching Docs lang regarding private early access",
+      "repo": "supabase/supabase",
+      "url": "https://github.com/supabase/supabase/pull/20721",
+      "date": "2024-02-12",
+      "titleMatch": true
+    },
+    {
+      "number": 19464,
+      "title": "chore/update-warnings-for-branching",
+      "repo": "supabase/supabase",
+      "url": "https://github.com/supabase/supabase/pull/19464",
+      "date": "2024-02-12",
+      "titleMatch": true
+    },
+    {
+      "number": 20926,
+      "title": "Chore/add feedback links branching",
+      "repo": "supabase/supabase",
+      "url": "https://github.com/supabase/supabase/pull/20926",
+      "date": "2024-02-01",
+      "titleMatch": true
+    },
+    {
+      "number": 20608,
+      "title": "[branching] remove early branching access link",
+      "repo": "supabase/supabase",
+      "url": "https://github.com/supabase/supabase/pull/20608",
+      "date": "2024-01-21",
+      "titleMatch": true
+    },
+    {
+      "number": 20506,
+      "title": "Update branching blog post",
+      "repo": "supabase/supabase",
+      "url": "https://github.com/supabase/supabase/pull/20506",
+      "date": "2024-01-17",
+      "titleMatch": true
+    },
+    {
+      "number": 20505,
+      "title": "Remove branching early access support link",
+      "repo": "supabase/supabase",
+      "url": "https://github.com/supabase/supabase/pull/20505",
+      "date": "2024-01-17",
+      "titleMatch": true
+    },
+    {
+      "number": 19876,
+      "title": "Remove regions issues from Branching docs",
+      "repo": "supabase/supabase",
+      "url": "https://github.com/supabase/supabase/pull/19876",
+      "date": "2023-12-19",
+      "titleMatch": true
+    },
+    {
+      "number": 19740,
+      "title": "Chore/update branching copy",
+      "repo": "supabase/supabase",
+      "url": "https://github.com/supabase/supabase/pull/19740",
+      "date": "2023-12-15",
+      "titleMatch": true
+    },
+    {
+      "number": 19736,
+      "title": "Update EnableBranchingModal.tsx",
+      "repo": "supabase/supabase",
+      "url": "https://github.com/supabase/supabase/pull/19736",
+      "date": "2023-12-14",
+      "titleMatch": true
+    },
+    {
+      "number": 19715,
+      "title": "Update branching info",
+      "repo": "supabase/supabase",
+      "url": "https://github.com/supabase/supabase/pull/19715",
+      "date": "2023-12-14",
+      "titleMatch": true
+    },
+    {
+      "number": 19583,
+      "title": "Added more clarity / detail to remote/local development for Branching",
+      "repo": "supabase/supabase",
+      "url": "https://github.com/supabase/supabase/pull/19583",
+      "date": "2023-12-11",
+      "titleMatch": true
+    },
+    {
+      "number": 19504,
+      "title": "Clarify current region issues for Branching",
+      "repo": "supabase/supabase",
+      "url": "https://github.com/supabase/supabase/pull/19504",
+      "date": "2023-12-07",
+      "titleMatch": true
+    },
+    {
+      "number": 15948,
+      "title": "Feat/vercel branching env var support",
+      "repo": "supabase/platform",
+      "url": "https://github.com/supabase/platform/pull/15948",
+      "date": "2023-12-05",
+      "titleMatch": true
+    },
+    {
+      "number": 19400,
+      "title": "Update branching docs warnings",
+      "repo": "supabase/supabase",
+      "url": "https://github.com/supabase/supabase/pull/19400",
+      "date": "2023-12-04",
+      "titleMatch": true
+    },
+    {
+      "number": 15968,
+      "title": "Check feature flag check before allowing opt in for branching",
+      "repo": "supabase/platform",
+      "url": "https://github.com/supabase/platform/pull/15968",
+      "date": "2023-11-30",
+      "titleMatch": true
+    },
+    {
+      "number": 19025,
+      "title": "Update branching popover alignment",
+      "repo": "supabase/supabase",
+      "url": "https://github.com/supabase/supabase/pull/19025",
+      "date": "2023-11-27",
+      "titleMatch": true
+    },
+    {
+      "number": 18762,
+      "title": "[Docs] [Branching] Chore/branching docs",
+      "repo": "supabase/supabase",
+      "url": "https://github.com/supabase/supabase/pull/18762",
+      "date": "2023-11-15",
+      "titleMatch": true
+    },
+    {
+      "number": 14988,
+      "title": "branching org IDs for QA - Update constants.ts",
+      "repo": "supabase/platform",
+      "url": "https://github.com/supabase/platform/pull/14988",
+      "date": "2023-09-28",
+      "titleMatch": true
+    },
+    {
+      "number": 16179,
+      "title": "Feat/branch management 2  with project settings",
+      "repo": "supabase/supabase",
+      "url": "https://github.com/supabase/supabase/pull/16179",
+      "date": "2023-08-10",
+      "titleMatch": true
+    },
+    {
+      "number": 13703,
+      "title": "Update org ids for testing branching in staging",
+      "repo": "supabase/platform",
+      "url": "https://github.com/supabase/platform/pull/13703",
+      "date": "2023-07-25",
+      "titleMatch": true
+    },
+    {
+      "number": 15619,
+      "title": "Hotfix/vercel integration migrations url undefined branch",
+      "repo": "supabase/supabase",
+      "url": "https://github.com/supabase/supabase/pull/15619",
+      "date": "2023-07-07",
+      "titleMatch": true
+    },
+    {
+      "number": 13707,
+      "title": "Add 'studio' branch (prod) to Studio unit tests",
+      "repo": "supabase/supabase",
+      "url": "https://github.com/supabase/supabase/pull/13707",
+      "date": "2023-04-14",
+      "titleMatch": true
+    },
+    {
+      "number": 6655,
+      "title": "Merge branch 'master' into fix/strip-headers-test",
+      "repo": "supabase/supabase",
+      "url": "https://github.com/supabase/supabase/pull/6655",
+      "date": "2022-05-02",
+      "titleMatch": true
+    },
+    {
+      "number": 31036,
+      "title": "move button",
+      "repo": "supabase/supabase",
+      "url": "https://github.com/supabase/supabase/pull/31036",
+      "date": "2024-12-10",
+      "titleMatch": false
+    },
+    {
+      "number": 21483,
+      "title": "fix: update brand colors in SQL editor AI",
+      "repo": "supabase/supabase",
+      "url": "https://github.com/supabase/supabase/pull/21483",
+      "date": "2024-02-23",
+      "titleMatch": false
+    },
+    {
+      "number": 16617,
+      "title": "Remove 'preview' and 'development' targets for Vercel integration",
+      "repo": "supabase/platform",
+      "url": "https://github.com/supabase/platform/pull/16617",
+      "date": "2024-01-09",
+      "titleMatch": false
+    },
+    {
+      "number": 14062,
+      "title": "chore: add PATCH endpoints for integration project connections",
+      "repo": "supabase/platform",
+      "url": "https://github.com/supabase/platform/pull/14062",
+      "date": "2023-08-03",
+      "titleMatch": false
+    },
+    {
+      "number": 13883,
+      "title": "Update constants.ts",
+      "repo": "supabase/platform",
+      "url": "https://github.com/supabase/platform/pull/13883",
+      "date": "2023-07-26",
+      "titleMatch": false
+    },
+    {
+      "number": 15872,
+      "title": "Fix vercel previews to auth redirect reliably ",
+      "repo": "supabase/supabase",
+      "url": "https://github.com/supabase/supabase/pull/15872",
+      "date": "2023-07-18",
+      "titleMatch": false
+    },
+    {
+      "number": 294,
+      "title": "hotfix: fix: quick fix for tabs content.",
+      "repo": "supabase/ui",
+      "url": "https://github.com/supabase/ui/pull/294",
+      "date": "2021-11-26",
+      "titleMatch": false
+    },
+    {
+      "number": 273,
+      "title": "Feat/update radix",
+      "repo": "supabase/ui",
+      "url": "https://github.com/supabase/ui/pull/273",
+      "date": "2021-09-14",
+      "titleMatch": false
+    }
+  ],
+  "supabase-radix-components": [
+    {
+      "number": 10907,
+      "title": "update radix portal",
+      "repo": "supabase/supabase",
+      "url": "https://github.com/supabase/supabase/pull/10907",
+      "date": "2022-12-13",
+      "titleMatch": true
+    },
+    {
+      "number": 275,
+      "title": "fix: radix types updated",
+      "repo": "supabase/ui",
+      "url": "https://github.com/supabase/ui/pull/275",
+      "date": "2021-09-14",
+      "titleMatch": true
+    },
+    {
+      "number": 273,
+      "title": "Feat/update radix",
+      "repo": "supabase/ui",
+      "url": "https://github.com/supabase/ui/pull/273",
+      "date": "2021-09-14",
+      "titleMatch": true
+    },
+    {
+      "number": 187,
+      "title": "feat: added radix dropdown.",
+      "repo": "supabase/ui",
+      "url": "https://github.com/supabase/ui/pull/187",
+      "date": "2021-05-10",
+      "titleMatch": true
+    },
+    {
+      "number": 20865,
+      "title": "chore: update themes and add dark-new theme set",
+      "repo": "supabase/supabase",
+      "url": "https://github.com/supabase/supabase/pull/20865",
+      "date": "2024-02-15",
+      "titleMatch": false
+    },
+    {
+      "number": 308,
+      "title": "Feature/theming",
+      "repo": "supabase/ui",
+      "url": "https://github.com/supabase/ui/pull/308",
+      "date": "2022-01-22",
+      "titleMatch": false
+    },
+    {
+      "number": 294,
+      "title": "hotfix: fix: quick fix for tabs content.",
+      "repo": "supabase/ui",
+      "url": "https://github.com/supabase/ui/pull/294",
+      "date": "2021-11-26",
+      "titleMatch": false
+    },
+    {
+      "number": 251,
+      "title": "feat: nested dropdowns",
+      "repo": "supabase/ui",
+      "url": "https://github.com/supabase/ui/pull/251",
+      "date": "2021-07-29",
+      "titleMatch": false
+    }
+  ],
+  "supabase-vercel-integration": [
+    {
+      "number": 28958,
+      "title": "Vercel marketplace docs",
+      "repo": "supabase/supabase",
+      "url": "https://github.com/supabase/supabase/pull/28958",
+      "date": "2024-08-28",
+      "titleMatch": true
+    },
+    {
+      "number": 19528,
+      "title": "HOTFIX: Update Vercel Marketplace secret key names",
+      "repo": "supabase/platform",
+      "url": "https://github.com/supabase/platform/pull/19528",
+      "date": "2024-08-28",
+      "titleMatch": true
+    },
+    {
+      "number": 19500,
+      "title": "Chore: Vercel Marketplace | More secrets",
+      "repo": "supabase/platform",
+      "url": "https://github.com/supabase/platform/pull/19500",
+      "date": "2024-08-26",
+      "titleMatch": true
+    },
+    {
+      "number": 28786,
+      "title": "Vercel marketplace",
+      "repo": "supabase/supabase",
+      "url": "https://github.com/supabase/supabase/pull/28786",
+      "date": "2024-08-23",
+      "titleMatch": true
+    },
+    {
+      "number": 19430,
+      "title": "chore: maybe fix vercel integration",
+      "repo": "supabase/platform",
+      "url": "https://github.com/supabase/platform/pull/19430",
+      "date": "2024-08-22",
+      "titleMatch": true
+    },
+    {
+      "number": 16617,
+      "title": "Remove 'preview' and 'development' targets for Vercel integration",
+      "repo": "supabase/platform",
+      "url": "https://github.com/supabase/platform/pull/16617",
+      "date": "2024-01-09",
+      "titleMatch": true
+    },
+    {
+      "number": 17697,
+      "title": "fix: vercel deploy button layouts",
+      "repo": "supabase/supabase",
+      "url": "https://github.com/supabase/supabase/pull/17697",
+      "date": "2023-10-02",
+      "titleMatch": true
+    },
+    {
+      "number": 15521,
+      "title": "little fixes for vercel integration",
+      "repo": "supabase/supabase",
+      "url": "https://github.com/supabase/supabase/pull/15521",
+      "date": "2023-09-18",
+      "titleMatch": true
+    },
+    {
+      "number": 16398,
+      "title": "chore: fix empty states for Vercel Integration",
+      "repo": "supabase/supabase",
+      "url": "https://github.com/supabase/supabase/pull/16398",
+      "date": "2023-08-10",
+      "titleMatch": true
+    },
+    {
+      "number": 15915,
+      "title": "Fix/Chore [vercel integration] improved form validation, combobox component upgrade, loading states added",
+      "repo": "supabase/supabase",
+      "url": "https://github.com/supabase/supabase/pull/15915",
+      "date": "2023-07-27",
+      "titleMatch": true
+    },
+    {
+      "number": 15619,
+      "title": "Hotfix/vercel integration migrations url undefined branch",
+      "repo": "supabase/supabase",
+      "url": "https://github.com/supabase/supabase/pull/15619",
+      "date": "2023-07-07",
+      "titleMatch": true
+    },
+    {
+      "number": 13453,
+      "title": "wrong ID for vercel integration local",
+      "repo": "supabase/platform",
+      "url": "https://github.com/supabase/platform/pull/13453",
+      "date": "2023-07-03",
+      "titleMatch": true
+    },
+    {
+      "number": 2490,
+      "title": "send cookies to vercel/token",
+      "repo": "supabase/platform",
+      "url": "https://github.com/supabase/platform/pull/2490",
+      "date": "2021-11-24",
+      "titleMatch": true
+    },
+    {
+      "number": 16179,
+      "title": "Feat/branch management 2  with project settings",
+      "repo": "supabase/supabase",
+      "url": "https://github.com/supabase/supabase/pull/16179",
+      "date": "2023-08-10",
+      "titleMatch": false
+    },
+    {
+      "number": 13548,
+      "title": " VERCEL_INTEGRATION_CLIENT_ID - Update fly.prod.toml",
+      "repo": "supabase/platform",
+      "url": "https://github.com/supabase/platform/pull/13548",
+      "date": "2023-07-04",
+      "titleMatch": false
+    }
+  ],
+  "supabase-table-editor": [
+    {
+      "number": 35138,
+      "title": "Chore/table editor filter sorts logic moved to hooks",
+      "repo": "supabase/supabase",
+      "url": "https://github.com/supabase/supabase/pull/35138",
+      "date": "2025-04-30",
+      "titleMatch": true
+    },
+    {
+      "number": 33357,
+      "title": "feat: new item style for table editor and empty states for both editors",
+      "repo": "supabase/supabase",
+      "url": "https://github.com/supabase/supabase/pull/33357",
+      "date": "2025-02-06",
+      "titleMatch": true
+    },
+    {
+      "number": 21486,
+      "title": "chore: update table editor input and schema selector styling",
+      "repo": "supabase/supabase",
+      "url": "https://github.com/supabase/supabase/pull/21486",
+      "date": "2024-02-26",
+      "titleMatch": true
+    },
+    {
+      "number": 21482,
+      "title": "a11y updates on table editor entity items",
+      "repo": "supabase/supabase",
+      "url": "https://github.com/supabase/supabase/pull/21482",
+      "date": "2024-02-23",
+      "titleMatch": true
+    },
+    {
+      "number": 21112,
+      "title": "chore: update styling, a11y and markup for table editor side panel",
+      "repo": "supabase/supabase",
+      "url": "https://github.com/supabase/supabase/pull/21112",
+      "date": "2024-02-08",
+      "titleMatch": true
+    },
+    {
+      "number": 13725,
+      "title": "Table editor dropdown now animates on keyboard nav",
+      "repo": "supabase/supabase",
+      "url": "https://github.com/supabase/supabase/pull/13725",
+      "date": "2023-04-14",
+      "titleMatch": true
+    },
+    {
+      "number": 5747,
+      "title": "chore: update @supabase/grid",
+      "repo": "supabase/supabase",
+      "url": "https://github.com/supabase/supabase/pull/5747",
+      "date": "2022-03-05",
+      "titleMatch": true
+    },
+    {
+      "number": 1726,
+      "title": "[Dash] Chore/rls warning table editor",
+      "repo": "supabase/platform",
+      "url": "https://github.com/supabase/platform/pull/1726",
+      "date": "2021-08-26",
+      "titleMatch": true
+    },
+    {
+      "number": 31071,
+      "title": "Feat/tabs",
+      "repo": "supabase/supabase",
+      "url": "https://github.com/supabase/supabase/pull/31071",
+      "date": "2025-03-27",
+      "titleMatch": false
+    },
+    {
+      "number": 28072,
+      "title": "fix: temporary remove default sorting",
+      "repo": "supabase/supabase",
+      "url": "https://github.com/supabase/supabase/pull/28072",
+      "date": "2024-07-19",
+      "titleMatch": false
+    },
+    {
+      "number": 21992,
+      "title": "Update Button height size and icon auto sizing",
+      "repo": "supabase/supabase",
+      "url": "https://github.com/supabase/supabase/pull/21992",
+      "date": "2024-03-14",
+      "titleMatch": false
+    },
+    {
+      "number": 21546,
+      "title": "Chore/improve search input sql editor",
+      "repo": "supabase/supabase",
+      "url": "https://github.com/supabase/supabase/pull/21546",
+      "date": "2024-03-05",
+      "titleMatch": false
+    },
+    {
+      "number": 21570,
+      "title": "bug: Update EntityListItem.tsx",
+      "repo": "supabase/supabase",
+      "url": "https://github.com/supabase/supabase/pull/21570",
+      "date": "2024-02-27",
+      "titleMatch": false
+    },
+    {
+      "number": 21548,
+      "title": "feat: add resizable inner sidebar",
+      "repo": "supabase/supabase",
+      "url": "https://github.com/supabase/supabase/pull/21548",
+      "date": "2024-02-26",
+      "titleMatch": false
+    },
+    {
+      "number": 21477,
+      "title": "feat: add new Icons package for custom made icons",
+      "repo": "supabase/supabase",
+      "url": "https://github.com/supabase/supabase/pull/21477",
+      "date": "2024-02-26",
+      "titleMatch": false
+    },
+    {
+      "number": 1341,
+      "title": "Fix/date and time fields broken",
+      "repo": "supabase/platform",
+      "url": "https://github.com/supabase/platform/pull/1341",
+      "date": "2021-07-12",
+      "titleMatch": false
+    },
+    {
+      "number": 1188,
+      "title": "Fix/database panels",
+      "repo": "supabase/platform",
+      "url": "https://github.com/supabase/platform/pull/1188",
+      "date": "2021-06-15",
+      "titleMatch": false
+    },
+    {
+      "number": 1026,
+      "title": "fix/table forms",
+      "repo": "supabase/platform",
+      "url": "https://github.com/supabase/platform/pull/1026",
+      "date": "2021-05-07",
+      "titleMatch": false
+    }
+  ],
+  "supabase-editor-tabs": [
+    {
+      "number": 31071,
+      "title": "Feat/tabs",
+      "repo": "supabase/supabase",
+      "url": "https://github.com/supabase/supabase/pull/31071",
+      "date": "2025-03-27",
+      "titleMatch": true
+    }
+  ],
+  "supabase-radio-components": [
+    {
+      "number": 26809,
+      "title": "[Dashboard] add data api option to new project form",
+      "repo": "supabase/supabase",
+      "url": "https://github.com/supabase/supabase/pull/26809",
+      "date": "2024-06-25",
+      "titleMatch": false
+    },
+    {
+      "number": 26612,
+      "title": "Feat [atom component] stacked radio group / card radio group ",
+      "repo": "supabase/supabase",
+      "url": "https://github.com/supabase/supabase/pull/26612",
+      "date": "2024-05-23",
+      "titleMatch": false
+    }
+  ],
+  "supabase-column-sorting": [
+    {
+      "number": 35139,
+      "title": "Feat/sort via column header",
+      "repo": "supabase/supabase",
+      "url": "https://github.com/supabase/supabase/pull/35139",
+      "date": "2025-05-05",
+      "titleMatch": true
+    }
+  ],
+  "supabase-org-layout": [
+    {
+      "number": 33150,
+      "title": "Feat/ Org layout",
+      "repo": "supabase/supabase",
+      "url": "https://github.com/supabase/supabase/pull/33150",
+      "date": "2025-04-08",
+      "titleMatch": true
+    },
+    {
+      "number": 33415,
+      "title": "fix: mobile issues for getLayout",
+      "repo": "supabase/supabase",
+      "url": "https://github.com/supabase/supabase/pull/33415",
+      "date": "2025-02-07",
+      "titleMatch": true
+    },
+    {
+      "number": 33365,
+      "title": "Feat/get layout - Project pages updated to use getLayout",
+      "repo": "supabase/supabase",
+      "url": "https://github.com/supabase/supabase/pull/33365",
+      "date": "2025-02-07",
+      "titleMatch": true
+    },
+    {
+      "number": 30538,
+      "title": "Feat/integrations get layout",
+      "repo": "supabase/supabase",
+      "url": "https://github.com/supabase/supabase/pull/30538",
+      "date": "2024-11-20",
+      "titleMatch": true
+    },
+    {
+      "number": 33361,
+      "title": "Chore/mobile sheet app state",
+      "repo": "supabase/supabase",
+      "url": "https://github.com/supabase/supabase/pull/33361",
+      "date": "2025-02-06",
+      "titleMatch": false
+    },
+    {
+      "number": 30585,
+      "title": "chore/ update integrations routes",
+      "repo": "supabase/supabase",
+      "url": "https://github.com/supabase/supabase/pull/30585",
+      "date": "2024-11-21",
+      "titleMatch": false
+    }
+  ],
+  "supabase-reports": [
+    {
+      "number": 22423,
+      "title": "chore: move perf report and query perf report to database",
+      "repo": "supabase/supabase",
+      "url": "https://github.com/supabase/supabase/pull/22423",
+      "date": "2024-04-04",
+      "titleMatch": true
+    },
+    {
+      "number": 5788,
+      "title": "Fix/reports dropdown",
+      "repo": "supabase/supabase",
+      "url": "https://github.com/supabase/supabase/pull/5788",
+      "date": "2022-03-05",
+      "titleMatch": true
+    },
+    {
+      "number": 1544,
+      "title": "chore: unlock reports and project homepage",
+      "repo": "supabase/platform",
+      "url": "https://github.com/supabase/platform/pull/1544",
+      "date": "2021-07-29",
+      "titleMatch": true
+    },
+    {
+      "number": 37243,
+      "title": "Feat/logs date refactor",
+      "repo": "supabase/supabase",
+      "url": "https://github.com/supabase/supabase/pull/37243",
+      "date": "2025-07-17",
+      "titleMatch": false
+    },
+    {
+      "number": 12561,
+      "title": "[Dash] Query performance UI",
+      "repo": "supabase/supabase",
+      "url": "https://github.com/supabase/supabase/pull/12561",
+      "date": "2023-02-24",
+      "titleMatch": false
+    },
+    {
+      "number": 1579,
+      "title": "fix: spelling of memory and cpu keys fixed",
+      "repo": "supabase/platform",
+      "url": "https://github.com/supabase/platform/pull/1579",
+      "date": "2021-08-05",
+      "titleMatch": false
+    }
+  ],
+  "supabase-sql-snippets": [
+    {
+      "number": 5654,
+      "title": "feat: add sql saved content support",
+      "repo": "supabase/platform",
+      "url": "https://github.com/supabase/platform/pull/5654",
+      "date": "2022-03-30",
+      "titleMatch": true
+    },
+    {
+      "number": 30050,
+      "title": "Chore/update sql side panel",
+      "repo": "supabase/supabase",
+      "url": "https://github.com/supabase/supabase/pull/30050",
+      "date": "2024-11-13",
+      "titleMatch": false
+    },
+    {
+      "number": 21546,
+      "title": "Chore/improve search input sql editor",
+      "repo": "supabase/supabase",
+      "url": "https://github.com/supabase/supabase/pull/21546",
+      "date": "2024-03-05",
+      "titleMatch": false
+    },
+    {
+      "number": 4399,
+      "title": "Chore/add type to report",
+      "repo": "supabase/supabase",
+      "url": "https://github.com/supabase/supabase/pull/4399",
+      "date": "2021-12-09",
+      "titleMatch": false
+    },
+    {
+      "number": 2705,
+      "title": "fix: ownership checks updated",
+      "repo": "supabase/platform",
+      "url": "https://github.com/supabase/platform/pull/2705",
+      "date": "2021-12-09",
+      "titleMatch": false
+    },
+    {
+      "number": 2393,
+      "title": "Fix/speed user content endpoint",
+      "repo": "supabase/platform",
+      "url": "https://github.com/supabase/platform/pull/2393",
+      "date": "2021-12-03",
+      "titleMatch": false
+    },
+    {
+      "number": 2174,
+      "title": "chore: remove SQL snipet duplicator util",
+      "repo": "supabase/platform",
+      "url": "https://github.com/supabase/platform/pull/2174",
+      "date": "2021-10-20",
+      "titleMatch": false
+    },
+    {
+      "number": 1768,
+      "title": "[Dash] [SQL] Feat - persist sql queries",
+      "repo": "supabase/platform",
+      "url": "https://github.com/supabase/platform/pull/1768",
+      "date": "2021-09-07",
+      "titleMatch": false
+    }
+  ]
+}

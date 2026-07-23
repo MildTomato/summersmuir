@@ -40,8 +40,11 @@ yarn-error.log*
 *.tsbuildinfo
 next-env.d.ts
 
-# scripts data (large files)
+# Local scripts and large generated datasets
 scripts/*
+!scripts/data/
+scripts/data/*
+!scripts/data/pr-post-mapping.json
 
 # PR videos (large files)
 /pr-videos
