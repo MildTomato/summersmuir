@@ -19,10 +19,6 @@ export const metadata: Metadata = isProductionDeployment
   ? {
       title: "jonny.design — back soon",
       description: "A new version of jonny.design is taking shape.",
-      robots: {
-        index: false,
-        follow: false,
-      },
     }
   : {
       title: "jonny.design",

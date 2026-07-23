@@ -18,7 +18,7 @@ function BuildingDotGrid() {
   return (
     <span
       aria-hidden
-      className="grid size-[1ex] shrink-0 grid-cols-3 grid-rows-3 gap-px"
+      className="grid size-[1ex] shrink-0 grid-cols-3 grid-rows-3 gap-[2px]"
     >
       {Array.from({ length: 9 }, (_, index) => (
         <span
