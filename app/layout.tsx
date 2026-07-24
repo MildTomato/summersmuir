@@ -3,7 +3,7 @@ import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
 import { HoldingPage } from "./components/holding-page";
 import { ThemeProvider } from "./components/theme-provider";
-import { socialImage } from "./social-image";
+import { socialMetadata } from "./social-image";
 import { isProductionDeployment } from "@/lib/deployment";
 
 const geistSans = Geist({
@@ -18,13 +18,7 @@ const geistMono = Geist_Mono({
 
 export const metadata: Metadata = {
   metadataBase: new URL("https://jonny.design"),
-  openGraph: {
-    images: [socialImage],
-  },
-  twitter: {
-    card: "summary_large_image",
-    images: [socialImage],
-  },
+  ...socialMetadata,
   ...(isProductionDeployment
     ? {
         title: "jonny.design — back soon",

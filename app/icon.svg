@@ -1,0 +1,60 @@
+<svg
+  xmlns="http://www.w3.org/2000/svg"
+  viewBox="0 0 32 32"
+  shape-rendering="crispEdges"
+>
+  <style>
+    @media (prefers-color-scheme: dark) {
+      .cards {
+        fill: #171713;
+      }
+
+      .muted {
+        stroke: #898883;
+      }
+
+      .secondary {
+        stroke: #c2c0bb;
+      }
+
+      .active {
+        stroke: #f2f1ea;
+      }
+    }
+  </style>
+
+  <g class="cards" fill="#f7f7f4">
+    <rect
+      class="muted"
+      x="6.5"
+      y="3.5"
+      width="19"
+      height="10"
+      stroke="#8a8986"
+    />
+    <rect
+      class="muted"
+      x="8.5"
+      y="20.5"
+      width="15"
+      height="10"
+      stroke="#8a8986"
+    />
+    <rect
+      class="secondary"
+      x="6.5"
+      y="15.5"
+      width="19"
+      height="10"
+      stroke="#54534e"
+    />
+    <rect
+      class="active"
+      x="3.5"
+      y="7.5"
+      width="25"
+      height="13"
+      stroke="#26251e"
+    />
+  </g>
+</svg>
